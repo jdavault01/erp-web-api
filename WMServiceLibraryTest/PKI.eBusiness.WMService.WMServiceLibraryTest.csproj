@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6EB45746-3757-45B2-A329-EBDBEE0010CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PKI.eBusiness.WMService.WMServiceLibraryTest</RootNamespace>
+    <AssemblyName>PKI.eBusiness.WMService.WMServiceLibraryTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Wcf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="UnityConfiguration, Version=1.4.1.0, Culture=neutral, PublicKeyToken=689834571e7cb49a, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebMethodServiceBehaviorTest.cs" />
+    <Compile Include="WMServiceFactoryTest.cs" />
+    <Compile Include="WMServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PKI.eBusiness.WMFramework.Logger\PKI.eBusiness.WMService.Logger.csproj">
+      <Project>{D873D0C1-5F21-4DC2-B8F8-28CC86300D30}</Project>
+      <Name>PKI.eBusiness.WMService.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.eBusiness.WMService.BusinessServContracts\PKI.eBusiness.WMService.BusinessServContracts.csproj">
+      <Project>{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}</Project>
+      <Name>PKI.eBusiness.WMService.BusinessContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.eBusiness.WMService.ServiceGatewContracts\PKI.eBusiness.WMService.ServiceGatewContracts.csproj">
+      <Project>{38CF3671-751E-4031-B8FB-FBB19AB9B50F}</Project>
+      <Name>PKI.eBusiness.WMService.GatewayContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.eBusiness.WMService.TestUtilities\PKI.eBusiness.WMService.TestUtilities.csproj">
+      <Project>{5AB7A561-4ECB-4F79-87C3-3B41077D1AB7}</Project>
+      <Name>PKI.eBusiness.WMService.TestUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.eBusiness.WMService.Utility\PKI.eBusiness.WMService.Utility.csproj">
+      <Project>{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}</Project>
+      <Name>PKI.eBusiness.WMService.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.eBusiness.WMserviceLibrary.Contracts\PKI.eBusiness.WMService.WMserviceLibraryContracts.csproj">
+      <Project>{41FB1EEF-B83B-4DD7-9EA2-CF27BEC0B6B3}</Project>
+      <Name>PKI.eBusiness.WMService.WMserviceLibraryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.WebMethods.Entities\PKI.eBusiness.WMService.Entities.csproj">
+      <Project>{CEED8EF7-2967-4DBE-93AD-0184EA0062E2}</Project>
+      <Name>PKI.eBusiness.WMService.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.WebMethods.ServiceGateways\PKI.eBusiness.WMService.ServiceGateways.csproj">
+      <Project>{4F6EDA39-0544-47AD-93B8-82CD517C1573}</Project>
+      <Name>PKI.eBusiness.WMService.ServiceGateways</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PKI.WebMethods.Services\PKI.eBusiness.WMService.BusinessServices.csproj">
+      <Project>{3C1103EC-CDB7-4333-A7F5-FCC35DC26C10}</Project>
+      <Name>PKI.eBusiness.WMService.BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMServiceLibrary\PKI.eBusiness.WMService.WMServiceLibrary.csproj">
+      <Project>{FF602BFE-92C4-4D76-931E-A770328879D7}</Project>
+      <Name>PKI.eBusiness.WMService.WMServiceLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMService\PKI.eBusiness.WMService.csproj">
+      <Project>{f0f439fa-50a8-4cff-a6d0-c51c6b7eeaa1}</Project>
+      <Name>PKI.eBusiness.WMService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Shadow Include="Test References\PKI.eBusiness.WMService.WMServiceLibrary.accessor" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

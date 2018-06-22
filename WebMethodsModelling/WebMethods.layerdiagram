@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d7582837-77c6-4220-aa84-732b06cd4bd3" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="94669190-180d-4e65-bb18-7c310359c3a8" name="Business Layer&#xD;&#xA;">
+      <references>
+        <reference Id="5ead6654-bda9-4a3d-923d-0e842b2f5d51" name="Common Layer">
+          <ArtifactNode Label="Common Layer" Category="CodeSchema_Project" Id="(Assembly=../Common%2520Layer)">
+            <Category Ref="SolutionFolder" />
+          </ArtifactNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="25fd100c-b345-4b4f-a849-158ec3fcb386" name="Service Gateway">
+      <references>
+        <reference Id="762882e3-0bb6-4a96-9d30-c39aa6f11daa" name="Service Gateway">
+          <ArtifactNode Label="Service Gateway" Category="CodeSchema_Project" Id="(Assembly=../Service%2520Gateway)">
+            <Category Ref="SolutionFolder" />
+          </ArtifactNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="e0110ad8-7d64-40e3-9a36-ab9117fdf72f" name="Services Layer">
+      <references>
+        <reference Id="1d3869b5-dc83-4387-9cd0-02f92e5588c7" name="Services Layer">
+          <ArtifactNode Label="Services Layer" Category="CodeSchema_Project" Id="(Assembly=../Services%2520Layer)">
+            <Category Ref="SolutionFolder" />
+          </ArtifactNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

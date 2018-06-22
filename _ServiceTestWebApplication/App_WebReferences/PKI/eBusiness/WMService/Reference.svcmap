@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8a6884b1-ab72-49bd-9f44-418852e8055d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55814/WebMethods.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WebMethods.xsd" MetadataType="Schema" ID="4c7a99a6-b897-4cda-b192-dbd65f7fdac8" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?xsd=xsd3" />
+    <MetadataFile FileName="WebMethods1.xsd" MetadataType="Schema" ID="e6344fc5-c6f1-475e-8cd9-5f6a2466fd08" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?xsd=xsd0" />
+    <MetadataFile FileName="WebMethods2.xsd" MetadataType="Schema" ID="1d73e913-f1c5-4a11-b4a6-37f2e11a731d" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?xsd=xsd1" />
+    <MetadataFile FileName="WMService.wsdl" MetadataType="Wsdl" ID="f244b513-854e-429a-aabd-7da87ee74086" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?wsdl" />
+    <MetadataFile FileName="WebMethods.disco" MetadataType="Disco" ID="9190e414-37b8-4d42-a85c-a5f9f2f386f3" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?disco" />
+    <MetadataFile FileName="WebMethods3.xsd" MetadataType="Schema" ID="303bb26b-b58b-463a-b67b-e6c914e66ba1" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?xsd=xsd4" />
+    <MetadataFile FileName="WebMethods4.xsd" MetadataType="Schema" ID="674ad76e-acf8-4a09-b5b7-03f12d16e776" SourceId="1" SourceUrl="http://localhost:55814/WebMethods.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

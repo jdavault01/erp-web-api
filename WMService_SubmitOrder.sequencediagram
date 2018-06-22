@@ -1,0 +1,998 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="52ca9897-57a3-49dc-90ad-abb7618accb1" name="WMService_SubmitOrder" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="5e4128a3-15b7-4c9d-bcc2-64eeb64bd920" name="WMService_SubmitOrder" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification Id="440a5fa7-155a-4bbb-9f2d-53082eb2c092" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d1cacebf-afd1-42ba-8843-00bea7eeaeda" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="28790e28-14ff-4944-a1b9-d04d06fd4075" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="8b381d30-670a-49e5-92dc-160b0179a0f1" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="20144b5e-73d7-42ad-a15b-a6a7f660b038" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="42ce31d7-e921-474f-b829-dc0cd615b81e" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="b190d0f9-958e-4d7c-96e7-67751343e7c6" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="1a1ec8e0-0cf2-4d21-bd46-5da1e0ee157f" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="1418f55f-e214-4978-ae54-164cbfbd139f" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="4c2decc6-6680-4f34-883f-7c893c3854b9" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="d8611615-4feb-4679-b0e8-005650bb1bed" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="51822525-49d8-4d13-b098-223990745b74" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="8479132c-58f7-48ac-b893-9f365865bbc5" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="55baaff8-55ae-48fa-8ef5-c0f84c20d7d3" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="28790e28-14ff-4944-a1b9-d04d06fd4075" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="d05efe41-c9ba-4aa9-8180-5034e840367b" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="8b381d30-670a-49e5-92dc-160b0179a0f1" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <lostFoundTarget Id="ba786206-5405-4000-af54-6526f1b14384" name="LostFoundTarget" />
+          <behaviorExecutionSpecification Id="b9995eb8-7b0c-41bb-b667-24dc096c7dd7" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="c5822907-b814-4a65-bae0-ee3398f9a1f1" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="4e2c3996-d43a-4f13-a5a5-43fab869f36b" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="4388d206-f297-41e4-b3ee-c17698339c09" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="5fbe61c0-ffc7-4ebd-99f5-1e1c985fa96f" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="4e2c3996-d43a-4f13-a5a5-43fab869f36b" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="96d6fa57-c9df-43fd-b5ab-26f755390fd0" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4388d206-f297-41e4-b3ee-c17698339c09" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="20144b5e-73d7-42ad-a15b-a6a7f660b038" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="42ce31d7-e921-474f-b829-dc0cd615b81e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="5fbe61c0-ffc7-4ebd-99f5-1e1c985fa96f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="c5822907-b814-4a65-bae0-ee3398f9a1f1" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="c9fecd1b-e544-40d3-a71d-b1252c5325a0" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="9d33bdc0-e826-48fc-a094-f71db91968ac" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="79b542c1-4c77-4312-8e42-1ab5a24b9777" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="812a2b8e-507d-4a7f-8db5-a16e602a4d12" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="d2b9280c-fae9-4440-9253-3d955f4cbf94" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="633d0cb5-ca4c-49ac-8c63-9fa838b13bb8" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="812a2b8e-507d-4a7f-8db5-a16e602a4d12" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="dcd537f8-2ee6-402d-968f-e675300c4127" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b190d0f9-958e-4d7c-96e7-67751343e7c6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d2b9280c-fae9-4440-9253-3d955f4cbf94" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1a1ec8e0-0cf2-4d21-bd46-5da1e0ee157f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="633d0cb5-ca4c-49ac-8c63-9fa838b13bb8" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="79b542c1-4c77-4312-8e42-1ab5a24b9777" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="00be989d-3b74-4a87-8a3d-a7b5b0f56ed2" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="29d27132-6f3c-437d-98d6-410f5682cba6" LastKnownName="this._base : ServiceBase&lt;Pediatrix&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="300f6f0e-1ab6-4823-bf73-d4b2bb294e4c" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="abbd2383-abb8-4a15-9480-b4b4bd723353" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="8b4523ad-b5e6-4b38-8368-e431fb22afc8" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="20a9de5b-29fe-410b-901a-d95d83142ab4" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="d2011cc4-4ba5-45b5-8455-4852d017e75d" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="8b4523ad-b5e6-4b38-8368-e431fb22afc8" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="d6473016-05ef-4977-a99b-1e3c56ca1ff4" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1418f55f-e214-4978-ae54-164cbfbd139f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="20a9de5b-29fe-410b-901a-d95d83142ab4" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d2011cc4-4ba5-45b5-8455-4852d017e75d" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4c2decc6-6680-4f34-883f-7c893c3854b9" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="abbd2383-abb8-4a15-9480-b4b4bd723353" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="86e00009-ece4-4f88-92fd-a47ef74d6b59" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="843bba08-5811-4203-9bcb-fb8161dddfd7" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d4376059-6b1d-4da1-908a-f4e7b315da40" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="6d057985-e420-4d12-b679-2a29e5854050" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="384b67f3-f4ee-45b8-94dd-935b7ae66e51" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="c0513f2e-93a4-4742-963f-fb81d4084c18" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="bee999bb-3c4a-4e15-9397-69fd4b64fa59" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="d5a7ee84-0ef3-464e-ab3b-6678294e26cc" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="6d057985-e420-4d12-b679-2a29e5854050" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="a345417e-74d3-46ff-80f9-85a24096508c" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="384b67f3-f4ee-45b8-94dd-935b7ae66e51" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d8611615-4feb-4679-b0e8-005650bb1bed" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="4a994fef-ed72-428b-a18a-a8251c806b5d" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="0fb3b6a5-bc1c-4614-a72c-0cc442767380" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="d6335408-a833-4346-8f2c-a235866304eb" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="1af1b1b1-d4c8-4c26-aed6-fbbfcff57ade" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="ac64b156-cf03-4ef7-ae15-43d215f6153b" LastKnownName="MessageOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="73aeaff7-ce5a-4c90-b8ad-a1110b65dbb3" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="e0088a49-93c3-4e43-a33b-97cf31f19883" LastKnownName="ExecutionOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="c27b12f6-23d4-43ca-9627-ee46ead2dbda" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="d6335408-a833-4346-8f2c-a235866304eb" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="9274e88b-87e9-485d-bebc-a9ff197a9e7f" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c0513f2e-93a4-4742-963f-fb81d4084c18" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1af1b1b1-d4c8-4c26-aed6-fbbfcff57ade" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ac64b156-cf03-4ef7-ae15-43d215f6153b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="60a59d99-a9d1-47ed-ba85-3559af998ade" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="e0088a49-93c3-4e43-a33b-97cf31f19883" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="73aeaff7-ce5a-4c90-b8ad-a1110b65dbb3" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="2531b17c-6a8b-40b8-930d-bff0f214c8ae" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="73aeaff7-ce5a-4c90-b8ad-a1110b65dbb3" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="c035497d-8bb3-4b5a-9131-d68f8ce193c3" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="2531b17c-6a8b-40b8-930d-bff0f214c8ae" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="e0088a49-93c3-4e43-a33b-97cf31f19883" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="ba69df76-e1ef-4854-9455-98bd82b5eee2" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="bee999bb-3c4a-4e15-9397-69fd4b64fa59" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c27b12f6-23d4-43ca-9627-ee46ead2dbda" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="0fb3b6a5-bc1c-4614-a72c-0cc442767380" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="cb3ff330-b84c-4221-a966-4a3e61b3029c" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="51822525-49d8-4d13-b098-223990745b74" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d5a7ee84-0ef3-464e-ab3b-6678294e26cc" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d4376059-6b1d-4da1-908a-f4e7b315da40" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="81714460-9e2d-4440-82ba-317d771ad141" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="09c73a4a-5a9d-4719-a27b-532e1731250a" LastKnownName="this._client : WebMethodsClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="8899de6d-7d1a-4f8e-9668-af2c562bb9e9" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d383196c-096e-4685-a4db-e422681bef60" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="0d730641-bb29-49a7-bacc-83365d395080" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="adab8d27-8b10-43f7-8097-2134464f438b" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="e54b0db5-cfe7-4218-87e0-8f805e70f2ab" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="09066645-0801-40e1-b7c9-4fd1a187decf" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="f20a4413-55dd-4ed8-a246-0dfb094f9d3c" LastKnownName="MessageOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="016aa14a-8e9e-44fb-95dd-c3f5c26bfda0" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="153a35c7-381b-471a-8ba7-3a728482e014" LastKnownName="ExecutionOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="a4c3d153-2b1b-47aa-a0e8-6be29a8ca105" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="0d730641-bb29-49a7-bacc-83365d395080" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="13f3cd42-89c5-4c86-a045-cfc4ec244402" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="8479132c-58f7-48ac-b893-9f365865bbc5" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="adab8d27-8b10-43f7-8097-2134464f438b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="f0ef31e6-3582-4ff7-9f9d-950964ef44cf" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="bc043104-b3f0-4862-a9e4-954f45a06aaa" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="57f5ba34-6fe7-4a72-9a68-ede2a88e560e" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="ec28c0e2-b6fe-4982-9540-6a7ac1863282" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="b4693b23-cefc-4305-bcb0-9b6952c9e57e" LastKnownName="MessageOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="1c33c7dd-b031-49fd-9e4e-2e42b438ced3" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="4ac19b9e-0d4c-4b25-9d7b-492614d7c13c" LastKnownName="ExecutionOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="4720b719-4104-4f2f-8d6e-f37f59d53dc6" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="57f5ba34-6fe7-4a72-9a68-ede2a88e560e" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="f384072e-5ada-4abd-8f23-93fa3f080d21" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e54b0db5-cfe7-4218-87e0-8f805e70f2ab" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ec28c0e2-b6fe-4982-9540-6a7ac1863282" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b4693b23-cefc-4305-bcb0-9b6952c9e57e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="43844e62-66d0-470e-862f-266c947ecf12" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="4ac19b9e-0d4c-4b25-9d7b-492614d7c13c" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="1c33c7dd-b031-49fd-9e4e-2e42b438ced3" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="702de069-09cc-43bd-9862-1c8ff72e1c83" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="1c33c7dd-b031-49fd-9e4e-2e42b438ced3" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="584e048e-fc31-43de-b205-ad11a1cb7a32" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="702de069-09cc-43bd-9862-1c8ff72e1c83" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="4ac19b9e-0d4c-4b25-9d7b-492614d7c13c" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="838a28e0-ad1f-4daa-a649-04639f786daa" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="09066645-0801-40e1-b7c9-4fd1a187decf" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4720b719-4104-4f2f-8d6e-f37f59d53dc6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="bc043104-b3f0-4862-a9e4-954f45a06aaa" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="c0311e76-867f-4714-889a-69f22a6d5184" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="da959855-765e-49f3-a63d-e50850e14edd" LastKnownName="inValue : ProcessPediatrixOrderRequest" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f20a4413-55dd-4ed8-a246-0dfb094f9d3c" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="fe644f01-7eb4-46f1-99d5-d9ab211e9626" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="153a35c7-381b-471a-8ba7-3a728482e014" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="016aa14a-8e9e-44fb-95dd-c3f5c26bfda0" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="214d63b1-3649-4fec-b3d1-27e792633e55" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="94c98fdb-42e3-4871-9528-3bfc543e9bd6" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="bbb64958-78ff-4ef0-be1b-5a0c3b7d1b2e" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="016aa14a-8e9e-44fb-95dd-c3f5c26bfda0" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="91246597-cf39-4202-8034-88d2cd8bd1ac" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="214d63b1-3649-4fec-b3d1-27e792633e55" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="0eb0d8eb-43fc-4afe-8565-87dd089e4328" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" LastKnownName="Channel : ProcessPediatrixOrderService_PortType" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="95c551da-8d40-467d-b444-7340273d091a" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="07203032-5d4a-48f7-bbd0-563277335b6c" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="5364c9eb-9b46-4473-b269-86a5ab564382" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="1576f29a-0ce0-488c-a726-7a3dfc118220" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="07203032-5d4a-48f7-bbd0-563277335b6c" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="2d90ae57-958e-4d35-a8a9-d417bd0908af" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" LastKnownName="Channel : ProcessPediatrixOrderService_PortType" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="94c98fdb-42e3-4871-9528-3bfc543e9bd6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="5364c9eb-9b46-4473-b269-86a5ab564382" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" LastKnownName="Channel : ProcessPediatrixOrderService_PortType" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1576f29a-0ce0-488c-a726-7a3dfc118220" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" LastKnownName="Channel : ProcessPediatrixOrderService_PortType" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="bbb64958-78ff-4ef0-be1b-5a0c3b7d1b2e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="95c551da-8d40-467d-b444-7340273d091a" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="73de2482-16cd-4902-b851-ea8c684c3585" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" LastKnownName="Channel : ProcessPediatrixOrderService_PortType" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="153a35c7-381b-471a-8ba7-3a728482e014" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="ff53e074-4cd6-458f-bbac-9b990bebe266" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a4c3d153-2b1b-47aa-a0e8-6be29a8ca105" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="55baaff8-55ae-48fa-8ef5-c0f84c20d7d3" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d383196c-096e-4685-a4db-e422681bef60" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="2694e6f8-1dde-4fd4-9763-6c63c15eef5c" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" LastKnownName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d1cacebf-afd1-42ba-8843-00bea7eeaeda" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="5deaf679-11f0-4d16-95f8-700ba82b376c" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" LastKnownName="this : WMService" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="7776b541-39cf-47d7-a8f9-a3226222ba1f" name="this : WMService" isActor="false" lifelineDisplayName="this : WMService" referencedInstance="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WMService ObjectInstance=&quot;Object instance 2&quot;)" referencedType="PKI.WMServiceLibrary.WMService">
+            <referencesInternal>
+              <reference Id="7a4f06f2-d7a7-4558-b1a4-fa3596450524" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WMServiceLibrary)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WMService)&quot;)" tag="DGQL" />
+              <reference Id="01d5351a-bbea-4adc-ae2a-894e6947b231" handle="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WMService)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="28790e28-14ff-4944-a1b9-d04d06fd4075" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="d1cacebf-afd1-42ba-8843-00bea7eeaeda" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="29d27132-6f3c-437d-98d6-410f5682cba6" name="this._base : ServiceBase&lt;Pediatrix&gt;" isActor="false" lifelineDisplayName="this._base : ServiceBase&lt;Pediatrix&gt;" referencedInstance="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1 GenericArguments=[(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=Pediatrix)]) ObjectInstance=&quot;Object instance 3&quot;)" referencedType="PKI.WebMethods.Services.ServiceBase&lt;Pediatrix&gt;">
+            <referencesInternal>
+              <reference Id="100365ab-899a-4fea-a467-a5c760ef6d3d" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1))&quot;)" tag="DGQL" />
+              <reference Id="a885626c-bacf-42c7-8068-208eec55402c" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1))" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="4e2c3996-d43a-4f13-a5a5-43fab869f36b" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="c5822907-b814-4a65-bae0-ee3398f9a1f1" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="812a2b8e-507d-4a7f-8db5-a16e602a4d12" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="79b542c1-4c77-4312-8e42-1ab5a24b9777" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="09c73a4a-5a9d-4719-a27b-532e1731250a" name="this._client : WebMethodsClient" isActor="false" lifelineDisplayName="this._client : WebMethodsClient" referencedInstance="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient ObjectInstance=&quot;Object instance 7&quot;)" referencedType="PKI.WMServiceLibrary.WebMethodsClient">
+            <referencesInternal>
+              <reference Id="02d89da5-360b-4086-9115-888fa76c0434" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WMServiceLibrary)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient)&quot;)" tag="DGQL" />
+              <reference Id="7a6beb3f-4334-4693-84a8-213f0f01a503" handle="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="8b4523ad-b5e6-4b38-8368-e431fb22afc8" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="abbd2383-abb8-4a15-9480-b4b4bd723353" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="6d057985-e420-4d12-b679-2a29e5854050" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="d4376059-6b1d-4da1-908a-f4e7b315da40" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="8b4aca30-cce0-414a-ac92-21fba7fa0d42" name="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" isActor="false" lifelineDisplayName="this._client._soapClient : ProcessPediatrixOrderService_PortTypeClient" referencedInstance="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient ObjectInstance=&quot;Object instance 9&quot;)" referencedType="PKI.WebMethods.Services.ProcessPediatrixOrderService_PortTypeClient">
+            <referencesInternal>
+              <reference Id="0b458954-a493-4ea6-b316-1d3710270e1c" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient)&quot;)" tag="DGQL" />
+              <reference Id="82aa48f3-c556-4daa-9afa-99589f242ddc" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="d6335408-a833-4346-8f2c-a235866304eb" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="0fb3b6a5-bc1c-4614-a72c-0cc442767380" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="0d730641-bb29-49a7-bacc-83365d395080" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="d383196c-096e-4685-a4db-e422681bef60" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="da959855-765e-49f3-a63d-e50850e14edd" name="inValue : ProcessPediatrixOrderRequest" isActor="false" lifelineDisplayName="inValue : ProcessPediatrixOrderRequest" referencedInstance="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest ObjectInstance=&quot;Object instance 13&quot;)" referencedType="PKI.WebMethods.Services.ProcessPediatrixOrderRequest">
+            <referencesInternal>
+              <reference Id="8ded1831-332c-4326-9517-b15b578ae236" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)&quot;)" tag="DGQL" />
+              <reference Id="3c63888d-369e-4289-8914-6c8f0235a062" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="57f5ba34-6fe7-4a72-9a68-ede2a88e560e" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="bc043104-b3f0-4862-a9e4-954f45a06aaa" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="97f6efde-139d-4b13-b786-0dde1f6bb83e" name="Channel : ProcessPediatrixOrderService_PortType" isActor="false" lifelineDisplayName="Channel : ProcessPediatrixOrderService_PortType" referencedInstance="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=(Name=ProcessPediatrixOrder ExplicitInterface=(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType) OverloadingParameters=[(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)]) Statement=[1,1,1,2] ObjectInstance=&quot;Object instance 17&quot;)" referencedType="PKI.WebMethods.Services.ProcessPediatrixOrderService_PortType">
+            <referencesInternal>
+              <reference Id="2ce82ba7-b71c-4a0a-8487-4516db08899c" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType)&quot;)" tag="DGQL" />
+              <reference Id="7b9131d6-6214-4988-9ae6-587e312d9b61" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="07203032-5d4a-48f7-bbd0-563277335b6c" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="95c551da-8d40-467d-b444-7340273d091a" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="8637ea71-7d3a-4fb6-96bc-e9b5d459ae7c" name="SubmitOrder" messageKind="Found" messageSort="AsynchCall" createSelfMessage="false">
+            <referencesInternal>
+              <reference Id="d50e8826-2ad9-461c-a1c2-e6fadb76186f" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WMServiceLibrary)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WMService)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WMService Member=(Name=SubmitOrder OverloadingParameters=[(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/Profile/Client/mscorlib.dll&amp;quot; Namespace=System Type=String)]))&quot;)" tag="DGQL" />
+              <reference Id="4979456c-bb74-44f6-aa93-dbf0f661df8c" handle="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WMService Member=(Name=SubmitOrder OverloadingParameters=[(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/Profile/Client/mscorlib.dll&quot; Namespace=System Type=String)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <lostFoundTargetMoniker Id="ba786206-5405-4000-af54-6526f1b14384" LastKnownName="LostFoundTarget" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="8b381d30-670a-49e5-92dc-160b0179a0f1" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="03606538-51bc-4173-9233-9da0ac208e93" name="Create ServiceBase&lt;Pediatrix&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new ServiceBase&lt;Pediatrix&gt;()">
+            <referencesInternal>
+              <reference Id="e8b59133-b460-48a9-8820-8baa51f45d8a" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1))&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1) Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="8604a854-e080-488b-9837-7b843570edc4" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=(Name=ServiceBase GenericParameterCount=1) Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="20144b5e-73d7-42ad-a15b-a6a7f660b038" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="4388d206-f297-41e4-b3ee-c17698339c09" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="e06a0fa5-cddb-4726-b11d-4eafeafb4f02" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="5fbe61c0-ffc7-4ebd-99f5-1e1c985fa96f" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="42ce31d7-e921-474f-b829-dc0cd615b81e" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b3e19707-f5ef-480f-aba2-928f95b9c40d" name="IServiceBase&lt;Pediatrix&gt;.GenerateObject" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="_base.GenerateObject(orderXml)">
+            <referencesInternal>
+              <reference Id="87d18dba-3aad-468d-b995-ff85963fe5c3" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=(Name=IServiceBase GenericParameterCount=1))&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=(Name=IServiceBase GenericParameterCount=1) Member=(Name=GenerateObject OverloadingParameters=[(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&amp;quot; Namespace=System Type=String)]))&quot;)" tag="DGQL" />
+              <reference Id="3d0cb7b9-1427-46aa-9c02-c9ec58a870bd" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=(Name=IServiceBase GenericParameterCount=1) Member=(Name=GenerateObject OverloadingParameters=[(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="b190d0f9-958e-4d7c-96e7-67751343e7c6" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="d2b9280c-fae9-4440-9253-3d955f4cbf94" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="6fdf2008-44c4-48b1-aa28-ce55f30bb2cb" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="633d0cb5-ca4c-49ac-8c63-9fa838b13bb8" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="1a1ec8e0-0cf2-4d21-bd46-5da1e0ee157f" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="7149ea65-e089-4656-8542-fe307785ba9e" name="Create WebMethodsClient" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new WebMethodsClient()">
+            <referencesInternal>
+              <reference Id="4f01f485-b2da-46c1-b0b3-ea0fc740c342" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WMServiceLibrary)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="821768fd-37db-49c3-81cc-6e0eaaa399bd" handle="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="1418f55f-e214-4978-ae54-164cbfbd139f" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="20a9de5b-29fe-410b-901a-d95d83142ab4" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="7ca801b1-29a2-4933-b453-73c7c877b306" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d2011cc4-4ba5-45b5-8455-4852d017e75d" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="4c2decc6-6680-4f34-883f-7c893c3854b9" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="c927ca35-19ac-46c8-9128-dc4472773a6d" name="GetSOAPClient" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="_client.GetSOAPClient()">
+            <referencesInternal>
+              <reference Id="59b04f9c-338a-4695-a4ab-9e439c227f27" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WMServiceLibrary)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&amp;quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient Member=GetSOAPClient)&quot;)" tag="DGQL" />
+              <reference Id="af002bea-cdcc-4572-af60-05651e5689ce" handle="(Assembly=&quot;$(ff602bfe-92c4-4d76-931e-a770328879d7.OutputPathUri)&quot; Namespace=PKI.WMServiceLibrary Type=WebMethodsClient Member=GetSOAPClient)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d8611615-4feb-4679-b0e8-005650bb1bed" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="384b67f3-f4ee-45b8-94dd-935b7ae66e51" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="0144b2bb-6e16-4a8d-bcb4-581beb00b30a" name="Create ProcessPediatrixOrderService_PortTypeClient" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new ProcessPediatrixOrderService_PortTypeClient()">
+            <referencesInternal>
+              <reference Id="d7c1a85d-340e-47d3-a4d6-b6f9db009027" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="17ff85d9-83f2-4113-8ab1-4d5c4a8a998b" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="c0513f2e-93a4-4742-963f-fb81d4084c18" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="1af1b1b1-d4c8-4c26-aed6-fbbfcff57ade" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="51de7a18-9967-4f4d-8ffc-de00135af5dc" name="Create ClientBase&lt;ProcessPediatrixOrderService_PortType&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="true">
+            <referencesInternal>
+              <reference Id="c8913021-3ccf-463a-8fbc-e3a4ebb462ec" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=System.ServiceModel)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/System.ServiceModel.dll&amp;quot; Namespace=System.ServiceModel Type=(Name=ClientBase GenericParameterCount=1))&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/System.ServiceModel.dll&amp;quot; Namespace=System.ServiceModel Type=(Name=ClientBase GenericParameterCount=1) Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="6b1c24c7-6b7c-48c3-b1f6-eb85fb28149e" handle="(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=(Name=ClientBase GenericParameterCount=1) Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="ac64b156-cf03-4ef7-ae15-43d215f6153b" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="2531b17c-6a8b-40b8-930d-bff0f214c8ae" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="31004d26-f103-4496-aa2c-688d70689742" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="c27b12f6-23d4-43ca-9627-ee46ead2dbda" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="bee999bb-3c4a-4e15-9397-69fd4b64fa59" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="d0a126f5-d43f-4f3f-9e45-02ad25c17cea" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d5a7ee84-0ef3-464e-ab3b-6678294e26cc" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="51822525-49d8-4d13-b098-223990745b74" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="2ac7e20a-fb17-4346-a5d9-fe6e627ece2e" name="ProcessPediatrixOrder" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="soapClient.ProcessPediatrixOrder(pediatrix)">
+            <referencesInternal>
+              <reference Id="f6ce10ed-f4ed-42e3-a1d7-d2a01e1bdeb8" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=(Name=ProcessPediatrixOrder OverloadingParameters=[(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=Pediatrix)]))&quot;)" tag="DGQL" />
+              <reference Id="4cde3d2c-fb8f-4864-a77b-9a2e1e45f5f3" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=(Name=ProcessPediatrixOrder OverloadingParameters=[(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=Pediatrix)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="8479132c-58f7-48ac-b893-9f365865bbc5" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="adab8d27-8b10-43f7-8097-2134464f438b" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="1599d028-8305-43af-bcac-7dbcd05ef954" name="Create ProcessPediatrixOrderRequest" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new PKI.WebMethods.Services.ProcessPediatrixOrderRequest()">
+            <referencesInternal>
+              <reference Id="e04d912c-3318-432e-91c2-6fb36d3c0049" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="f83a82d7-f7ea-4031-9113-caa29a9ab606" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="e54b0db5-cfe7-4218-87e0-8f805e70f2ab" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="ec28c0e2-b6fe-4982-9540-6a7ac1863282" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b89d2575-5118-49d3-9c83-b6222040a6ec" name="Create EntityBase" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="true">
+            <referencesInternal>
+              <reference Id="ec00004a-cea1-4bd9-8f76-4578ef3173e1" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=EntityBase)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=EntityBase Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="1849d213-c20a-453f-99bb-bb66cd265bd2" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=EntityBase Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="b4693b23-cefc-4305-bcb0-9b6952c9e57e" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="702de069-09cc-43bd-9862-1c8ff72e1c83" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="deb2239a-f918-4ee5-9ba5-82aed9aaeef7" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="4720b719-4104-4f2f-8d6e-f37f59d53dc6" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="09066645-0801-40e1-b7c9-4fd1a187decf" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="35f7cee9-ea20-45a1-b642-e285391b982d" name="ProcessPediatrixOrderService_PortType.ProcessPediatrixOrder" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="((PKI.WebMethods.Services.ProcessPediatrixOrderService_PortType)(this)).ProcessPediatrixOrder(inValue)">
+            <referencesInternal>
+              <reference Id="4db86a65-777d-4334-b9a8-ae14bd65e90a" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=(Name=ProcessPediatrixOrder ExplicitInterface=(Assembly=&amp;quot;file:///C:/Documents and Settings/mylavara/My Documents/Visual Studio 2010/Projects/WebMethodsService/PKI.WebMethods.Services/bin/Debug/PKI.WebMethods.Services.dll&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType) OverloadingParameters=[(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)]))&quot;)" tag="DGQL" />
+              <reference Id="bbf79308-4eca-494d-858c-f01f77ad3126" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortTypeClient Member=(Name=ProcessPediatrixOrder ExplicitInterface=(Assembly=&quot;file:///C:/Documents and Settings/mylavara/My Documents/Visual Studio 2010/Projects/WebMethodsService/PKI.WebMethods.Services/bin/Debug/PKI.WebMethods.Services.dll&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType) OverloadingParameters=[(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="f20a4413-55dd-4ed8-a246-0dfb094f9d3c" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="214d63b1-3649-4fec-b3d1-27e792633e55" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="1399e3bf-5d85-442d-8112-35c6f70fbf84" name="ProcessPediatrixOrder" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="base.Channel.ProcessPediatrixOrder(request)">
+            <referencesInternal>
+              <reference Id="c7bcb00a-ee40-4509-a2ac-70b8b8fedfee" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PKI.WebMethods.Services)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType Member=(Name=ProcessPediatrixOrder OverloadingParameters=[(Assembly=&amp;quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&amp;quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)]))&quot;)" tag="DGQL" />
+              <reference Id="3dda0a14-3fc1-4520-b0c3-5c8ef552d3f4" handle="(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderService_PortType Member=(Name=ProcessPediatrixOrder OverloadingParameters=[(Assembly=&quot;$(3c1103ec-cdb7-4333-a7f5-fcc35dc26c10.OutputPathUri)&quot; Namespace=PKI.WebMethods.Services Type=ProcessPediatrixOrderRequest)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="94c98fdb-42e3-4871-9528-3bfc543e9bd6" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="5364c9eb-9b46-4473-b269-86a5ab564382" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="2b94fc15-9b4e-4972-8ebb-7cd386dc6156" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="1576f29a-0ce0-488c-a726-7a3dfc118220" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="bbb64958-78ff-4ef0-be1b-5a0c3b7d1b2e" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="1597371d-6ce6-4e28-aa8b-b13b871834da" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a4c3d153-2b1b-47aa-a0e8-6be29a8ca105" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="55baaff8-55ae-48fa-8ef5-c0f84c20d7d3" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="d05efe41-c9ba-4aa9-8180-5034e840367b" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="5deaf679-11f0-4d16-95f8-700ba82b376c" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="96d6fa57-c9df-43fd-b5ab-26f755390fd0" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="c9fecd1b-e544-40d3-a71d-b1252c5325a0" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="dcd537f8-2ee6-402d-968f-e675300c4127" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="00be989d-3b74-4a87-8a3d-a7b5b0f56ed2" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="d6473016-05ef-4977-a99b-1e3c56ca1ff4" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="86e00009-ece4-4f88-92fd-a47ef74d6b59" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="a345417e-74d3-46ff-80f9-85a24096508c" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="81714460-9e2d-4440-82ba-317d771ad141" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="9274e88b-87e9-485d-bebc-a9ff197a9e7f" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="cb3ff330-b84c-4221-a966-4a3e61b3029c" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="c035497d-8bb3-4b5a-9131-d68f8ce193c3" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="ba69df76-e1ef-4854-9455-98bd82b5eee2" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="13f3cd42-89c5-4c86-a045-cfc4ec244402" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="2694e6f8-1dde-4fd4-9763-6c63c15eef5c" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="f384072e-5ada-4abd-8f23-93fa3f080d21" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="c0311e76-867f-4714-889a-69f22a6d5184" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="584e048e-fc31-43de-b205-ad11a1cb7a32" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="838a28e0-ad1f-4daa-a649-04639f786daa" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="91246597-cf39-4202-8034-88d2cd8bd1ac" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="ff53e074-4cd6-458f-bbac-9b990bebe266" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="2d90ae57-958e-4d35-a8a9-d417bd0908af" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="73de2482-16cd-4902-b851-ea8c684c3585" name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+</SequenceDesignerModel>

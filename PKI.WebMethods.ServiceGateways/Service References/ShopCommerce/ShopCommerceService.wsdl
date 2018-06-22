@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShopCommerceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd2" namespace="http://www.perkinelmergenetics.com" />
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PKI.eBusiness.CSFramework.General" />
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://165.88.41.151:8091/ShopCommerceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PKI.eBusiness.CSFramework.Entities.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IShopCommerceService_GetUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetUserDetails_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://www.perkinelmergenetics.com" name="detail" element="q1:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToCart" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToCart_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://www.perkinelmergenetics.com" name="detail" element="q2:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_UpdateCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCart" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_UpdateCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_UpdateCart_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://www.perkinelmergenetics.com" name="detail" element="q3:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCart" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromCart_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://www.perkinelmergenetics.com" name="detail" element="q4:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCart" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetCart_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://www.perkinelmergenetics.com" name="detail" element="q5:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToFavorites_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToFavorites" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToFavorites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToFavoritesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_AddToFavorites_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://www.perkinelmergenetics.com" name="detail" element="q6:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromFavorites_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromFavorites" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromFavorites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromFavoritesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_RemoveFromFavorites_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://www.perkinelmergenetics.com" name="detail" element="q7:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetFavorites_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavorites" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetFavorites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavoritesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetFavorites_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://www.perkinelmergenetics.com" name="detail" element="q8:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserName" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateUserName_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://www.perkinelmergenetics.com" name="detail" element="q9:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetLoginInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginInfo" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetLoginInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetLoginInfo_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://www.perkinelmergenetics.com" name="detail" element="q10:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetClearanceCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceCode" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetClearanceCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_GetClearanceCode_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://www.perkinelmergenetics.com" name="detail" element="q11:CustomError" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateSerialNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialNumber" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateSerialNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopCommerceService_ValidateSerialNumber_CustomErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://www.perkinelmergenetics.com" name="detail" element="q12:CustomError" />
+  </wsdl:message>
+  <wsdl:portType name="IShopCommerceService">
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/GetUserDetails" message="tns:IShopCommerceService_GetUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/GetUserDetailsResponse" message="tns:IShopCommerceService_GetUserDetails_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/GetUserDetailsCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_GetUserDetails_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/AddToCart" message="tns:IShopCommerceService_AddToCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/AddToCartResponse" message="tns:IShopCommerceService_AddToCart_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/AddToCartCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_AddToCart_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/UpdateCart" message="tns:IShopCommerceService_UpdateCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/UpdateCartResponse" message="tns:IShopCommerceService_UpdateCart_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/UpdateCartCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_UpdateCart_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFromCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromCart" message="tns:IShopCommerceService_RemoveFromCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromCartResponse" message="tns:IShopCommerceService_RemoveFromCart_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromCartCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_RemoveFromCart_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/GetCart" message="tns:IShopCommerceService_GetCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/GetCartResponse" message="tns:IShopCommerceService_GetCart_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/GetCartCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_GetCart_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToFavorites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/AddToFavorites" message="tns:IShopCommerceService_AddToFavorites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/AddToFavoritesResponse" message="tns:IShopCommerceService_AddToFavorites_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/AddToFavoritesCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_AddToFavorites_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFromFavorites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromFavorites" message="tns:IShopCommerceService_RemoveFromFavorites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromFavoritesResponse" message="tns:IShopCommerceService_RemoveFromFavorites_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/RemoveFromFavoritesCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_RemoveFromFavorites_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavorites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/GetFavorites" message="tns:IShopCommerceService_GetFavorites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/GetFavoritesResponse" message="tns:IShopCommerceService_GetFavorites_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/GetFavoritesCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_GetFavorites_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateUserName" message="tns:IShopCommerceService_ValidateUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateUserNameResponse" message="tns:IShopCommerceService_ValidateUserName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateUserNameCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_ValidateUserName_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/GetLoginInfo" message="tns:IShopCommerceService_GetLoginInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/GetLoginInfoResponse" message="tns:IShopCommerceService_GetLoginInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/GetLoginInfoCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_GetLoginInfo_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/GetClearanceCode" message="tns:IShopCommerceService_GetClearanceCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/GetClearanceCodeResponse" message="tns:IShopCommerceService_GetClearanceCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/GetClearanceCodeCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_GetClearanceCode_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumber" message="tns:IShopCommerceService_ValidateSerialNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumberResponse" message="tns:IShopCommerceService_ValidateSerialNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumberCustomErrorFault" name="CustomErrorFault" message="tns:IShopCommerceService_ValidateSerialNumber_CustomErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IShopCommerceService" type="tns:IShopCommerceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddToCart">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/AddToCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCart">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/UpdateCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFromCart">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/RemoveFromCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCart">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/GetCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddToFavorites">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/AddToFavorites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFromFavorites">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/RemoveFromFavorites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavorites">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/GetFavorites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserName">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/ValidateUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginInfo">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/GetLoginInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceCode">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/GetClearanceCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialNumber">
+      <soap:operation soapAction="http://tempuri.org/IShopCommerceService/ValidateSerialNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomErrorFault">
+        <soap:fault use="literal" name="CustomErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShopCommerceService">
+    <wsdl:port name="BasicHttpBinding_IShopCommerceService" binding="tns:BasicHttpBinding_IShopCommerceService">
+      <soap:address location="http://165.88.41.151:8091/ShopCommerceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

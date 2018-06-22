@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="7fcf0d94-6eaf-41df-a96f-0372075326a1" name="ProcessFormRequest" linkedPackageId="908858ae-dd17-499a-be03-0f08fe33c83a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="0adaf419-6913-4fbd-9036-e2e35ff9483a" name="ProcessFormRequest" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="3d746cc7-0d14-4fce-8c86-8692203807a5" />
+        <fragments>
+          <behaviorExecutionSpecification Id="883d0d8a-8b19-4139-ad73-bffc95d2772f" name="BehaviorExecutionSpecification1">
+            <elementDefinition Id="d14429fc-5b0c-4075-a95a-941157213c54" />
+            <coveredLifelines>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="0c7cc9f9-9b63-457a-82b7-5196ca88d96e" LastKnownName="ExecutionOccurrenceSpecification2" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="9ee5acab-2df0-41a6-a8de-48d559d1ca90" LastKnownName="ExecutionOccurrenceSpecification1" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="a5d910a5-11c7-4d79-ab78-a9829f2522dc" LastKnownName="MessageOccurrenceSpecification2" />
+              <messageOccurrenceSpecificationMoniker Id="d635d512-d4d6-4b90-a816-137237734220" LastKnownName="MessageOccurrenceSpecification9" />
+              <messageOccurrenceSpecificationMoniker Id="f39e1217-8e1c-433e-b8fc-e682a928ff78" LastKnownName="MessageOccurrenceSpecification12" />
+              <messageOccurrenceSpecificationMoniker Id="3b5b4825-64a8-47d9-9e33-38f4f8b53bc0" LastKnownName="MessageOccurrenceSpecification3" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="9ee5acab-2df0-41a6-a8de-48d559d1ca90" name="ExecutionOccurrenceSpecification1">
+            <elementDefinition Id="501a8b52-cfcc-4bf0-93e9-02a67b8919fe" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="ba159b1c-ea10-49e3-8b80-6cb3b1ca6501" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7af7fc64-782e-47d5-a3b0-9e44283f88e2" name="MessageOccurrenceSpecification1">
+            <elementDefinition Id="947262dc-f592-4880-b457-7d490a395f8b" />
+            <covered>
+              <lifelineMoniker Id="3aa62fe1-ee63-48ac-8ef7-8e59e5346e0b" LastKnownName="WMService : IWMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a5d910a5-11c7-4d79-ab78-a9829f2522dc" name="MessageOccurrenceSpecification2">
+            <elementDefinition Id="f813407b-698d-4d5f-8145-ab3a8e2e7c34" />
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="12aa9449-5bb3-4012-8e40-48add1dc7013" name="BehaviorExecutionSpecification3">
+            <elementDefinition Id="78c65958-ae07-412a-b487-f41ca6d19aac" />
+            <coveredLifelines>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d12ff825-1da8-48f7-b649-20135243167b" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="87ab02fb-b48c-4df4-9fc2-d849bc7bbcbd" LastKnownName="ExecutionOccurrenceSpecification5" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="3b1f1c2c-9991-468e-b2b4-b0006f3595e2" LastKnownName="MessageOccurrenceSpecification10" />
+              <messageOccurrenceSpecificationMoniker Id="db61bb72-1d2f-421c-96da-95e6d42335cf" LastKnownName="MessageOccurrenceSpecification17" />
+              <messageOccurrenceSpecificationMoniker Id="7eccecb2-86dd-45d9-af9e-32fec27b83be" LastKnownName="MessageOccurrenceSpecification20" />
+              <messageOccurrenceSpecificationMoniker Id="7558c3e7-0a48-4567-9c52-fe10954c8486" LastKnownName="MessageOccurrenceSpecification11" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="87ab02fb-b48c-4df4-9fc2-d849bc7bbcbd" name="ExecutionOccurrenceSpecification5">
+            <elementDefinition Id="55fa8692-1911-42fd-9ef2-41180871e6d1" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="39582350-1351-4c33-b872-da4dfca56355" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="3b1f1c2c-9991-468e-b2b4-b0006f3595e2" name="MessageOccurrenceSpecification10">
+            <elementDefinition Id="0a90a8dd-b7db-4ab1-b58e-dfd416d55923" />
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d635d512-d4d6-4b90-a816-137237734220" name="MessageOccurrenceSpecification9">
+            <elementDefinition Id="4936ff43-862c-4575-ad96-fadd1aeae333" />
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="ad8d6aa3-ca45-4b80-8664-13ad45b56b9d" name="BehaviorExecutionSpecification5">
+            <elementDefinition Id="f9c43316-894d-4ee1-ab24-cbf55dc3db14" />
+            <coveredLifelines>
+              <lifelineMoniker Id="045e9878-dbf6-412d-a74f-6385f53d1326" LastKnownName="WebMethods Service" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="0a8f5a9e-f99c-4c3b-af76-b2076ed3170a" LastKnownName="ExecutionOccurrenceSpecification10" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="9ff4dcb1-fc99-42f3-a1d5-ac6351ae8a5e" LastKnownName="ExecutionOccurrenceSpecification9" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="ce921308-3f7b-43bb-9599-31d3bf18e4bf" LastKnownName="MessageOccurrenceSpecification18" />
+              <messageOccurrenceSpecificationMoniker Id="e83e7156-56af-4a30-82bb-8d31cda8ecf9" LastKnownName="MessageOccurrenceSpecification19" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="9ff4dcb1-fc99-42f3-a1d5-ac6351ae8a5e" name="ExecutionOccurrenceSpecification9">
+            <elementDefinition Id="c259ebdd-2c0e-4089-a3db-12ce4c17f367" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="d85ed5a3-30a9-47c2-ac57-a888258ce74a" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="045e9878-dbf6-412d-a74f-6385f53d1326" LastKnownName="WebMethods Service" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ce921308-3f7b-43bb-9599-31d3bf18e4bf" name="MessageOccurrenceSpecification18">
+            <elementDefinition Id="e024c00a-8ca1-4540-8d0a-a9224d615093" />
+            <covered>
+              <lifelineMoniker Id="045e9878-dbf6-412d-a74f-6385f53d1326" LastKnownName="WebMethods Service" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="db61bb72-1d2f-421c-96da-95e6d42335cf" name="MessageOccurrenceSpecification17">
+            <elementDefinition Id="d53124e8-ca08-49c6-a775-840a2bbe365e" />
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7eccecb2-86dd-45d9-af9e-32fec27b83be" name="MessageOccurrenceSpecification20">
+            <elementDefinition Id="a1e3a785-0f14-443c-89fa-f26083d0eec6" />
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e83e7156-56af-4a30-82bb-8d31cda8ecf9" name="MessageOccurrenceSpecification19">
+            <elementDefinition Id="37df7880-de43-47db-bbed-eeab6ef175f2" />
+            <covered>
+              <lifelineMoniker Id="045e9878-dbf6-412d-a74f-6385f53d1326" LastKnownName="WebMethods Service" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="0a8f5a9e-f99c-4c3b-af76-b2076ed3170a" name="ExecutionOccurrenceSpecification10">
+            <elementDefinition Id="4c719837-cb54-4eeb-8396-7b5c1c51eec5" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="def446dc-f112-4766-affd-899ceb709b9b" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="045e9878-dbf6-412d-a74f-6385f53d1326" LastKnownName="WebMethods Service" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7558c3e7-0a48-4567-9c52-fe10954c8486" name="MessageOccurrenceSpecification11">
+            <elementDefinition Id="ccc930bc-991c-47c1-8bbc-2b4623638d0a" />
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f39e1217-8e1c-433e-b8fc-e682a928ff78" name="MessageOccurrenceSpecification12">
+            <elementDefinition Id="bc291cce-5265-4eeb-9c3c-d1c9dae544d9" />
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d12ff825-1da8-48f7-b649-20135243167b" name="ExecutionOccurrenceSpecification6">
+            <elementDefinition Id="e2f686c7-2cb8-4ea8-b4ee-b49d9f0aee77" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="2ef11340-2b82-404b-8a6b-5269b51f0bb7" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="6f3e5719-4996-4b94-887c-22e1224bea57" LastKnownName="WebMethodClient : IWebMethodClient" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="3b5b4825-64a8-47d9-9e33-38f4f8b53bc0" name="MessageOccurrenceSpecification3">
+            <elementDefinition Id="849feabc-d7c9-4a14-b04f-1e8ff9ce5c8d" />
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="dc27c7bc-aacc-4adb-891a-c181a58220dd" name="MessageOccurrenceSpecification4">
+            <elementDefinition Id="2f628246-df6e-4211-89fd-7bb9b5fb9b5e" />
+            <covered>
+              <lifelineMoniker Id="3aa62fe1-ee63-48ac-8ef7-8e59e5346e0b" LastKnownName="WMService : IWMService" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="0c7cc9f9-9b63-457a-82b7-5196ca88d96e" name="ExecutionOccurrenceSpecification2">
+            <elementDefinition Id="c82ed67e-ccaf-45b8-b971-76f9b2235c83" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="79b28523-c29c-4a5e-be6c-c84dca7c70ef" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="ca3e76be-1139-4007-a94c-8780d5c96733" LastKnownName="FormService : IFormService" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="3aa62fe1-ee63-48ac-8ef7-8e59e5346e0b" name="WMService : IWMService" isActor="false" lifelineDisplayName="WMService : IWMService">
+            <elementDefinition Id="5326b492-3bb2-41e5-b372-7136a0c0d2d5" />
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="7af7fc64-782e-47d5-a3b0-9e44283f88e2" LastKnownName="MessageOccurrenceSpecification1" />
+              <messageOccurrenceSpecificationMoniker Id="dc27c7bc-aacc-4adb-891a-c181a58220dd" LastKnownName="MessageOccurrenceSpecification4" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="ca3e76be-1139-4007-a94c-8780d5c96733" name="FormService : IFormService" isActor="false" lifelineDisplayName="FormService : IFormService">
+            <elementDefinition Id="d3b89401-1154-485c-a4a5-6482e972bbd0" />
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="9ee5acab-2df0-41a6-a8de-48d559d1ca90" LastKnownName="ExecutionOccurrenceSpecification1" />
+              <executionOccurrenceSpecificationMoniker Id="0c7cc9f9-9b63-457a-82b7-5196ca88d96e" LastKnownName="ExecutionOccurrenceSpecification2" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="6f3e5719-4996-4b94-887c-22e1224bea57" name="WebMethodClient : IWebMethodClient" isActor="false" lifelineDisplayName="WebMethodClient : IWebMethodClient">
+            <elementDefinition Id="eae5a919-422c-45a4-9ff6-ade0edd3cbb2" />
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="87ab02fb-b48c-4df4-9fc2-d849bc7bbcbd" LastKnownName="ExecutionOccurrenceSpecification5" />
+              <executionOccurrenceSpecificationMoniker Id="d12ff825-1da8-48f7-b649-20135243167b" LastKnownName="ExecutionOccurrenceSpecification6" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="045e9878-dbf6-412d-a74f-6385f53d1326" name="WebMethods Service" isActor="false" lifelineDisplayName="WebMethods Service">
+            <elementDefinition Id="50473a31-1af5-4bf7-ba06-984a7a0cc417" />
+            <represents>
+              <propertyMoniker Id="c0dcaab2-1871-4c81-a60f-fb495f8a682b" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="9ff4dcb1-fc99-42f3-a1d5-ac6351ae8a5e" LastKnownName="ExecutionOccurrenceSpecification9" />
+              <executionOccurrenceSpecificationMoniker Id="0a8f5a9e-f99c-4c3b-af76-b2076ed3170a" LastKnownName="ExecutionOccurrenceSpecification10" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="2067c249-186c-4165-ba6b-e52d6827f918" name="ProcessFormRequest(FormRequestObj)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="022e7aa0-07bf-4e07-a947-507be218d83c" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="7af7fc64-782e-47d5-a3b0-9e44283f88e2" LastKnownName="MessageOccurrenceSpecification1" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="a5d910a5-11c7-4d79-ab78-a9829f2522dc" LastKnownName="MessageOccurrenceSpecification2" />
+            </receiveEvent>
+          </message>
+          <message Id="bd98ff88-d6a1-48f4-aeba-bc3279248292" name="ProcessFormRequest(FormRequestObj)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="b49045b8-575b-408a-9137-10f188bdad03" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d635d512-d4d6-4b90-a816-137237734220" LastKnownName="MessageOccurrenceSpecification9" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="3b1f1c2c-9991-468e-b2b4-b0006f3595e2" LastKnownName="MessageOccurrenceSpecification10" />
+            </receiveEvent>
+          </message>
+          <message Id="ee4c08ac-2031-4282-bac9-c6cdece3f22c" name="Process form request" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="49e60ceb-c3b2-4107-a63b-d00577120353" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="db61bb72-1d2f-421c-96da-95e6d42335cf" LastKnownName="MessageOccurrenceSpecification17" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="ce921308-3f7b-43bb-9599-31d3bf18e4bf" LastKnownName="MessageOccurrenceSpecification18" />
+            </receiveEvent>
+          </message>
+          <message Id="21080b8e-9aab-4983-9766-602330071f98" name="string" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="925d13b1-ba4f-4926-b3a8-83f7d8c26e16" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="e83e7156-56af-4a30-82bb-8d31cda8ecf9" LastKnownName="MessageOccurrenceSpecification19" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="7eccecb2-86dd-45d9-af9e-32fec27b83be" LastKnownName="MessageOccurrenceSpecification20" />
+            </receiveEvent>
+          </message>
+          <message Id="4a31a89e-ea0c-4e15-94fc-5e71a9b9f3e7" name="string" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="2347f315-2141-4799-a061-c831d96b1b1a" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="7558c3e7-0a48-4567-9c52-fe10954c8486" LastKnownName="MessageOccurrenceSpecification11" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="f39e1217-8e1c-433e-b8fc-e682a928ff78" LastKnownName="MessageOccurrenceSpecification12" />
+            </receiveEvent>
+          </message>
+          <message Id="997b1000-f51d-46d3-bbfd-2044715d6dd2" name="string" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="2d826894-64de-46cd-9235-bb9303000165" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="3b5b4825-64a8-47d9-9e33-38f4f8b53bc0" LastKnownName="MessageOccurrenceSpecification3" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="dc27c7bc-aacc-4adb-891a-c181a58220dd" LastKnownName="MessageOccurrenceSpecification4" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property Id="c0dcaab2-1871-4c81-a60f-fb495f8a682b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f71af37-3167-4dd5-942e-a30b6fc9855e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8c4ffa38-0309-452c-9b27-9480bc0c1b32" LastKnownName="WebMethods Service" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="ba159b1c-ea10-49e3-8b80-6cb3b1ca6501" name="ExecutionEvent">
+        <elementDefinition Id="e12da348-cf55-424f-8ffe-274bf8292cc3" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="79b28523-c29c-4a5e-be6c-c84dca7c70ef" name="ExecutionEvent">
+        <elementDefinition Id="1ce191ef-4d78-43bc-8896-7e7fba5e2dc3" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="39582350-1351-4c33-b872-da4dfca56355" name="ExecutionEvent">
+        <elementDefinition Id="c6e0678b-a342-4b21-ae67-fce7e0ebaeec" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="2ef11340-2b82-404b-8a6b-5269b51f0bb7" name="ExecutionEvent">
+        <elementDefinition Id="3be7ce4f-ce9c-4040-9e22-1caf6d8dab7e" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="d85ed5a3-30a9-47c2-ac57-a888258ce74a" name="ExecutionEvent">
+        <elementDefinition Id="6de656d5-a401-4d00-8b12-e9310f779e8f" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="def446dc-f112-4766-affd-899ceb709b9b" name="ExecutionEvent">
+        <elementDefinition Id="866e08a5-6d1a-4f03-9721-765331dfd5e7" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8c4ffa38-0309-452c-9b27-9480bc0c1b32" name="WebMethods Service" isAbstract="false" isLeaf="false" cachedFullName="WebMethodsModelling::WebMethods Service">
+        <elementDefinition Id="5abcd68d-96a0-4b2c-bb5b-5701c3c9772a" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="908858ae-dd17-499a-be03-0f08fe33c83a" name="WebMethodsModelling">
+    <elementDefinition Id="44ce596d-68a5-4896-90db-17f26fe26813" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1b74b050-494d-4e36-85e8-4937d09dd86d">
+        <profileInstance Id="61ab6eea-d26a-4033-83e4-ce8fe059799e" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a9e9dedc-2590-4e6b-b622-eff12a59b65c">
+        <profileInstance Id="80ce18e3-9efa-4703-9a1b-3137e01e4c67" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</SequenceDesignerModel>
