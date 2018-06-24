@@ -7,13 +7,15 @@ using System.Web.Http;
 using PKI.eBusiness.WMService.Logger;
 using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
+//using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using Newtonsoft.Json;
 using System.IO;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
+
+    [Route("wms/orders/{action}")]
     public class OrderController : ApiController
     {
         readonly IOrderService _orderService;
@@ -23,10 +25,9 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         {
             _orderService = orderService;
         }
-        
-        [Route("wms/orders/simulate")]
+
         [HttpPost]
-        public IHttpActionResult SimulateOrder([FromBody] SimulateOrderRequest payload)
+        public IHttpActionResult Simulate([FromBody] SimulateOrderRequest payload)
         {
             if (payload == null)
             {
@@ -50,15 +51,31 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(inventoryResponseEntity);
         }
 
-        [Route("wms/orders/simulateMock")]
         [HttpPost]
-        public IHttpActionResult SimulateOrderMock([FromBody] SimulateOrderRequest payload)
+        public IHttpActionResult Inventory([FromBody] InventoryRequest request)
         {
-            var source = File.ReadAllText("SimulateResponse.json");
-            var simulateOrderResponseEntity  = JsonConvert.DeserializeObject<SimulateOrderResponse>(source);
-            return Ok(simulateOrderResponseEntity);
-        }
+            if (request == null)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST);
+                return BadRequest(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST);
+            }
 
+            if (!ModelState.IsValid)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST_MODEL);
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
+            }
+
+            var inventoryResponseEntity = _orderService.GetInventory(request);
+            if (inventoryResponseEntity == null)
+            {
+                Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_INVENTORY_RESPONSE);
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_INVENTORY_RESPONSE));
+            }
+
+            return Ok(inventoryResponseEntity);
+
+        }
 
         /// <summary>
         /// This method will log message to log file

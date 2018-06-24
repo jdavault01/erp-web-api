@@ -9,6 +9,8 @@ using System.Web.Http;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
+    [Route("wms/products/{action}")]
+
     public class ProductController : ApiController
     {
         readonly IProductService _productService;
@@ -19,7 +21,6 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             _productService = productService;
         }
 
-        [Route("wms/product/getprice")]
         [HttpPost]
         public IHttpActionResult GetPrice([FromBody] PriceRequest request)
         {
@@ -44,32 +45,6 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             }
 
             return Ok(new PriceResponseModel(priceResponseEntity));
-        }
-        [Route("wms/orders/inventory")]
-        [HttpPost]
-        public IHttpActionResult GetInventory([FromBody] InventoryRequest request)
-        {
-            if (request == null)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST);
-                return BadRequest(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST);
-            }
-
-            if (!ModelState.IsValid)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_INVENTORY_REQUEST_MODEL);
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
-            }
-
-            var inventoryResponseEntity = _productService.GetInventory(request);
-            if (inventoryResponseEntity == null)
-            {
-                Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_INVENTORY_RESPONSE);
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_INVENTORY_RESPONSE));
-            }
-
-            return Ok(inventoryResponseEntity);
-
         }
 
         /// <summary>
