@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using System.Runtime.Serialization;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using ServiceStubs = PKI.eBusiness.WMService.Entities.Stubs;
-using System.Runtime.Serialization;
 using StorefrontSimulateOrderRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.SimulateOrderRequest;
 
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
@@ -34,10 +30,10 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
         {
             SimulateOrderWebServiceRequest = new SimulateOrderWebServiceRequest();
 
-            var header = new Header()
+            var header = new Header2()
             {
-                Version = new ServiceStubs.StoreFront.Version(){value = "001"},
-                Sender = new Sender { Component = "ZWEB", Task = "OrderSimulateRequest" }
+                Version = new ServiceStubs.StoreFront.Version2() { value = "001" },
+                Sender = new Sender2 { Component = "ZWEB", Task = "OrderSimulateRequest" }
             };
 
             RequestDetails = new OrderRequestDetail[clientRequest.NumberOfItems];
@@ -78,11 +74,11 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
                 Partner = partners
             };
 
-            var body = new Body(){OrderRequestHeader = RequestHeader,OrderRequestDetail = RequestDetails};
-            var bodies = new Body[1] {body = body};
+            var body = new Body2() { OrderRequestHeader = RequestHeader, OrderRequestDetail = RequestDetails };
+            var bodies = new Body2[1] { body = body };
 
-            Request = new OrderRequest(){Header = header,Body = bodies};
-            OrderRequestPayLoad = new orderRequest(){OrderRequest = Request};
+            Request = new OrderRequest() { Header = header, Body = bodies };
+            OrderRequestPayLoad = new orderRequest() { OrderRequest = Request };
             SimulateOrderWebServiceRequest.OrderRequest = OrderRequestPayLoad;
         }
 

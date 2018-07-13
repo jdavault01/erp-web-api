@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://npsv04.perkinelmer.com/services:StorefrontWebServices" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" name="StorefrontWebServices" targetNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices">
+      <xsd:element name="PartnerWebService" type="tns:PartnerWebService" />
+      <xsd:element name="PartnerWebServiceResponse" type="tns:PartnerWebServiceResponse" />
+      <xsd:element name="HandlerInput" type="tns:HandlerInput" />
+      <xsd:element name="HandlerOutput" type="tns:HandlerOutput" />
+      <xsd:element name="InventoryWebService" type="tns:InventoryWebService" />
+      <xsd:element name="InventoryWebServiceResponse" type="tns:InventoryWebServiceResponse" />
+      <xsd:element name="SimulateOrderWebService" type="tns:SimulateOrderWebService" />
+      <xsd:element name="SimulateOrderWebServiceResponse" type="tns:SimulateOrderWebServiceResponse" />
+      <xsd:element name="PriceWebService" type="tns:PriceWebService" />
+      <xsd:element name="PriceWebServiceResponse" type="tns:PriceWebServiceResponse" />
+      <xsd:element name="ContactCreateWebService" type="tns:ContactCreateWebService" />
+      <xsd:element name="ContactCreateWebServiceResponse" type="tns:ContactCreateWebServiceResponse" />
+      <xsd:complexType name="PartnerWebService">
+        <xsd:sequence>
+          <xsd:element name="PartnerRequest" nillable="true" type="tns:PartnerRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerRequest">
+        <xsd:sequence>
+          <xsd:element name="PartnerRequestHeader" type="tns:PartnerRequestHeader" />
+          <xsd:element maxOccurs="unbounded" name="PartnerRequestDetail" type="tns:PartnerRequestDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerRequestHeader">
+        <xsd:sequence>
+          <xsd:element name="SalesOrgID" type="xsd:string" />
+          <xsd:element name="DIVISION" nillable="true" type="xsd:string" />
+          <xsd:element name="DISTR_CHAN" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerRequestDetail">
+        <xsd:sequence>
+          <xsd:element name="PartnerID" type="xsd:string" />
+          <xsd:element name="PartnerType" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerWebServiceResponse">
+        <xsd:sequence>
+          <xsd:element name="PartnerResponse" nillable="true" type="tns:PartnerResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PartnerResponseHeader" type="tns:PartnerResponseHeader" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PartnerResponseDetail" type="tns:PartnerResponseDetail" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PartnerResponseHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Datetime" type="tns:Datetime" />
+          <xsd:element name="ERPHierarchyNumber" type="xsd:string" />
+          <xsd:element name="ERPHierarchyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Datetime">
+        <xsd:sequence>
+          <xsd:element name="Year" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+        <xsd:attribute name="qualifier" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="docType_Userarea">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="PartnerResponseDetail">
+        <xsd:sequence>
+          <xsd:element name="PartnerID" type="xsd:string" />
+          <xsd:element name="PartnerType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Partner" type="tns:Partner" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Partner">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Name1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name3" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name4" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RADIndicator" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MarkedForDeletion" type="xsd:string" />
+          <xsd:element name="PartnerID" type="xsd:string" />
+          <xsd:element name="PartnerType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DUNSNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxExempt" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Address" type="tns:Address" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Address">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Street" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBox" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxCity" type="xsd:string" />
+          <xsd:element minOccurs="0" name="City" type="xsd:string" />
+          <xsd:element minOccurs="0" name="District" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxPostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Region" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CountyCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Telephone" type="tns:Telephone" />
+          <xsd:element minOccurs="0" name="URL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea" />
+        </xsd:sequence>
+        <xsd:attribute name="returndata" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Telephone" mixed="true">
+        <xsd:attribute name="qualifier" type="tns:_x0040_qualifier" use="required" />
+      </xsd:complexType>
+      <xsd:simpleType name="_x0040_qualifier">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Daytime" />
+          <xsd:enumeration value="Evening" />
+          <xsd:enumeration value="Cell" />
+          <xsd:enumeration value="Fax" />
+          <xsd:enumeration value="First" />
+          <xsd:enumeration value="Second" />
+          <xsd:enumeration value="Third" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="docType_ErrorReturn">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Timestamp" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Error" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorDump" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorSource" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Service" type="xsd:string" />
+          <xsd:element minOccurs="0" name="User" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HandlerInput">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="xmlRequest" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="node" nillable="true" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HandlerOutput">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="xmlResponse" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryWebService">
+        <xsd:sequence>
+          <xsd:element name="InventoryRequest" nillable="true" type="tns:InventoryRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryRequest">
+        <xsd:sequence>
+          <xsd:element name="InventoryRequestHeader" type="tns:InventoryRequestHeader" />
+          <xsd:element maxOccurs="unbounded" name="InventoryRequestDetail" type="tns:InventoryRequestDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryRequestHeader">
+        <xsd:sequence>
+          <xsd:element name="SalesOrgID" type="xsd:string" />
+          <xsd:element name="DistChannelID" type="xsd:string" />
+          <xsd:element name="DivisionID" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="Partner" type="tns:Partner2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Partner2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Name1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name3" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name4" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RADIndicator" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MarkedForDeletion" type="xsd:string" />
+          <xsd:element name="PartnerID" type="xsd:string" />
+          <xsd:element name="PartnerType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DUNSNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxExempt" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Address" type="tns:Address2" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea2" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Address2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Street" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBox" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxCity" type="xsd:string" />
+          <xsd:element minOccurs="0" name="City" type="xsd:string" />
+          <xsd:element minOccurs="0" name="District" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxPostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Region" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CountyCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Telephone" type="tns:Telephone2" />
+          <xsd:element minOccurs="0" name="URL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea2" />
+        </xsd:sequence>
+        <xsd:attribute name="returndata" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Telephone2" mixed="true">
+        <xsd:attribute name="qualifier" type="tns:_x0040_qualifier2" use="required" />
+      </xsd:complexType>
+      <xsd:simpleType name="_x0040_qualifier2">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Daytime" />
+          <xsd:enumeration value="Evening" />
+          <xsd:enumeration value="Cell" />
+          <xsd:enumeration value="Fax" />
+          <xsd:enumeration value="First" />
+          <xsd:enumeration value="Second" />
+          <xsd:enumeration value="Third" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="docType_Userarea2">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="InventoryRequestDetail">
+        <xsd:sequence>
+          <xsd:element name="OrderLineNumber" type="xsd:string" />
+          <xsd:element name="ProductID" type="xsd:string" />
+          <xsd:element name="Quantity" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RequestedDate" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryWebServiceResponse">
+        <xsd:sequence>
+          <xsd:element name="InventoryResponse" nillable="true" type="tns:InventoryResponse" />
+          <xsd:element name="ErrorResponse" nillable="true" type="tns:ErrorResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InventoryResponseDetail" type="tns:InventoryResponseDetail" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InventoryResponseDetail">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ShippingPoint" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OrderLineNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ProductID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Quantity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ItemDetail" type="tns:ItemDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ItemDetail">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AvailableQty" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AvailableDate" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="docType_ErrorReturn2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Timestamp" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Error" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorDump" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorSource" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Service" type="xsd:string" />
+          <xsd:element minOccurs="0" name="User" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Userarea">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="ErrorResponse">
+        <xsd:sequence>
+          <xsd:element name="ErrorResponse" type="tns:ErrorResponse2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ErrorResponse2">
+        <xsd:sequence>
+          <xsd:element name="Header" type="tns:Header" />
+          <xsd:element maxOccurs="unbounded" name="Body" type="tns:Body" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Header">
+        <xsd:sequence>
+          <xsd:element name="Version" type="tns:Version" />
+          <xsd:element minOccurs="0" name="DocumentID" type="xsd:string" />
+          <xsd:element name="Sender" type="tns:Sender" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Version" mixed="true">
+        <xsd:attribute name="value" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Sender">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LogicalID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Component" type="xsd:string" />
+          <xsd:element name="Task" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ReferenceID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Language" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AuthID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Body">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Timestamp" type="xsd:string" />
+          <xsd:element name="ErrorNumber" type="xsd:string" />
+          <xsd:element name="Error" type="xsd:string" />
+          <xsd:element name="ErrorType" type="xsd:string" />
+          <xsd:element name="ErrorDump" type="xsd:string" />
+          <xsd:element name="Service" type="xsd:string" />
+          <xsd:element minOccurs="0" name="User" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Userarea2">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="SimulateOrderWebService">
+        <xsd:sequence>
+          <xsd:element name="OrderRequest" nillable="true" type="tns:orderRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="orderRequest">
+        <xsd:sequence>
+          <xsd:element name="OrderRequest" type="tns:OrderRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OrderRequest">
+        <xsd:sequence>
+          <xsd:element name="Header" type="tns:Header2" />
+          <xsd:element maxOccurs="unbounded" name="Body" type="tns:Body2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Header2">
+        <xsd:sequence>
+          <xsd:element name="Version" type="tns:Version2" />
+          <xsd:element minOccurs="0" name="DocumentID" type="xsd:string" />
+          <xsd:element name="Sender" type="tns:Sender2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Version2" mixed="true">
+        <xsd:attribute name="value" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Sender2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LogicalID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Component" type="xsd:string" />
+          <xsd:element name="Task" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ReferenceID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Language" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AuthID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Body2">
+        <xsd:sequence>
+          <xsd:element name="OrderRequestHeader" type="tns:OrderRequestHeader" />
+          <xsd:element maxOccurs="unbounded" name="OrderRequestDetail" type="tns:OrderRequestDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OrderRequestHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
+          <xsd:element name="DistChannelID" type="xsd:string" />
+          <xsd:element name="DivisionID" type="xsd:string" />
+          <xsd:element name="language" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PurchaseOrderID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DeliveryBlockText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DeliveryBlockStatus" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AgentOrderID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PaymentType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CreditCard" type="tns:CreditCard" />
+          <xsd:element minOccurs="0" name="WebOrderNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PartialAccepted" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CarrierID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CarrierAccount" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumberOfItems" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PromoCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ResearchRewards" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Miscellaneous" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SpecialHandlingInstructions" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="Partner" type="tns:Partner3" />
+          <xsd:element minOccurs="0" name="AltTAX" type="xsd:string" />
+          <xsd:element minOccurs="0" name="VATNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="VATExpirationDate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DeliveryBlock" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AdditionalInfo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AttentionLines" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AttentionLinesBillTo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TelephoneNumber" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditCard">
+        <xsd:sequence>
+          <xsd:element name="CreditCardType" type="xsd:string" />
+          <xsd:element name="CreditCardNumber" type="xsd:string" />
+          <xsd:element name="HolderName" type="xsd:string" />
+          <xsd:element name="ExpirationMonth" type="xsd:string" />
+          <xsd:element name="ExpirationYear" type="xsd:string" />
+          <xsd:element name="SecurityNumber" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Partner3">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Name1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name3" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Name4" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RADIndicator" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MarkedForDeletion" type="xsd:string" />
+          <xsd:element name="PartnerID" type="xsd:string" />
+          <xsd:element name="PartnerType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DUNSNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxExempt" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TaxID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Address" type="tns:Address3" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea3" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Address3">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Street" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBox" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxCity" type="xsd:string" />
+          <xsd:element minOccurs="0" name="City" type="xsd:string" />
+          <xsd:element minOccurs="0" name="District" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POBoxPostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Region" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CountyCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Telephone" type="tns:Telephone3" />
+          <xsd:element minOccurs="0" name="URL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea3" />
+        </xsd:sequence>
+        <xsd:attribute name="returndata" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Telephone3" mixed="true">
+        <xsd:attribute name="qualifier" type="tns:_x0040_qualifier3" use="required" />
+      </xsd:complexType>
+      <xsd:simpleType name="_x0040_qualifier3">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Daytime" />
+          <xsd:enumeration value="Evening" />
+          <xsd:enumeration value="Cell" />
+          <xsd:enumeration value="Fax" />
+          <xsd:enumeration value="First" />
+          <xsd:enumeration value="Second" />
+          <xsd:enumeration value="Third" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="docType_Userarea3">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="OrderRequestDetail">
+        <xsd:sequence>
+          <xsd:element name="OrderLineNumber" type="xsd:string" />
+          <xsd:element name="ProductID" type="xsd:string" />
+          <xsd:element name="Quantity" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ShippingInstructions" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RequestedDate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SimulateOrderWebServiceResponse">
+        <xsd:sequence>
+          <xsd:element name="OrderResponse" nillable="true" type="tns:orderResponse" />
+          <xsd:element name="ErrorResponse" nillable="true" type="tns:ErrorResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="orderResponse">
+        <xsd:sequence>
+          <xsd:element name="OrderResponse" type="tns:OrderResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OrderResponse">
+        <xsd:sequence>
+          <xsd:element name="Header" type="tns:Header3" />
+          <xsd:element minOccurs="0" name="Body" type="tns:Body3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Header3">
+        <xsd:sequence>
+          <xsd:element name="Version" type="tns:Version3" />
+          <xsd:element minOccurs="0" name="DocumentID" type="xsd:string" />
+          <xsd:element name="Sender" type="tns:Sender3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Version3" mixed="true">
+        <xsd:attribute name="value" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Sender3">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LogicalID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Component" type="xsd:string" />
+          <xsd:element name="Task" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ReferenceID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Language" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AuthID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Body3">
+        <xsd:sequence>
+          <xsd:element name="OrderResponseHeader" type="tns:OrderResponseHeader" />
+          <xsd:element maxOccurs="unbounded" name="OrderResponseDetail" type="tns:OrderResponseDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OrderResponseHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Datetime" type="tns:Datetime2" />
+          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PurchaseOrderID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AgentOrderID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SellerOrderID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PaymentTerms" type="xsd:string" />
+          <xsd:element minOccurs="0" name="INCOTerms" type="xsd:string" />
+          <xsd:element minOccurs="0" name="INCOCode" type="xsd:string" />
+          <xsd:element name="Currency" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ShippingCost" type="xsd:string" />
+          <xsd:element name="TaxVAT" type="xsd:string" />
+          <xsd:element name="OrderTotal" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PromoType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Datetime2">
+        <xsd:sequence>
+          <xsd:element name="Year" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+        <xsd:attribute name="qualifier" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="docType_Userarea4">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="OrderResponseDetail">
+        <xsd:sequence>
+          <xsd:element name="ShippingPoint" type="xsd:string" />
+          <xsd:element name="OrderLineNumber" type="xsd:string" />
+          <xsd:element name="ProductID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="ItemDetail" type="tns:ItemDetail2" />
+          <xsd:element name="AdjustedPrice" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GrossPrice" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Discount" type="xsd:string" />
+          <xsd:element name="TaxVAT" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ShippingCost" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AvailabilityFlag" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:docType_Userarea4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ItemDetail2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AvailableQty" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AvailableDate" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="PriceWebService">
+        <xsd:sequence>
+          <xsd:element name="PricingRequest" nillable="true" type="tns:ProductPricingRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductPricingRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BillTo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ShipTo" type="xsd:string" />
+          <xsd:element name="SalesOrgID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
+          <xsd:element name="DivisionID" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="ProductList" type="tns:ProductList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductList">
+        <xsd:sequence>
+          <xsd:element name="ProductID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PriceWebServiceResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ProductList" nillable="true" type="tns:ProductList2" />
+          <xsd:element minOccurs="0" name="ErrorReturn" type="tns:docType_ErrorReturn" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductList2">
+        <xsd:sequence>
+          <xsd:element name="ProductID" nillable="true" type="xsd:string" />
+          <xsd:element name="Currency" nillable="true" type="xsd:string" />
+          <xsd:element name="Price" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateWebService">
+        <xsd:sequence>
+          <xsd:element name="ContactCreateRequest" nillable="true" type="tns:ContactCreateRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateRequest">
+        <xsd:sequence>
+          <xsd:element name="ContactCreateRequestHeader" type="tns:ContactCreateRequestHeader" />
+          <xsd:element maxOccurs="unbounded" name="ContactCreateRequestDetail" type="tns:ContactCreateRequestDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateRequestHeader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Datetime" type="tns:Datetime3" />
+          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
+          <xsd:element name="PartnerID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Datetime3">
+        <xsd:sequence>
+          <xsd:element name="Year" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateRequestDetail">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FirstName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LastName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Role" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Source" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ContactNameID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Telephone" type="tns:Telephone4" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Telephone4" mixed="true">
+        <xsd:attribute name="qualifier" type="tns:_x0040_qualifier4" use="required" />
+      </xsd:complexType>
+      <xsd:simpleType name="_x0040_qualifier4">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Daytime" />
+          <xsd:enumeration value="Evening" />
+          <xsd:enumeration value="Cell" />
+          <xsd:enumeration value="Fax" />
+          <xsd:enumeration value="First" />
+          <xsd:enumeration value="Second" />
+          <xsd:enumeration value="Third" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Userarea3">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateWebServiceResponse">
+        <xsd:sequence>
+          <xsd:element name="ContactCreateResponse" nillable="true" type="tns:ContactCreateResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ContactCreateResponseHeader" type="tns:ContactCreateResponseHeader" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ContactCreateResponseDetail" type="tns:ContactCreateResponseDetail" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateResponseHeader">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="Datetime" type="tns:Datetime4" />
+          <xsd:element minOccurs="0" name="PartnerID" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Datetime4">
+        <xsd:sequence>
+          <xsd:element name="Year" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+        <xsd:attribute name="qualifier" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="ContactCreateResponseDetail">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ContactNameID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="docType_ErrorReturn3">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Timestamp" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Error" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ErrorDump" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="InternalErrorSource" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Service" type="xsd:string" />
+          <xsd:element minOccurs="0" name="User" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Userarea4">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="StorefrontWebServices_PortType_ContactCreateWebServiceResponse">
+    <wsdl:part name="parameters" element="tns:ContactCreateWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_ContactCreateWebService">
+    <wsdl:part name="parameters" element="tns:ContactCreateWebService" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_InventoryWebServiceResponse">
+    <wsdl:part name="parameters" element="tns:InventoryWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_InventoryWebService">
+    <wsdl:part name="parameters" element="tns:InventoryWebService" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_SimulateOrderWebServiceResponse">
+    <wsdl:part name="parameters" element="tns:SimulateOrderWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_PartnerWebService">
+    <wsdl:part name="parameters" element="tns:PartnerWebService" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_HandlerInput">
+    <wsdl:part name="parameters" element="tns:HandlerInput" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_PartnerWebServiceResponse">
+    <wsdl:part name="parameters" element="tns:PartnerWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_SimulateOrderWebService">
+    <wsdl:part name="parameters" element="tns:SimulateOrderWebService" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_PriceWebServiceResponse">
+    <wsdl:part name="parameters" element="tns:PriceWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_PriceWebService">
+    <wsdl:part name="parameters" element="tns:PriceWebService" />
+  </wsdl:message>
+  <wsdl:message name="StorefrontWebServices_PortType_HandlerOutput">
+    <wsdl:part name="parameters" element="tns:HandlerOutput" />
+  </wsdl:message>
+  <wsdl:portType name="StorefrontWebServices_PortType">
+    <wsdl:operation name="OrderInfoWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_HandlerInput" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_HandlerOutput" />
+    </wsdl:operation>
+    <wsdl:operation name="PriceWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_PriceWebService" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_PriceWebServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="InventoryWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_InventoryWebService" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_InventoryWebServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SimulateOrderWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_SimulateOrderWebService" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_SimulateOrderWebServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactCreateWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_ContactCreateWebService" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_ContactCreateWebServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PartnerWebService">
+      <wsdl:input message="tns:StorefrontWebServices_PortType_PartnerWebService" />
+      <wsdl:output message="tns:StorefrontWebServices_PortType_PartnerWebServiceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="services_StorefrontWebServices_Binder" type="tns:StorefrontWebServices_PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OrderInfoWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_OrderInfoWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PriceWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_PriceWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InventoryWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_InventoryWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimulateOrderWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_SimulateOrderWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCreateWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_ContactCreateWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PartnerWebService">
+      <soap:operation soapAction="services_StorefrontWebServices_Binder_PartnerWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="services.StorefrontWebServices">
+    <wsdl:port name="services_StorefrontWebServices_Port" binding="tns:services_StorefrontWebServices_Binder">
+      <soap:address location="http://npsv04.perkinelmer.com:5556/ws/services.StorefrontWebServices/services_StorefrontWebServices_Port" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

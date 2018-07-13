@@ -83,9 +83,10 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         public decimal OrderTotal { get; set; }
         [DataMember]
         public List<OrderLineItem> LineItems { get; set; }
-
-        //[DataMember]
-       // public SimulateOrderResponse OrderResponse { get; set; }
+        [DataMember]
+        public String ErrorMessage { get; set; }
+        [DataMember]
+        public List<FailedItem> FailedItems { get; set; }
 
         public SimulateOrderResponse()
         {

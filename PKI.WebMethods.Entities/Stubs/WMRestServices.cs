@@ -1,57 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
-using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
+using StoreFrontObject = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 
 namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront
 {
-    [DataContract]
-    public class ContactCreateWebServiceRequest
-    {
-        [DataMember]
-        public Request ContactCreateRequest { get; set; }
-    }
 
-    [DataContract]
-    public class Request
+    public partial class ContactCreateRequest
     {
-        [DataMember]
-        public RequestHeader ContactCreateRequestHeader { get; set; }
-        [DataMember]
-        public RequestDetail ContactCreateRequestDetail { get; set; }
-
-        public Request(ContactCreateRequest request)
+        public ContactCreateRequest()
         {
-            ContactCreateRequestHeader = new RequestHeader(request.AccountNumber);
-            ContactCreateRequestDetail = new RequestDetail(request);
+        }
+
+        public ContactCreateRequest(StoreFrontObject.ContactCreateRequest request)
+        {
+            ContactCreateRequestHeader = new ContactCreateRequestHeader(request);
+            ContactCreateRequestDetail = new ContactCreateRequestDetail(request);
+            //var contactCreateRequestDetail = new ContactCreateRequestDetail(request);
+            //var details = new ContactCreateRequestDetail[1];
+            //details[0] = contactCreateRequestDetail;
+            //ContactCreateRequestDetail = details;
         }
 
     }
 
-    public class RequestHeader
+    public partial class ContactCreateRequestHeader
     {
-        [DataMember]
-        public Date Datetime { get; set; }
-        [DataMember]
-        public string PartnerID { get; set; }
-
-        public RequestHeader(String accountNumber)
+        public ContactCreateRequestHeader()
         {
-            this.Datetime = new Date(DateTime.Now);
-            this.PartnerID = accountNumber;
+
+        }
+        public ContactCreateRequestHeader(StoreFrontObject.ContactCreateRequest request)
+        {
+            var dateTime3 = new Datetime3()
+            {
+                Year = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
+                Month = DateTime.Now.Month.ToString(CultureInfo.InvariantCulture),
+                Day = DateTime.Now.Day.ToString(CultureInfo.InvariantCulture)
+            };
+            this.Datetime = dateTime3;
+            this.PartnerID = request.AccountNumber;
+            this.SalesOrgID = request.SalesAreaInfo.SalesOrgId;
+            this.DivisionID = request.SalesAreaInfo.DivisionId;
+            this.DistChannelID = request.SalesAreaInfo.DistChannelId;
+
         }
 
-        public RequestHeader(String accountNumber, DateTime date)
+        public ContactCreateRequestHeader(String accountNumber, DateTime date)
         {
-            this.Datetime = new Date(date);
-            this.PartnerID = accountNumber;
+            var dateTime3 = new Datetime3()
+            {
+                Year = date.Year.ToString(CultureInfo.InvariantCulture),
+                Month = date.Month.ToString(CultureInfo.InvariantCulture),
+                Day = date.Day.ToString(CultureInfo.InvariantCulture)
+            };
         }
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public class Date
     {
         [DataMember]
@@ -61,60 +76,49 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront
         [DataMember]
         public string Day { get; set; }
 
-        public Date() 
+        public Date()
         {
-            var year = DateTime.Now.Year.ToString();
-            var mon = DateTime.Now.Month.ToString();
-            var day = DateTime.Now.Day.ToString();
+            var year = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture);
+            var mon = DateTime.Now.Month.ToString(CultureInfo.InvariantCulture);
+            var day = DateTime.Now.Day.ToString(CultureInfo.InvariantCulture);
         }
 
         public Date(DateTime date)
         {
-            var year = date.Year.ToString();
-            var mon = date.Month.ToString();
-            var day = date.Day.ToString();
+            var year = date.Year.ToString(CultureInfo.InvariantCulture);
+            var mon = date.Month.ToString(CultureInfo.InvariantCulture);
+            var day = date.Day.ToString(CultureInfo.InvariantCulture);
         }
 
 
     }
 
-    public class RequestDetail
-    {
-        [DataMember]
-        public string FirstName { get; set; }
-        [DataMember]
-        public string LastName { get; set; }
-        [DataMember]
-        public string Email { get; set; }
-        [DataMember]
-        public string Source { get; set; }
-        [DataMember]
-        public string SalesOrgID { get; set; }
-        [DataMember]
-        public string DivisionID { get; set; }
-        [DataMember]
-        public string DistChannelID { get; set; }
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
 
-        public RequestDetail(ContactCreateRequest request)
+    public partial class ContactCreateRequestDetail
+    {
+        public ContactCreateRequestDetail(StoreFrontObject.ContactCreateRequest request)
         {
-            this.FirstName = request.FirstName;
-            this.LastName = request.LastName;
-            this.Email = request.Email;
-            this.Source = "Web";
-            this.SalesOrgID = request.SalesAreaInfo.SalesOrgId;
-            this.DivisionID = request.SalesAreaInfo.DivisionId;
-            this.DistChannelID = request.SalesAreaInfo.DistChannelId;
+            FirstName = request.FirstName;
+            LastName = request.LastName;
+            Email = request.Email;
+            Source = "Web";
+            SalesOrgID = request.SalesAreaInfo.SalesOrgId;
+            DivisionID = request.SalesAreaInfo.DivisionId;
+            DistChannelID = request.SalesAreaInfo.DistChannelId;
         }
     }
 
-    [DataContract]
-    public class ContactCreateWebServiceResponse
-    {
-        [DataMember]
-        public Response ContactCreateResponse { get; set; }
-    }
 
-    [DataContract]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public class Response
     {
         [DataMember]
@@ -128,18 +132,30 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public struct ResponseHeader
     {
         [DataMember]
         public string PartnerID { get; set; }
     }
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public struct Contact
     {
         [DataMember]
         public string ContactNameID { get; set; }
     }
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public struct Error
     {
         [DataMember]

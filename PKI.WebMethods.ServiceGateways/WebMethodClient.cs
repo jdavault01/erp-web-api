@@ -121,7 +121,10 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
                 var newProductLists = request.PricingRequest.ProductList.Where(val => val.ProductID != productId).ToArray();
                 request.PricingRequest.ProductList = newProductLists;
-                
+
+                if (newProductLists.Length == 0)
+                    break;
+
                 Log(InfoMessages.SEND_DATA_CORRECTED_INPUT_REQUEST);
                 LogRequest(request);
                 wmPriceResponse = _soapStoreFrontWebService.PriceWebService(request);
@@ -153,7 +156,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
         private string GetProductFromErrorMessage(string errorMessage)
         {
-            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9\-]+) is not defined for sales org", RegexOptions.IgnoreCase);
+            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9\-]+) ", RegexOptions.IgnoreCase);
             return match.Success ? match.Groups[1].Value : string.Empty;
         }
 
@@ -164,19 +167,90 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebService(request);
-            LogResponse(wmSimulateOrderResponse);
-            return wmSimulateOrderResponse.ToSimulateOrderResponse();
+             LogResponse(wmSimulateOrderResponse);
+
+            var failedItems = new List<FailedItem>();
+            while (wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty)
+            {
+                var errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                string productId = LogFailedItem(failedItems, errorMessage);
+
+                var newitemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
+
+                if (newitemsList.Length == 0)
+                  break;
+
+                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                LogRequest(request);
+                wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebService(request);
+                LogResponse(wmSimulateOrderResponse);
+
+            }
+
+        var simulateOrderResponose =  wmSimulateOrderResponse.ToSimulateOrderResponse();
+
+            if (failedItems.Count == 0) return simulateOrderResponose;
+            simulateOrderResponose.FailedItems = failedItems;
+            simulateOrderResponose.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+            return simulateOrderResponose;
         }
 
         public InventoryResponse GetInventory(InventoryRequest inventoryWmRequest)
         {
+            var wmInventoryResponse = new InventoryWebServiceResponse1();
+
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = inventoryWmRequest.ToWmInventoryRequest();
             LogRequest(request);
-            var wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
+            wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
             LogResponse(wmInventoryResponse);
 
-            return wmInventoryResponse.ToInventoryResponse();
+            var failedItems = new List<FailedItem>();
+
+            while (wmInventoryResponse.ErrorResponse != null)
+            {
+                var errorMessage = wmInventoryResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                string productId = LogFailedItem(failedItems, errorMessage);
+
+                var newitemsList = request.InventoryRequest.InventoryRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.InventoryRequest.InventoryRequestDetail = newitemsList;
+
+                if (newitemsList.Length == 0)
+                    break;
+
+                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                //request = inventoryWmRequest.ToWmInventoryRequest();
+                LogRequest(request);
+                wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
+                LogResponse(wmInventoryResponse);
+
+            }
+            var inventoryResponse = wmInventoryResponse.ToInventoryResponse();
+
+            if (failedItems.Count == 0) return inventoryResponse;
+            inventoryResponse.FailedItems = failedItems;
+            inventoryResponse.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+            return inventoryResponse;
+        }
+
+        private string LogFailedItem(List<FailedItem> failedItems, string errorMessage)
+        {
+            if (String.IsNullOrEmpty(errorMessage))
+                return errorMessage;
+
+            var productId = GetProductFromErrorMessage(errorMessage);
+            if (productId == string.Empty)
+            {
+                Log(string.Format("{0} - {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, "Unable to get product from error return object"));
+                throw new ApplicationException("Unable to get product from error return object");
+            }
+
+            Log(string.Format("{0} for product {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, productId));
+
+            var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = productId };
+            failedItems.Add(failedItem);
+            return productId;
         }
 
         public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)

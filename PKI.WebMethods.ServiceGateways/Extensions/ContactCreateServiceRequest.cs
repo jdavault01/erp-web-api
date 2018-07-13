@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using System.Runtime.Serialization;
 using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
@@ -14,14 +11,14 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
     public class ContactCreateServiceRequest
     {
         [DataMember]
-        public String JsonResponse { get; set; }
+        public String JsonRequest { get; set; }
 
         public ContactCreateServiceRequest(StorefrontContactCreateRequest clientRequest)
         {
-            var WebServiceRequest = new ContactCreateWebServiceRequest();
-            var contactCreateRequest = new Request(clientRequest);
-            WebServiceRequest.ContactCreateRequest = contactCreateRequest;
-            JsonResponse = JsonConvert.SerializeObject(WebServiceRequest, Formatting.Indented);
+            var webServiceRequest = new ContactCreateWebServiceRequest();
+            var contactCreateRequest = new ContactCreateRequest(clientRequest);
+            webServiceRequest.ContactCreateRequest = contactCreateRequest;
+            JsonRequest = JsonConvert.SerializeObject(webServiceRequest, Formatting.Indented);
         }
     }
 }

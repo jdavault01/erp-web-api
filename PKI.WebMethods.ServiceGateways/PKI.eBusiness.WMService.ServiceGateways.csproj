@@ -47,8 +47,8 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -76,6 +76,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestCalls\WMRestServices.cs" />
     <Compile Include="Service References\ShopCommerce\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\StoreFrontWebServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -121,7 +126,9 @@
     </AdditionalFiles>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\PKI.eBusiness.WMService.ServiceGatewContracts.ShopCommerce.CartInfo.datasource" />
     <None Include="Properties\DataSources\PKI.eBusiness.WMService.ServiceGatewContracts.ShopCommerce.CartInfo1.datasource" />
     <None Include="Properties\DataSources\PKI.eBusiness.WMService.ServiceGatewContracts.ShopCommerce.LoginInfo.datasource" />
@@ -164,6 +171,46 @@
     <None Include="Service References\ShopCommerce\ShopCommerceService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.docType_ErrorReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductList2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\StorefrontWebServices.wsdl" />
     <None Include="Service References\WMService\ProcessPediatrixOrder_WSD.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ShopCommerce\" />
+    <WCFMetadataStorage Include="Service References\StoreFrontWebServices\" />
     <WCFMetadataStorage Include="Service References\WMService\" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +248,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ShopCommerce\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StoreFrontWebServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StoreFrontWebServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StoreFrontWebServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

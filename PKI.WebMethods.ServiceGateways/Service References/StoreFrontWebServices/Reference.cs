@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
+namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://npsv04.perkinelmer.com/services:StorefrontWebServices", ConfigurationName = "PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", ConfigurationName="StoreFrontWebServices.StorefrontWebServices_PortType")]
     public interface StorefrontWebServices_PortType {
         
         // CODEGEN: Generating message contract since the wrapper name (HandlerInput) of message OrderInfoWebServiceRequest does not match the default value (OrderInfoWebService)
@@ -30,10 +30,10 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse OrderInfoWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse OrderInfoWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderInfoWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -49,11 +49,11 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1 PriceWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1 PriceWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1> PriceWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -69,11 +69,11 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1 InventoryWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1 InventoryWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -89,11 +89,11 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1 SimulateOrderWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1 SimulateOrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
         
         // CODEGEN: Parameter 'ContactCreateResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_ContactCreateWebService", ReplyAction="*")]
@@ -111,10 +111,10 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ContactCreateResponse")]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1 ContactCreateWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_ContactCreateWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request);
         
         // CODEGEN: Parameter 'PartnerResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
@@ -132,10 +132,10 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="PartnerResponse")]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1 PartnerWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest request);
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1 PartnerWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1> PartnerWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest request);
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest request);
     }
     
     /// <remarks/>
@@ -748,6 +748,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         Third,
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public partial class ContactCreateRequestDetail : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string firstNameField;
@@ -926,11 +932,6 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-
-        public ContactCreateRequestDetail()
-        {
-        }
-        
     }
     
     /// <remarks/>
@@ -1160,9 +1161,9 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
     public partial class ContactCreateRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ContactCreateRequestHeader contactCreateRequestHeaderField;
-        //private ContactCreateRequestDetail[] contactCreateRequestDetailField;
-        private ContactCreateRequestDetail contactCreateRequestDetailField;
-
+        
+        private ContactCreateRequestDetail[] contactCreateRequestDetailField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public ContactCreateRequestHeader ContactCreateRequestHeader {
@@ -1174,22 +1175,10 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
                 this.RaisePropertyChanged("ContactCreateRequestHeader");
             }
         }
-
+        
         /// <remarks/>
-        //[System.Xml.Serialization.XmlElementAttribute("ContactCreateRequestDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        //public ContactCreateRequestDetail[] ContactCreateRequestDetail {
-        //    get {
-        //        return this.contactCreateRequestDetailField;
-        //    }
-        //    set {
-        //        this.contactCreateRequestDetailField = value;
-        //        this.RaisePropertyChanged("ContactCreateRequestDetail");
-        //    }
-        //}
-
-
         [System.Xml.Serialization.XmlElementAttribute("ContactCreateRequestDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public ContactCreateRequestDetail ContactCreateRequestDetail {
+        public ContactCreateRequestDetail[] ContactCreateRequestDetail {
             get {
                 return this.contactCreateRequestDetailField;
             }
@@ -1198,8 +1187,7 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
                 this.RaisePropertyChanged("ContactCreateRequestDetail");
             }
         }
-
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -7288,12 +7276,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductPricingRequest PricingRequest;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductPricingRequest PricingRequest;
         
         public PriceWebServiceRequest() {
         }
         
-        public PriceWebServiceRequest(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductPricingRequest PricingRequest) {
+        public PriceWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductPricingRequest PricingRequest) {
             this.PricingRequest = PricingRequest;
         }
     }
@@ -7305,16 +7293,16 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("ProductList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductList2[] ProductList;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductList2[] ProductList;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.docType_ErrorReturn ErrorReturn;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.docType_ErrorReturn ErrorReturn;
         
         public PriceWebServiceResponse1() {
         }
         
-        public PriceWebServiceResponse1(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductList2[] ProductList, PKI.eBusiness.WMService.Entities.Stubs.StoreFront.docType_ErrorReturn ErrorReturn) {
+        public PriceWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductList2[] ProductList, PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
             this.ProductList = ProductList;
             this.ErrorReturn = ErrorReturn;
         }
@@ -7327,12 +7315,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryRequest InventoryRequest;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryRequest InventoryRequest;
         
         public InventoryWebServiceRequest() {
         }
         
-        public InventoryWebServiceRequest(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryRequest InventoryRequest) {
+        public InventoryWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryRequest InventoryRequest) {
             this.InventoryRequest = InventoryRequest;
         }
     }
@@ -7344,16 +7332,16 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryResponse InventoryResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryResponse InventoryResponse;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse;
         
         public InventoryWebServiceResponse1() {
         }
         
-        public InventoryWebServiceResponse1(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryResponse InventoryResponse, PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse) {
+        public InventoryWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryResponse InventoryResponse, PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse) {
             this.InventoryResponse = InventoryResponse;
             this.ErrorResponse = ErrorResponse;
         }
@@ -7366,12 +7354,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderRequest OrderRequest;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderRequest OrderRequest;
         
         public SimulateOrderWebServiceRequest() {
         }
         
-        public SimulateOrderWebServiceRequest(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderRequest OrderRequest) {
+        public SimulateOrderWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderRequest OrderRequest) {
             this.OrderRequest = OrderRequest;
         }
     }
@@ -7383,16 +7371,16 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderResponse OrderResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderResponse OrderResponse;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse;
         
         public SimulateOrderWebServiceResponse1() {
         }
         
-        public SimulateOrderWebServiceResponse1(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderResponse OrderResponse, PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse) {
+        public SimulateOrderWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderResponse OrderResponse, PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse) {
             this.OrderResponse = OrderResponse;
             this.ErrorResponse = ErrorResponse;
         }
@@ -7406,12 +7394,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateRequest ContactCreateRequest;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest;
         
         public ContactCreateWebServiceRequest() {
         }
         
-        public ContactCreateWebServiceRequest(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateRequest ContactCreateRequest) {
+        public ContactCreateWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
             this.ContactCreateRequest = ContactCreateRequest;
         }
     }
@@ -7424,12 +7412,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateResponse ContactCreateResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateResponse;
         
         public ContactCreateWebServiceResponse1() {
         }
         
-        public ContactCreateWebServiceResponse1(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateResponse ContactCreateResponse) {
+        public ContactCreateWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateResponse) {
             this.ContactCreateResponse = ContactCreateResponse;
         }
     }
@@ -7442,12 +7430,12 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerRequest PartnerRequest;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequest PartnerRequest;
         
         public PartnerWebServiceRequest() {
         }
         
-        public PartnerWebServiceRequest(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerRequest PartnerRequest) {
+        public PartnerWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequest PartnerRequest) {
             this.PartnerRequest = PartnerRequest;
         }
     }
@@ -7460,23 +7448,23 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerResponse PartnerResponse;
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerResponse PartnerResponse;
         
         public PartnerWebServiceResponse1() {
         }
         
-        public PartnerWebServiceResponse1(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerResponse PartnerResponse) {
+        public PartnerWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerResponse PartnerResponse) {
             this.PartnerResponse = PartnerResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface StorefrontWebServices_PortTypeChannel : PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType, System.ServiceModel.IClientChannel {
+    public interface StorefrontWebServices_PortTypeChannel : PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StorefrontWebServices_PortTypeClient : System.ServiceModel.ClientBase<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType>, PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType {
+    public partial class StorefrontWebServices_PortTypeClient : System.ServiceModel.ClientBase<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType>, PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType {
         
         public StorefrontWebServices_PortTypeClient() {
         }
@@ -7498,125 +7486,125 @@ namespace PKI.eBusiness.WMService.Entities.Stubs.StoreFront {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.OrderInfoWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
             return base.Channel.OrderInfoWebService(request);
         }
         
         public string OrderInfoWebService(string xmlRequest, object node) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest();
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest();
             inValue.xmlRequest = xmlRequest;
             inValue.node = node;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).OrderInfoWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebService(inValue);
             return retVal.xmlResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse> PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.OrderInfoWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest request) {
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse> PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
             return base.Channel.OrderInfoWebServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(string xmlRequest, object node) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderInfoWebServiceRequest();
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(string xmlRequest, object node) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceRequest();
             inValue.xmlRequest = xmlRequest;
             inValue.node = node;
-            return ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).OrderInfoWebServiceAsync(inValue);
+            return ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1 PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.PriceWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.PriceWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest request) {
             return base.Channel.PriceWebService(request);
         }
         
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductList2[] PriceWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ProductPricingRequest PricingRequest, out PKI.eBusiness.WMService.Entities.Stubs.StoreFront.docType_ErrorReturn ErrorReturn) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest();
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductList2[] PriceWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ProductPricingRequest PricingRequest, out PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest();
             inValue.PricingRequest = PricingRequest;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).PriceWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PriceWebService(inValue);
             ErrorReturn = retVal.ErrorReturn;
             return retVal.ProductList;
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1> PriceWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceRequest request) {
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest request) {
             return base.Channel.PriceWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1 PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.InventoryWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.InventoryWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request) {
             return base.Channel.InventoryWebService(request);
         }
         
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryResponse InventoryWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryRequest InventoryRequest, out PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest();
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryResponse InventoryWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryRequest InventoryRequest, out PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest();
             inValue.InventoryRequest = InventoryRequest;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).InventoryWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).InventoryWebService(inValue);
             ErrorResponse = retVal.ErrorResponse;
             return retVal.InventoryResponse;
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceRequest request) {
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request) {
             return base.Channel.InventoryWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1 PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.SimulateOrderWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.SimulateOrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
             return base.Channel.SimulateOrderWebService(request);
         }
         
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderResponse SimulateOrderWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.orderRequest OrderRequest, out PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ErrorResponse ErrorResponse) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest();
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderResponse SimulateOrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderRequest OrderRequest, out PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest();
             inValue.OrderRequest = OrderRequest;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).SimulateOrderWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).SimulateOrderWebService(inValue);
             ErrorResponse = retVal.ErrorResponse;
             return retVal.OrderResponse;
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceRequest request) {
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
             return base.Channel.SimulateOrderWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1 PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.ContactCreateWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request) {
             return base.Channel.ContactCreateWebService(request);
         }
         
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateResponse ContactCreateWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateRequest ContactCreateRequest) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest();
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest();
             inValue.ContactCreateRequest = ContactCreateRequest;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).ContactCreateWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).ContactCreateWebService(inValue);
             return retVal.ContactCreateResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1> PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.ContactCreateWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest request) {
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request) {
             return base.Channel.ContactCreateWebServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateRequest ContactCreateRequest) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceRequest();
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest();
             inValue.ContactCreateRequest = ContactCreateRequest;
-            return ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).ContactCreateWebServiceAsync(inValue);
+            return ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).ContactCreateWebServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1 PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.PartnerWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest request) {
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest request) {
             return base.Channel.PartnerWebService(request);
         }
         
-        public PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerResponse PartnerWebService(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerRequest PartnerRequest) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest();
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerResponse PartnerWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequest PartnerRequest) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest();
             inValue.PartnerRequest = PartnerRequest;
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).PartnerWebService(inValue);
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebService(inValue);
             return retVal.PartnerResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1> PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType.PartnerWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest request) {
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1> PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest request) {
             return base.Channel.PartnerWebServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceResponse1> PartnerWebServiceAsync(PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerRequest PartnerRequest) {
-            PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest inValue = new PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PartnerWebServiceRequest();
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequest PartnerRequest) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest();
             inValue.PartnerRequest = PartnerRequest;
-            return ((PKI.eBusiness.WMService.Entities.Stubs.StoreFront.StorefrontWebServices_PortType)(this)).PartnerWebServiceAsync(inValue);
+            return ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebServiceAsync(inValue);
         }
     }
 }

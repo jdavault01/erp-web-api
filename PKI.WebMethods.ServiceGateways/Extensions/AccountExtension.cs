@@ -28,7 +28,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
 
         public static string ToWmContactCreateRequest(this ContactCreateRequest request)
         {
-            return new ContactCreateServiceRequest(request).JsonResponse;
+            return new ContactCreateServiceRequest(request).JsonRequest;
         }
 
         public static ClientModels.ContactCreateResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
