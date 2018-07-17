@@ -15,9 +15,9 @@ using PartnerRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.P
 using PartnerResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.PartnerResponse;
 using ContactCreateRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateRequest;
 using ContactCreateResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateResponse;
-//TODO:  Dependency Injection .. chat with Raji
 using PKI.eBusiness.WMService.ServiceGateways.RestCalls;
 using PKI.eBusiness.WMService.ServiceGateways.WMService;
+using PKI.eBusiness.WMService.ServiceGatewContracts.RestCalls;
 using PKI.eBusiness.WMService.Entities.Orders;
 using AutoMapper;
 
@@ -33,7 +33,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
-        //private readonly IWMRestServices _wmRestServices;
+        private readonly IWMRestServices _wmRestServices;
 
         #endregion // Private variables
 
@@ -46,6 +46,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         public WebMethodClient()
         {
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
+            _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
+            _wmRestServices = new WMRestServices();
         }
 
         #endregion // Constructors
@@ -280,9 +282,9 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             //Convert to WebMethods Object
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
-            var wmRestServices = new WMRestServices();
+            //var wmRestServices = new WMRestServices();
             //Return WebMethods Object
-            ContactCreateWebServiceResponse wmCreateContentResponse = wmRestServices.CreateContactRestService(request);  
+            ContactCreateWebServiceResponse wmCreateContentResponse = _wmRestServices.CreateContact(request);  
             LogResponse(wmCreateContentResponse);
             //Converts to StoreFront Object
             return wmCreateContentResponse.ToContactCreateResponse();

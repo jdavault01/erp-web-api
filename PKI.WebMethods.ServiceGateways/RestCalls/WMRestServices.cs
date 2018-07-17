@@ -21,18 +21,18 @@ namespace PKI.eBusiness.WMService.ServiceGateways.RestCalls
         public HttpVerb HttpMethod { get; set; }
         public string PayLoad { get; set; }
 
+        public enum HttpVerb
+        {
+            GET,
+            POST,
+            PUT,
+            DELETE
+        }
+
         public WMRestServices()
         {
             EndPoint = ConfigurationManager.AppSettings["WMRestServiceEndPoint"];
             HttpMethod = HttpVerb.GET;
-        }
-
-        public ContactCreateWebServiceResponse CreateContactRestService(string request)
-        {
-            PayLoad = request;
-            HttpMethod = HttpVerb.POST;
-            var response = CallWMRestServices();
-            return JsonConvert.DeserializeObject<ContactCreateWebServiceResponse>(response);
         }
 
         private string CallWMRestServices()
@@ -71,13 +71,15 @@ namespace PKI.eBusiness.WMService.ServiceGateways.RestCalls
 
             return restResponse;
         }
+
+        //List the individual method calls -- e.g CreateContact, GetCompanyContacts, GetCompanyPartnerInfo 
+        public ContactCreateWebServiceResponse CreateContact(string request)
+        {
+            PayLoad = request;
+            HttpMethod = HttpVerb.POST;
+            var response = CallWMRestServices();
+            return JsonConvert.DeserializeObject<ContactCreateWebServiceResponse>(response);
+        }
     }
 
-    public enum HttpVerb
-    {
-        GET,
-        POST,
-        PUT,
-        DELETE
-    }
 }
