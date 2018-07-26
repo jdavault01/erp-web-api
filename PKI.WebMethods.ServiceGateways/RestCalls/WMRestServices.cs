@@ -34,6 +34,11 @@ namespace PKI.eBusiness.WMService.ServiceGateways.RestCalls
             EndPoint = ConfigurationManager.AppSettings["WMRestServiceEndPoint"];
             HttpMethod = HttpVerb.GET;
         }
+        public WMRestServices(string payload, HttpVerb httpVerb)
+        {
+            PayLoad = payload;
+            HttpMethod = httpVerb;
+        }
 
         private string CallWMRestServices()
         {
@@ -73,9 +78,9 @@ namespace PKI.eBusiness.WMService.ServiceGateways.RestCalls
         }
 
         //List the individual method calls -- e.g CreateContact, GetCompanyContacts, GetCompanyPartnerInfo 
-        public ContactCreateWebServiceResponse CreateContact(string request)
+        public ContactCreateWebServiceResponse CreateContact(string payLoad)
         {
-            PayLoad = request;
+            PayLoad = payLoad;
             HttpMethod = HttpVerb.POST;
             var response = CallWMRestServices();
             return JsonConvert.DeserializeObject<ContactCreateWebServiceResponse>(response);

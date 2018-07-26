@@ -12,8 +12,6 @@
       <xsd:element name="SimulateOrderWebServiceResponse" type="tns:SimulateOrderWebServiceResponse" />
       <xsd:element name="PriceWebService" type="tns:PriceWebService" />
       <xsd:element name="PriceWebServiceResponse" type="tns:PriceWebServiceResponse" />
-      <xsd:element name="ContactCreateWebService" type="tns:ContactCreateWebService" />
-      <xsd:element name="ContactCreateWebServiceResponse" type="tns:ContactCreateWebServiceResponse" />
       <xsd:complexType name="PartnerWebService">
         <xsd:sequence>
           <xsd:element name="PartnerRequest" nillable="true" type="tns:PartnerRequest" />
@@ -630,134 +628,8 @@
           <xsd:element name="Price" nillable="true" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ContactCreateWebService">
-        <xsd:sequence>
-          <xsd:element name="ContactCreateRequest" nillable="true" type="tns:ContactCreateRequest" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateRequest">
-        <xsd:sequence>
-          <xsd:element name="ContactCreateRequestHeader" type="tns:ContactCreateRequestHeader" />
-          <xsd:element maxOccurs="unbounded" name="ContactCreateRequestDetail" type="tns:ContactCreateRequestDetail" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateRequestHeader">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" name="Datetime" type="tns:Datetime3" />
-          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
-          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
-          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
-          <xsd:element name="PartnerID" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="Datetime3">
-        <xsd:sequence>
-          <xsd:element name="Year" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateRequestDetail">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" name="FirstName" type="xsd:string" />
-          <xsd:element minOccurs="0" name="LastName" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Email" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Title" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Role" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Source" type="xsd:string" />
-          <xsd:element minOccurs="0" name="SalesOrgID" type="xsd:string" />
-          <xsd:element minOccurs="0" name="DivisionID" type="xsd:string" />
-          <xsd:element minOccurs="0" name="DistChannelID" type="xsd:string" />
-          <xsd:element minOccurs="0" name="ContactNameID" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Telephone" type="tns:Telephone4" />
-          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea3" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="Telephone4" mixed="true">
-        <xsd:attribute name="qualifier" type="tns:_x0040_qualifier4" use="required" />
-      </xsd:complexType>
-      <xsd:simpleType name="_x0040_qualifier4">
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="Daytime" />
-          <xsd:enumeration value="Evening" />
-          <xsd:enumeration value="Cell" />
-          <xsd:enumeration value="Fax" />
-          <xsd:enumeration value="First" />
-          <xsd:enumeration value="Second" />
-          <xsd:enumeration value="Third" />
-        </xsd:restriction>
-      </xsd:simpleType>
-      <xsd:complexType name="Userarea3">
-        <xsd:sequence />
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateWebServiceResponse">
-        <xsd:sequence>
-          <xsd:element name="ContactCreateResponse" nillable="true" type="tns:ContactCreateResponse" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateResponse">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" name="ContactCreateResponseHeader" type="tns:ContactCreateResponseHeader" />
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ContactCreateResponseDetail" type="tns:ContactCreateResponseDetail" />
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn3" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateResponseHeader">
-        <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" name="Datetime" type="tns:Datetime4" />
-          <xsd:element minOccurs="0" name="PartnerID" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="Datetime4">
-        <xsd:sequence>
-          <xsd:element name="Year" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Month" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Day" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Hour" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Minute" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Second" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Subsecond" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Timezone" type="xsd:string" />
-        </xsd:sequence>
-        <xsd:attribute name="id" type="xsd:string" />
-        <xsd:attribute name="qualifier" type="xsd:string" use="required" />
-      </xsd:complexType>
-      <xsd:complexType name="ContactCreateResponseDetail">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" name="ContactNameID" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorReturn" type="tns:docType_ErrorReturn3" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="docType_ErrorReturn3">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" name="Timestamp" type="xsd:string" />
-          <xsd:element minOccurs="0" name="ErrorNumber" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Error" type="xsd:string" />
-          <xsd:element minOccurs="0" name="ErrorType" type="xsd:string" />
-          <xsd:element minOccurs="0" name="ErrorDump" type="xsd:string" />
-          <xsd:element minOccurs="0" name="InternalErrorNumber" type="xsd:string" />
-          <xsd:element minOccurs="0" name="InternalErrorSource" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Service" type="xsd:string" />
-          <xsd:element minOccurs="0" name="User" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Userarea" type="tns:Userarea4" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="Userarea4">
-        <xsd:sequence />
-      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="StorefrontWebServices_PortType_ContactCreateWebServiceResponse">
-    <wsdl:part name="parameters" element="tns:ContactCreateWebServiceResponse" />
-  </wsdl:message>
-  <wsdl:message name="StorefrontWebServices_PortType_ContactCreateWebService">
-    <wsdl:part name="parameters" element="tns:ContactCreateWebService" />
-  </wsdl:message>
   <wsdl:message name="StorefrontWebServices_PortType_InventoryWebServiceResponse">
     <wsdl:part name="parameters" element="tns:InventoryWebServiceResponse" />
   </wsdl:message>
@@ -805,10 +677,6 @@
       <wsdl:input message="tns:StorefrontWebServices_PortType_SimulateOrderWebService" />
       <wsdl:output message="tns:StorefrontWebServices_PortType_SimulateOrderWebServiceResponse" />
     </wsdl:operation>
-    <wsdl:operation name="ContactCreateWebService">
-      <wsdl:input message="tns:StorefrontWebServices_PortType_ContactCreateWebService" />
-      <wsdl:output message="tns:StorefrontWebServices_PortType_ContactCreateWebServiceResponse" />
-    </wsdl:operation>
     <wsdl:operation name="PartnerWebService">
       <wsdl:input message="tns:StorefrontWebServices_PortType_PartnerWebService" />
       <wsdl:output message="tns:StorefrontWebServices_PortType_PartnerWebServiceResponse" />
@@ -845,15 +713,6 @@
     </wsdl:operation>
     <wsdl:operation name="SimulateOrderWebService">
       <soap:operation soapAction="services_StorefrontWebServices_Binder_SimulateOrderWebService" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" parts="parameters" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" parts="parameters" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ContactCreateWebService">
-      <soap:operation soapAction="services_StorefrontWebServices_Binder_ContactCreateWebService" style="document" />
       <wsdl:input>
         <soap:body use="literal" parts="parameters" />
       </wsdl:input>

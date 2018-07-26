@@ -1,5 +1,4 @@
-﻿using PKI.eBusiness.WMService.Entities.StoreFront.Account;
-using PKI.eBusiness.WMService.Entities.StoreFront.Orders;
+﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.ServiceGatewaysContracts;
 using System.Linq;
 

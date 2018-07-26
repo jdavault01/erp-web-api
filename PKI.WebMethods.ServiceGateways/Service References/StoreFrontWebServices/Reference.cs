@@ -18,8 +18,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         // CODEGEN: Generating message contract since the wrapper name (HandlerInput) of message OrderInfoWebServiceRequest does not match the default value (OrderInfoWebService)
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderInfoWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -37,8 +35,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -57,8 +53,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -77,8 +71,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -95,32 +87,9 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
         System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
         
-        // CODEGEN: Parameter 'ContactCreateResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_ContactCreateWebService", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebService))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(InventoryWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(InventoryWebService))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerOutput))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="ContactCreateResponse")]
-        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_ContactCreateWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request);
-        
         // CODEGEN: Parameter 'PartnerResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebServiceResponse))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ContactCreateWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -139,1099 +108,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class Userarea4 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class docType_ErrorReturn3 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string timestampField;
-        
-        private string errorNumberField;
-        
-        private string errorField;
-        
-        private string errorTypeField;
-        
-        private string errorDumpField;
-        
-        private string internalErrorNumberField;
-        
-        private string internalErrorSourceField;
-        
-        private string serviceField;
-        
-        private string userField;
-        
-        private Userarea4 userareaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string Timestamp {
-            get {
-                return this.timestampField;
-            }
-            set {
-                this.timestampField = value;
-                this.RaisePropertyChanged("Timestamp");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string ErrorNumber {
-            get {
-                return this.errorNumberField;
-            }
-            set {
-                this.errorNumberField = value;
-                this.RaisePropertyChanged("ErrorNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string Error {
-            get {
-                return this.errorField;
-            }
-            set {
-                this.errorField = value;
-                this.RaisePropertyChanged("Error");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string ErrorType {
-            get {
-                return this.errorTypeField;
-            }
-            set {
-                this.errorTypeField = value;
-                this.RaisePropertyChanged("ErrorType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string ErrorDump {
-            get {
-                return this.errorDumpField;
-            }
-            set {
-                this.errorDumpField = value;
-                this.RaisePropertyChanged("ErrorDump");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string InternalErrorNumber {
-            get {
-                return this.internalErrorNumberField;
-            }
-            set {
-                this.internalErrorNumberField = value;
-                this.RaisePropertyChanged("InternalErrorNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string InternalErrorSource {
-            get {
-                return this.internalErrorSourceField;
-            }
-            set {
-                this.internalErrorSourceField = value;
-                this.RaisePropertyChanged("InternalErrorSource");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string Service {
-            get {
-                return this.serviceField;
-            }
-            set {
-                this.serviceField = value;
-                this.RaisePropertyChanged("Service");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string User {
-            get {
-                return this.userField;
-            }
-            set {
-                this.userField = value;
-                this.RaisePropertyChanged("User");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public Userarea4 Userarea {
-            get {
-                return this.userareaField;
-            }
-            set {
-                this.userareaField = value;
-                this.RaisePropertyChanged("Userarea");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateResponseDetail : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string contactNameIDField;
-        
-        private docType_ErrorReturn3[] errorReturnField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string ContactNameID {
-            get {
-                return this.contactNameIDField;
-            }
-            set {
-                this.contactNameIDField = value;
-                this.RaisePropertyChanged("ContactNameID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ErrorReturn", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public docType_ErrorReturn3[] ErrorReturn {
-            get {
-                return this.errorReturnField;
-            }
-            set {
-                this.errorReturnField = value;
-                this.RaisePropertyChanged("ErrorReturn");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class Datetime4 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string yearField;
-        
-        private string monthField;
-        
-        private string dayField;
-        
-        private string hourField;
-        
-        private string minuteField;
-        
-        private string secondField;
-        
-        private string subsecondField;
-        
-        private string timezoneField;
-        
-        private string idField;
-        
-        private string qualifierField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string Year {
-            get {
-                return this.yearField;
-            }
-            set {
-                this.yearField = value;
-                this.RaisePropertyChanged("Year");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string Month {
-            get {
-                return this.monthField;
-            }
-            set {
-                this.monthField = value;
-                this.RaisePropertyChanged("Month");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string Day {
-            get {
-                return this.dayField;
-            }
-            set {
-                this.dayField = value;
-                this.RaisePropertyChanged("Day");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string Hour {
-            get {
-                return this.hourField;
-            }
-            set {
-                this.hourField = value;
-                this.RaisePropertyChanged("Hour");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string Minute {
-            get {
-                return this.minuteField;
-            }
-            set {
-                this.minuteField = value;
-                this.RaisePropertyChanged("Minute");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string Second {
-            get {
-                return this.secondField;
-            }
-            set {
-                this.secondField = value;
-                this.RaisePropertyChanged("Second");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string Subsecond {
-            get {
-                return this.subsecondField;
-            }
-            set {
-                this.subsecondField = value;
-                this.RaisePropertyChanged("Subsecond");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string Timezone {
-            get {
-                return this.timezoneField;
-            }
-            set {
-                this.timezoneField = value;
-                this.RaisePropertyChanged("Timezone");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string qualifier {
-            get {
-                return this.qualifierField;
-            }
-            set {
-                this.qualifierField = value;
-                this.RaisePropertyChanged("qualifier");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateResponseHeader : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private Datetime4[] datetimeField;
-        
-        private string partnerIDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Datetime", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public Datetime4[] Datetime {
-            get {
-                return this.datetimeField;
-            }
-            set {
-                this.datetimeField = value;
-                this.RaisePropertyChanged("Datetime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string PartnerID {
-            get {
-                return this.partnerIDField;
-            }
-            set {
-                this.partnerIDField = value;
-                this.RaisePropertyChanged("PartnerID");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateResponse : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private ContactCreateResponseHeader contactCreateResponseHeaderField;
-        
-        private ContactCreateResponseDetail[] contactCreateResponseDetailField;
-        
-        private docType_ErrorReturn3[] errorReturnField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public ContactCreateResponseHeader ContactCreateResponseHeader {
-            get {
-                return this.contactCreateResponseHeaderField;
-            }
-            set {
-                this.contactCreateResponseHeaderField = value;
-                this.RaisePropertyChanged("ContactCreateResponseHeader");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ContactCreateResponseDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public ContactCreateResponseDetail[] ContactCreateResponseDetail {
-            get {
-                return this.contactCreateResponseDetailField;
-            }
-            set {
-                this.contactCreateResponseDetailField = value;
-                this.RaisePropertyChanged("ContactCreateResponseDetail");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ErrorReturn", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public docType_ErrorReturn3[] ErrorReturn {
-            get {
-                return this.errorReturnField;
-            }
-            set {
-                this.errorReturnField = value;
-                this.RaisePropertyChanged("ErrorReturn");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateWebServiceResponse : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private ContactCreateResponse contactCreateResponseField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public ContactCreateResponse ContactCreateResponse {
-            get {
-                return this.contactCreateResponseField;
-            }
-            set {
-                this.contactCreateResponseField = value;
-                this.RaisePropertyChanged("ContactCreateResponse");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class Userarea3 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class Telephone4 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private qualifier4 qualifierField;
-        
-        private string[] textField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public qualifier4 qualifier {
-            get {
-                return this.qualifierField;
-            }
-            set {
-                this.qualifierField = value;
-                this.RaisePropertyChanged("qualifier");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string[] Text {
-            get {
-                return this.textField;
-            }
-            set {
-                this.textField = value;
-                this.RaisePropertyChanged("Text");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="@qualifier4", Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public enum qualifier4 {
-        
-        /// <remarks/>
-        Daytime,
-        
-        /// <remarks/>
-        Evening,
-        
-        /// <remarks/>
-        Cell,
-        
-        /// <remarks/>
-        Fax,
-        
-        /// <remarks/>
-        First,
-        
-        /// <remarks/>
-        Second,
-        
-        /// <remarks/>
-        Third,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateRequestDetail : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string firstNameField;
-        
-        private string lastNameField;
-        
-        private string emailField;
-        
-        private string titleField;
-        
-        private string roleField;
-        
-        private string sourceField;
-        
-        private string salesOrgIDField;
-        
-        private string divisionIDField;
-        
-        private string distChannelIDField;
-        
-        private string contactNameIDField;
-        
-        private Telephone4[] telephoneField;
-        
-        private Userarea3 userareaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string FirstName {
-            get {
-                return this.firstNameField;
-            }
-            set {
-                this.firstNameField = value;
-                this.RaisePropertyChanged("FirstName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string LastName {
-            get {
-                return this.lastNameField;
-            }
-            set {
-                this.lastNameField = value;
-                this.RaisePropertyChanged("LastName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string Email {
-            get {
-                return this.emailField;
-            }
-            set {
-                this.emailField = value;
-                this.RaisePropertyChanged("Email");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string Title {
-            get {
-                return this.titleField;
-            }
-            set {
-                this.titleField = value;
-                this.RaisePropertyChanged("Title");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string Role {
-            get {
-                return this.roleField;
-            }
-            set {
-                this.roleField = value;
-                this.RaisePropertyChanged("Role");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string Source {
-            get {
-                return this.sourceField;
-            }
-            set {
-                this.sourceField = value;
-                this.RaisePropertyChanged("Source");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string SalesOrgID {
-            get {
-                return this.salesOrgIDField;
-            }
-            set {
-                this.salesOrgIDField = value;
-                this.RaisePropertyChanged("SalesOrgID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string DivisionID {
-            get {
-                return this.divisionIDField;
-            }
-            set {
-                this.divisionIDField = value;
-                this.RaisePropertyChanged("DivisionID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string DistChannelID {
-            get {
-                return this.distChannelIDField;
-            }
-            set {
-                this.distChannelIDField = value;
-                this.RaisePropertyChanged("DistChannelID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public string ContactNameID {
-            get {
-                return this.contactNameIDField;
-            }
-            set {
-                this.contactNameIDField = value;
-                this.RaisePropertyChanged("ContactNameID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Telephone", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-        public Telephone4[] Telephone {
-            get {
-                return this.telephoneField;
-            }
-            set {
-                this.telephoneField = value;
-                this.RaisePropertyChanged("Telephone");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-        public Userarea3 Userarea {
-            get {
-                return this.userareaField;
-            }
-            set {
-                this.userareaField = value;
-                this.RaisePropertyChanged("Userarea");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class Datetime3 : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string yearField;
-        
-        private string monthField;
-        
-        private string dayField;
-        
-        private string hourField;
-        
-        private string minuteField;
-        
-        private string secondField;
-        
-        private string subsecondField;
-        
-        private string timezoneField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string Year {
-            get {
-                return this.yearField;
-            }
-            set {
-                this.yearField = value;
-                this.RaisePropertyChanged("Year");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string Month {
-            get {
-                return this.monthField;
-            }
-            set {
-                this.monthField = value;
-                this.RaisePropertyChanged("Month");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string Day {
-            get {
-                return this.dayField;
-            }
-            set {
-                this.dayField = value;
-                this.RaisePropertyChanged("Day");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string Hour {
-            get {
-                return this.hourField;
-            }
-            set {
-                this.hourField = value;
-                this.RaisePropertyChanged("Hour");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string Minute {
-            get {
-                return this.minuteField;
-            }
-            set {
-                this.minuteField = value;
-                this.RaisePropertyChanged("Minute");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string Second {
-            get {
-                return this.secondField;
-            }
-            set {
-                this.secondField = value;
-                this.RaisePropertyChanged("Second");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string Subsecond {
-            get {
-                return this.subsecondField;
-            }
-            set {
-                this.subsecondField = value;
-                this.RaisePropertyChanged("Subsecond");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string Timezone {
-            get {
-                return this.timezoneField;
-            }
-            set {
-                this.timezoneField = value;
-                this.RaisePropertyChanged("Timezone");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateRequestHeader : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private Datetime3 datetimeField;
-        
-        private string salesOrgIDField;
-        
-        private string distChannelIDField;
-        
-        private string divisionIDField;
-        
-        private string partnerIDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public Datetime3 Datetime {
-            get {
-                return this.datetimeField;
-            }
-            set {
-                this.datetimeField = value;
-                this.RaisePropertyChanged("Datetime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string SalesOrgID {
-            get {
-                return this.salesOrgIDField;
-            }
-            set {
-                this.salesOrgIDField = value;
-                this.RaisePropertyChanged("SalesOrgID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string DistChannelID {
-            get {
-                return this.distChannelIDField;
-            }
-            set {
-                this.distChannelIDField = value;
-                this.RaisePropertyChanged("DistChannelID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string DivisionID {
-            get {
-                return this.divisionIDField;
-            }
-            set {
-                this.divisionIDField = value;
-                this.RaisePropertyChanged("DivisionID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string PartnerID {
-            get {
-                return this.partnerIDField;
-            }
-            set {
-                this.partnerIDField = value;
-                this.RaisePropertyChanged("PartnerID");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private ContactCreateRequestHeader contactCreateRequestHeaderField;
-        
-        private ContactCreateRequestDetail[] contactCreateRequestDetailField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public ContactCreateRequestHeader ContactCreateRequestHeader {
-            get {
-                return this.contactCreateRequestHeaderField;
-            }
-            set {
-                this.contactCreateRequestHeaderField = value;
-                this.RaisePropertyChanged("ContactCreateRequestHeader");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ContactCreateRequestDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public ContactCreateRequestDetail[] ContactCreateRequestDetail {
-            get {
-                return this.contactCreateRequestDetailField;
-            }
-            set {
-                this.contactCreateRequestDetailField = value;
-                this.RaisePropertyChanged("ContactCreateRequestDetail");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class ContactCreateWebService : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private ContactCreateRequest contactCreateRequestField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public ContactCreateRequest ContactCreateRequest {
-            get {
-                return this.contactCreateRequestField;
-            }
-            set {
-                this.contactCreateRequestField = value;
-                this.RaisePropertyChanged("ContactCreateRequest");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1291,7 +168,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1337,7 +214,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1495,7 +372,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1513,7 +390,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1545,7 +422,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1647,7 +524,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1679,7 +556,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1739,7 +616,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1925,7 +802,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1943,7 +820,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2101,7 +978,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2357,7 +1234,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2403,7 +1280,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2505,7 +1382,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2551,7 +1428,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2611,7 +1488,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2657,7 +1534,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2689,7 +1566,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2735,7 +1612,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2767,7 +1644,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2813,7 +1690,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2873,7 +1750,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2919,7 +1796,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3021,7 +1898,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3151,7 +2028,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3169,7 +2046,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3285,7 +2162,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3303,7 +2180,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3349,7 +2226,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="@qualifier3", Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public enum qualifier3 {
@@ -3377,7 +2254,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3633,7 +2510,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3861,7 +2738,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3963,7 +2840,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4373,7 +3250,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4419,7 +3296,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4521,7 +3398,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4567,7 +3444,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4627,7 +3504,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4673,7 +3550,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4705,7 +3582,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4737,7 +3614,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4755,7 +3632,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4913,7 +3790,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4973,7 +3850,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5061,7 +3938,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5107,7 +3984,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5153,7 +4030,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5227,7 +4104,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5245,7 +4122,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5291,7 +4168,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="@qualifier2", Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public enum qualifier2 {
@@ -5319,7 +4196,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5575,7 +4452,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5803,7 +4680,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5877,7 +4754,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5923,7 +4800,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5955,7 +4832,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5987,7 +4864,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6033,7 +4910,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6079,7 +4956,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="@qualifier", Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
     public enum qualifier {
@@ -6107,7 +4984,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6363,7 +5240,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6591,7 +5468,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6679,7 +5556,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6837,7 +5714,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6953,7 +5830,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7013,7 +5890,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7045,7 +5922,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7091,7 +5968,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7151,7 +6028,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7197,7 +6074,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2634.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7389,42 +6266,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ContactCreateWebService", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
-    public partial class ContactCreateWebServiceRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest;
-        
-        public ContactCreateWebServiceRequest() {
-        }
-        
-        public ContactCreateWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
-            this.ContactCreateRequest = ContactCreateRequest;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ContactCreateWebServiceResponse", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
-    public partial class ContactCreateWebServiceResponse1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateResponse;
-        
-        public ContactCreateWebServiceResponse1() {
-        }
-        
-        public ContactCreateWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateResponse) {
-            this.ContactCreateResponse = ContactCreateResponse;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="PartnerWebService", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
     public partial class PartnerWebServiceRequest {
         
@@ -7559,29 +6400,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
             return base.Channel.SimulateOrderWebServiceAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request) {
-            return base.Channel.ContactCreateWebService(request);
-        }
-        
-        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse ContactCreateWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
-            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest();
-            inValue.ContactCreateRequest = ContactCreateRequest;
-            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).ContactCreateWebService(inValue);
-            return retVal.ContactCreateResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest request) {
-            return base.Channel.ContactCreateWebServiceAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1> ContactCreateWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateRequest ContactCreateRequest) {
-            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceRequest();
-            inValue.ContactCreateRequest = ContactCreateRequest;
-            return ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).ContactCreateWebServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

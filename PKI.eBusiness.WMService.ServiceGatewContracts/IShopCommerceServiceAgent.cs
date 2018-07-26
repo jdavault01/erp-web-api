@@ -1,5 +1,4 @@
-﻿using PKI.eBusiness.WMService.Entities.StoreFront.Account;
-using PKI.eBusiness.WMService.Entities.StoreFront.Orders;
+﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 
 namespace PKI.eBusiness.WMService.ServiceGatewaysContracts
 {

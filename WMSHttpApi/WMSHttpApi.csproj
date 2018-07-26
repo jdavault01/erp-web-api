@@ -163,6 +163,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Genetics\" />
     <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\PKIAllClasses.cs" />
@@ -247,6 +248,7 @@
     </Compile>
     <Compile Include="Controllers\StoreFront\AccountController.cs" />
     <Compile Include="Controllers\StoreFront\CartController.cs" />
+    <Compile Include="Controllers\StoreFront\CompanyController.cs" />
     <Compile Include="Controllers\StoreFront\OrderController.cs" />
     <Compile Include="Controllers\StoreFront\ProductController.cs" />
     <Compile Include="Global.asax.cs">

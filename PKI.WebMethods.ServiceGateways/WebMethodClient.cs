@@ -45,8 +45,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         /// <param name="soapClient"></param>
         public WebMethodClient()
         {
-            _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
+            _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
             _wmRestServices = new WMRestServices();
         }
 

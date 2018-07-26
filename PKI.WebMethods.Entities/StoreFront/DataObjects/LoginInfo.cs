@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace PKI.eBusiness.WMService.Entities.StoreFront.Account
+namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
     public class LoginInfo
     {

@@ -171,12 +171,6 @@
     <None Include="Service References\ShopCommerce\ShopCommerceService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ContactCreateWebServiceResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.docType_ErrorReturn.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

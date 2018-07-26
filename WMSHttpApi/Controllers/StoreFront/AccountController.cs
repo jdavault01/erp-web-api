@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
+using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
+using PKI.eBusiness.WMService.Logger;
+using PKI.eBusiness.WMSHttpApi.UIHelpers;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using PKI.eBusiness.WMService.Entities.StoreFront.Account;
-using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
-using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
-using PKI.eBusiness.WMSHttpApi.UIHelpers;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -23,7 +20,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
 
-        [Route("wms/Partners/{accountNumber}/create")]
+        [Route("wms/partners/{accountNumber}/create")]
         [HttpPost]
         public IHttpActionResult Partners([FromUri]string accountNumber, [FromBody] ContactCreateRequest payload)
         {
@@ -40,7 +37,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
 
-        [Route("wms/Partners/{accountNumber}")]
+        [Route("wms/partners/{accountNumber}")]
         [HttpPost]
         public IHttpActionResult Partners([FromUri]string accountNumber, [FromBody] SimplePartnerRequest payload)
         {
@@ -66,7 +63,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(partnerResponseEntity);
         }
 
-
+        //Legacy .. remove after cart project
         [Route("wms/account/getpartner")]
         [HttpPost]
         public IHttpActionResult Partner([FromBody] PartnerRequest request)
