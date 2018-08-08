@@ -15,11 +15,11 @@ using PartnerRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.P
 using PartnerResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.PartnerResponse;
 using ContactCreateRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateRequest;
 using ContactCreateResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateResponse;
-using PKI.eBusiness.WMService.ServiceGateways.RestCalls;
 using PKI.eBusiness.WMService.ServiceGateways.WMService;
-using PKI.eBusiness.WMService.ServiceGatewContracts.RestCalls;
+using PKI.eBusiness.WMService.ServiceGatewContracts;
 using PKI.eBusiness.WMService.Entities.Orders;
 using AutoMapper;
+using PKI.eBusiness.WMService.Entities.Settings;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {
@@ -33,7 +33,10 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
-        private readonly IWMRestServices _wmRestServices;
+        private readonly IERPRestGateway _erpServiceGateway;
+
+        //Let's get DI going with this guy
+        //private ERPRestSettings _erpRestSettings;
 
         #endregion // Private variables
 
@@ -47,7 +50,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         {
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
-            _wmRestServices = new WMRestServices();
         }
 
         #endregion // Constructors
@@ -279,14 +281,13 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         public ContactCreateResponse CreateContact(String acountNumber, ContactCreateRequest contactCreateRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            //Convert to WebMethods Object
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
-            //var wmRestServices = new WMRestServices();
-            //Return WebMethods Object
-            ContactCreateWebServiceResponse wmCreateContentResponse = _wmRestServices.CreateContact(request);  
+            var _erpSettings = RestGatewaySettings.GetElement<ERPRestSettings>("pkieBusiness/erpRestSettings");
+            ERPRestGateway _erpRestGateway = new ERPRestGateway(_erpSettings);
+            ContactCreateWebServiceResponse wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
+            var _erpServiceGateway = new ERPRestGateway(_erpSettings);
             LogResponse(wmCreateContentResponse);
-            //Converts to StoreFront Object
             return wmCreateContentResponse.ToContactCreateResponse();
         }
 

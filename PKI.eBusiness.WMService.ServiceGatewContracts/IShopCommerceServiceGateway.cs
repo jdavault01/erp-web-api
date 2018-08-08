@@ -2,7 +2,7 @@
 
 namespace PKI.eBusiness.WMService.ServiceGatewaysContracts
 {
-    public interface IShopCommerceServiceAgent
+    public interface IShopCommerceServiceGateway
     {
         LoginInfo GetLoginInfo(string companyCode);
         CartInfo GetClearanceCode(CartInfo cartInfo);

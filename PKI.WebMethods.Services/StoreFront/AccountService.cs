@@ -14,7 +14,7 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
     {
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
-        private readonly IShopCommerceServiceAgent _shopCommerceServiceAgent;
+        private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
 
         private const string NO_PRICE_RESPONSE = "No Price Respnose";
 
@@ -23,10 +23,10 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         /// </summary>
         /// <param name="webMethodsClient"></param>
         /// <param name="shopCommerceServiceAgent"></param>
-        public AccountService(IWebMethodClient webMethodsClient, IShopCommerceServiceAgent shopCommerceServiceAgent)
+        public AccountService(IWebMethodClient webMethodsClient, IShopCommerceServiceGateway shopCommerceServiceAgent)
         {
             _webMethodClient = webMethodsClient;
-            _shopCommerceServiceAgent = shopCommerceServiceAgent;
+            _shopCommerceServiceGateway = shopCommerceServiceAgent;
 
         }
 
@@ -58,7 +58,7 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         /// <returns></returns>
         public LoginInfo GetLoginInfo(String companyCode)
         {
-            return _shopCommerceServiceAgent.GetLoginInfo(companyCode);
+            return _shopCommerceServiceGateway.GetLoginInfo(companyCode);
 
         }
 

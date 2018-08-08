@@ -17,9 +17,9 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         readonly IPublisher _publisher = PublisherManager.Instance;
 
 
-        [Route("wms/company/{hierchyNumber}/name")]
+        [Route("wms/company/name")]
         [HttpPost]
-        public IHttpActionResult getCompanyName([FromUri]string hierchyNumber, [FromBody] CompanyNameRequest payload)
+        public IHttpActionResult getCompanyName([FromBody] CompanyNameRequest payload)
         {
             if (payload == null)
             {
@@ -31,10 +31,8 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
                 Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
                 return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
             }
-            payload.ERPHierarchyNumber = hierchyNumber;
-
+            
             //var companyNameResponseEntity = _companyService.GetName(payload);
-
             string filePath = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\CompanyName.json");
             var source = File.ReadAllText(filePath);
             var companyNameResponseEntity = JsonConvert.DeserializeObject<CompanyNameResponse>(source);
@@ -48,21 +46,20 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(companyNameResponseEntity);
         }
 
-        [Route("wms/company/{hierchyNumber}/addresses")]
+        [Route("wms/company/addresses")]
         [HttpPost]
-        public IHttpActionResult getCompanyAddresses([FromUri]string hierchyNumber, [FromBody] CompanyAddressesRequest payload)
+        public IHttpActionResult getCompanyAddresses([FromBody] CompanyAddressesRequest payload)
         {
             //var companyAddressesResponseEntity = _companyService.GetAddresses(payload);
-
             string filePath = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\CompanyAddresses.json");
             var source = File.ReadAllText(filePath);
             var companyAddressesResponseEntity = JsonConvert.DeserializeObject<CompanyAddressesResponse>(source);
             return Ok(companyAddressesResponseEntity);
         }
 
-        [Route("wms/company/{hierchyNumber}/contacts")]
+        [Route("wms/company/contacts")]
         [HttpPost]
-        public IHttpActionResult getCompanyContacts([FromUri]string hierchyNumber, [FromBody] CompanyContactsRequest payload)
+        public IHttpActionResult getCompanyContacts([FromBody] CompanyContactsRequest payload)
         {
             //var companyContactsResponseEntity = _companyService.GetContacts(payload);
 

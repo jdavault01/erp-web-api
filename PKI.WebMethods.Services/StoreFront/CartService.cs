@@ -11,16 +11,16 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
     public class CartService : ICartService
     {
         private readonly IPublisher _publisher = PublisherManager.Instance;
-        private readonly IShopCommerceServiceAgent _shopCommerceServiceAgent;
+        private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
 
                 /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="webMethodsClient"></param>
         /// <param name="shopCommerceServiceAgent"></param>
-        public CartService(IShopCommerceServiceAgent shopCommerceServiceAgent)
+        public CartService(IShopCommerceServiceGateway shopCommerceServiceAgent)
         {
-            _shopCommerceServiceAgent = shopCommerceServiceAgent;
+            _shopCommerceServiceGateway = shopCommerceServiceAgent;
 
         }
 
@@ -32,7 +32,7 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
 
         public CartInfo GetClearanceCode(CartInfo cartInfo)
         {
-            return _shopCommerceServiceAgent.GetClearanceCode(cartInfo); 
+            return _shopCommerceServiceGateway.GetClearanceCode(cartInfo); 
         }
 
         /// <summary>

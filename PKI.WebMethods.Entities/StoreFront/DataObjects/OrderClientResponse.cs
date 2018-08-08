@@ -53,19 +53,26 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
                 LineItems = orderLineItems
 
             };
-
-            //SimulateOrderResponse.OrderResponse = new SimulateOrderResponse();
 		}
-
-
-    }
-    public class BaseOrderResponse
-    {
 
     }
 
     [DataContract]
-    public class SimulateOrderResponse
+    public class BaseOrderResponse
+    {
+        [DataMember]
+        public decimal ShippingCost { get; set; }
+        [DataMember]
+        public List<OrderLineItem> LineItems { get; set; }
+        [DataMember]
+        public String ErrorMessage { get; set; }
+        [DataMember]
+        public List<FailedItem> FailedItems { get; set; }
+
+    }
+
+    [DataContract]
+    public class SimulateOrderResponse : BaseOrderResponse
     {
         [DataMember]
         public string PaymentTerms { get; set; }
@@ -76,17 +83,9 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string Currency { get; set; }
         [DataMember]
-        public decimal ShippingCost { get; set; }
-        [DataMember]
         public decimal TaxVAT { get; set; }
         [DataMember]
         public decimal OrderTotal { get; set; }
-        [DataMember]
-        public List<OrderLineItem> LineItems { get; set; }
-        [DataMember]
-        public String ErrorMessage { get; set; }
-        [DataMember]
-        public List<FailedItem> FailedItems { get; set; }
 
         public SimulateOrderResponse()
         {
@@ -106,5 +105,14 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
             OrderTotal = orderTotal;
         }
     }
+
+    [DataContract]
+    public class CreateOrderResponse : BaseOrderResponse
+    {
+        [DataMember]
+        public string SellerorderID { get; set; }
+
+    }
+
 
 }

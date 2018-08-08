@@ -4,12 +4,13 @@ using System.Runtime.Serialization;
 using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using StorefrontContactCreateRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateRequest;
 
-
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
 {
     [DataContract]
     public class ContactCreateServiceRequest
     {
+        //[DataMember]
+        //public ContactCreateWebServiceRequest ContactCreateRequest;
         [DataMember]
         public String JsonRequest { get; set; }
 
@@ -19,6 +20,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
             var contactCreateRequest = new ContactCreateRequest(clientRequest);
             webServiceRequest.ContactCreateRequest = contactCreateRequest;
             JsonRequest = JsonConvert.SerializeObject(webServiceRequest, Formatting.Indented);
+            //ContactCreateRequest = webServiceRequest;
+
         }
     }
 }
