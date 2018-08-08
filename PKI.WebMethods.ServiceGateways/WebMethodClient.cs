@@ -33,7 +33,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
-        private readonly IERPRestGateway _erpServiceGateway;
 
         //Let's get DI going with this guy
         //private ERPRestSettings _erpRestSettings;
@@ -284,9 +283,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
             var _erpSettings = RestGatewaySettings.GetElement<ERPRestSettings>("pkieBusiness/erpRestSettings");
-            ERPRestGateway _erpRestGateway = new ERPRestGateway(_erpSettings);
+            var _erpRestGateway = new ERPRestGateway(_erpSettings);
             ContactCreateWebServiceResponse wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
-            var _erpServiceGateway = new ERPRestGateway(_erpSettings);
             LogResponse(wmCreateContentResponse);
             return wmCreateContentResponse.ToContactCreateResponse();
         }
