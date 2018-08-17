@@ -72,6 +72,7 @@
     <Compile Include="Extensions\AccountExtension.cs" />
     <Compile Include="Extensions\CatalogExtensions.cs" />
     <Compile Include="Extensions\ContactCreateServiceRequest.cs" />
+    <Compile Include="Extensions\CreateOrderServiceRequest.cs" />
     <Compile Include="Extensions\InventoryServiceRequest.cs" />
     <Compile Include="Extensions\PartnerServiceRequest.cs" />
     <Compile Include="Extensions\PriceServiceRequest.cs" />
@@ -180,6 +181,9 @@
     <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -190,6 +194,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.orderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StoreFrontWebServices\PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerResponse.datasource">

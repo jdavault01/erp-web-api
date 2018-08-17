@@ -68,15 +68,14 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
                 SalesOrgID = clientRequest.SalesAreaInfo.SalesOrgId,
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
-                language = "EN",
+                language = clientRequest.Language,
                 NumberOfItems = clientRequest.NumberOfItems.ToString(),
                 PromoCode = clientRequest.PromoCode,
                 Partner = partners
             };
 
-            var body = new Body2() { OrderRequestHeader = RequestHeader, OrderRequestDetail = RequestDetails };
-            var bodies = new Body2[1] { body = body };
-
+            var bodies = new Body2[1];
+            bodies[0] = new Body2() { OrderRequestHeader = RequestHeader, OrderRequestDetail = RequestDetails }; ;
             Request = new OrderRequest() { Header = header, Body = bodies };
             OrderRequestPayLoad = new orderRequest() { OrderRequest = Request };
             SimulateOrderWebServiceRequest.OrderRequest = OrderRequestPayLoad;

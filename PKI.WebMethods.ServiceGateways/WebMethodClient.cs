@@ -163,6 +163,15 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             return match.Success ? match.Groups[1].Value : string.Empty;
         }
 
+        public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
+        {
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var request = createOrderRequest.ToWmOrderRequest();
+            LogRequest(request);
+            var wmOrderResponse = _soapStoreFrontWebService.OrderWebService(request);
+            LogResponse(wmOrderResponse);
+            return wmOrderResponse.ToOrderResponse();
+        }
 
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest simulateOrderRequest)
         {
@@ -170,8 +179,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebService(request);
-             LogResponse(wmSimulateOrderResponse);
-
+            LogResponse(wmSimulateOrderResponse);
             var failedItems = new List<FailedItem>();
             while (wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty)
             {
@@ -182,7 +190,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
                 request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
 
                 if (newitemsList.Length == 0)
-                  break;
+                    break;
 
                 Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
                 LogRequest(request);
@@ -191,7 +199,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
             }
 
-        var simulateOrderResponose =  wmSimulateOrderResponse.ToSimulateOrderResponse();
+            var simulateOrderResponose =  wmSimulateOrderResponse.ToSimulateOrderResponse();
 
             if (failedItems.Count == 0) return simulateOrderResponose;
             simulateOrderResponose.FailedItems = failedItems;

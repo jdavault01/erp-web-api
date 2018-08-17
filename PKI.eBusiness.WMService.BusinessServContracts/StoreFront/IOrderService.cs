@@ -13,6 +13,7 @@ namespace PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront
         OrderDetailResponse GetOrderDetails(string orderId);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
         InventoryResponse GetInventory(InventoryRequest priceRequest);
+        CreateOrderResponse CreateOrder(CreateOrderRequest request);
 
     }
 }

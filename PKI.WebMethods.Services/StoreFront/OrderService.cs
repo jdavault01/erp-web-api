@@ -88,6 +88,17 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         }
 
         /// <summary>
+        /// This method takes a client simulate order request model and calls the ERPGateway
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public CreateOrderResponse CreateOrder(CreateOrderRequest request)
+        {
+            return _webMethodClient.CreateOrder(request);
+
+        }
+
+        /// <summary>
         /// This method takes a client inventory request model and converts, makes calls and converts response
         /// back to client side model
         /// </summary>

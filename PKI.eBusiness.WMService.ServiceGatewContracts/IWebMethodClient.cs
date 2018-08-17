@@ -21,6 +21,8 @@ namespace PKI.eBusiness.WMService.ServiceGatewaysContracts
         PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
         ContactCreateResponse CreateContact(String accountNumber, ContactCreateRequest contactCreateRequest);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
- 
+        CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest);
+
+
     }
 }

@@ -18,6 +18,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         // CODEGEN: Generating message contract since the wrapper name (HandlerInput) of message OrderInfoWebServiceRequest does not match the default value (OrderInfoWebService)
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderInfoWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -35,6 +37,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -53,6 +57,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -69,8 +75,30 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
         System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderWebService", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebService))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(InventoryWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(InventoryWebService))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerOutput))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1 OrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderWebService", ReplyAction="*")]
+        System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -90,6 +118,8 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         // CODEGEN: Parameter 'PartnerResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebServiceResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(OrderWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PriceWebService))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SimulateOrderWebServiceResponse))]
@@ -105,6 +135,2262 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
         System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerWebServiceRequest request);
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class Userarea3 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class ErrorResponse3 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string timestampField;
+        
+        private string errorNumberField;
+        
+        private string errorField;
+        
+        private string errorTypeField;
+        
+        private string errorDumpField;
+        
+        private string internalErrorNumberField;
+        
+        private string internalErrorSourceField;
+        
+        private string serviceField;
+        
+        private string userField;
+        
+        private Userarea3 userareaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+        public string Timestamp {
+            get {
+                return this.timestampField;
+            }
+            set {
+                this.timestampField = value;
+                this.RaisePropertyChanged("Timestamp");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+        public string ErrorNumber {
+            get {
+                return this.errorNumberField;
+            }
+            set {
+                this.errorNumberField = value;
+                this.RaisePropertyChanged("ErrorNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
+        public string Error {
+            get {
+                return this.errorField;
+            }
+            set {
+                this.errorField = value;
+                this.RaisePropertyChanged("Error");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+        public string ErrorType {
+            get {
+                return this.errorTypeField;
+            }
+            set {
+                this.errorTypeField = value;
+                this.RaisePropertyChanged("ErrorType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+        public string ErrorDump {
+            get {
+                return this.errorDumpField;
+            }
+            set {
+                this.errorDumpField = value;
+                this.RaisePropertyChanged("ErrorDump");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
+        public string InternalErrorNumber {
+            get {
+                return this.internalErrorNumberField;
+            }
+            set {
+                this.internalErrorNumberField = value;
+                this.RaisePropertyChanged("InternalErrorNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
+        public string InternalErrorSource {
+            get {
+                return this.internalErrorSourceField;
+            }
+            set {
+                this.internalErrorSourceField = value;
+                this.RaisePropertyChanged("InternalErrorSource");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        public string Service {
+            get {
+                return this.serviceField;
+            }
+            set {
+                this.serviceField = value;
+                this.RaisePropertyChanged("Service");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=8)]
+        public string User {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+                this.RaisePropertyChanged("User");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=9)]
+        public Userarea3 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class ItemDetail3 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string availableQtyField;
+        
+        private string availableDateField;
+        
+        private string idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string AvailableQty {
+            get {
+                return this.availableQtyField;
+            }
+            set {
+                this.availableQtyField = value;
+                this.RaisePropertyChanged("AvailableQty");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string AvailableDate {
+            get {
+                return this.availableDateField;
+            }
+            set {
+                this.availableDateField = value;
+                this.RaisePropertyChanged("AvailableDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderResponseDetail2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string shippingPointField;
+        
+        private string orderLineNumberField;
+        
+        private string productIDField;
+        
+        private string descriptionField;
+        
+        private ItemDetail3[] itemDetailField;
+        
+        private string adjustedPriceField;
+        
+        private string grossPriceField;
+        
+        private string discountField;
+        
+        private string taxVATField;
+        
+        private string shippingCostField;
+        
+        private string availabilityFlagField;
+        
+        private docType_Userarea4 userareaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string ShippingPoint {
+            get {
+                return this.shippingPointField;
+            }
+            set {
+                this.shippingPointField = value;
+                this.RaisePropertyChanged("ShippingPoint");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string OrderLineNumber {
+            get {
+                return this.orderLineNumberField;
+            }
+            set {
+                this.orderLineNumberField = value;
+                this.RaisePropertyChanged("OrderLineNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string ProductID {
+            get {
+                return this.productIDField;
+            }
+            set {
+                this.productIDField = value;
+                this.RaisePropertyChanged("ProductID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ItemDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public ItemDetail3[] ItemDetail {
+            get {
+                return this.itemDetailField;
+            }
+            set {
+                this.itemDetailField = value;
+                this.RaisePropertyChanged("ItemDetail");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string AdjustedPrice {
+            get {
+                return this.adjustedPriceField;
+            }
+            set {
+                this.adjustedPriceField = value;
+                this.RaisePropertyChanged("AdjustedPrice");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string GrossPrice {
+            get {
+                return this.grossPriceField;
+            }
+            set {
+                this.grossPriceField = value;
+                this.RaisePropertyChanged("GrossPrice");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string Discount {
+            get {
+                return this.discountField;
+            }
+            set {
+                this.discountField = value;
+                this.RaisePropertyChanged("Discount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string TaxVAT {
+            get {
+                return this.taxVATField;
+            }
+            set {
+                this.taxVATField = value;
+                this.RaisePropertyChanged("TaxVAT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string ShippingCost {
+            get {
+                return this.shippingCostField;
+            }
+            set {
+                this.shippingCostField = value;
+                this.RaisePropertyChanged("ShippingCost");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string AvailabilityFlag {
+            get {
+                return this.availabilityFlagField;
+            }
+            set {
+                this.availabilityFlagField = value;
+                this.RaisePropertyChanged("AvailabilityFlag");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public docType_Userarea4 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class docType_Userarea4 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class Datetime3 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string yearField;
+        
+        private string monthField;
+        
+        private string dayField;
+        
+        private string hourField;
+        
+        private string minuteField;
+        
+        private string secondField;
+        
+        private string subsecondField;
+        
+        private string timezoneField;
+        
+        private string idField;
+        
+        private string qualifierField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string Year {
+            get {
+                return this.yearField;
+            }
+            set {
+                this.yearField = value;
+                this.RaisePropertyChanged("Year");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string Month {
+            get {
+                return this.monthField;
+            }
+            set {
+                this.monthField = value;
+                this.RaisePropertyChanged("Month");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string Day {
+            get {
+                return this.dayField;
+            }
+            set {
+                this.dayField = value;
+                this.RaisePropertyChanged("Day");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string Hour {
+            get {
+                return this.hourField;
+            }
+            set {
+                this.hourField = value;
+                this.RaisePropertyChanged("Hour");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string Minute {
+            get {
+                return this.minuteField;
+            }
+            set {
+                this.minuteField = value;
+                this.RaisePropertyChanged("Minute");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string Second {
+            get {
+                return this.secondField;
+            }
+            set {
+                this.secondField = value;
+                this.RaisePropertyChanged("Second");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string Subsecond {
+            get {
+                return this.subsecondField;
+            }
+            set {
+                this.subsecondField = value;
+                this.RaisePropertyChanged("Subsecond");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string Timezone {
+            get {
+                return this.timezoneField;
+            }
+            set {
+                this.timezoneField = value;
+                this.RaisePropertyChanged("Timezone");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string qualifier {
+            get {
+                return this.qualifierField;
+            }
+            set {
+                this.qualifierField = value;
+                this.RaisePropertyChanged("qualifier");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderResponseHeader2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private Datetime3 datetimeField;
+        
+        private string salesOrgIDField;
+        
+        private string distChannelIDField;
+        
+        private string divisionIDField;
+        
+        private string purchaseOrderIDField;
+        
+        private string agentOrderIDField;
+        
+        private string sellerOrderIDField;
+        
+        private string paymentTermsField;
+        
+        private string iNCOTermsField;
+        
+        private string iNCOCodeField;
+        
+        private string currencyField;
+        
+        private string shippingCostField;
+        
+        private string taxVATField;
+        
+        private string orderTotalField;
+        
+        private string promoTypeField;
+        
+        private string descriptionField;
+        
+        private docType_Userarea4 userareaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public Datetime3 Datetime {
+            get {
+                return this.datetimeField;
+            }
+            set {
+                this.datetimeField = value;
+                this.RaisePropertyChanged("Datetime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string SalesOrgID {
+            get {
+                return this.salesOrgIDField;
+            }
+            set {
+                this.salesOrgIDField = value;
+                this.RaisePropertyChanged("SalesOrgID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string DistChannelID {
+            get {
+                return this.distChannelIDField;
+            }
+            set {
+                this.distChannelIDField = value;
+                this.RaisePropertyChanged("DistChannelID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string DivisionID {
+            get {
+                return this.divisionIDField;
+            }
+            set {
+                this.divisionIDField = value;
+                this.RaisePropertyChanged("DivisionID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string PurchaseOrderID {
+            get {
+                return this.purchaseOrderIDField;
+            }
+            set {
+                this.purchaseOrderIDField = value;
+                this.RaisePropertyChanged("PurchaseOrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string AgentOrderID {
+            get {
+                return this.agentOrderIDField;
+            }
+            set {
+                this.agentOrderIDField = value;
+                this.RaisePropertyChanged("AgentOrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string SellerOrderID {
+            get {
+                return this.sellerOrderIDField;
+            }
+            set {
+                this.sellerOrderIDField = value;
+                this.RaisePropertyChanged("SellerOrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string PaymentTerms {
+            get {
+                return this.paymentTermsField;
+            }
+            set {
+                this.paymentTermsField = value;
+                this.RaisePropertyChanged("PaymentTerms");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string INCOTerms {
+            get {
+                return this.iNCOTermsField;
+            }
+            set {
+                this.iNCOTermsField = value;
+                this.RaisePropertyChanged("INCOTerms");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string INCOCode {
+            get {
+                return this.iNCOCodeField;
+            }
+            set {
+                this.iNCOCodeField = value;
+                this.RaisePropertyChanged("INCOCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string Currency {
+            get {
+                return this.currencyField;
+            }
+            set {
+                this.currencyField = value;
+                this.RaisePropertyChanged("Currency");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string ShippingCost {
+            get {
+                return this.shippingCostField;
+            }
+            set {
+                this.shippingCostField = value;
+                this.RaisePropertyChanged("ShippingCost");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        public string TaxVAT {
+            get {
+                return this.taxVATField;
+            }
+            set {
+                this.taxVATField = value;
+                this.RaisePropertyChanged("TaxVAT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public string OrderTotal {
+            get {
+                return this.orderTotalField;
+            }
+            set {
+                this.orderTotalField = value;
+                this.RaisePropertyChanged("OrderTotal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        public string PromoType {
+            get {
+                return this.promoTypeField;
+            }
+            set {
+                this.promoTypeField = value;
+                this.RaisePropertyChanged("PromoType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        public docType_Userarea4 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderResponse2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private OrderResponseHeader2 orderResponseHeaderField;
+        
+        private OrderResponseDetail2[] orderResponseDetailField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public OrderResponseHeader2 OrderResponseHeader {
+            get {
+                return this.orderResponseHeaderField;
+            }
+            set {
+                this.orderResponseHeaderField = value;
+                this.RaisePropertyChanged("OrderResponseHeader");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("OrderResponseDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public OrderResponseDetail2[] OrderResponseDetail {
+            get {
+                return this.orderResponseDetailField;
+            }
+            set {
+                this.orderResponseDetailField = value;
+                this.RaisePropertyChanged("OrderResponseDetail");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderWebServiceResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private OrderResponse2 orderResponseField;
+        
+        private ErrorResponse3 errorResponseField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public OrderResponse2 OrderResponse {
+            get {
+                return this.orderResponseField;
+            }
+            set {
+                this.orderResponseField = value;
+                this.RaisePropertyChanged("OrderResponse");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+        public ErrorResponse3 ErrorResponse {
+            get {
+                return this.errorResponseField;
+            }
+            set {
+                this.errorResponseField = value;
+                this.RaisePropertyChanged("ErrorResponse");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderRequestDetail2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string orderLineNumberField;
+        
+        private string productIDField;
+        
+        private string quantityField;
+        
+        private string shippingInstructionsField;
+        
+        private string requestedDateField;
+        
+        private string descriptionField;
+        
+        private docType_Userarea3 userareaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string OrderLineNumber {
+            get {
+                return this.orderLineNumberField;
+            }
+            set {
+                this.orderLineNumberField = value;
+                this.RaisePropertyChanged("OrderLineNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string ProductID {
+            get {
+                return this.productIDField;
+            }
+            set {
+                this.productIDField = value;
+                this.RaisePropertyChanged("ProductID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string Quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                this.quantityField = value;
+                this.RaisePropertyChanged("Quantity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string ShippingInstructions {
+            get {
+                return this.shippingInstructionsField;
+            }
+            set {
+                this.shippingInstructionsField = value;
+                this.RaisePropertyChanged("ShippingInstructions");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string RequestedDate {
+            get {
+                return this.requestedDateField;
+            }
+            set {
+                this.requestedDateField = value;
+                this.RaisePropertyChanged("RequestedDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public docType_Userarea3 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class docType_Userarea3 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class Telephone4 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private qualifier4 qualifierField;
+        
+        private string[] textField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public qualifier4 qualifier {
+            get {
+                return this.qualifierField;
+            }
+            set {
+                this.qualifierField = value;
+                this.RaisePropertyChanged("qualifier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string[] Text {
+            get {
+                return this.textField;
+            }
+            set {
+                this.textField = value;
+                this.RaisePropertyChanged("Text");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="@qualifier4", Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public enum qualifier4 {
+        
+        /// <remarks/>
+        Daytime,
+        
+        /// <remarks/>
+        Evening,
+        
+        /// <remarks/>
+        Cell,
+        
+        /// <remarks/>
+        Fax,
+        
+        /// <remarks/>
+        First,
+        
+        /// <remarks/>
+        Second,
+        
+        /// <remarks/>
+        Third,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class Address4 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string streetField;
+        
+        private string pOBoxField;
+        
+        private string pOBoxCityField;
+        
+        private string cityField;
+        
+        private string districtField;
+        
+        private string countryField;
+        
+        private string descriptionField;
+        
+        private string faxField;
+        
+        private string postalCodeField;
+        
+        private string pOBoxPostalCodeField;
+        
+        private string regionField;
+        
+        private string countyCodeField;
+        
+        private string cityCodeField;
+        
+        private Telephone4[] telephoneField;
+        
+        private string uRLField;
+        
+        private docType_Userarea3 userareaField;
+        
+        private string returndataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string Street {
+            get {
+                return this.streetField;
+            }
+            set {
+                this.streetField = value;
+                this.RaisePropertyChanged("Street");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string POBox {
+            get {
+                return this.pOBoxField;
+            }
+            set {
+                this.pOBoxField = value;
+                this.RaisePropertyChanged("POBox");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string POBoxCity {
+            get {
+                return this.pOBoxCityField;
+            }
+            set {
+                this.pOBoxCityField = value;
+                this.RaisePropertyChanged("POBoxCity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string City {
+            get {
+                return this.cityField;
+            }
+            set {
+                this.cityField = value;
+                this.RaisePropertyChanged("City");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string District {
+            get {
+                return this.districtField;
+            }
+            set {
+                this.districtField = value;
+                this.RaisePropertyChanged("District");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string Country {
+            get {
+                return this.countryField;
+            }
+            set {
+                this.countryField = value;
+                this.RaisePropertyChanged("Country");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string Fax {
+            get {
+                return this.faxField;
+            }
+            set {
+                this.faxField = value;
+                this.RaisePropertyChanged("Fax");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string PostalCode {
+            get {
+                return this.postalCodeField;
+            }
+            set {
+                this.postalCodeField = value;
+                this.RaisePropertyChanged("PostalCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string POBoxPostalCode {
+            get {
+                return this.pOBoxPostalCodeField;
+            }
+            set {
+                this.pOBoxPostalCodeField = value;
+                this.RaisePropertyChanged("POBoxPostalCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string Region {
+            get {
+                return this.regionField;
+            }
+            set {
+                this.regionField = value;
+                this.RaisePropertyChanged("Region");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string CountyCode {
+            get {
+                return this.countyCodeField;
+            }
+            set {
+                this.countyCodeField = value;
+                this.RaisePropertyChanged("CountyCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        public string CityCode {
+            get {
+                return this.cityCodeField;
+            }
+            set {
+                this.cityCodeField = value;
+                this.RaisePropertyChanged("CityCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Telephone", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public Telephone4[] Telephone {
+            get {
+                return this.telephoneField;
+            }
+            set {
+                this.telephoneField = value;
+                this.RaisePropertyChanged("Telephone");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        public string URL {
+            get {
+                return this.uRLField;
+            }
+            set {
+                this.uRLField = value;
+                this.RaisePropertyChanged("URL");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        public docType_Userarea3 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string returndata {
+            get {
+                return this.returndataField;
+            }
+            set {
+                this.returndataField = value;
+                this.RaisePropertyChanged("returndata");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class Partner4 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string name1Field;
+        
+        private string name2Field;
+        
+        private string name3Field;
+        
+        private string name4Field;
+        
+        private string rADIndicatorField;
+        
+        private string markedForDeletionField;
+        
+        private string partnerIDField;
+        
+        private string partnerTypeField;
+        
+        private string descriptionField;
+        
+        private string dUNSNumberField;
+        
+        private string taxExemptField;
+        
+        private string taxIDField;
+        
+        private Address4 addressField;
+        
+        private docType_Userarea3 userareaField;
+        
+        private string idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string Name1 {
+            get {
+                return this.name1Field;
+            }
+            set {
+                this.name1Field = value;
+                this.RaisePropertyChanged("Name1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string Name2 {
+            get {
+                return this.name2Field;
+            }
+            set {
+                this.name2Field = value;
+                this.RaisePropertyChanged("Name2");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string Name3 {
+            get {
+                return this.name3Field;
+            }
+            set {
+                this.name3Field = value;
+                this.RaisePropertyChanged("Name3");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string Name4 {
+            get {
+                return this.name4Field;
+            }
+            set {
+                this.name4Field = value;
+                this.RaisePropertyChanged("Name4");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string RADIndicator {
+            get {
+                return this.rADIndicatorField;
+            }
+            set {
+                this.rADIndicatorField = value;
+                this.RaisePropertyChanged("RADIndicator");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string MarkedForDeletion {
+            get {
+                return this.markedForDeletionField;
+            }
+            set {
+                this.markedForDeletionField = value;
+                this.RaisePropertyChanged("MarkedForDeletion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string PartnerID {
+            get {
+                return this.partnerIDField;
+            }
+            set {
+                this.partnerIDField = value;
+                this.RaisePropertyChanged("PartnerID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string PartnerType {
+            get {
+                return this.partnerTypeField;
+            }
+            set {
+                this.partnerTypeField = value;
+                this.RaisePropertyChanged("PartnerType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string DUNSNumber {
+            get {
+                return this.dUNSNumberField;
+            }
+            set {
+                this.dUNSNumberField = value;
+                this.RaisePropertyChanged("DUNSNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string TaxExempt {
+            get {
+                return this.taxExemptField;
+            }
+            set {
+                this.taxExemptField = value;
+                this.RaisePropertyChanged("TaxExempt");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string TaxID {
+            get {
+                return this.taxIDField;
+            }
+            set {
+                this.taxIDField = value;
+                this.RaisePropertyChanged("TaxID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        public Address4 Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+                this.RaisePropertyChanged("Address");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public docType_Userarea3 Userarea {
+            get {
+                return this.userareaField;
+            }
+            set {
+                this.userareaField = value;
+                this.RaisePropertyChanged("Userarea");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class CreditCard2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string creditCardTypeField;
+        
+        private string creditCardNumberField;
+        
+        private string holderNameField;
+        
+        private string expirationMonthField;
+        
+        private string expirationYearField;
+        
+        private string securityNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string CreditCardType {
+            get {
+                return this.creditCardTypeField;
+            }
+            set {
+                this.creditCardTypeField = value;
+                this.RaisePropertyChanged("CreditCardType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string CreditCardNumber {
+            get {
+                return this.creditCardNumberField;
+            }
+            set {
+                this.creditCardNumberField = value;
+                this.RaisePropertyChanged("CreditCardNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string HolderName {
+            get {
+                return this.holderNameField;
+            }
+            set {
+                this.holderNameField = value;
+                this.RaisePropertyChanged("HolderName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string ExpirationMonth {
+            get {
+                return this.expirationMonthField;
+            }
+            set {
+                this.expirationMonthField = value;
+                this.RaisePropertyChanged("ExpirationMonth");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string ExpirationYear {
+            get {
+                return this.expirationYearField;
+            }
+            set {
+                this.expirationYearField = value;
+                this.RaisePropertyChanged("ExpirationYear");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string SecurityNumber {
+            get {
+                return this.securityNumberField;
+            }
+            set {
+                this.securityNumberField = value;
+                this.RaisePropertyChanged("SecurityNumber");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderRequestHeader2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string salesOrgIDField;
+        
+        private string distChannelIDField;
+        
+        private string divisionIDField;
+        
+        private string languageField;
+        
+        private string purchaseOrderIDField;
+        
+        private string deliveryBlockTextField;
+        
+        private string deliveryBlockStatusField;
+        
+        private string agentOrderIDField;
+        
+        private string paymentTypeField;
+        
+        private CreditCard2 creditCardField;
+        
+        private string webOrderNumberField;
+        
+        private string partialAcceptedField;
+        
+        private string carrierIDField;
+        
+        private string carrierAccountField;
+        
+        private string numberOfItemsField;
+        
+        private string promoCodeField;
+        
+        private string researchRewardsField;
+        
+        private string miscellaneousField;
+        
+        private string specialHandlingInstructionsField;
+        
+        private Partner4[] partnerField;
+        
+        private string altTAXField;
+        
+        private string vATNumberField;
+        
+        private string vATExpirationDateField;
+        
+        private string deliveryBlockField;
+        
+        private string additionalInfoField;
+        
+        private string attentionLinesField;
+        
+        private string attentionLinesBillToField;
+        
+        private string telephoneNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string SalesOrgID {
+            get {
+                return this.salesOrgIDField;
+            }
+            set {
+                this.salesOrgIDField = value;
+                this.RaisePropertyChanged("SalesOrgID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string DistChannelID {
+            get {
+                return this.distChannelIDField;
+            }
+            set {
+                this.distChannelIDField = value;
+                this.RaisePropertyChanged("DistChannelID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string DivisionID {
+            get {
+                return this.divisionIDField;
+            }
+            set {
+                this.divisionIDField = value;
+                this.RaisePropertyChanged("DivisionID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string language {
+            get {
+                return this.languageField;
+            }
+            set {
+                this.languageField = value;
+                this.RaisePropertyChanged("language");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string PurchaseOrderID {
+            get {
+                return this.purchaseOrderIDField;
+            }
+            set {
+                this.purchaseOrderIDField = value;
+                this.RaisePropertyChanged("PurchaseOrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string DeliveryBlockText {
+            get {
+                return this.deliveryBlockTextField;
+            }
+            set {
+                this.deliveryBlockTextField = value;
+                this.RaisePropertyChanged("DeliveryBlockText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string DeliveryBlockStatus {
+            get {
+                return this.deliveryBlockStatusField;
+            }
+            set {
+                this.deliveryBlockStatusField = value;
+                this.RaisePropertyChanged("DeliveryBlockStatus");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string AgentOrderID {
+            get {
+                return this.agentOrderIDField;
+            }
+            set {
+                this.agentOrderIDField = value;
+                this.RaisePropertyChanged("AgentOrderID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string PaymentType {
+            get {
+                return this.paymentTypeField;
+            }
+            set {
+                this.paymentTypeField = value;
+                this.RaisePropertyChanged("PaymentType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public CreditCard2 CreditCard {
+            get {
+                return this.creditCardField;
+            }
+            set {
+                this.creditCardField = value;
+                this.RaisePropertyChanged("CreditCard");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string WebOrderNumber {
+            get {
+                return this.webOrderNumberField;
+            }
+            set {
+                this.webOrderNumberField = value;
+                this.RaisePropertyChanged("WebOrderNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string PartialAccepted {
+            get {
+                return this.partialAcceptedField;
+            }
+            set {
+                this.partialAcceptedField = value;
+                this.RaisePropertyChanged("PartialAccepted");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        public string CarrierID {
+            get {
+                return this.carrierIDField;
+            }
+            set {
+                this.carrierIDField = value;
+                this.RaisePropertyChanged("CarrierID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public string CarrierAccount {
+            get {
+                return this.carrierAccountField;
+            }
+            set {
+                this.carrierAccountField = value;
+                this.RaisePropertyChanged("CarrierAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        public string NumberOfItems {
+            get {
+                return this.numberOfItemsField;
+            }
+            set {
+                this.numberOfItemsField = value;
+                this.RaisePropertyChanged("NumberOfItems");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        public string PromoCode {
+            get {
+                return this.promoCodeField;
+            }
+            set {
+                this.promoCodeField = value;
+                this.RaisePropertyChanged("PromoCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        public string ResearchRewards {
+            get {
+                return this.researchRewardsField;
+            }
+            set {
+                this.researchRewardsField = value;
+                this.RaisePropertyChanged("ResearchRewards");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        public string Miscellaneous {
+            get {
+                return this.miscellaneousField;
+            }
+            set {
+                this.miscellaneousField = value;
+                this.RaisePropertyChanged("Miscellaneous");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+        public string SpecialHandlingInstructions {
+            get {
+                return this.specialHandlingInstructionsField;
+            }
+            set {
+                this.specialHandlingInstructionsField = value;
+                this.RaisePropertyChanged("SpecialHandlingInstructions");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Partner", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        public Partner4[] Partner {
+            get {
+                return this.partnerField;
+            }
+            set {
+                this.partnerField = value;
+                this.RaisePropertyChanged("Partner");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        public string AltTAX {
+            get {
+                return this.altTAXField;
+            }
+            set {
+                this.altTAXField = value;
+                this.RaisePropertyChanged("AltTAX");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        public string VATNumber {
+            get {
+                return this.vATNumberField;
+            }
+            set {
+                this.vATNumberField = value;
+                this.RaisePropertyChanged("VATNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        public string VATExpirationDate {
+            get {
+                return this.vATExpirationDateField;
+            }
+            set {
+                this.vATExpirationDateField = value;
+                this.RaisePropertyChanged("VATExpirationDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        public string DeliveryBlock {
+            get {
+                return this.deliveryBlockField;
+            }
+            set {
+                this.deliveryBlockField = value;
+                this.RaisePropertyChanged("DeliveryBlock");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
+        public string AdditionalInfo {
+            get {
+                return this.additionalInfoField;
+            }
+            set {
+                this.additionalInfoField = value;
+                this.RaisePropertyChanged("AdditionalInfo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
+        public string AttentionLines {
+            get {
+                return this.attentionLinesField;
+            }
+            set {
+                this.attentionLinesField = value;
+                this.RaisePropertyChanged("AttentionLines");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
+        public string AttentionLinesBillTo {
+            get {
+                return this.attentionLinesBillToField;
+            }
+            set {
+                this.attentionLinesBillToField = value;
+                this.RaisePropertyChanged("AttentionLinesBillTo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
+        public string TelephoneNumber {
+            get {
+                return this.telephoneNumberField;
+            }
+            set {
+                this.telephoneNumberField = value;
+                this.RaisePropertyChanged("TelephoneNumber");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderRequest2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private OrderRequestHeader2 orderRequestHeaderField;
+        
+        private OrderRequestDetail2[] orderRequestDetailField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public OrderRequestHeader2 OrderRequestHeader {
+            get {
+                return this.orderRequestHeaderField;
+            }
+            set {
+                this.orderRequestHeaderField = value;
+                this.RaisePropertyChanged("OrderRequestHeader");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("OrderRequestDetail", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public OrderRequestDetail2[] OrderRequestDetail {
+            get {
+                return this.orderRequestDetailField;
+            }
+            set {
+                this.orderRequestDetailField = value;
+                this.RaisePropertyChanged("OrderRequestDetail");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
+    public partial class OrderWebService : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private OrderRequest2 orderRequestField;
+        
+        private string fileNameField;
+        
+        private string debugField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public OrderRequest2 OrderRequest {
+            get {
+                return this.orderRequestField;
+            }
+            set {
+                this.orderRequestField = value;
+                this.RaisePropertyChanged("OrderRequest");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+        public string fileName {
+            get {
+                return this.fileNameField;
+            }
+            set {
+                this.fileNameField = value;
+                this.RaisePropertyChanged("fileName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
+        public string debug {
+            get {
+                return this.debugField;
+            }
+            set {
+                this.debugField = value;
+                this.RaisePropertyChanged("debug");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     /// <remarks/>
@@ -790,24 +3076,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
                 this.RaisePropertyChanged("Userarea");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class docType_Userarea4 : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -2150,24 +4418,6 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
                 this.RaisePropertyChanged("Userarea");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3130.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices")]
-    public partial class docType_Userarea3 : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -6226,6 +8476,55 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="OrderWebService", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
+    public partial class OrderWebServiceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderRequest2 OrderRequest;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string fileName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string debug;
+        
+        public OrderWebServiceRequest() {
+        }
+        
+        public OrderWebServiceRequest(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug) {
+            this.OrderRequest = OrderRequest;
+            this.fileName = fileName;
+            this.debug = debug;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="OrderWebServiceResponse", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
+    public partial class OrderWebServiceResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderResponse2 OrderResponse;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse3 ErrorResponse;
+        
+        public OrderWebServiceResponse1() {
+        }
+        
+        public OrderWebServiceResponse1(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderResponse2 OrderResponse, PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
+            this.OrderResponse = OrderResponse;
+            this.ErrorResponse = ErrorResponse;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SimulateOrderWebService", WrapperNamespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", IsWrapped=true)]
     public partial class SimulateOrderWebServiceRequest {
         
@@ -6383,6 +8682,25 @@ namespace PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices {
         
         public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceRequest request) {
             return base.Channel.InventoryWebServiceAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1 PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType.OrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest request) {
+            return base.Channel.OrderWebService(request);
+        }
+        
+        public PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderResponse2 OrderWebService(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug, out PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest inValue = new PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest();
+            inValue.OrderRequest = OrderRequest;
+            inValue.fileName = fileName;
+            inValue.debug = debug;
+            PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1 retVal = ((PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderWebService(inValue);
+            ErrorResponse = retVal.ErrorResponse;
+            return retVal.OrderResponse;
+        }
+        
+        public System.Threading.Tasks.Task<PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderWebServiceRequest request) {
+            return base.Channel.OrderWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

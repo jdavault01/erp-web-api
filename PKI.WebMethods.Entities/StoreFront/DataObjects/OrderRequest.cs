@@ -48,6 +48,10 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string Discount { get; set; }
         [DataMember]
+        public string Description { get; set; }
+        [DataMember]
+        public string SpecialShippingInstructions { get; set; }
+        [DataMember]
         public string TaxVAT { get; set; }
     }
 
@@ -70,11 +74,23 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string DeliveryBlockStatus { get; set; }
         [DataMember]
+        public string DeliveryBlockText { get; set; }
+        [DataMember]
         public string PaymentType { get; set; }
         [DataMember]
         public string PurchaseOrderID { get; set; }
-        //[DataMember]
+        [DataMember]
         public CreditCardInfo CreditCard { get; set; }
+        [DataMember]
+        public string WebOrderNumber { get; set; }
+        [DataMember]
+        public string AltTAX { get; set; }
+        [DataMember]
+        public string VATNumber { get; set; }
+        [DataMember]
+        public string VATExpirationDate { get; set; }
+        [DataMember]
+        public string AdditionalInfo { get; set; }
 
     }
 
@@ -82,13 +98,18 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
     public class CreditCardInfo
     {
         [DataMember]
-        public decimal CardNumber { get; set; }
+        public string CardNumber { get; set; }
         [DataMember]
-        public string Name { get; set; }
+        public string CardHolderName { get; set; }
         [DataMember]
-        public string CCV { get; set; }
+        public string SecurityCode { get; set; }
         [DataMember]
-        public DateTime ExpirationDate { get; set; }
+        public string ExpirationMonth { get; set; }
+        [DataMember]
+        public string ExpirationYear { get; set; }
+        [DataMember]
+        public string CardType { get; set; }
+
     }
 
     [DataContract]

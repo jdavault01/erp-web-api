@@ -51,14 +51,38 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(inventoryResponseEntity);
         }
 
+        //[HttpPost]
+        //public IHttpActionResult Create([FromBody] CreateOrderRequest payload)
+        //{
+        //    // var orderResponseEntity = _orderService.SimulateOrder(payload);
+        //    string filePath = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\OrderResponse.json");
+        //    var source = File.ReadAllText(filePath);
+        //    var orderResponseEntity = JsonConvert.DeserializeObject<CreateOrderResponse>(source);
+        //    return Ok(orderResponseEntity);
+
+        //}
+
         [HttpPost]
         public IHttpActionResult Create([FromBody] CreateOrderRequest payload)
         {
-            // var orderResponseEntity = _orderService.SimulateOrder(payload);
-            string filePath = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\OrderResponse.json");
-            var source = File.ReadAllText(filePath);
-            var orderResponseEntity = JsonConvert.DeserializeObject<CreateOrderResponse>(source);
-            return Ok(orderResponseEntity);
+            if (payload == null)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_CREATE_ORDER_REQUEST);
+                return BadRequest(InfoMessage.ERROR_MSG_INVALID_CREATE_ORDER_REQUEST);
+            }
+            if (!ModelState.IsValid)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_CREATE_ORDER_REQUEST_MODEL);
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
+            }
+            var orderCreateResponseEntity = _orderService.CreateOrder(payload);
+
+            if (orderCreateResponseEntity == null)
+            {
+                Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_ORDER_RESPONSE);
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_ORDER_RESPONSE));
+            }
+            return Ok(orderCreateResponseEntity);
 
         }
 
