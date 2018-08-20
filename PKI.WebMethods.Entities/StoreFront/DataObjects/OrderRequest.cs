@@ -20,11 +20,12 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public int NumberOfItems { get; set; }
         [DataMember]
-        public string PromoCode { get; set; }
-        [DataMember]
         public List<Partner> Partners { get; set; }
         [DataMember]
         public List<OrderLineItem> OrderItems { get; set; }
+        [DataMember]
+        public string PromoCode { get; set; }
+
     }
 
     [DataContract]
@@ -47,15 +48,69 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string Discount { get; set; }
         [DataMember]
+        public string Description { get; set; }
+        [DataMember]
+        public string SpecialShippingInstructions { get; set; }
+        [DataMember]
         public string TaxVAT { get; set; }
     }
 
     [DataContract]
     public class SimulateOrderRequest : BaseOrderRequest
     {
+    }
+
+    [DataContract]
+    public class CreateOrderRequest : BaseOrderRequest
+    {
+        [DataMember]
+        public string AttentionLines { get; set; }
+        [DataMember]
+        public string AttentionLinesBillTo { get; set; }
+        [DataMember]
+        public string TelephoneNumber { get; set; }
+        [DataMember]
+        public string PromDeliveryBlockTextoCode { get; set; }
+        [DataMember]
+        public string DeliveryBlockStatus { get; set; }
+        [DataMember]
+        public string DeliveryBlockText { get; set; }
+        [DataMember]
+        public string PaymentType { get; set; }
+        [DataMember]
+        public string PurchaseOrderID { get; set; }
+        [DataMember]
+        public CreditCardInfo CreditCard { get; set; }
+        [DataMember]
+        public string WebOrderNumber { get; set; }
+        [DataMember]
+        public string AltTAX { get; set; }
+        [DataMember]
+        public string VATNumber { get; set; }
+        [DataMember]
+        public string VATExpirationDate { get; set; }
+        [DataMember]
+        public string AdditionalInfo { get; set; }
 
     }
 
+    [DataContract]
+    public class CreditCardInfo
+    {
+        [DataMember]
+        public string CardNumber { get; set; }
+        [DataMember]
+        public string CardHolderName { get; set; }
+        [DataMember]
+        public string SecurityCode { get; set; }
+        [DataMember]
+        public string ExpirationMonth { get; set; }
+        [DataMember]
+        public string ExpirationYear { get; set; }
+        [DataMember]
+        public string CardType { get; set; }
+
+    }
 
     [DataContract]
     public class Availability

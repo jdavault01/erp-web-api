@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRequestResponseFactory.cs" />
     <Compile Include="StoreFront\IAccountService.cs" />
     <Compile Include="StoreFront\ICartService.cs" />
     <Compile Include="StoreFront\IProductService.cs" />

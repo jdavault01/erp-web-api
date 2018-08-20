@@ -1,9 +1,8 @@
-﻿using PKI.eBusiness.WMService.Entities.StoreFront.Account;
-using PKI.eBusiness.WMService.Entities.StoreFront.Orders;
+﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 
 namespace PKI.eBusiness.WMService.ServiceGatewaysContracts
 {
-    public interface IShopCommerceServiceAgent
+    public interface IShopCommerceServiceGateway
     {
         LoginInfo GetLoginInfo(string companyCode);
         CartInfo GetClearanceCode(CartInfo cartInfo);

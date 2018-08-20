@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using Newtonsoft.Json;
 using WebMethodsInventoryResponse1 = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1;
-
+//using WebMethodsInventoryResponse1 = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1;
 namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
     [DataContract]
@@ -19,7 +19,12 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 
         public InventoryClientResponse(WebMethodsInventoryResponse1 response)
         {
-            this.InventoryResponse = new InventoryResponse
+            if (response.InventoryResponse == null)
+            {
+                InventoryResponse = new InventoryResponse();
+                return;
+            }
+            InventoryResponse = new InventoryResponse
             {
                 InventoryResponseItems = new InventoryResponseItem[response.InventoryResponse.InventoryResponseDetail.Length]
             };
@@ -62,6 +67,20 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
     {
         [DataMember]
         public InventoryResponseItem[] InventoryResponseItems { get; set; }
+
+        [DataMember]
+        public String ErrorMessage { get; set; }
+
+        [DataMember]
+        public List<FailedItem> FailedItems { get; set; }
+
+    }
+
+    [DataContract]
+    public class FailedItem : InventoryItem
+    {
+        [DataMember]
+        public string ErrorMessage { get; set; }
     }
 
     [DataContract]

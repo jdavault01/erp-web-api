@@ -38,17 +38,6 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         }
 
         /// <summary>
-        /// This method takes a client inventory request model and converts, makes calls and converts response
-        /// back to client side model
-        /// </summary>
-        /// <param name="inventoryRequest"></param>
-        /// <returns></returns>
-        public InventoryResponse GetInventory(InventoryRequest inventoryRequest)
-        {
-            return _webMethodClient.GetInventory(inventoryRequest);
-        }
-
-        /// <summary>
         /// This method will log message to log file
         /// </summary>
         /// <param name="message">message</param>

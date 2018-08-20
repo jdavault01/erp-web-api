@@ -9,9 +9,10 @@ using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Logger;
 using PKI.eBusiness.WMService.ServiceGatewaysContracts;
 using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
-
 using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using  PKI.eBusiness.WMService.Utility;
+using PKI.eBusiness.WMService.Utility;
+using InventoryRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.InventoryRequest;
+using InventoryResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.InventoryResponse;
 
 
 namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
@@ -75,10 +76,37 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
             
         }
 
+        /// <summary>
+        /// This method takes a client simulate order request model and calls the ERPGateway
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest request)
         {
             return _webMethodClient.SimulateOrder(request);
 
+        }
+
+        /// <summary>
+        /// This method takes a client simulate order request model and calls the ERPGateway
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public CreateOrderResponse CreateOrder(CreateOrderRequest request)
+        {
+            return _webMethodClient.CreateOrder(request);
+
+        }
+
+        /// <summary>
+        /// This method takes a client inventory request model and converts, makes calls and converts response
+        /// back to client side model
+        /// </summary>
+        /// <param name="inventoryRequest"></param>
+        /// <returns></returns>
+        public InventoryResponse GetInventory(InventoryRequest inventoryRequest)
+        {
+            return _webMethodClient.GetInventory(inventoryRequest);
         }
 
         /// <summary>

@@ -11,6 +11,8 @@ using WebMethodsInventoryResponse1 = PKI.eBusiness.WMService.Entities.Stubs.Stor
 using WebMethodsPriceResponse = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1;
 using StorefrontSimulateOrderRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.SimulateOrderRequest;
 using SimulateOrderWebServiceResponse1 = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.SimulateOrderWebServiceResponse1;
+using StorefrontCreateOrderRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.CreateOrderRequest;
+using OrderWebServiceResponse1 = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.OrderWebServiceResponse1;
 
 
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
@@ -37,10 +39,19 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
             return new ClientModels.InventoryClientResponse(response).InventoryResponse;
         }
 
+        public static ServiceModels.OrderWebServiceRequest ToWmOrderRequest(this StorefrontCreateOrderRequest request)
+        {
+            return new CreateOrderServiceRequest(request).OrderWebServiceRequest;
+        }
+
+        public static ClientModels.CreateOrderResponse ToOrderResponse(this OrderWebServiceResponse1 response)
+        {
+            return new ClientModels.OrderClientResponse(response).OrderResponse;
+        }
+
         public static ServiceModels.SimulateOrderWebServiceRequest ToWmSimulateOrderRequest(this StorefrontSimulateOrderRequest request)
         {
             return new SimulateOrderServiceRequest(request).SimulateOrderWebServiceRequest;
-
         }
 
         public static ClientModels.SimulateOrderResponse ToSimulateOrderResponse(this SimulateOrderWebServiceResponse1 response)

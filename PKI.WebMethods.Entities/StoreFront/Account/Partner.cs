@@ -32,7 +32,8 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.Account
     {
         ShipTo = 1,
         BillTo = 2,
-        SoldTo = 3
+        SoldTo = 3,
+        ContactID = 4
     }
 
 }

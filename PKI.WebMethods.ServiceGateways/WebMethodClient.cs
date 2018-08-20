@@ -15,11 +15,11 @@ using PartnerRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.P
 using PartnerResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.PartnerResponse;
 using ContactCreateRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateRequest;
 using ContactCreateResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateResponse;
-//TODO:  Dependency Injection .. chat with Raji
-using PKI.eBusiness.WMService.ServiceGateways.RestCalls;
 using PKI.eBusiness.WMService.ServiceGateways.WMService;
+using PKI.eBusiness.WMService.ServiceGatewContracts;
 using PKI.eBusiness.WMService.Entities.Orders;
 using AutoMapper;
+using PKI.eBusiness.WMService.Entities.Settings;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {
@@ -33,7 +33,9 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
-        //private readonly IWMRestServices _wmRestServices;
+
+        //Let's get DI going with this guy
+        //private ERPRestSettings _erpRestSettings;
 
         #endregion // Private variables
 
@@ -45,6 +47,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         /// <param name="soapClient"></param>
         public WebMethodClient()
         {
+            _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
         }
 
@@ -121,7 +124,10 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
                 var newProductLists = request.PricingRequest.ProductList.Where(val => val.ProductID != productId).ToArray();
                 request.PricingRequest.ProductList = newProductLists;
-                
+
+                if (newProductLists.Length == 0)
+                    break;
+
                 Log(InfoMessages.SEND_DATA_CORRECTED_INPUT_REQUEST);
                 LogRequest(request);
                 wmPriceResponse = _soapStoreFrontWebService.PriceWebService(request);
@@ -153,10 +159,19 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
         private string GetProductFromErrorMessage(string errorMessage)
         {
-            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9\-]+) is not defined for sales org", RegexOptions.IgnoreCase);
+            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9\-]+) ", RegexOptions.IgnoreCase);
             return match.Success ? match.Groups[1].Value : string.Empty;
         }
 
+        public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
+        {
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var request = createOrderRequest.ToWmOrderRequest();
+            LogRequest(request);
+            var wmOrderResponse = _soapStoreFrontWebService.OrderWebService(request);
+            LogResponse(wmOrderResponse);
+            return wmOrderResponse.ToOrderResponse();
+        }
 
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest simulateOrderRequest)
         {
@@ -165,18 +180,88 @@ namespace PKI.eBusiness.WMService.ServiceGateways
             LogRequest(request);
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebService(request);
             LogResponse(wmSimulateOrderResponse);
-            return wmSimulateOrderResponse.ToSimulateOrderResponse();
+            var failedItems = new List<FailedItem>();
+            while (wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty)
+            {
+                var errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                string productId = LogFailedItem(failedItems, errorMessage);
+
+                var newitemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
+
+                if (newitemsList.Length == 0)
+                    break;
+
+                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                LogRequest(request);
+                wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebService(request);
+                LogResponse(wmSimulateOrderResponse);
+
+            }
+
+            var simulateOrderResponose =  wmSimulateOrderResponse.ToSimulateOrderResponse();
+
+            if (failedItems.Count == 0) return simulateOrderResponose;
+            simulateOrderResponose.FailedItems = failedItems;
+            simulateOrderResponose.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+            return simulateOrderResponose;
         }
 
         public InventoryResponse GetInventory(InventoryRequest inventoryWmRequest)
         {
+            var wmInventoryResponse = new InventoryWebServiceResponse1();
+
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = inventoryWmRequest.ToWmInventoryRequest();
             LogRequest(request);
-            var wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
+            wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
             LogResponse(wmInventoryResponse);
 
-            return wmInventoryResponse.ToInventoryResponse();
+            var failedItems = new List<FailedItem>();
+
+            while (wmInventoryResponse.ErrorResponse != null)
+            {
+                var errorMessage = wmInventoryResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                string productId = LogFailedItem(failedItems, errorMessage);
+
+                var newitemsList = request.InventoryRequest.InventoryRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.InventoryRequest.InventoryRequestDetail = newitemsList;
+
+                if (newitemsList.Length == 0)
+                    break;
+
+                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                //request = inventoryWmRequest.ToWmInventoryRequest();
+                LogRequest(request);
+                wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
+                LogResponse(wmInventoryResponse);
+
+            }
+            var inventoryResponse = wmInventoryResponse.ToInventoryResponse();
+
+            if (failedItems.Count == 0) return inventoryResponse;
+            inventoryResponse.FailedItems = failedItems;
+            inventoryResponse.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+            return inventoryResponse;
+        }
+
+        private string LogFailedItem(List<FailedItem> failedItems, string errorMessage)
+        {
+            if (String.IsNullOrEmpty(errorMessage))
+                return errorMessage;
+
+            var productId = GetProductFromErrorMessage(errorMessage);
+            if (productId == string.Empty)
+            {
+                Log(string.Format("{0} - {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, "Unable to get product from error return object"));
+                throw new ApplicationException("Unable to get product from error return object");
+            }
+
+            Log(string.Format("{0} for product {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, productId));
+
+            var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = productId };
+            failedItems.Add(failedItem);
+            return productId;
         }
 
         public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)
@@ -203,14 +288,12 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         public ContactCreateResponse CreateContact(String acountNumber, ContactCreateRequest contactCreateRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            //Convert to WebMethods Object
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
-            var wmRestServices = new WMRestServices();
-            //Return WebMethods Object
-            ContactCreateWebServiceResponse wmCreateContentResponse = wmRestServices.CreateContactRestService(request);  
+            var _erpSettings = RestGatewaySettings.GetElement<ERPRestSettings>("pkieBusiness/erpRestSettings");
+            var _erpRestGateway = new ERPRestGateway(_erpSettings);
+            ContactCreateWebServiceResponse wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
             LogResponse(wmCreateContentResponse);
-            //Converts to StoreFront Object
             return wmCreateContentResponse.ToContactCreateResponse();
         }
 

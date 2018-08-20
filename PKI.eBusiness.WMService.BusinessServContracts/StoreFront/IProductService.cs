@@ -10,7 +10,5 @@ namespace PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront
     public interface IProductService
     {
         PriceResponse GetPrice(PriceRequest priceRequest);
-        InventoryResponse GetInventory(InventoryRequest priceRequest);
-
     }
 }

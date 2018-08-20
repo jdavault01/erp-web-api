@@ -1,20 +1,19 @@
-﻿using PKI.eBusiness.WMService.Entities.StoreFront.Account;
-using PKI.eBusiness.WMService.Entities.StoreFront.Orders;
+﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.ServiceGatewaysContracts;
 using System.Linq;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {
     //private readonly ServiceObjects.I _client;
-    public class ShopCommerceServiceAgent : IShopCommerceServiceAgent
+    public class ShopCommerceServiceGateway : IShopCommerceServiceGateway
     {
         //Interface of remote WCF ShopCommerce Service
         private readonly ShopCommerce.IShopCommerceService _shopCommerceClient ;
         
         //Proxying this client to the remote WCF client
-        public ShopCommerceServiceAgent() : this(new ShopCommerce.ShopCommerceServiceClient()){ }
+        public ShopCommerceServiceGateway() : this(new ShopCommerce.ShopCommerceServiceClient()){ }
         ////Contructor Injection
-        internal ShopCommerceServiceAgent(ShopCommerce.IShopCommerceService shopCommerceService)
+        internal ShopCommerceServiceGateway(ShopCommerce.IShopCommerceService shopCommerceService)
         {
             _shopCommerceClient = shopCommerceService;
         }

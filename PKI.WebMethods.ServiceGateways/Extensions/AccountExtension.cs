@@ -26,9 +26,14 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
             return new ClientModels.PartnerClientResponse(response).PartnerResponse;
         }
 
+        //public static ServiceModels.ContactCreateWebServiceRequest ToWmContactCreateRequest(this ContactCreateRequest request)
+        //{
+        //    return new ContactCreateServiceRequest(request).ContactCreateRequest;
+        //}
+
         public static string ToWmContactCreateRequest(this ContactCreateRequest request)
         {
-            return new ContactCreateServiceRequest(request).JsonResponse;
+            return new ContactCreateServiceRequest(request).JsonRequest;
         }
 
         public static ClientModels.ContactCreateResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
