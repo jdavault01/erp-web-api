@@ -65,29 +65,7 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 
         public OrderClientResponse(OrderWebServiceResponse1 response)
         {
-            var orderLineItems = new List<OrderLineItem>();
-
-            foreach (var item in response.OrderResponse.OrderResponseDetail)
-            {
-                var orderLineItem = new OrderLineItem()
-                {
-                    
-                    ShippingPoint = item.ShippingPoint,
-                    OrderLineNumber = Convert.ToInt32((string)item.OrderLineNumber),
-                    ProductID = item.ProductID,
-                    Description = item.Description,
-                    Availability = new Availability
-                    {
-                        AvailableQty = Convert.ToDecimal(item.ItemDetail[0].AvailableQty, CultureInfo.InvariantCulture),
-                        AvailableDate = item.ItemDetail[0].AvailableDate
-                    },
-                    AdjustedPrice = item.AdjustedPrice,
-                    Discount = item.Discount,
-                    TaxVAT = item.TaxVAT
-                };
-                orderLineItems.Add(orderLineItem);
-            }
-            OrderResponse = new CreateOrderResponse(orderLineItems, Convert.ToDecimal(response.OrderResponse.OrderResponseHeader.ShippingCost, CultureInfo.InvariantCulture));
+            OrderResponse = new CreateOrderResponse(response);
         }
 
     }
@@ -148,10 +126,33 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string SellerorderID { get; set; }
 
-        public CreateOrderResponse(List<OrderLineItem> lineItems, decimal shippingCost)
+        public CreateOrderResponse(OrderWebServiceResponse1 response)
         {
-            LineItems = lineItems;
-            ShippingCost = shippingCost;
+            var orderLineItems = new List<OrderLineItem>();
+            foreach (var item in response.OrderResponse.OrderResponseDetail)
+            {
+                var orderLineItem = new OrderLineItem()
+                {
+
+                    ShippingPoint = item.ShippingPoint,
+                    OrderLineNumber = Convert.ToInt32((string)item.OrderLineNumber),
+                    ProductID = item.ProductID,
+                    Description = item.Description,
+                    Availability = new Availability
+                    {
+                        AvailableQty = Convert.ToDecimal(item.ItemDetail[0].AvailableQty, CultureInfo.InvariantCulture),
+                        AvailableDate = item.ItemDetail[0].AvailableDate
+                    },
+                    AdjustedPrice = item.AdjustedPrice,
+                    Discount = item.Discount,
+                    TaxVAT = item.TaxVAT
+                };
+                orderLineItems.Add(orderLineItem);
+            }
+
+            SellerorderID = response.OrderResponse.OrderResponseHeader.SellerOrderID;
+            LineItems = orderLineItems;
+            ShippingCost = Convert.ToDecimal(response.OrderResponse.OrderResponseHeader.ShippingCost, CultureInfo.InvariantCulture);
         }
     }
 
