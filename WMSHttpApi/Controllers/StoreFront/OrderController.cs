@@ -5,12 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 //using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using Newtonsoft.Json;
 using System.IO;
-using PKI.eBusiness.WMService.Entities.Interfaces.BL.StoreFront;
-using PKI.eBusiness.WMService.Entities.Orders;
+using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
+using Pki.eBusiness.WebApi.Entities.Orders;
+using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront

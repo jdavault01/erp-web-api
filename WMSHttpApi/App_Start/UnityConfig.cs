@@ -1,8 +1,7 @@
 ﻿using Unity;
 using Unity.RegistrationByConvention;
 using System.Linq;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi.Client;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi;
 using Unity.Registration;
 using Unity.Injection;
 

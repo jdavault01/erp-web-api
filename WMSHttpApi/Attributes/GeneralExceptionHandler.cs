@@ -9,8 +9,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 
-using PKI.eBusiness.WMService.Entities.Errors;
-
 namespace PKI.eBusiness.WMSHttpApi.Attributes
 {
     public class GeneralExceptionHandler : ShopWebApiExceptionHandler

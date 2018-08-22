@@ -4,8 +4,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
 using AutoMapper;
-using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
-using Client = PKI.eBusiness.WMService.Entities.StoreFront.ProductCatalog;
+using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog;
 
 namespace PKI.eBusiness.WMSHttpApi.Models
 {
@@ -13,12 +13,12 @@ namespace PKI.eBusiness.WMSHttpApi.Models
     {
 
         public IEnumerable<PriceResponseDetail> Products { get; set; }
-        public IEnumerable<Client.FailedProduct> FailedProducts { get; set; }
+        public IEnumerable<FailedProduct> FailedProducts { get; set; }
         public String ErrorMessage { get; set; }
 
         public PriceResponseModel(PriceResponse priceResponseEntity)
         {
-            Mapper.CreateMap<Client.Product, PriceResponseDetail>()
+            Mapper.CreateMap<Product, PriceResponseDetail>()
                 .ForMember(dest => dest.AdjustedPrice, opt => opt.MapFrom(src => src.Price.ToString("N")))
                     .ForMember(x => x.ProductId, y => y.MapFrom(src => src.PartNumber));
 
