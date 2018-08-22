@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
+﻿using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
 using Pki.eBusiness.WebApi.Contracts.DAL;
 using Pki.eBusiness.WebApi.Entities.Constants;
 using Pki.eBusiness.WebApi.Entities.Extensions;
@@ -15,7 +11,7 @@ using InventoryRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.In
 using InventoryResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.InventoryResponse;
 
 
-namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
+namespace Pki.eBusiness.WebApi.Business.StoreFront
 {
     /// <summary>
     /// This is the service for SAP order look up

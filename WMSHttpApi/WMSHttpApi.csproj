@@ -184,62 +184,6 @@
     <Compile Include="App_Start\UnityResolver.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Attributes\ExceptionHandler.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -270,10 +214,6 @@
     <Compile Include="UIHelpers\JsonCreationConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -330,9 +270,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
     <AdditionalFiles Include="..\WebMethodsModelling\DependencyValidation1.layerdiagram">
       <Link>DependencyValidation1.layerdiagram</Link>
       <Visible>False</Visible>
@@ -345,20 +282,6 @@
       <Link>WebMethods.layerdiagram</Link>
       <Visible>False</Visible>
     </AdditionalFiles>
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\HttpWebApi.pubxml" />

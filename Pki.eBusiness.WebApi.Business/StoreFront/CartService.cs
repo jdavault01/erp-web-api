@@ -4,8 +4,7 @@ using Pki.eBusiness.WebApi.Entities.Constants;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Logger;
 
-
-namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
+namespace Pki.eBusiness.WebApi.Business.StoreFront
 {
 
     public class CartService : ICartService

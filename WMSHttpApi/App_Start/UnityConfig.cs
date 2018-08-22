@@ -11,7 +11,7 @@ namespace PKI.eBusiness.WMSHttpApi
     {
         public static UnityContainer Container()
         {
-            var types = PKIAllClasses.FromAssembliesInBasePath().Where(c => c.FullName.StartsWith("PKI.eBusiness") && !c.Name.EndsWith("Controller")).OrderBy(i => i.Name);
+            var types = PKIAllClasses.FromAssembliesInBasePath().Where(c => c.FullName.StartsWith("Pki.eBusiness") && !c.Name.EndsWith("Controller")).OrderBy(i => i.Name);
             var container = new UnityContainer();
             container.RegisterTypes(
                 types,

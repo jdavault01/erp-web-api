@@ -5,7 +5,7 @@ using Pki.eBusiness.WebApi.Entities.Extensions;
 using Pki.eBusiness.WebApi.Entities.Orders;
 using PKI.eBusiness.WMService.Logger;
 
-namespace PKI.eBusiness.WMService.BusinessServices
+namespace Pki.eBusiness.WebApi.Business
 {
     /// <summary>
     /// Order Service Class

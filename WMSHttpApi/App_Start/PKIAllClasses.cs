@@ -29,7 +29,7 @@ namespace Unity.RegistrationByConvention
 
         private static IEnumerable<Type> FromCheckedAssemblies(IEnumerable<Assembly> assemblies, bool skipOnError)
         {
-            return assemblies
+            var result = assemblies
                     .SelectMany(a =>
                     {
                         IEnumerable<TypeInfo> types;
@@ -50,6 +50,7 @@ namespace Unity.RegistrationByConvention
 
                         return types.Where(ti => ti.IsClass & !ti.IsAbstract && !ti.IsValueType && ti.IsVisible).Select(ti => ti.AsType());
                     });
+            return result;
         }
 
         /// <summary>
@@ -88,9 +89,10 @@ namespace Unity.RegistrationByConvention
                 return new Assembly[0];
             }
 
-            return GetAssemblyNames(basePath, skipOnError)
+            var result = GetAssemblyNames(basePath, skipOnError)
                     .Select(an => LoadAssembly(Path.GetFileNameWithoutExtension(an), skipOnError))
                     .Where(a => a != null && (includeSystemAssemblies || !IsSystemAssembly(a)) && (includeUnityAssemblies || !IsUnityAssembly(a)));
+            return result;
         }
 
         private static IEnumerable<string> GetAssemblyNames(string path, bool skipOnError)
