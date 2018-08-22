@@ -18,10 +18,6 @@ namespace PKI.eBusiness.WMSHttpApi.Models
 
         public PriceResponseModel(PriceResponse priceResponseEntity)
         {
-            Mapper.CreateMap<Product, PriceResponseDetail>()
-                .ForMember(dest => dest.AdjustedPrice, opt => opt.MapFrom(src => src.Price.ToString("N")))
-                    .ForMember(x => x.ProductId, y => y.MapFrom(src => src.PartNumber));
-
             Products = priceResponseEntity.Products.Select(Mapper.Map<PriceResponseDetail>);
             FailedProducts = priceResponseEntity.FailedProducts;
             ErrorMessage = priceResponseEntity.ErrorMessage;

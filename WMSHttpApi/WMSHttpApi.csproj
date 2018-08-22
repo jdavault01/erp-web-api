@@ -171,6 +171,7 @@
     <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperProfile.cs" />
     <Compile Include="App_Start\PKIAllClasses.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
