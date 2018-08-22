@@ -5,8 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using Newtonsoft.Json;
-using WebMethodsInventoryResponse1 = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.InventoryWebServiceResponse1;
-//using WebMethodsInventoryResponse1 = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1;
 namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
     [DataContract]
@@ -17,47 +15,9 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 
         public InventoryResponse InventoryResponse { get; set; }
 
-        public InventoryClientResponse(WebMethodsInventoryResponse1 response)
+        public InventoryClientResponse()
         {
-            if (response.InventoryResponse == null)
-            {
-                InventoryResponse = new InventoryResponse();
-                return;
-            }
-            InventoryResponse = new InventoryResponse
-            {
-                InventoryResponseItems = new InventoryResponseItem[response.InventoryResponse.InventoryResponseDetail.Length]
-            };
-
-            int itemNum = 0;
-            foreach (var serviceInventoryResponseDetail in response.InventoryResponse.InventoryResponseDetail)
-            {
-                //Values comes in as a string with decimal formatting, e.g "1.00"
-                var quantity = Convert.ToDecimal(serviceInventoryResponseDetail.Quantity, CultureInfo.InvariantCulture);
-                var inventoryResponseDetail = new InventoryResponseItem
-                {
-                    OrderLineNumber = serviceInventoryResponseDetail.OrderLineNumber,
-                    ProductId = serviceInventoryResponseDetail.ProductID,
-                    Quantity = Convert.ToInt16(quantity),
-                    ShippingPoint = serviceInventoryResponseDetail.ShippingPoint,
-                    Availabilities = new Availability[serviceInventoryResponseDetail.ItemDetail.Length]
-                };
-
-                var i = 0;
-                foreach (var avaialblity in serviceInventoryResponseDetail.ItemDetail.Select(itemDetail => new Availability
-                {
-                    AvailableDate = itemDetail.AvailableDate,
-                    AvailableQty = Convert.ToDecimal(itemDetail.AvailableQty, CultureInfo.InvariantCulture)
-                }))
-                {
-                    inventoryResponseDetail.Availabilities[i] = avaialblity;
-                    i++;
-                }
-
-                InventoryResponse.InventoryResponseItems[itemNum] = inventoryResponseDetail;
-                itemNum++;
-
-            }
+            
         }
 
     }

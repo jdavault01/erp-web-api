@@ -1,6 +1,5 @@
-﻿using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using System.Runtime.Serialization;
-using ServiceStubs = PKI.eBusiness.WMService.Entities.Stubs;
+﻿using System.Runtime.Serialization;
+using PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices;
 using StorefrontCreateOrderRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.CreateOrderRequest;
 
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions

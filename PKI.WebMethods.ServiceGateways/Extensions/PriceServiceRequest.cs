@@ -1,5 +1,5 @@
-﻿using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices;
 using StorefrontPriceRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.PriceRequest;
 
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions

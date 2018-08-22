@@ -1,29 +1,41 @@
 ﻿using Newtonsoft.Json;
 using PKI.eBusiness.WMService.Entities.Settings;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using PKI.eBusiness.WMService.ServiceGatewContracts;
 using System;
 using System.Configuration;
 using System.IO;
 using System.Net;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
+using PKI.eBusiness.WMService.Entities.Orders;
+using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
+using Configuration = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {
     public class ERPRestGateway : IERPRestGateway
     {
         private ERPRestSettings _erpRestSettings;
-
-        public ERPRestGateway(ERPRestSettings erpRestSettings)
+        private IErpApi _erpApi;
+        public ERPRestGateway(ERPRestSettings erpRestSettings, IErpApi erpApi)
         {
             _erpRestSettings = erpRestSettings;
+            _erpApi = erpApi;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
         }
 
         //List the individual method calls -- e.g CreateContact, GetCompanyContacts, GetCompanyPartnerInfo 
         public ContactCreateWebServiceResponse CreateContact(string payLoad, string resourceName)
         {
-            //var response = CallWMRestServices(payLoad, resourceName);  
             var response = CallERPService(payLoad, resourceName);
             return JsonConvert.DeserializeObject<ContactCreateWebServiceResponse>(response);
+        }
+
+        public SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request)
+        {
+            SimulateOrderRequestRoot req = new SimulateOrderRequestRoot(request);
+            var result = _erpApi.SimulateOrderPost(req);
+            return result.ToResponse();
         }
 
         private string CallERPService(string payLoad, string resourceName)

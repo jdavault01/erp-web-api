@@ -5,11 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 //using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using Newtonsoft.Json;
 using System.IO;
+using PKI.eBusiness.WMService.Entities.Interfaces.BL.StoreFront;
+using PKI.eBusiness.WMService.Entities.Orders;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
@@ -49,6 +50,22 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             }
 
             return Ok(inventoryResponseEntity);
+        }
+
+        [HttpPost]
+        public SimulateOrderErpResponse SimulateOrder([FromBody] SimulateOrderErpRequest payload)
+        {
+            if (payload.RequestedDate == DateTime.MinValue)
+            {
+                payload.RequestedDate = DateTime.Now;
+            }
+
+            foreach (var orderItem in payload.OrderItems)
+            {
+                if (orderItem.RequestedDate == DateTime.MinValue)
+                    orderItem.RequestedDate = DateTime.Now;
+            }
+            return _orderService.SimulateErpOrder(payload);
         }
 
         //[HttpPost]

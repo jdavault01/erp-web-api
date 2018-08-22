@@ -1,6 +1,6 @@
 ﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
-using PKI.eBusiness.WMService.ServiceGatewaysContracts;
 using System.Linq;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {

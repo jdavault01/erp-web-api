@@ -62,10 +62,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="EntityBase.cs" />
+    <Compile Include="ErrorMessages.cs" />
     <Compile Include="Errors\CustomError.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Extensions\GeneralExtensions.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
+    <Compile Include="InfoMessages.cs" />
+    <Compile Include="Interfaces\BL\Genetics\IOrderService.cs" />
+    <Compile Include="Interfaces\BL\StoreFront\IAccountService.cs" />
+    <Compile Include="Interfaces\BL\StoreFront\ICartService.cs" />
+    <Compile Include="Interfaces\BL\StoreFront\IOrderService.cs" />
+    <Compile Include="Interfaces\BL\StoreFront\IProductService.cs" />
+    <Compile Include="Interfaces\DAL\IERPRestGateway.cs" />
+    <Compile Include="Interfaces\DAL\IOrderDAL.cs" />
+    <Compile Include="Interfaces\DAL\IShopCommerceServiceGateway.cs" />
+    <Compile Include="Interfaces\DAL\IWebMethodClient.cs" />
     <Compile Include="OrderLookUp\BasicRequest\OrderBasicRequest.cs" />
+    <Compile Include="OrderLookUp\BasicRequest\OrderInfoRequest.cs" />
+    <Compile Include="OrderLookUp\BasicRequest\OrderInfoResponse.cs" />
     <Compile Include="OrderLookUp\BasicRequest\OrderResponse.cs" />
     <Compile Include="OrderLookUp\Enumerations.cs" />
     <Compile Include="OrderLookUp\OrderDetails\OrderDetail.cs" />
@@ -74,8 +91,11 @@
     <Compile Include="Orders\OrderRequest.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\Patient.cs" />
+    <Compile Include="Orders\SimulateOrderErpRequest.cs" />
+    <Compile Include="Orders\SimulateOrderErpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Orders\OrderSubmissionResponse.cs" />
+    <Compile Include="RestGatewaySettings.cs" />
     <Compile Include="Settings\ERPRestSettings.csd.cs">
       <DependentUpon>ERPRestSettings.csd.xsd</DependentUpon>
     </Compile>
@@ -98,8 +118,6 @@
     <Compile Include="StoreFront\DataObjects\CartInfo.cs" />
     <Compile Include="StoreFront\DataObjects\RestRequest.cs" />
     <Compile Include="StoreFront\ProductCatalog\Product.cs" />
-    <Compile Include="Stubs\StoreFrontWebServices.cs" />
-    <Compile Include="Stubs\StoreFrontRestServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\WebMethodsModelling\DependencyValidation1.layerdiagram">
@@ -136,7 +154,6 @@
     <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
     <Folder Include="StoreFront\Orders\" />
   </ItemGroup>
   <ItemGroup>

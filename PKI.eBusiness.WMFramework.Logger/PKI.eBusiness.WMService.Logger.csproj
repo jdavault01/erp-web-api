@@ -60,12 +60,6 @@
     <Compile Include="PublisherManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PKI.eBusiness.WMService.Utility\PKI.eBusiness.WMService.Utility.csproj">
-      <Project>{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}</Project>
-      <Name>PKI.eBusiness.WMService.Utility</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AdditionalFiles Include="..\WebMethodsModelling\DependencyValidation1.layerdiagram">
       <Link>DependencyValidation1.layerdiagram</Link>
       <Visible>False</Visible>

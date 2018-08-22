@@ -1,11 +1,11 @@
-﻿using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
-using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
+﻿using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Logger;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using PKI.eBusiness.WMService.Entities.Interfaces.BL.StoreFront;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {

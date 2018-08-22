@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using PKI.eBusiness.WMService.Utility;
 
 namespace PKI.eBusiness.WMService.Logger
 {
@@ -16,7 +15,8 @@ namespace PKI.eBusiness.WMService.Logger
         #region Private
         
         private static PublisherManager _instance = new PublisherManager();
-
+        private const string LOG_SUBSCRIBERS = "LogSubscribers";
+        private const string INSTANCE = "Instance";
         #endregion
 
         #region Public
@@ -40,7 +40,7 @@ namespace PKI.eBusiness.WMService.Logger
             // Initialize subscribers list
             Subscribers = new List<ILogSubscriber>();
             // Read the configuration parameter for semicolon separated classes of subscribers
-            string subs = ConfigurationManager.AppSettings[Constants.LOG_SUBSCRIBERS];
+            string subs = ConfigurationManager.AppSettings[LOG_SUBSCRIBERS];
             string[] subsArray = string.IsNullOrEmpty(subs) ? new string[0] : subs.Split(';');
             foreach (var s in subsArray)
             {
@@ -48,7 +48,7 @@ namespace PKI.eBusiness.WMService.Logger
                 // Check if type isn't already included
                 if (subscriberType != null && Subscribers.All(c => c.GetType() != subscriberType))
                 {
-                    PropertyInfo getInstance = subscriberType.GetProperty(Constants.INSTANCE);
+                    PropertyInfo getInstance = subscriberType.GetProperty(INSTANCE);
                     // Get singleton instance or create a new instance of subscriber type
                     object subscriberInstance = getInstance == null ? Activator.CreateInstance(subscriberType) : getInstance.GetValue(null, null);
                     Subscribers.Add((ILogSubscriber)subscriberInstance);

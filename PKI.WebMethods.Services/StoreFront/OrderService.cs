@@ -7,10 +7,10 @@ using PKI.eBusiness.WMService.Entities.OrderLookUp.BasicRequest;
 using PKI.eBusiness.WMService.Entities.OrderLookUp.OrderDetails;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.ServiceGatewaysContracts;
-using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using PKI.eBusiness.WMService.Utility;
+using PKI.eBusiness.WMService.Entities.Extensions;
+using PKI.eBusiness.WMService.Entities.Interfaces.BL.StoreFront;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
+using PKI.eBusiness.WMService.Entities.Orders;
 using InventoryRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.InventoryRequest;
 using InventoryResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.InventoryResponse;
 
@@ -24,15 +24,17 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
     {
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
-        
+        private readonly IERPRestGateway _erpGateway;
+
+
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="webMethodClient"></param>
-        public OrderService(IWebMethodClient webMethodClient)
+        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway)
         {
             _webMethodClient = webMethodClient;
-
+            _erpGateway = erpGateway;
         }
         /// <summary>
         /// This method gets orders for a given lookup request
@@ -46,7 +48,7 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
             var xmlRequest = summaryRequest.SerializeToXml(Constants.ORDER_SUMMARY_REQUEST_ELEMENT,Constants.DTD_SUMMARY_REQUEST_SYSID,false);
             Log(xmlRequest.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
-            var webServiceRequest = new OrderInfoWebServiceRequest {xmlRequest = xmlRequest};
+            var webServiceRequest = new OrderInfoRequest {xmlRequest = xmlRequest};
             var webServiceResponse = _webMethodClient.ProcessOrderLookUpRequest(webServiceRequest);
             Log(webServiceResponse.xmlResponse);
             return webServiceResponse.ToOrderLookUpResponse();
@@ -62,7 +64,7 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var detailRequest = new OrderDetailRequest(Constants.LOGICAL_ID, orderId);
-            var webServiceRequest = new OrderInfoWebServiceRequest
+            var webServiceRequest = new OrderInfoRequest
             {
                 xmlRequest = detailRequest.SerializeToXml(Constants.ORDER_DETAIL_REQUEST_ELEMENT,
                     Constants.DTD_DETAIL_REQUEST_SYSID, false)
@@ -85,6 +87,11 @@ namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
         {
             return _webMethodClient.SimulateOrder(request);
 
+        }
+
+        public SimulateOrderErpResponse SimulateErpOrder(SimulateOrderErpRequest request)
+        {
+            return _erpGateway.SimulateOrder(request);
         }
 
         /// <summary>

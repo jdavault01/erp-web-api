@@ -1,9 +1,9 @@
 ﻿using PKI.eBusiness.WMService.Entities.Orders;
-using PKI.eBusiness.WMService.ServiceGatewaysContracts;
-using PKI.eBusiness.WMService.BusinessServicesContracts;
+using PKI.eBusiness.WMService.Entities;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.Utility;
-using PKI.eBusiness.WMService.DAL;
+using PKI.eBusiness.WMService.Entities.Extensions;
+using PKI.eBusiness.WMService.Entities.Interfaces.BL.Genetics;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
 
 namespace PKI.eBusiness.WMService.BusinessServices
 {
@@ -61,9 +61,7 @@ namespace PKI.eBusiness.WMService.BusinessServices
      
             // Convert the xml response to OrderSubmissionResponse object:
         
-            OrderSubmissionResponse response = new OrderSubmissionResponse();
-            GeneralUtil<OrderSubmissionResponse> genUtil = new GeneralUtil<OrderSubmissionResponse>();
-            response = genUtil.ConvertToObject(strResponse);
+            OrderSubmissionResponse response = strResponse.ConvertToObject<OrderSubmissionResponse>();
 
             return response;
             
@@ -88,8 +86,6 @@ namespace PKI.eBusiness.WMService.BusinessServices
         {
             Log(ErrorMessages.RESPONSE_FROM_SERVICE);
             Log(data);
-
-        
         }
        /// <summary>
        /// This method will update the order status for a given wm order

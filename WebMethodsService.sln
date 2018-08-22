@@ -22,20 +22,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.Ent
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FB21D324-69BA-4EFD-BE91-48E28008BE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.ServiceGatewContracts", "PKI.eBusiness.WMService.ServiceGatewContracts\PKI.eBusiness.WMService.ServiceGatewContracts.csproj", "{38CF3671-751E-4031-B8FB-FBB19AB9B50F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.BusinessServContracts", "PKI.eBusiness.WMService.BusinessServContracts\PKI.eBusiness.WMService.BusinessServContracts.csproj", "{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.Utility", "PKI.eBusiness.WMService.Utility\PKI.eBusiness.WMService.Utility.csproj", "{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{52E0DA58-628D-4494-8F71-686506542158}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.DAL", "PKI.eBusiness.WMService.DAL\PKI.eBusiness.WMService.DAL.csproj", "{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKI.eBusiness.WMService.Logger", "PKI.eBusiness.WMFramework.Logger\PKI.eBusiness.WMService.Logger.csproj", "{D873D0C1-5F21-4DC2-B8F8-28CC86300D30}"
 EndProject
@@ -81,46 +73,6 @@ Global
 		{CEED8EF7-2967-4DBE-93AD-0184EA0062E2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CEED8EF7-2967-4DBE-93AD-0184EA0062E2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CEED8EF7-2967-4DBE-93AD-0184EA0062E2}.Release|x86.ActiveCfg = Release|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F}.Release|x86.ActiveCfg = Release|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2}.Release|x86.ActiveCfg = Release|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1}.Release|x86.ActiveCfg = Release|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB}.Release|x86.ActiveCfg = Release|Any CPU
 		{D873D0C1-5F21-4DC2-B8F8-28CC86300D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D873D0C1-5F21-4DC2-B8F8-28CC86300D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D873D0C1-5F21-4DC2-B8F8-28CC86300D30}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -150,15 +102,11 @@ Global
 		{3C1103EC-CDB7-4333-A7F5-FCC35DC26C10} = {61F5AB26-78B0-4D20-AB57-63D142A6C878}
 		{4F6EDA39-0544-47AD-93B8-82CD517C1573} = {46D264E3-A6B3-4933-B8AC-F742E5DB1F76}
 		{CEED8EF7-2967-4DBE-93AD-0184EA0062E2} = {61F5AB26-78B0-4D20-AB57-63D142A6C878}
-		{38CF3671-751E-4031-B8FB-FBB19AB9B50F} = {46D264E3-A6B3-4933-B8AC-F742E5DB1F76}
-		{0FC00C08-917E-4AAA-A93E-03AADF2B8FF2} = {61F5AB26-78B0-4D20-AB57-63D142A6C878}
-		{8178FC25-71AF-4AEA-95B1-0A73AF728DF1} = {FB21D324-69BA-4EFD-BE91-48E28008BE82}
-		{7053C4D9-8BAF-4475-8EC3-6DCF67218CBB} = {46D264E3-A6B3-4933-B8AC-F742E5DB1F76}
 		{D873D0C1-5F21-4DC2-B8F8-28CC86300D30} = {FB21D324-69BA-4EFD-BE91-48E28008BE82}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 		SolutionGuid = {FC9C374E-3F48-45F0-979B-8D09EAC64C28}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = WebMethodsService.vsmdi

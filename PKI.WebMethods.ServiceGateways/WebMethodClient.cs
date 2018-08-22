@@ -1,10 +1,7 @@
 ﻿using PKI.eBusiness.WMService.Logger;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Entities.StoreFront.ProductCatalog;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 using PKI.eBusiness.WMService.ServiceGateways.Extensions;
-using PKI.eBusiness.WMService.ServiceGatewaysContracts;
-using PKI.eBusiness.WMService.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +13,19 @@ using PartnerResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.
 using ContactCreateRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateRequest;
 using ContactCreateResponse = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.ContactCreateResponse;
 using PKI.eBusiness.WMService.ServiceGateways.WMService;
-using PKI.eBusiness.WMService.ServiceGatewContracts;
 using PKI.eBusiness.WMService.Entities.Orders;
 using AutoMapper;
+using PKI.eBusiness.WMService.Entities;
+using PKI.eBusiness.WMService.Entities.Extensions;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
+using PKI.eBusiness.WMService.Entities.OrderLookUp.BasicRequest;
 using PKI.eBusiness.WMService.Entities.Settings;
+using PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices;
+using InventoryWebServiceResponse1 = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.InventoryWebServiceResponse1;
+using OrderInfoWebServiceResponse = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.OrderInfoWebServiceResponse;
+using PriceWebServiceRequest = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PriceWebServiceRequest;
+using StorefrontWebServices_PortType = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortType;
+using StorefrontWebServices_PortTypeClient = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.StorefrontWebServices_PortTypeClient;
 
 namespace PKI.eBusiness.WMService.ServiceGateways
 {
@@ -82,14 +88,15 @@ namespace PKI.eBusiness.WMService.ServiceGateways
         //</summary>
         //<param name="request">request</param>
         //<returns>response</returns>
-        public OrderInfoWebServiceResponse ProcessOrderLookUpRequest(OrderInfoWebServiceRequest request)
-         {
-            var webServiceResponse = new OrderInfoWebServiceResponse
+        public OrderInfoResponse ProcessOrderLookUpRequest(OrderInfoRequest request)
+        {
+            OrderInfoWebServiceRequest req = new OrderInfoWebServiceRequest(request.xmlRequest, request.node);
+            var webServiceResponse = new OrderInfoResponse
             {
-                xmlResponse = _soapStoreFrontWebService.OrderInfoWebService(request).xmlResponse
+                xmlResponse = _soapStoreFrontWebService.OrderInfoWebService(req).xmlResponse
             };
             return webServiceResponse;
-         }
+        }
 
         #endregion 
 
@@ -285,14 +292,14 @@ namespace PKI.eBusiness.WMService.ServiceGateways
 
         }
 
-        public ContactCreateResponse CreateContact(String acountNumber, ContactCreateRequest contactCreateRequest)
+        public Entities.StoreFront.DataObjects.ContactCreateResponse CreateContact(String acountNumber, Entities.StoreFront.DataObjects.ContactCreateRequest contactCreateRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
             var _erpSettings = RestGatewaySettings.GetElement<ERPRestSettings>("pkieBusiness/erpRestSettings");
-            var _erpRestGateway = new ERPRestGateway(_erpSettings);
-            ContactCreateWebServiceResponse wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
+            var _erpRestGateway = new ERPRestGateway(_erpSettings, null);
+            var wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
             LogResponse(wmCreateContentResponse);
             return wmCreateContentResponse.ToContactCreateResponse();
         }

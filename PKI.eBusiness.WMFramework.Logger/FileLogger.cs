@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Web;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.Utility;
 
 namespace PKI.eBusiness.WMService.Logger
 {
@@ -40,10 +39,14 @@ namespace PKI.eBusiness.WMService.Logger
         private const string ERROR_WINDOWSID = "WindowsIdentity: {0}";
         private const string ERROR_BROWSER = "Browser Type: {0}";
         private const string ERROR_TRACKNAME = "TrackName: {0}";
-        
+        private const string LOG_FILE_DIRECTORY = "LogFileDirectory";
+        private const string LOG_TO_FILE = "LogToFile";
+        private const string TRUE = "true";
+        private const string TRACE_LEVEL = "TraceLevel";
+
         private static string LogFileDirectory
         {
-            get { return ConfigurationManager.AppSettings[Constants.LOG_FILE_DIRECTORY]; }
+            get { return ConfigurationManager.AppSettings[LOG_FILE_DIRECTORY]; }
         }
 
         #endregion
@@ -62,12 +65,12 @@ namespace PKI.eBusiness.WMService.Logger
 
         public bool LogToFile
         {
-            get { return ConfigurationManager.AppSettings[Constants.LOG_TO_FILE] == Constants.TRUE; }
+            get { return ConfigurationManager.AppSettings[LOG_TO_FILE] == TRUE; }
         }
 
         public string TraceLevelConfValue
         {
-            get { return ConfigurationManager.AppSettings[Constants.TRACE_LEVEL]; }
+            get { return ConfigurationManager.AppSettings[TRACE_LEVEL]; }
         }
 
         #endregion

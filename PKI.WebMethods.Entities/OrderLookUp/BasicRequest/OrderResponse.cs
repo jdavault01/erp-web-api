@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
 using PKI.eBusiness.WMService.Entities;
+using PKI.eBusiness.WMService.Entities.Extensions;
 
 namespace PKI.eBusiness.WMService.Entities.OrderLookUp.BasicRequest
 {

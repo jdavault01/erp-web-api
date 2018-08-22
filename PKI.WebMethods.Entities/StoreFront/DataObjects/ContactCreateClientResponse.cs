@@ -5,8 +5,6 @@ using System.Runtime.Serialization;
 using System.Text;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 
-using WebMethodsContactCreateResponse = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.ContactCreateWebServiceResponse;
-
 namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
     [DataContract]
@@ -15,9 +13,8 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public ContactCreateResponse ContactCreateResponse { get; set; }
 
-        public ContactCreateClientResponse(WebMethodsContactCreateResponse response)
+        public ContactCreateClientResponse()
         {
-            ContactCreateResponse = new ContactCreateResponse(response);
         }
 
     }

@@ -1,7 +1,8 @@
 ﻿using System.Runtime.Serialization;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
-using StorefrontPartnerRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.PartnerRequest;
-using SimplePartnerRequest = PKI.eBusiness.WMService.Entities.StoreFront.DataObjects.SimplePartnerRequest;
+using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
+using PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices;
+using PartnerRequestDetail = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequestDetail;
+using PartnerRequestHeader = PKI.eBusiness.WMService.ServiceGateways.StoreFrontWebServices.PartnerRequestHeader;
 
 namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
 {
@@ -12,7 +13,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
         public PartnerWebServiceRequest WebServiceRequest { get; set; }
 
         [DataMember]
-        public PartnerRequest RequestPayLoad { get; set; }
+        public StoreFrontWebServices.PartnerRequest RequestPayLoad { get; set; }
 
         [DataMember]
         public PartnerRequestHeader RequestHeader { get; set; }
@@ -22,7 +23,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
 
         [DataMember]
         public PartnerRequestDetail[] RequestDetails { get; set; }
-        public PartnerServiceRequest(StorefrontPartnerRequest clientRequest)
+        public PartnerServiceRequest(Entities.StoreFront.DataObjects.PartnerRequest clientRequest)
         {
             WebServiceRequest = new PartnerWebServiceRequest();
             RequestHeader = new PartnerRequestHeader()
@@ -41,7 +42,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
             RequestDetails = new PartnerRequestDetail[clientRequest.RequestDetail.Length];
             RequestDetails[0] = RequestDetail;
 
-            RequestPayLoad = new PartnerRequest
+            RequestPayLoad = new StoreFrontWebServices.PartnerRequest()
             {
                 PartnerRequestDetail = RequestDetails, 
                 PartnerRequestHeader = RequestHeader
@@ -69,7 +70,7 @@ namespace PKI.eBusiness.WMService.ServiceGateways.Extensions
             this.RequestDetails = new PartnerRequestDetail[1];
             RequestDetails[0] = RequestDetail;
 
-            RequestPayLoad = new PartnerRequest
+            RequestPayLoad = new StoreFrontWebServices.PartnerRequest()
             {
                 PartnerRequestDetail = RequestDetails,
                 PartnerRequestHeader = RequestHeader

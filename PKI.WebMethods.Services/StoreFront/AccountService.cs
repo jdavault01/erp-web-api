@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PKI.eBusiness.WMService.BusinessServicesContracts.StoreFront;
+using PKI.eBusiness.WMService.Entities;
+using PKI.eBusiness.WMService.Entities.Interfaces.BL.StoreFront;
+using PKI.eBusiness.WMService.Entities.Interfaces.DAL;
 using PKI.eBusiness.WMService.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMService.Logger;
-using PKI.eBusiness.WMService.ServiceGatewaysContracts;
-using PKI.eBusiness.WMService.Utility;
 
 namespace PKI.eBusiness.WMService.BusinessServices.StoreFront
 {

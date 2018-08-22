@@ -1,6 +1,10 @@
 ﻿using Unity;
 using Unity.RegistrationByConvention;
 using System.Linq;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Client;
+using Unity.Registration;
+using Unity.Injection;
 
 namespace PKI.eBusiness.WMSHttpApi
 {
@@ -15,7 +19,11 @@ namespace PKI.eBusiness.WMSHttpApi
                 WithMappings.FromMatchingInterface,
                 WithName.Default,
                 WithLifetime.Transient);
-
+            container.RegisterType<IErpApi, ErpApi>(new InjectionConstructor(new Configuration
+            {
+                Username = "eCommerce@perkinelmer-S1LB6Y",
+                Password = "129ccfec-af1e-4ea0-bee7-3021367a9e23"
+            }));
 
             //var address = ConfigurationManager.AppSettings[Constants.STOREFRONT_STUB_ADDRESS];
             //var addressName = ConfigurationManager.AppSettings[Constants.STOREFRONT_STUB_NAME];

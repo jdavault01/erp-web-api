@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using PKI.eBusiness.WMService.Entities.StoreFront.ProductCatalog;
-using WebMethodsPriceResponse = PKI.eBusiness.WMService.Entities.Stubs.StoreFront.PriceWebServiceResponse1;
 
 namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
@@ -15,19 +14,9 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public PriceResponse PriceResponse { get; set; }
 
-        public PriceClientResponse(WebMethodsPriceResponse response)
+        public PriceClientResponse()
         {
-            this.PriceResponse = new PriceResponse { Products = new List<Product>() };
-            foreach (var product in response.ProductList)
-            {
-                var p = new Product
-                {
-                    PartNumber = product.ProductID,
-                    Price = Convert.ToDecimal(product.Price, CultureInfo.InvariantCulture),
-                    Currency = product.Currency
-                };
-                PriceResponse.Products.Add(p);
-            }
+
 
         }
     }

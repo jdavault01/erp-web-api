@@ -6,7 +6,6 @@ using System.Text;
 using System.Xml.Serialization;
 using PKI.eBusiness.WMService.Entities.StoreFront.Account;
 using PKI.eBusiness.WMWebApi.BusinessServices.Models.StoreFront.Accounts;
-using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 
 namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
 {
@@ -50,9 +49,9 @@ namespace PKI.eBusiness.WMService.Entities.StoreFront.DataObjects
         [DataMember]
         public string ContactNameId { get; set; }
 
-        public ContactCreateResponse(ContactCreateWebServiceResponse response)
+        public ContactCreateResponse(string contactNameId)
         {
-            ContactNameId = response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID;
+            ContactNameId = contactNameId;
         }
     }
 }

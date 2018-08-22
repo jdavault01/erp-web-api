@@ -59,13 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OrderRequestHandler.cs" />
-    <Compile Include="RequestResponseFactory.cs" />
     <Compile Include="StoreFront\CartService.cs" />
     <Compile Include="StoreFront\OrderService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase.cs" />
     <Compile Include="StoreFront\AccountService.cs" />
     <Compile Include="StoreFront\ProductService.cs" />
   </ItemGroup>
@@ -91,18 +88,6 @@
     <ProjectReference Include="..\PKI.eBusiness.WMFramework.Logger\PKI.eBusiness.WMService.Logger.csproj">
       <Project>{d873d0c1-5f21-4dc2-b8f8-28cc86300d30}</Project>
       <Name>PKI.eBusiness.WMService.Logger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PKI.eBusiness.WMService.BusinessServContracts\PKI.eBusiness.WMService.BusinessServContracts.csproj">
-      <Project>{0fc00c08-917e-4aaa-a93e-03aadf2b8ff2}</Project>
-      <Name>PKI.eBusiness.WMService.BusinessServContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PKI.eBusiness.WMService.ServiceGatewContracts\PKI.eBusiness.WMService.ServiceGatewContracts.csproj">
-      <Project>{38cf3671-751e-4031-b8fb-fbb19ab9b50f}</Project>
-      <Name>PKI.eBusiness.WMService.ServiceGatewContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PKI.eBusiness.WMService.Utility\PKI.eBusiness.WMService.Utility.csproj">
-      <Project>{8178fc25-71af-4aea-95b1-0a73af728df1}</Project>
-      <Name>PKI.eBusiness.WMService.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\PKI.WebMethods.Entities\PKI.eBusiness.WMService.Entities.csproj">
       <Project>{ceed8ef7-2967-4dbe-93ad-0184ea0062e2}</Project>
