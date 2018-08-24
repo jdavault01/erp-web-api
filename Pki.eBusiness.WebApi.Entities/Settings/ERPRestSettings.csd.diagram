@@ -5,7 +5,7 @@
     <configurationSectionShape Id="4bd38e31-ba83-47c5-a2ac-824d6f1ef405" absoluteBounds="0.5, 2.25, 1.5, 1.59568359375" outlineDashStyle="Solid" outlineThickness="0.01">
       <configurationSectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/ERPRestSettings" />
       <nestedChildShapes>
-        <elementListCompartment Id="c847cee9-540d-4312-989e-d2aab5e14a02" absoluteBounds="0.515, 2.66, 1.4700000000000002, 0.63399251302083315" name="AttributeProperties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c847cee9-540d-4312-989e-d2aab5e14a02" absoluteBounds="0.515, 2.66, 1.4700000000000002, 0.63399251302083326" name="AttributeProperties" titleTextColor="Black" itemTextColor="Black" />
         <elementListCompartment Id="022b7486-8d57-4d0a-b9c0-1696a2d9d9a1" absoluteBounds="0.515, 3.303992513020833, 1.4700000000000002, 0.44169108072916674" name="ElementProperties" titleTextColor="Black" itemTextColor="Black" />
         <elementPropertyHasTypeConnector edgePoints="[(1.3125 : 2.25); (1.3125 : 1.768779296875)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="817738b5-f315-4a74-9d4f-6ec5e726ddef">
           <relativeChildShapes />
