@@ -12,7 +12,7 @@
 using System;
 using RestSharp;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
+namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

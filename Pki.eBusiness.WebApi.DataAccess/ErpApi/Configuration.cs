@@ -9,11 +9,14 @@
  */
 
 using System;
+using System.Reflection;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
+namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// Represents a set of configuration settings

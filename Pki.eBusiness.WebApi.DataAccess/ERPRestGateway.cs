@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Pki.eBusiness.WebApi.Contracts.DAL;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
 using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
 using Pki.eBusiness.WebApi.Entities.Orders;
 using Pki.eBusiness.WebApi.Entities.Settings;

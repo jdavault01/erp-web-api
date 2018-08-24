@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 
 namespace Pki.eBusiness.WebApi.Entities.Orders
@@ -40,10 +41,11 @@ namespace Pki.eBusiness.WebApi.Entities.Orders
             
         }
 
-        public AvailabilityErp(decimal qty, DateTime date)
+        public AvailabilityErp(double? qty, string date)
         {
-            AvailableQty = qty;
-            AvailableDate = date;
+            if (qty.HasValue)
+                AvailableQty = (decimal)qty.Value;
+            AvailableDate = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
         public decimal AvailableQty { get; set; }
         public DateTime AvailableDate { get; set; }

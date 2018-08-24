@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.SwaggerDateConverter;
+using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.SwaggerDateConverter;
 
 namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 {
@@ -94,7 +94,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// <param name="LOAD_TIME">LOAD_TIME.</param>
         /// <param name="GI_TIME">GI_TIME.</param>
         /// <param name="ROUTESCHED">ROUTESCHED.</param>
-        public SimulateOrderResponseRootORDERSCHEDULEEX(string OPERATION = default(string), string DOC_NUMBER = default(string), int ITM_NUMBER = default(int), string SCHED_LINE = default(string), string SCHED_TYPE = default(string), string RELFORDEL = default(string), DateTime REQ_DATE = default(DateTime), string REQ_TIME = default(string), decimal REQ_QTY = default(decimal), decimal CONFIR_QTY = default(decimal), string SALES_UNIT = default(string), string ISOCODUNIT = default(string), string REQQTY1 = default(string), string BASE_UOM = default(string), string ISOBASUNIT = default(string), string REQDATE1 = default(string), string REQ_TYPE = default(string), string PLTYPE = default(string), string BUSIDOCNR = default(string), string BUSIITNR = default(string), string SCHEDLIN1 = default(string), string EARL_DATE = default(string), string MAINT_REQ = default(string), string PREQ_NO = default(string), string PO_TYPE = default(string), string DOC_CAT = default(string), string CONF_STAT = default(string), string IR_IND = default(string), string RETURNDATE = default(string), string DATE_TYPE = default(string), string TP_DATE = default(string), string MS_DATE = default(string), string LOAD_DATE = default(string), string GI_DATE = default(string), string CORR_QTY = default(string), string REQ_DLV_BL = default(string), string GRP_DEFIN = default(string), string RELEASTYP = default(string), string FORCAST_NR = default(string), string COMMIT_QTY = default(string), string SIZE2 = default(string), string SIZE3 = default(string), string UNIT_MEAS = default(string), string ISO_ROMEI = default(string), string FORMULAKEY = default(string), string SALESQTYNR = default(string), string SALESQTYDE = default(string), string AVAIL_CON = default(string), string MOVE_TYPE = default(string), string PREQ_ITEM = default(string), string LINTYP_EDI = default(string), string ORDERID = default(string), string PLANORDNR = default(string), string BOMEXPL_NO = default(string), string CUSTCHSTAT = default(string), string GURANTEED = default(string), string MS_TIME = default(string), string TP_TIME = default(string), string LOAD_TIME = default(string), string GI_TIME = default(string), string ROUTESCHED = default(string))
+        public SimulateOrderResponseRootORDERSCHEDULEEX(string OPERATION = default(string), string DOC_NUMBER = default(string), string ITM_NUMBER = default(string), string SCHED_LINE = default(string), string SCHED_TYPE = default(string), string RELFORDEL = default(string), string REQ_DATE = default(string), string REQ_TIME = default(string), double? REQ_QTY = default(double?), double? CONFIR_QTY = default(double?), string SALES_UNIT = default(string), string ISOCODUNIT = default(string), string REQQTY1 = default(string), string BASE_UOM = default(string), string ISOBASUNIT = default(string), string REQDATE1 = default(string), string REQ_TYPE = default(string), string PLTYPE = default(string), string BUSIDOCNR = default(string), string BUSIITNR = default(string), string SCHEDLIN1 = default(string), string EARL_DATE = default(string), string MAINT_REQ = default(string), string PREQ_NO = default(string), string PO_TYPE = default(string), string DOC_CAT = default(string), string CONF_STAT = default(string), string IR_IND = default(string), string RETURNDATE = default(string), string DATE_TYPE = default(string), string TP_DATE = default(string), string MS_DATE = default(string), string LOAD_DATE = default(string), string GI_DATE = default(string), string CORR_QTY = default(string), string REQ_DLV_BL = default(string), string GRP_DEFIN = default(string), string RELEASTYP = default(string), string FORCAST_NR = default(string), string COMMIT_QTY = default(string), string SIZE2 = default(string), string SIZE3 = default(string), string UNIT_MEAS = default(string), string ISO_ROMEI = default(string), string FORMULAKEY = default(string), string SALESQTYNR = default(string), string SALESQTYDE = default(string), string AVAIL_CON = default(string), string MOVE_TYPE = default(string), string PREQ_ITEM = default(string), string LINTYP_EDI = default(string), string ORDERID = default(string), string PLANORDNR = default(string), string BOMEXPL_NO = default(string), string CUSTCHSTAT = default(string), string GURANTEED = default(string), string MS_TIME = default(string), string TP_TIME = default(string), string LOAD_TIME = default(string), string GI_TIME = default(string), string ROUTESCHED = default(string))
         {
             this.OPERATION = OPERATION;
             this.DOC_NUMBER = DOC_NUMBER;
@@ -175,7 +175,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// Gets or Sets ITM_NUMBER
         /// </summary>
         [DataMember(Name="ITM_NUMBER", EmitDefaultValue=false)]
-        public int ITM_NUMBER { get; set; }
+        public string ITM_NUMBER { get; set; }
 
         /// <summary>
         /// Gets or Sets SCHED_LINE
@@ -199,7 +199,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// Gets or Sets REQ_DATE
         /// </summary>
         [DataMember(Name="REQ_DATE", EmitDefaultValue=false)]
-        public DateTime REQ_DATE { get; set; }
+        public string REQ_DATE { get; set; }
 
         /// <summary>
         /// Gets or Sets REQ_TIME
@@ -211,13 +211,13 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// Gets or Sets REQ_QTY
         /// </summary>
         [DataMember(Name="REQ_QTY", EmitDefaultValue=false)]
-        public decimal REQ_QTY { get; set; }
+        public double? REQ_QTY { get; set; }
 
         /// <summary>
         /// Gets or Sets CONFIR_QTY
         /// </summary>
         [DataMember(Name="CONFIR_QTY", EmitDefaultValue=false)]
-        public decimal CONFIR_QTY { get; set; }
+        public double? CONFIR_QTY { get; set; }
 
         /// <summary>
         /// Gets or Sets SALES_UNIT

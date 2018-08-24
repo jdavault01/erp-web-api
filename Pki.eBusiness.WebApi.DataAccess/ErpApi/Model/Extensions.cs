@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pki.eBusiness.WebApi.DataAccess.Extensions;
 using Pki.eBusiness.WebApi.Entities.Orders;
 
 namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
@@ -27,20 +28,33 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             result.INCOCode = SOLD_TO_PARTY?.First()?.INCOTERMS1 + " ";
             result.INCOTerms = SOLD_TO_PARTY?.First()?.INCOTERMS2;
             result.Currency = SOLD_TO_PARTY?.First()?.CURRENCY;
-            result.LineItems = new List<OrderErpLineItemResponse>();
-            foreach (var itemOut in ORDER_ITEMS_OUT)
+            result.ShippingCost =
+                ZWEB_ORDER_STATUS.Sum(s => s.FREIGHT.ToDecimal() + s.HANDLING.ToDecimal());
+            result.LineItems = ORDER_ITEMS_OUT.Select(i =>
             {
-                var toAdd = new OrderErpLineItemResponse();
-                toAdd.ProductID = itemOut.MATERIAL;
-                toAdd.OrderLineNumber = itemOut.ITM_NUMBER;
-                toAdd.TaxVAT = itemOut.TX_DOC_CUR;
-                toAdd.AdjustedPrice = itemOut.NET_VALUE1;
-                toAdd.Availability = new List<AvailabilityErp>();
-                toAdd.Availability = ORDER_SCHEDULE_EX.Where(s => s.ITM_NUMBER == itemOut.ITM_NUMBER)
-                    .Select(s => new AvailabilityErp(s.CONFIR_QTY, s.REQ_DATE)).ToList();
-                result.LineItems.Add(toAdd);
-            }
+                result.OrderTotal += i.NETVALUE1.ToDecimal();
+                return i.ToResponse(ORDER_SCHEDULE_EX, ZWEB_ORDER_STATUS);
+            }).ToList();
             return result;
+        }
+    }
+
+    public partial class SimulateOrderResponseRootORDERITEMSOUT
+    {
+        public OrderErpLineItemResponse ToResponse(List<SimulateOrderResponseRootORDERSCHEDULEEX> ORDER_SCHEDULE_EX,
+            List<SimulateOrderResponseRootZWEBORDERSTATUS> zwebOrderStatus)
+        {
+            var toAdd = new OrderErpLineItemResponse();
+            int itemNumber = Int32.Parse(ITM_NUMBER) / 100;
+            toAdd.ProductID = MATERIAL;
+            toAdd.OrderLineNumber = itemNumber;
+            toAdd.ShippingPoint = zwebOrderStatus.Where(z => z.ITM_NUMBER == ITM_NUMBER).Select(z => z.SHIP_POINT).FirstOrDefault();
+            toAdd.Quantity = REQ_QTY.ToDecimal();
+            toAdd.TaxVAT = TX_DOC_CUR.ToDecimal();
+            toAdd.AdjustedPrice = SUBTOTAL1.ToDecimal() / toAdd.Quantity;
+            toAdd.Availability = ORDER_SCHEDULE_EX.Where(s => s.ITM_NUMBER == ITM_NUMBER)
+                .Select(s => new AvailabilityErp(s.CONFIR_QTY, s.REQ_DATE)).ToList();
+            return toAdd;
         }
     }
 

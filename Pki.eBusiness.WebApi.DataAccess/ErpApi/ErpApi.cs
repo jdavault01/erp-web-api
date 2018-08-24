@@ -12,10 +12,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
 using RestSharp;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Client;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
+namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -29,7 +30,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>PartnerLookupResponseRoot</returns>
         PartnerLookupResponseRoot PartnerLookupPost (PartnerLookupRequestRoot partnerLookupRequest);
@@ -40,7 +41,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>ApiResponse of PartnerLookupResponseRoot</returns>
         ApiResponse<PartnerLookupResponseRoot> PartnerLookupPostWithHttpInfo (PartnerLookupRequestRoot partnerLookupRequest);
@@ -50,7 +51,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>SimulateOrderResponseRoot</returns>
         SimulateOrderResponseRoot SimulateOrderPost (SimulateOrderRequestRoot simulateOrderRequest2);
@@ -61,7 +62,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>ApiResponse of SimulateOrderResponseRoot</returns>
         ApiResponse<SimulateOrderResponseRoot> SimulateOrderPostWithHttpInfo (SimulateOrderRequestRoot simulateOrderRequest2);
@@ -73,7 +74,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>Task of PartnerLookupResponseRoot</returns>
         System.Threading.Tasks.Task<PartnerLookupResponseRoot> PartnerLookupPostAsync (PartnerLookupRequestRoot partnerLookupRequest);
@@ -84,7 +85,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>Task of ApiResponse (PartnerLookupResponseRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<PartnerLookupResponseRoot>> PartnerLookupPostAsyncWithHttpInfo (PartnerLookupRequestRoot partnerLookupRequest);
@@ -94,7 +95,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>Task of SimulateOrderResponseRoot</returns>
         System.Threading.Tasks.Task<SimulateOrderResponseRoot> SimulateOrderPostAsync (SimulateOrderRequestRoot simulateOrderRequest2);
@@ -105,7 +106,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>Task of ApiResponse (SimulateOrderResponseRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimulateOrderResponseRoot>> SimulateOrderPostAsyncWithHttpInfo (SimulateOrderRequestRoot simulateOrderRequest2);
@@ -117,7 +118,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
     /// </summary>
     public partial class ErpApi : IErpApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ErpApi"/> class.
@@ -127,7 +128,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         {
             this.Configuration = new Configuration { BasePath = basePath };
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -143,7 +144,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -174,7 +175,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -212,7 +213,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// PartnerLookupProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>PartnerLookupResponseRoot</returns>
         public PartnerLookupResponseRoot PartnerLookupPost (PartnerLookupRequestRoot partnerLookupRequest)
@@ -224,7 +225,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// PartnerLookupProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>ApiResponse of PartnerLookupResponseRoot</returns>
         public ApiResponse< PartnerLookupResponseRoot > PartnerLookupPostWithHttpInfo (PartnerLookupRequestRoot partnerLookupRequest)
@@ -292,7 +293,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// PartnerLookupProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>Task of PartnerLookupResponseRoot</returns>
         public async System.Threading.Tasks.Task<PartnerLookupResponseRoot> PartnerLookupPostAsync (PartnerLookupRequestRoot partnerLookupRequest)
@@ -305,7 +306,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// PartnerLookupProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="partnerLookupRequest"></param>
         /// <returns>Task of ApiResponse (PartnerLookupResponseRoot)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PartnerLookupResponseRoot>> PartnerLookupPostAsyncWithHttpInfo (PartnerLookupRequestRoot partnerLookupRequest)
@@ -373,7 +374,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// SimulateOrderProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>SimulateOrderResponseRoot</returns>
         public SimulateOrderResponseRoot SimulateOrderPost (SimulateOrderRequestRoot simulateOrderRequest2)
@@ -385,7 +386,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// SimulateOrderProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>ApiResponse of SimulateOrderResponseRoot</returns>
         public ApiResponse< SimulateOrderResponseRoot > SimulateOrderPostWithHttpInfo (SimulateOrderRequestRoot simulateOrderRequest2)
@@ -453,7 +454,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// SimulateOrderProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>Task of SimulateOrderResponseRoot</returns>
         public async System.Threading.Tasks.Task<SimulateOrderResponseRoot> SimulateOrderPostAsync (SimulateOrderRequestRoot simulateOrderRequest2)
@@ -466,7 +467,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <summary>
         /// SimulateOrderProcess 
         /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="simulateOrderRequest2"></param>
         /// <returns>Task of ApiResponse (SimulateOrderResponseRoot)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SimulateOrderResponseRoot>> SimulateOrderPostAsyncWithHttpInfo (SimulateOrderRequestRoot simulateOrderRequest2)

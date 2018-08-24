@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
+namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// API Exception

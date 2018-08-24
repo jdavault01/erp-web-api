@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.SwaggerDateConverter;
+using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.SwaggerDateConverter;
 
 namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 {
@@ -46,7 +46,9 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// <param name="SUBTOTAL4">SUBTOTAL4.</param>
         /// <param name="SUBTOTAL5">SUBTOTAL5.</param>
         /// <param name="SUBTOTAL6">SUBTOTAL6.</param>
-        public SimulateOrderResponseRootORDERITEMSOUT(int ITM_NUMBER = default(int), string PO_ITM_NO = default(string), string MATERIAL = default(string), string MAT_ENTRD = default(string), string SHORT_TEXT = default(string), string NET_VALUE = default(string), string CURRENCY = default(string), string SUBTOTAL1 = default(string), string SUBTOTAL2 = default(string), string SUBTOTAL3 = default(string), string SUBTOTAL4 = default(string), string SUBTOTAL5 = default(string), string SUBTOTAL6 = default(string))
+        /// <param name="TX_DOC_CUR">TX_DOC_CUR.</param>
+        /// <param name="NETVALUE1">NETVALUE1.</param>
+        public SimulateOrderResponseRootORDERITEMSOUT(string ITM_NUMBER = default(string), string PO_ITM_NO = default(string), string MATERIAL = default(string), string MAT_ENTRD = default(string), string SHORT_TEXT = default(string), string NET_VALUE = default(string), string CURRENCY = default(string), double? SUBTOTAL1 = default(double?), double? SUBTOTAL2 = default(double?), double? SUBTOTAL3 = default(double?), double? SUBTOTAL4 = default(double?), double? SUBTOTAL5 = default(double?), double? SUBTOTAL6 = default(double?), double? TX_DOC_CUR = default(double?), double? NETVALUE1 = default(double?), double? REQ_QTY = default(double?), string SHIP_POINT = default(string))
         {
             this.ITM_NUMBER = ITM_NUMBER;
             this.PO_ITM_NO = PO_ITM_NO;
@@ -61,13 +63,25 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             this.SUBTOTAL4 = SUBTOTAL4;
             this.SUBTOTAL5 = SUBTOTAL5;
             this.SUBTOTAL6 = SUBTOTAL6;
+            this.TX_DOC_CUR = TX_DOC_CUR;
+            this.NETVALUE1 = NETVALUE1;
+            this.REQ_QTY = REQ_QTY;
+            this.SHIP_POINT = SHIP_POINT;
         }
-        
+
+
+        [DataMember(Name = "SHIP_POINT", EmitDefaultValue = false)]
+        public string SHIP_POINT { get; set; }
+
         /// <summary>
         /// Gets or Sets ITM_NUMBER
         /// </summary>
         [DataMember(Name="ITM_NUMBER", EmitDefaultValue=false)]
-        public int ITM_NUMBER { get; set; }
+        public string ITM_NUMBER { get; set; }
+
+        [DataMember(Name = "REQ_QTY", EmitDefaultValue = false)]
+        public double? REQ_QTY { get; set; }
+
 
         /// <summary>
         /// Gets or Sets PO_ITM_NO
@@ -108,44 +122,50 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// <summary>
         /// Gets or Sets SUBTOTAL1
         /// </summary>
-        [DataMember(Name="SUBTOTAL_1", EmitDefaultValue=false)]
-        public string SUBTOTAL1 { get; set; }
+        [DataMember(Name="SUBTOTAL1", EmitDefaultValue=false)]
+        public double? SUBTOTAL1 { get; set; }
 
         /// <summary>
         /// Gets or Sets SUBTOTAL2
         /// </summary>
-        [DataMember(Name="SUBTOTAL_2", EmitDefaultValue=false)]
-        public string SUBTOTAL2 { get; set; }
+        [DataMember(Name="SUBTOTAL2", EmitDefaultValue=false)]
+        public double? SUBTOTAL2 { get; set; }
 
         /// <summary>
         /// Gets or Sets SUBTOTAL3
         /// </summary>
-        [DataMember(Name="SUBTOTAL_3", EmitDefaultValue=false)]
-        public string SUBTOTAL3 { get; set; }
+        [DataMember(Name="SUBTOTAL3", EmitDefaultValue=false)]
+        public double? SUBTOTAL3 { get; set; }
 
         /// <summary>
         /// Gets or Sets SUBTOTAL4
         /// </summary>
-        [DataMember(Name="SUBTOTAL_4", EmitDefaultValue=false)]
-        public string SUBTOTAL4 { get; set; }
+        [DataMember(Name="SUBTOTAL4", EmitDefaultValue=false)]
+        public double? SUBTOTAL4 { get; set; }
 
         /// <summary>
         /// Gets or Sets SUBTOTAL5
         /// </summary>
-        [DataMember(Name="SUBTOTAL_5", EmitDefaultValue=false)]
-        public string SUBTOTAL5 { get; set; }
+        [DataMember(Name="SUBTOTAL5", EmitDefaultValue=false)]
+        public double? SUBTOTAL5 { get; set; }
 
         /// <summary>
         /// Gets or Sets SUBTOTAL6
         /// </summary>
-        [DataMember(Name="SUBTOTAL_6", EmitDefaultValue=false)]
-        public string SUBTOTAL6 { get; set; }
+        [DataMember(Name="SUBTOTAL6", EmitDefaultValue=false)]
+        public double? SUBTOTAL6 { get; set; }
 
-        [DataMember(Name = "TX_DOC_CUR", EmitDefaultValue = false)]
-        public decimal TX_DOC_CUR { get; set; }
+        /// <summary>
+        /// Gets or Sets TX_DOC_CUR
+        /// </summary>
+        [DataMember(Name="TX_DOC_CUR", EmitDefaultValue=false)]
+        public double? TX_DOC_CUR { get; set; }
 
-        [DataMember(Name = "NET_VALUE1", EmitDefaultValue = false)]
-        public decimal NET_VALUE1 { get; set; }
+        /// <summary>
+        /// Gets or Sets NETVALUE1
+        /// </summary>
+        [DataMember(Name="NET_VALUE1", EmitDefaultValue=false)]
+        public double? NETVALUE1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -168,6 +188,8 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             sb.Append("  SUBTOTAL4: ").Append(SUBTOTAL4).Append("\n");
             sb.Append("  SUBTOTAL5: ").Append(SUBTOTAL5).Append("\n");
             sb.Append("  SUBTOTAL6: ").Append(SUBTOTAL6).Append("\n");
+            sb.Append("  TX_DOC_CUR: ").Append(TX_DOC_CUR).Append("\n");
+            sb.Append("  NETVALUE1: ").Append(NETVALUE1).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -266,6 +288,16 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
                     this.SUBTOTAL6 == input.SUBTOTAL6 ||
                     (this.SUBTOTAL6 != null &&
                     this.SUBTOTAL6.Equals(input.SUBTOTAL6))
+                ) && 
+                (
+                    this.TX_DOC_CUR == input.TX_DOC_CUR ||
+                    (this.TX_DOC_CUR != null &&
+                    this.TX_DOC_CUR.Equals(input.TX_DOC_CUR))
+                ) && 
+                (
+                    this.NETVALUE1 == input.NETVALUE1 ||
+                    (this.NETVALUE1 != null &&
+                    this.NETVALUE1.Equals(input.NETVALUE1))
                 );
         }
 
@@ -304,6 +336,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
                     hashCode = hashCode * 59 + this.SUBTOTAL5.GetHashCode();
                 if (this.SUBTOTAL6 != null)
                     hashCode = hashCode * 59 + this.SUBTOTAL6.GetHashCode();
+                if (this.TX_DOC_CUR != null)
+                    hashCode = hashCode * 59 + this.TX_DOC_CUR.GetHashCode();
+                if (this.NETVALUE1 != null)
+                    hashCode = hashCode * 59 + this.NETVALUE1.GetHashCode();
                 return hashCode;
             }
         }

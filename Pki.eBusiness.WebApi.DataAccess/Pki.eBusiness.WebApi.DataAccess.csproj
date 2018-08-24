@@ -107,12 +107,14 @@
     <Compile Include="ErpApi\Model\SimulateOrderResponseRootRETURN.cs" />
     <Compile Include="ErpApi\Model\SimulateOrderResponseRootSHIPTOPARTY.cs" />
     <Compile Include="ErpApi\Model\SimulateOrderResponseRootSOLDTOPARTY.cs" />
+    <Compile Include="ErpApi\Model\SimulateOrderResponseRootZWEBORDERSTATUS.cs" />
     <Compile Include="ErpApi\SwaggerDateConverter.cs" />
     <Compile Include="Extensions\AccountExtension.cs" />
     <Compile Include="Extensions\CatalogExtensions.cs" />
     <Compile Include="Extensions\ContactCreateServiceRequest.cs" />
     <Compile Include="Extensions\CreateOrderServiceRequest.cs" />
     <Compile Include="Extensions\InventoryServiceRequest.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\PartnerServiceRequest.cs" />
     <Compile Include="Extensions\PriceServiceRequest.cs" />
     <Compile Include="Extensions\SimulateOrderServiceRequest.cs" />

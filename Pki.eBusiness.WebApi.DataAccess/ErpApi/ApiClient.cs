@@ -11,14 +11,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Web;
+using System.Linq;
+using System.Net;
+using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
+namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -49,7 +52,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// </summary>
         public ApiClient()
         {
-            Configuration = DataAccess.ErpApi.Configuration.Default;
+            Configuration = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.Default;
             RestClient = new RestClient("https://corwalboomidev.perkinelmer.net/ws/rest/eCommerce");
         }
 
@@ -60,7 +63,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? DataAccess.ErpApi.Configuration.Default;
+            Configuration = config ?? Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }
@@ -76,7 +79,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
-            Configuration = DataAccess.ErpApi.Configuration.Default;
+            Configuration = Client.Configuration.Default;
         }
 
         /// <summary>

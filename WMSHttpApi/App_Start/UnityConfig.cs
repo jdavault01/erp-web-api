@@ -1,9 +1,10 @@
 ﻿using Unity;
 using Unity.RegistrationByConvention;
 using System.Linq;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
 using Unity.Registration;
 using Unity.Injection;
+using Pki.eBusiness.WebApi.DataAccess.ErpApi.Client;
 
 namespace PKI.eBusiness.WMSHttpApi
 {

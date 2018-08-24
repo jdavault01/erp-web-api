@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.SwaggerDateConverter;
+using SwaggerDateConverter = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.SwaggerDateConverter;
 
 namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 {
@@ -49,7 +49,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// <param name="SALESDOCUMENT">SALESDOCUMENT.</param>
         /// <param name="SHIP_TO_PARTY">SHIP_TO_PARTY.</param>
         /// <param name="SOLD_TO_PARTY">SOLD_TO_PARTY.</param>
-        public SimulateOrderResponseRoot(List<SimulateOrderResponseRootEXTENSIONIN> EXTENSIONIN = default(List<SimulateOrderResponseRootEXTENSIONIN>), List<SimulateOrderResponseRootMESSAGETABLE> MESSAGETABLE = default(List<SimulateOrderResponseRootMESSAGETABLE>), List<SimulateOrderResponseRootORDERCCARD> ORDER_CCARD = default(List<SimulateOrderResponseRootORDERCCARD>), List<SimulateOrderResponseRootORDERCONDITIONEX> ORDER_CONDITION_EX = default(List<SimulateOrderResponseRootORDERCONDITIONEX>), List<SimulateOrderResponseRootORDERINCOMPLETE> ORDER_INCOMPLETE = default(List<SimulateOrderResponseRootORDERINCOMPLETE>), List<SimulateOrderResponseRootORDERITEMSOUT> ORDER_ITEMS_OUT = default(List<SimulateOrderResponseRootORDERITEMSOUT>), List<SimulateOrderResponseRootORDERSCHEDULEEX> ORDER_SCHEDULE_EX = default(List<SimulateOrderResponseRootORDERSCHEDULEEX>), List<SimulateOrderResponseRootORDERSCHEDULEIN> ORDER_SCHEDULE_IN = default(List<SimulateOrderResponseRootORDERSCHEDULEIN>), List<SimulateOrderResponseRootPARTNERADDRESSES> PARTNERADDRESSES = default(List<SimulateOrderResponseRootPARTNERADDRESSES>), List<string> ZWEB_ORDER_STATUS = default(List<string>), List<SimulateOrderResponseRootBILLINGPARTY> BILLING_PARTY = default(List<SimulateOrderResponseRootBILLINGPARTY>), string PAYTEXT = default(string), List<SimulateOrderResponseRootRETURN> RETURN = default(List<SimulateOrderResponseRootRETURN>), string SALESDOCUMENT = default(string), List<SimulateOrderResponseRootSHIPTOPARTY> SHIP_TO_PARTY = default(List<SimulateOrderResponseRootSHIPTOPARTY>), List<SimulateOrderResponseRootSOLDTOPARTY> SOLD_TO_PARTY = default(List<SimulateOrderResponseRootSOLDTOPARTY>))
+        public SimulateOrderResponseRoot(List<SimulateOrderResponseRootEXTENSIONIN> EXTENSIONIN = default(List<SimulateOrderResponseRootEXTENSIONIN>), List<SimulateOrderResponseRootMESSAGETABLE> MESSAGETABLE = default(List<SimulateOrderResponseRootMESSAGETABLE>), List<SimulateOrderResponseRootORDERCCARD> ORDER_CCARD = default(List<SimulateOrderResponseRootORDERCCARD>), List<SimulateOrderResponseRootORDERCONDITIONEX> ORDER_CONDITION_EX = default(List<SimulateOrderResponseRootORDERCONDITIONEX>), List<SimulateOrderResponseRootORDERINCOMPLETE> ORDER_INCOMPLETE = default(List<SimulateOrderResponseRootORDERINCOMPLETE>), List<SimulateOrderResponseRootORDERITEMSOUT> ORDER_ITEMS_OUT = default(List<SimulateOrderResponseRootORDERITEMSOUT>), List<SimulateOrderResponseRootORDERSCHEDULEEX> ORDER_SCHEDULE_EX = default(List<SimulateOrderResponseRootORDERSCHEDULEEX>), List<SimulateOrderResponseRootORDERSCHEDULEIN> ORDER_SCHEDULE_IN = default(List<SimulateOrderResponseRootORDERSCHEDULEIN>), List<SimulateOrderResponseRootPARTNERADDRESSES> PARTNERADDRESSES = default(List<SimulateOrderResponseRootPARTNERADDRESSES>), List<SimulateOrderResponseRootZWEBORDERSTATUS> ZWEB_ORDER_STATUS = default(List<SimulateOrderResponseRootZWEBORDERSTATUS>), List<SimulateOrderResponseRootBILLINGPARTY> BILLING_PARTY = default(List<SimulateOrderResponseRootBILLINGPARTY>), string PAYTEXT = default(string), List<SimulateOrderResponseRootRETURN> RETURN = default(List<SimulateOrderResponseRootRETURN>), string SALESDOCUMENT = default(string), List<SimulateOrderResponseRootSHIPTOPARTY> SHIP_TO_PARTY = default(List<SimulateOrderResponseRootSHIPTOPARTY>), List<SimulateOrderResponseRootSOLDTOPARTY> SOLD_TO_PARTY = default(List<SimulateOrderResponseRootSOLDTOPARTY>))
         {
             this.EXTENSIONIN = EXTENSIONIN;
             this.MESSAGETABLE = MESSAGETABLE;
@@ -127,7 +127,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         /// Gets or Sets ZWEB_ORDER_STATUS
         /// </summary>
         [DataMember(Name="ZWEB_ORDER_STATUS", EmitDefaultValue=false)]
-        public List<string> ZWEB_ORDER_STATUS { get; set; }
+        public List<SimulateOrderResponseRootZWEBORDERSTATUS> ZWEB_ORDER_STATUS { get; set; }
 
         /// <summary>
         /// Gets or Sets BILLING_PARTY
