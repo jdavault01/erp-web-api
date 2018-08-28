@@ -40,13 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Genetics\IOrderService.cs" />
     <Compile Include="BL\StoreFront\IAccountService.cs" />
     <Compile Include="BL\StoreFront\ICartService.cs" />
     <Compile Include="BL\StoreFront\IOrderService.cs" />
     <Compile Include="BL\StoreFront\IProductService.cs" />
     <Compile Include="DAL\IERPRestGateway.cs" />
-    <Compile Include="DAL\IOrderDAL.cs" />
     <Compile Include="DAL\IShopCommerceServiceGateway.cs" />
     <Compile Include="DAL\IWebMethodClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

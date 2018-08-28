@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AutoMapper;
 using Pki.eBusiness.WebApi.Contracts.DAL;
 using Pki.eBusiness.WebApi.DataAccess.Extensions;
 using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
@@ -11,7 +10,6 @@ using Pki.eBusiness.WebApi.Entities;
 using Pki.eBusiness.WebApi.Entities.Constants;
 using Pki.eBusiness.WebApi.Entities.Extensions;
 using Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest;
-using Pki.eBusiness.WebApi.Entities.Orders;
 using Pki.eBusiness.WebApi.Entities.Settings;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 using Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog;
@@ -54,19 +52,6 @@ namespace Pki.eBusiness.WebApi.DataAccess
         #endregion // Constructors
 
         #region Public methods
-
-        /// <summary>
-        /// Process Order Submission
-        /// </summary>
-        /// <param name="pediatrix">Pediatrix object to be processed</param>
-        /// <returns></returns>
-        public string ProcessOrderSubmission(Order order)
-        {
-            Pediatrix pedOrder = Mapper.Map<Order, Pediatrix>(order);
-            string xml = pedOrder.SerializeToXml<Pediatrix>();
-            LogInputRequest(xml);
-            return _soapClient.ProcessPediatrixOrder(pedOrder);
-        }
 
         private void LogInputRequest(string xml)
         {

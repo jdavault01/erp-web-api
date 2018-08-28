@@ -10,7 +10,6 @@ namespace Pki.eBusiness.WebApi.Contracts.DAL
 {
     public interface IWebMethodClient
     {
-        string ProcessOrderSubmission(Order order);
         OrderInfoResponse ProcessOrderLookUpRequest(OrderInfoRequest request);
         PriceResponse GetPrice(PriceRequest priceRequest);
         InventoryResponse GetInventory(InventoryRequest inventoryWmRequest);
