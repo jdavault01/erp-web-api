@@ -7,6 +7,7 @@ using System.Web.Http;
 using Newtonsoft.Json;
 using System.IO;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Swagger.Net.Annotations;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -17,6 +18,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 
 
         [Route("wms/company/name")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyNameResponse))]
         [HttpPost]
         public IHttpActionResult getCompanyName([FromBody] CompanyNameRequest payload)
         {
@@ -46,6 +48,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [Route("wms/company/addresses")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyAddressesResponse))]
         [HttpPost]
         public IHttpActionResult getCompanyAddresses([FromBody] CompanyAddressesRequest payload)
         {
@@ -57,6 +60,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [Route("wms/company/contacts")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyContactsResponse))]
         [HttpPost]
         public IHttpActionResult getCompanyContacts([FromBody] CompanyContactsRequest payload)
         {

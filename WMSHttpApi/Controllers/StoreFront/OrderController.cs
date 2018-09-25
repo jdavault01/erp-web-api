@@ -12,6 +12,7 @@ using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
 using Pki.eBusiness.WebApi.Entities.Orders;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
+using Swagger.Net.Annotations;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -27,6 +28,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             _orderService = orderService;
         }
 
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(SimulateOrderResponse))]
         [HttpPost]
         public IHttpActionResult Simulate([FromBody] SimulateOrderRequest payload)
         {
@@ -78,7 +80,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         //    return Ok(orderResponseEntity);
 
         //}
-
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CreateOrderResponse))]
         [HttpPost]
         public IHttpActionResult Create([FromBody] CreateOrderRequest payload)
         {
@@ -103,6 +105,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 
         }
 
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(InventoryResponse))]
         [HttpPost]
         public IHttpActionResult Inventory([FromBody] InventoryRequest request)
         {

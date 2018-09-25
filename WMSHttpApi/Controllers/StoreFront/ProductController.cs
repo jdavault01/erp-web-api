@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Swagger.Net.Annotations;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -22,6 +23,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PriceResponse))]
         public IHttpActionResult GetPrice([FromBody] PriceRequest request)
         {
             if (request == null)

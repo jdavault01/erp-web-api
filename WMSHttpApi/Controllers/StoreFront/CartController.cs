@@ -6,6 +6,7 @@ using PKI.eBusiness.WMService.Logger;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Swagger.Net.Annotations;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -22,6 +23,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 
         //[Route("shop/cart/GetClearanceCode")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CartInfo))]
         public IHttpActionResult GetClearanceCode([FromBody] CartInfo cartInfo)
         {
             CartInfo _cartInfo;

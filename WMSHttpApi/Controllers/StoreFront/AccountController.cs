@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Pki.eBusiness.WebApi.Contracts.BL.StoreFront;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Swagger.Net.Annotations;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -22,6 +23,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 
         [Route("wms/partners/{accountNumber}/create")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(ContactCreateResponse))]
         public IHttpActionResult Partners([FromUri]string accountNumber, [FromBody] ContactCreateRequest payload)
         {
             //get account number from url parameter
@@ -39,6 +41,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 
         [Route("wms/partners/{accountNumber}")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
         public IHttpActionResult Partners([FromUri]string accountNumber, [FromBody] SimplePartnerRequest payload)
         {
             if (payload == null)
@@ -66,6 +69,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         //Legacy .. remove after cart project
         [Route("wms/account/getpartner")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
         public IHttpActionResult Partner([FromBody] PartnerRequest request)
         {
 
@@ -91,6 +95,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [Route("shop/account/GetPOSUser")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(LoginInfo))]
         [HttpPost]
         public IHttpActionResult GetPunchOutUser([FromBody] string companyCode)
         {
