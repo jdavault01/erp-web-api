@@ -10,12 +10,18 @@ using StorefrontInventoryRequest = Pki.eBusiness.WebApi.Entities.StoreFront.Data
 using StorefrontPriceRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PriceRequest;
 using StorefrontSimulateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.SimulateOrderRequest;
 using StorefrontCreateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.CreateOrderRequest;
-
+using Pki.eBusiness.WebApi.DataAccess.Models;
 
 namespace Pki.eBusiness.WebApi.DataAccess.Extensions
 {
     public static class CatalogExtensions
     {
+        private const string SAP_HEADER_VERSION = "001";
+        private const string TASK_SIMULATE_REQUEST = "OrderSimulateRequest";
+        private const string TASK_ORDER_REQUEST = "OrderEntryRequest";
+        private const string PARTNER_TYPE_SHIPTO = "ShipTo";
+        private const string PARTNER_TYPE_BILLTO = "BillTo";
+
         public static PriceWebServiceRequest ToWmPriceRequest(this StorefrontPriceRequest request)
         {
             PriceWebServiceRequest result = new PriceWebServiceRequest();
@@ -68,9 +74,9 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
             };
 
             var partners = new Partner2[2];
-            var partner0 = new Partner2 { PartnerID = request.PartnerInfo[0].PartnerId, PartnerType = "ShipTo" };
+            var partner0 = new Partner2 { PartnerID = request.PartnerInfo[0].PartnerId, PartnerType = PARTNER_TYPE_SHIPTO };
             partners[0] = partner0;
-            var partner = new Partner2 { PartnerID = request.PartnerInfo[1].PartnerId, PartnerType = "BillTo" };
+            var partner = new Partner2 { PartnerID = request.PartnerInfo[1].PartnerId, PartnerType = PARTNER_TYPE_BILLTO };
             partners[1] = partner;
 
             invReq.InventoryRequestHeader = new InventoryRequestHeader
@@ -160,8 +166,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 partners[i] = partner;
             }
 
+            string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
+
             var orderRequestHeader = new OrderRequestHeader2()
             {
+                //TODO: Need to get Sender attribute added by Derek / WM team
+                //Sender = new Sender2 { Component = sapOrderType, Task = TASK_ORDER_REQUEST },
                 SalesOrgID = clientRequest.SalesAreaInfo.SalesOrgId,
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
@@ -252,11 +262,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
         public static SimulateOrderWebServiceRequest ToWmSimulateOrderRequest(this StorefrontSimulateOrderRequest clientRequest)
         {
             SimulateOrderWebServiceRequest result = new SimulateOrderWebServiceRequest();
+            string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
 
             var header = new Header2()
             {
-                Version = new Version2() { value = "001" },
-                Sender = new Sender2 { Component = "ZWEB", Task = "OrderSimulateRequest" }
+                Version = new Version2() { value = SAP_HEADER_VERSION },
+                Sender = new Sender2 { Component = sapOrderType, Task = TASK_SIMULATE_REQUEST }
             };
 
             var requestDetails = new OrderRequestDetail[clientRequest.NumberOfItems];

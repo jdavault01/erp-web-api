@@ -32,7 +32,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             if (createContentResponse == null)
             {
                 Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_CONTENT_RESPONSE);
-                return ResponseMessage(Request.CreateResponse(String.Format("{0} {1}", InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_CONTENT_RESPONSE, HttpStatusCode.NotFound)));
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_CONTENT_RESPONSE));
             }
 
             return Ok(createContentResponse);
@@ -60,7 +60,13 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             if (partnerResponseEntity == null)
             {
                 Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                return ResponseMessage(Request.CreateResponse(String.Format("{0} {1}", InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE, HttpStatusCode.NotFound)));
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
+            }
+            if (!String.IsNullOrEmpty(partnerResponseEntity.ErrorMessage))
+            {
+                Log(partnerResponseEntity.ErrorMessage);
+                var httpResponseMessage = Request.CreateResponse(HttpStatusCode.NotFound, partnerResponseEntity.ErrorMessage);
+                return ResponseMessage(httpResponseMessage);
             }
 
             return Ok(partnerResponseEntity);
@@ -88,7 +94,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             if (partnerResponseEntity == null)
             {
                 Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                return ResponseMessage(Request.CreateResponse(String.Format("{0} {1}", InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE, HttpStatusCode.NotFound)));
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
             }
 
             return Ok(partnerResponseEntity);
@@ -119,7 +125,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
                 if (loginInfo == null)
                 {
                     Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                    return ResponseMessage(Request.CreateResponse(String.Format("{0} {1}", InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE, HttpStatusCode.NotFound)));
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
                 }
 
             }
