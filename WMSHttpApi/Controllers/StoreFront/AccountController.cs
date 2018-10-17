@@ -56,7 +56,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             }
             payload.PartnerId = accountNumber;
 
-            var partnerResponseEntity = _accountService.GetPartnerDetails(payload);
+            PartnerResponse partnerResponseEntity = _accountService.GetPartnerDetails(payload);
             if (partnerResponseEntity == null)
             {
                 Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);

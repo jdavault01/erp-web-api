@@ -27,7 +27,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
         public static PartnerResponse ToPartnerResponse(this PartnerWebServiceResponse1 response)
         {
             var result = new PartnerClientResponse();
-            if (response.PartnerResponse.ErrorReturn[0] != null)
+            if (response.PartnerResponse.ErrorReturn != null && response.PartnerResponse.ErrorReturn[0] != null)
             {
                 result.PartnerResponse = new PartnerResponse
                 {
