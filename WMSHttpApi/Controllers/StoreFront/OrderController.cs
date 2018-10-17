@@ -70,16 +70,6 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return _orderService.SimulateErpOrder(payload);
         }
 
-        //[HttpPost]
-        //public IHttpActionResult Create([FromBody] CreateOrderRequest payload)
-        //{
-        //    // var orderResponseEntity = _orderService.SimulateOrder(payload);
-        //    string filePath = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\OrderResponse.json");
-        //    var source = File.ReadAllText(filePath);
-        //    var orderResponseEntity = JsonConvert.DeserializeObject<CreateOrderResponse>(source);
-        //    return Ok(orderResponseEntity);
-
-        //}
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CreateOrderResponse))]
         [HttpPost]
         public IHttpActionResult Create([FromBody] CreateOrderRequest payload)

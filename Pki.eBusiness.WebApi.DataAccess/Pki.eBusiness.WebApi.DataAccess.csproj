@@ -114,6 +114,7 @@
     <Compile Include="Extensions\PartnerServiceRequest.cs" />
     <Compile Include="Extensions\PriceServiceRequest.cs" />
     <Compile Include="Extensions\SimulateOrderServiceRequest.cs" />
+    <Compile Include="Models\SAPOrderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ERPRestGateway.cs" />
     <Compile Include="Service References\ShopCommerce\Reference.cs">

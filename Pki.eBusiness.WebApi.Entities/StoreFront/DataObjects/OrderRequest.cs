@@ -19,6 +19,16 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public List<OrderLineItem> OrderItems { get; set; }
         [DataMember]
         public string PromoCode { get; set; }
+        [DataMember]
+        public string PaymentType { get; set; }
+        [DataMember]
+        public WebOrderType OrderType { get; set; }
+        [DataMember]
+        public WebUserType UserType { get; set; }
+        [DataMember]
+        public bool ContainsInstrument { get; set; }
+        [DataMember]
+        public string CountryName { get; set; }
 
     }
 
@@ -70,8 +80,6 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public string DeliveryBlockText { get; set; }
         [DataMember]
-        public string PaymentType { get; set; }
-        [DataMember]
         public string PurchaseOrderID { get; set; }
         [DataMember]
         public CreditCardInfo CreditCard { get; set; }
@@ -86,6 +94,20 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public string AdditionalInfo { get; set; }
 
+    }
+
+    public enum WebOrderType
+    {
+        Standard,
+        Scheduled,
+        MPO
+    }
+
+    public enum WebUserType
+    {
+        B2B,
+        Dealer,
+        Punchout
     }
 
     [DataContract]

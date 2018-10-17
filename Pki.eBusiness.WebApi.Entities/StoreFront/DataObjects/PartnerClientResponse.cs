@@ -30,6 +30,9 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public List<PartnerResponseDetail> PartnerResponseDetails { get; set; }
 
+        [DataMember]
+        public string ErrorMessage { get; set; }
+
         #endregion // Private variables
     }
     /// <summary>
