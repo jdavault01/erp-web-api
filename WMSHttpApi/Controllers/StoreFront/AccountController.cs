@@ -39,16 +39,12 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
 
-        [Route("wms/partners/{accountNumber}")]
-        [HttpPost]
+        [Route("wms/partners/{accountNumber}/{salesOrg}")]
+        [HttpGet]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
-        public IHttpActionResult Partners([FromUri]string accountNumber, [FromBody] SimplePartnerRequest payload)
+        public IHttpActionResult Partners([FromUri]string accountNumber, [FromUri] string salesOrg)
         {
-            if (payload == null)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-                return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-            }
+            SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);
             if (!ModelState.IsValid)
             {
                 Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
@@ -73,32 +69,32 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         //Legacy .. remove after cart project
-        [Route("wms/account/getpartner")]
-        [HttpPost]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
-        public IHttpActionResult Partner([FromBody] PartnerRequest request)
-        {
+        //[Route("wms/account/getpartner")]
+        //[HttpPost]
+        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
+        //public IHttpActionResult Partner([FromBody] PartnerRequest request)
+        //{
 
-            if (request == null)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-                return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-            }
-            if (!ModelState.IsValid)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
-            }
+        //    if (request == null)
+        //    {
+        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
+        //        return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
+        //    }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
+        //        return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
+        //    }
 
-            var partnerResponseEntity = _accountService.GetPartnerInfo(request);
-            if (partnerResponseEntity == null)
-            {
-                Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
-            }
+        //    var partnerResponseEntity = _accountService.GetPartnerInfo(request);
+        //    if (partnerResponseEntity == null)
+        //    {
+        //        Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
+        //        return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
+        //    }
 
-            return Ok(partnerResponseEntity);
-        }
+        //    return Ok(partnerResponseEntity);
+        //}
 
         [Route("shop/account/GetPOSUser")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(LoginInfo))]

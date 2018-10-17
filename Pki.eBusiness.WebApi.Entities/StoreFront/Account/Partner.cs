@@ -7,6 +7,17 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.Account
     [DataContract(Name = "Partner")]
     public class BasePartner
     {
+
+        public BasePartner()
+        {
+            
+        }
+
+        public BasePartner(string partnerId, PartnerType type)
+        {
+            PartnerId = partnerId;
+            PartnerType = type;
+        }
         [JsonIgnore]
         [DataMember]
         public bool MarkedForDeletion;

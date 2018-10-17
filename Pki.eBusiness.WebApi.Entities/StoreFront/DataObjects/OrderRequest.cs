@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
 
@@ -60,8 +61,39 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     }
 
     [DataContract]
-    public class SimulateOrderRequest : BaseOrderRequest
+    public class LineItem
     {
+        [DataMember]
+        public int OrderLineNumber { get; set; }
+        [DataMember]
+        public string ProductID { get; set; }
+        [DataMember]
+        public decimal Quantity { get; set; }
+        [DataMember]
+        public string RequestedDate { get; set; }
+    }
+
+    [DataContract]
+    public class SimulateOrderRequest
+    {
+        [DataMember]
+        public List<LineItem> OrderItems { get; set; }
+        [DataMember]
+        public string PromoCode { get; set; }
+        [DataMember]
+        public string SalesOrg { get; set; }
+        public SalesArea SalesAreaInfo => new SalesArea(SalesOrg);
+        [DataMember]
+        public string Language { get; set; }
+        [DataMember]
+        public string ShipTo { get; set; }
+        [DataMember]
+        public string BillTo { get; set; }
+        public List<BasePartner> Partners => new List<BasePartner>
+        {
+            new BasePartner(ShipTo, PartnerType.ShipTo),
+            new BasePartner(BillTo, PartnerType.BillTo)
+        };
     }
 
     [DataContract]
@@ -134,6 +166,6 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public decimal AvailableQty { get; set; }
         [DataMember]
-        public string AvailableDate { get; set; }
+        public DateTime AvailableDate { get; set; }
     }
 }

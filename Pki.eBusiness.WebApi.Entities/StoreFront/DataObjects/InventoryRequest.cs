@@ -9,12 +9,21 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     public class InventoryRequest : EntityBase
     {
         #region Properties
+        public List<BasePartner> PartnerInfo => new List<BasePartner>
+        {
+            new BasePartner(ShipTo, PartnerType.ShipTo),
+            new BasePartner(BillTo, PartnerType.BillTo)
+        };
 
         [DataMember]
-        public List<BasePartner> PartnerInfo { get; set; }
+        public string SalesOrg { get; set; }
 
         [DataMember]
-        public SalesArea SalesAreaInfo { get; set; }
+        public string ShipTo { get; set; }
+        [DataMember]
+        public string BillTo { get; set; }
+
+        public SalesArea SalesAreaInfo => new SalesArea(SalesOrg);
 
         [DataMember]
         public List<InventoryRequestItem> Products { get; set; }

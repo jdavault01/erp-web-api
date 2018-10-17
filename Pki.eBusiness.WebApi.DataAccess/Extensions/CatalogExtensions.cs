@@ -134,7 +134,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 var i = 0;
                 foreach (var avaialblity in serviceInventoryResponseDetail.ItemDetail.Select(itemDetail => new Availability
                 {
-                    AvailableDate = itemDetail.AvailableDate,
+                    AvailableDate = DateTime.ParseExact(itemDetail.AvailableDate, "yyyyMMdd", CultureInfo.InvariantCulture),
                     AvailableQty = Convert.ToDecimal(itemDetail.AvailableQty, CultureInfo.InvariantCulture)
                 }))
                 {
@@ -244,7 +244,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                     Availability = new Availability
                     {
                         AvailableQty = Convert.ToDecimal(item.ItemDetail[0].AvailableQty, CultureInfo.InvariantCulture),
-                        AvailableDate = item.ItemDetail[0].AvailableDate
+                        AvailableDate = DateTime.ParseExact(item.ItemDetail[0].AvailableDate, "yyyyMMdd", CultureInfo.InvariantCulture)
                     },
                     AdjustedPrice = item.AdjustedPrice,
                     Discount = item.Discount,
@@ -262,7 +262,8 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
         public static SimulateOrderWebServiceRequest ToWmSimulateOrderRequest(this StorefrontSimulateOrderRequest clientRequest)
         {
             SimulateOrderWebServiceRequest result = new SimulateOrderWebServiceRequest();
-            string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
+            //string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
+            string sapOrderType = "ZWEB";
 
             var header = new Header2()
             {
@@ -270,7 +271,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 Sender = new Sender2 { Component = sapOrderType, Task = TASK_SIMULATE_REQUEST }
             };
 
-            var requestDetails = new OrderRequestDetail[clientRequest.NumberOfItems];
+            var requestDetails = new OrderRequestDetail[clientRequest.OrderItems.Count];
             for (var i = 0; i < clientRequest.OrderItems.Count; i++)
             {
                 var lineNum = i + 1;
@@ -303,7 +304,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
                 language = clientRequest.Language,
-                NumberOfItems = clientRequest.NumberOfItems.ToString(),
+                NumberOfItems = clientRequest.OrderItems.Count.ToString(),
                 PromoCode = clientRequest.PromoCode,
                 Partner = partners
             };
@@ -333,7 +334,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                     Availability = new Availability
                     {
                         AvailableQty = Convert.ToDecimal(item.ItemDetail[0].AvailableQty, CultureInfo.InvariantCulture),
-                        AvailableDate = item.ItemDetail[0].AvailableDate
+                        AvailableDate = DateTime.ParseExact(item.ItemDetail[0].AvailableDate, "yyyyMMdd", CultureInfo.InvariantCulture)
                     }
 
                 };

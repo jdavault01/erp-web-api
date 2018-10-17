@@ -9,6 +9,12 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class SimplePartnerRequest
     {
+        public SimplePartnerRequest(string accountNumber, string salesOrg)
+        {
+            this.PartnerId = accountNumber;
+            this.SalesAreaInfo = new SalesArea(salesOrg);
+        }
+
         [DataMember]
         public string PartnerId { get; set; }
         [DataMember]
