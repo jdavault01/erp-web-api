@@ -31,50 +31,55 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
             {
                 PartnerResponseHeader = new PartnerResponseHeader()
                 {
-                    ERPHierarchyNumber = response.PartnerResponse.PartnerResponseHeader.ERPHierarchyNumber,
-                    ERPHierarchyName = response.PartnerResponse.PartnerResponseHeader.ERPHierarchyName,
+                    ERPHierarchyNumber = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyNumber,
+                    ERPHierarchyName = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyName,
                 },
 
             };
             result.PartnerResponse.PartnerResponseDetails = new List<PartnerResponseDetail>();
-            foreach (var detail in response.PartnerResponse.PartnerResponseDetail)
+            if (response?.PartnerResponse?.PartnerResponseDetail != null)
             {
-                var partnerResponseDetail = new PartnerResponseDetail();
-                PartnerType partnerType;
-                Enum.TryParse(detail.PartnerType, out partnerType);
-
-                partnerResponseDetail.Partner = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Partner
+                foreach (var detail in response.PartnerResponse.PartnerResponseDetail)
                 {
-                    PartnerId = detail.PartnerID,
-                    PartnerType = partnerType,
-                    RadIndicator = detail.Partner[0].RADIndicator,
-                    Name1 = detail.Partner[0].Name1,
-                    Name2 = detail.Partner[0].Name2,
-                    Name3 = detail.Partner[0].Name3,
-                    Name4 = detail.Partner[0].Name4,
-                    Addresses = new List<Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address>()
-                };
+                    var partnerResponseDetail = new PartnerResponseDetail();
+                    PartnerType partnerType;
+                    Enum.TryParse(detail.PartnerType, out partnerType);
+
+                    partnerResponseDetail.Partner = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Partner
+                    {
+                        PartnerId = detail.PartnerID,
+                        PartnerType = partnerType,
+                        RadIndicator = detail.Partner[0].RADIndicator,
+                        Name1 = detail.Partner[0].Name1,
+                        Name2 = detail.Partner[0].Name2,
+                        Name3 = detail.Partner[0].Name3,
+                        Name4 = detail.Partner[0].Name4,
+                        Addresses = new List<Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address>()
+                    };
 
 
-                var address = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address
-                {
-                    Street = detail.Partner[0].Address.Street,
-                    POBox = detail.Partner[0].Address.POBox,
-                    POBoxCity = detail.Partner[0].Address.POBoxCity,
-                    City = detail.Partner[0].Address.City,
-                    District = detail.Partner[0].Address.District,
-                    Country = detail.Partner[0].Address.Country,
-                    Fax = detail.Partner[0].Address.Fax,
-                    PostalCode = detail.Partner[0].Address.PostalCode,
-                    //Make as State instead of Region .. WM has it crossed
-                    //Region = detail.Partner[0].Address.Region,
-                    State = detail.Partner[0].Address.Region,
-                    Telephone = detail.Partner[0].Address.Telephone[0].Text == null ? null : detail.Partner[0].Address.Telephone[0].Text.ToString()
+                    var address = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address
+                    {
+                        Street = detail.Partner[0].Address.Street,
+                        POBox = detail.Partner[0].Address.POBox,
+                        POBoxCity = detail.Partner[0].Address.POBoxCity,
+                        City = detail.Partner[0].Address.City,
+                        District = detail.Partner[0].Address.District,
+                        Country = detail.Partner[0].Address.Country,
+                        Fax = detail.Partner[0].Address.Fax,
+                        PostalCode = detail.Partner[0].Address.PostalCode,
+                        //Make as State instead of Region .. WM has it crossed
+                        //Region = detail.Partner[0].Address.Region,
+                        State = detail.Partner[0].Address.Region,
+                        Telephone = detail.Partner[0].Address.Telephone[0].Text == null
+                            ? null
+                            : detail.Partner[0].Address.Telephone[0].Text.ToString()
 
-                };
+                    };
 
-                partnerResponseDetail.Partner.Addresses.Add(address);
-                result.PartnerResponse.PartnerResponseDetails.Add(partnerResponseDetail);
+                    partnerResponseDetail.Partner.Addresses.Add(address);
+                    result.PartnerResponse.PartnerResponseDetails.Add(partnerResponseDetail);
+                }
             }
 
             return result.PartnerResponse;
