@@ -11,7 +11,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         #region Properties
 
         [DataMember]
-        public List<BasePartner> PartnerInfo { get; set; }
+        public List<IPartner> PartnerInfo { get; set; }
 
         [DataMember]
         public SalesArea SalesAreaInfo { get; set; }

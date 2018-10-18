@@ -98,6 +98,7 @@
       <DependentUpon>ERPRestSettings.csd</DependentUpon>
     </Compile>
     <Compile Include="StoreFront\Account\Address.cs" />
+    <Compile Include="StoreFront\Account\IPartner.cs" />
     <Compile Include="StoreFront\DataObjects\CompanyInfoRequest.cs" />
     <Compile Include="StoreFront\DataObjects\CompanyInfoResponse.cs" />
     <Compile Include="StoreFront\DataObjects\LoginInfo.cs" />

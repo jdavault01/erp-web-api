@@ -9,10 +9,10 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     public class InventoryRequest : EntityBase
     {
         #region Properties
-        public List<BasePartner> PartnerInfo => new List<BasePartner>
+        public List<IPartner> PartnerInfo => new List<IPartner>
         {
-            new BasePartner(ShipTo, PartnerType.ShipTo),
-            new BasePartner(BillTo, PartnerType.BillTo)
+            new Partner(ShipTo, PartnerType.ShipTo),
+            new Partner(BillTo, PartnerType.BillTo)
         };
 
         [DataMember]

@@ -22,18 +22,18 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class PartnerResponse : EntityBase
     {
-        #region Private variables
+        [DataMember]
+        public string ERPHierarchyNumber { get; set; }
 
         [DataMember]
-        public PartnerResponseHeader PartnerResponseHeader { get; set; }
+        public string ERPHierarchyName { get; set; }
 
         [DataMember]
-        public List<PartnerResponseDetail> PartnerResponseDetails { get; set; }
+        public List<Partner> Partners { get; set; }
 
         [DataMember]
         public string ErrorMessage { get; set; }
 
-        #endregion // Private variables
     }
     /// <summary>
     /// Order Response Detail
@@ -55,11 +55,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     {
         #region Properties
 
-        [DataMember]
-        public string ERPHierarchyNumber { get; set; }
 
-        [DataMember]
-        public string ERPHierarchyName { get; set; }
 
         #endregion
 

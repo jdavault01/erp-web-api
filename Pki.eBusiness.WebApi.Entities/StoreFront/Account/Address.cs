@@ -7,16 +7,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.Account
     public class Address
     {
         [DataMember]
-        public Guid Id;
-
-        [DataMember]
         public string Street;
-
-        [DataMember]
-        public string POBox;
-
-        [DataMember]
-        public string POBoxCity;
 
         [DataMember]
         public string City;

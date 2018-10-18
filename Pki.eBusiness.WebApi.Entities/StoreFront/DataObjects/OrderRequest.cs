@@ -89,10 +89,10 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public string ShipTo { get; set; }
         [DataMember]
         public string BillTo { get; set; }
-        public List<BasePartner> Partners => new List<BasePartner>
+        public List<IPartner> Partners => new List<IPartner>
         {
-            new BasePartner(ShipTo, PartnerType.ShipTo),
-            new BasePartner(BillTo, PartnerType.BillTo)
+            new Partner(ShipTo, PartnerType.ShipTo),
+            new Partner(BillTo, PartnerType.BillTo)
         };
     }
 

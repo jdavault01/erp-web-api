@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
 using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Partner = Pki.eBusiness.WebApi.Entities.StoreFront.Account.Partner;
 using SimplePartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.SimplePartnerRequest;
 using StorefrontPartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerRequest;
 using PartnerResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerResponse;
@@ -38,40 +39,36 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
 
             result.PartnerResponse = new PartnerResponse
             {
-                PartnerResponseHeader = new PartnerResponseHeader()
-                {
-                    ERPHierarchyNumber = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyNumber,
-                    ERPHierarchyName = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyName,
-                },
-
+                ERPHierarchyNumber = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyNumber,
+                ERPHierarchyName = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyName,
             };
-            result.PartnerResponse.PartnerResponseDetails = new List<PartnerResponseDetail>();
+            result.PartnerResponse.Partners = new List<Partner>();
             if (response?.PartnerResponse?.PartnerResponseDetail != null)
             {
                 foreach (var detail in response.PartnerResponse.PartnerResponseDetail)
                 {
-                    var partnerResponseDetail = new PartnerResponseDetail();
+                    //var partnerResponseDetail = new PartnerResponseDetail();
                     PartnerType partnerType;
                     Enum.TryParse(detail.PartnerType, out partnerType);
 
-                    partnerResponseDetail.Partner = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Partner
+                    var partner = new Partner
                     {
                         PartnerId = detail.PartnerID,
                         PartnerType = partnerType,
-                        RadIndicator = detail.Partner[0].RADIndicator,
-                        Name1 = detail.Partner[0].Name1,
-                        Name2 = detail.Partner[0].Name2,
-                        Name3 = detail.Partner[0].Name3,
-                        Name4 = detail.Partner[0].Name4,
-                        Addresses = new List<Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address>()
+                        RadIndicator = detail.Partner[0].RADIndicator == "true",
+                        FirstName = detail.Partner[0].Name1,
+                        LastName = detail.Partner[0].Name2,
+                        //Name3 = detail.Partner[0].Name3,
+                        //Name4 = detail.Partner[0].Name4,
+                        //Addresses = new List<Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address>()
                     };
 
 
                     var address = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address
                     {
                         Street = detail.Partner[0].Address.Street,
-                        POBox = detail.Partner[0].Address.POBox,
-                        POBoxCity = detail.Partner[0].Address.POBoxCity,
+                        //POBox = detail.Partner[0].Address.POBox,
+                        //POBoxCity = detail.Partner[0].Address.POBoxCity,
                         City = detail.Partner[0].Address.City,
                         District = detail.Partner[0].Address.District,
                         Country = detail.Partner[0].Address.Country,
@@ -80,14 +77,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                         //Make as State instead of Region .. WM has it crossed
                         //Region = detail.Partner[0].Address.Region,
                         State = detail.Partner[0].Address.Region,
-                        Telephone = detail.Partner[0].Address.Telephone[0].Text == null
-                            ? null
-                            : detail.Partner[0].Address.Telephone[0].Text.ToString()
+                        Telephone = detail.Partner[0].Address.Telephone[0].Text?.ToString()
 
                     };
 
-                    partnerResponseDetail.Partner.Addresses.Add(address);
-                    result.PartnerResponse.PartnerResponseDetails.Add(partnerResponseDetail);
+                    result.PartnerResponse.Partners.Add(partner);
                 }
             }
 
