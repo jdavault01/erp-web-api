@@ -8,14 +8,9 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class BaseOrderRequest
     {
-        [DataMember]
         public SalesArea SalesAreaInfo { get; set; }
         [DataMember]
         public string Language { get; set; }
-        [DataMember]
-        public int NumberOfItems { get; set; }
-        [DataMember]
-        public List<Partner> Partners { get; set; }
         [DataMember]
         public List<OrderLineItem> OrderItems { get; set; }
         [DataMember]
@@ -99,6 +94,21 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class CreateOrderRequest : BaseOrderRequest
     {
+        [DataMember]
+        public String SalesOrg { get; set; }
+        public SalesArea SalesAreaInfo => new SalesArea(SalesOrg);
+        [DataMember]
+        public string ShipTo { get; set; }
+        [DataMember]
+        public string BillTo { get; set; }
+        [DataMember]
+        public string ContactId { get; set; }
+        public List<IPartner> Partners => new List<IPartner>
+        {
+            new Partner(ShipTo, PartnerType.ShipTo),
+            new Partner(BillTo, PartnerType.BillTo),
+            new Partner(ContactId, PartnerType.ContactID)
+        };
         [DataMember]
         public string AttentionLines { get; set; }
         [DataMember]

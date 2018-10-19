@@ -8,24 +8,12 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     {
         [DataMember]
         public SimulateOrderResponse SimulateOrderResponse { get; set; }
-
-  //      public SimulateOrderClientResponse(SimulateOrderWebServiceResponse1 response)
-  //      {
-
-		//}
-
     }
 
     public class OrderClientResponse
     {
         [DataMember]
         public CreateOrderResponse OrderResponse { get; set; }
-
-        //public OrderClientResponse(OrderWebServiceResponse1 response)
-        //{
-        //    OrderResponse = new CreateOrderResponse(response);
-        //}
-
     }
 
 
@@ -35,7 +23,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public decimal ShippingCost { get; set; }
         [DataMember]
-        public List<OrderLineItem> LineItems { get; set; }
+        public List<OrderLineItem> OrderItems { get; set; }
         [DataMember]
         public String ErrorMessage { get; set; }
         [DataMember]
@@ -67,7 +55,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public SimulateOrderResponse(List<OrderLineItem> lineItems, string paymentTerms, string iNCOTerms, string iNCOCode,
             string currency, decimal shippingCost, decimal taxVat, decimal orderTotal)
         {
-            LineItems = lineItems;
+            OrderItems = lineItems;
             PaymentTerms = paymentTerms;
             INCOTerms = iNCOTerms;
             INCOCode = iNCOCode;

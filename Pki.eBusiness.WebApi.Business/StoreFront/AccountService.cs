@@ -28,15 +28,15 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         }
 
         /// <summary>
-        /// THIS METHOD WILL BE DECOMMISIONED AFTER CART PROJECT
+        /// THIS METHOD WILL BE DECOMMISIONED AFTER CART PROJECT -- confirm use in product .. can probably remove sooner
         /// </summary>
         /// <param name="partnerRequest"></param>
         /// <returns></returns>
-        public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)
-        {
-            return _webMethodClient.GetPartnerInfo(partnerRequest);
+        //public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)
+        //{
+        //    return _webMethodClient.GetPartnerInfo(partnerRequest);
 
-        }
+        //}
 
         /// <summary>
         /// This method takes a client partner request model and converts, makes calls and converts response

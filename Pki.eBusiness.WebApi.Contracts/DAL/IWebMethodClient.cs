@@ -14,7 +14,7 @@ namespace Pki.eBusiness.WebApi.Contracts.DAL
         PriceResponse GetPrice(PriceRequest priceRequest);
         InventoryResponse GetInventory(InventoryRequest inventoryWmRequest);
         //Will be decommisioned after we go live with Cart
-        PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
+        //PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
         //New Partner request with simpler JSON
         PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
         ContactCreateResponse CreateContact(String accountNumber, ContactCreateRequest contactCreateRequest);

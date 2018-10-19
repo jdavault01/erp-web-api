@@ -126,22 +126,23 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 {
                     OrderLineNumber = serviceInventoryResponseDetail.OrderLineNumber,
                     ProductId = serviceInventoryResponseDetail.ProductID,
-                    Quantity = Convert.ToInt16(quantity),
+                    Quantity = quantity, 
                     ShippingPoint = serviceInventoryResponseDetail.ShippingPoint,
-                    Availabilities = new Availability[serviceInventoryResponseDetail.ItemDetail.Length]
                 };
 
-                var i = 0;
-                foreach (var avaialblity in serviceInventoryResponseDetail.ItemDetail.Select(itemDetail => new Availability
+                var numOfAvailQty = 0;
+                var availableQtyWithDollarValue = serviceInventoryResponseDetail.ItemDetail.Where(itemDetail => Decimal.Parse(itemDetail.AvailableQty, CultureInfo.InvariantCulture) != 0.00M);
+                inventoryResponseDetail.Availabilities = new Availability[availableQtyWithDollarValue.ToList().Count];
+
+                foreach (var avaialblity in availableQtyWithDollarValue.Select(itemDetail => new Availability
                 {
                     AvailableDate = DateTime.ParseExact(itemDetail.AvailableDate, "yyyyMMdd", CultureInfo.InvariantCulture),
                     AvailableQty = Convert.ToDecimal(itemDetail.AvailableQty, CultureInfo.InvariantCulture)
                 }))
                 {
-                    inventoryResponseDetail.Availabilities[i] = avaialblity;
-                    i++;
+                    inventoryResponseDetail.Availabilities[numOfAvailQty] = avaialblity;
+                    numOfAvailQty++;
                 }
-
                 result.InventoryResponseItems[itemNum] = inventoryResponseDetail;
                 itemNum++;
 
@@ -181,7 +182,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 PaymentType = clientRequest.PaymentType,
                 PurchaseOrderID = clientRequest.PurchaseOrderID,
                 WebOrderNumber = clientRequest.WebOrderNumber,
-                NumberOfItems = clientRequest.NumberOfItems.ToString(),
+                NumberOfItems = clientRequest.OrderItems.Count.ToString(),
                 AttentionLines = clientRequest.AttentionLines,
                 AttentionLinesBillTo = clientRequest.AttentionLinesBillTo,
                 TelephoneNumber = clientRequest.TelephoneNumber,
@@ -205,7 +206,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 };
             }
 
-            var orderRequestDetail = new OrderRequestDetail2[clientRequest.NumberOfItems];
+            var orderRequestDetail = new OrderRequestDetail2[clientRequest.OrderItems.Count];
             for (var i = 0; i < clientRequest.OrderItems.Count; i++)
             {
                 var lineNum = i + 1;
@@ -254,7 +255,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
             }
 
             result.SellerorderID = response.OrderResponse.OrderResponseHeader.SellerOrderID;
-            result.LineItems = orderLineItems;
+            result.OrderItems = orderLineItems;
             result.ShippingCost = Convert.ToDecimal(response.OrderResponse.OrderResponseHeader.ShippingCost, CultureInfo.InvariantCulture);
             return result;
         }
@@ -350,7 +351,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 ShippingCost = Convert.ToDecimal(response.OrderResponse.OrderResponse.Body.OrderResponseHeader.ShippingCost, CultureInfo.InvariantCulture),
                 TaxVAT = Convert.ToDecimal(response.OrderResponse.OrderResponse.Body.OrderResponseHeader.TaxVAT, CultureInfo.InvariantCulture),
                 OrderTotal = Convert.ToDecimal(response.OrderResponse.OrderResponse.Body.OrderResponseHeader.OrderTotal, CultureInfo.InvariantCulture),
-                LineItems = orderLineItems
+                OrderItems = orderLineItems
 
             };
             return result;

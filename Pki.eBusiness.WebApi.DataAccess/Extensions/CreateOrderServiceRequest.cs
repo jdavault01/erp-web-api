@@ -50,7 +50,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 PaymentType = clientRequest.PaymentType,
                 PurchaseOrderID = clientRequest.PurchaseOrderID,
                 WebOrderNumber = clientRequest.WebOrderNumber,
-                NumberOfItems = clientRequest.NumberOfItems.ToString(),
+                NumberOfItems = clientRequest.OrderItems.Count.ToString(),
                 AttentionLines = clientRequest.AttentionLines,
                 AttentionLinesBillTo = clientRequest.AttentionLinesBillTo,
                 TelephoneNumber = clientRequest.TelephoneNumber,
@@ -74,7 +74,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 };
             }
 
-            var orderRequestDetail = new OrderRequestDetail2[clientRequest.NumberOfItems];
+            var orderRequestDetail = new OrderRequestDetail2[clientRequest.OrderItems.Count];
             for (var i = 0; i < clientRequest.OrderItems.Count; i++)
             {
                 var lineNum = i + 1;
