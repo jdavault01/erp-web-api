@@ -58,27 +58,15 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                         RadIndicator = detail.Partner[0].RADIndicator == "true",
                         FirstName = detail.Partner[0].Name1,
                         LastName = detail.Partner[0].Name2,
-                        //Name3 = detail.Partner[0].Name3,
-                        //Name4 = detail.Partner[0].Name4,
-                        //Addresses = new List<Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address>()
-                    };
-
-
-                    var address = new Pki.eBusiness.WebApi.Entities.StoreFront.Account.Address
-                    {
                         Street = detail.Partner[0].Address.Street,
-                        //POBox = detail.Partner[0].Address.POBox,
-                        //POBoxCity = detail.Partner[0].Address.POBoxCity,
                         City = detail.Partner[0].Address.City,
                         District = detail.Partner[0].Address.District,
                         Country = detail.Partner[0].Address.Country,
                         Fax = detail.Partner[0].Address.Fax,
                         PostalCode = detail.Partner[0].Address.PostalCode,
-                        //Make as State instead of Region .. WM has it crossed
-                        //Region = detail.Partner[0].Address.Region,
+                        Region = detail.Partner[0].Address.Region,
                         State = detail.Partner[0].Address.Region,
                         Telephone = detail.Partner[0].Address.Telephone[0].Text?.ToString()
-
                     };
 
                     result.PartnerResponse.Partners.Add(partner);
