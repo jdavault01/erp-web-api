@@ -178,7 +178,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
                 language = clientRequest.Language,
                 DeliveryBlockText = clientRequest.DeliveryBlockText,
-                DeliveryBlockStatus = clientRequest.DeliveryBlockStatus,
+                DeliveryBlockStatus = clientRequest.DeliveryBlockStatus, 
                 PaymentType = clientRequest.PaymentType,
                 PurchaseOrderID = clientRequest.PurchaseOrderID,
                 WebOrderNumber = clientRequest.WebOrderNumber,

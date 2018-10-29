@@ -135,6 +135,12 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public string VATExpirationDate { get; set; }
         [DataMember]
         public string AdditionalInfo { get; set; }
+        [DataMember]
+        public string SpecialShippingInstuctions { get; set; }
+        [DataMember]
+        public string AgentOrderId { get; set; }
+        [DataMember]
+        public string DeliveryBlock { get; set; }
 
     }
 
