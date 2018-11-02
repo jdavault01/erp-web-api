@@ -12,6 +12,7 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
         private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
+        private readonly IERPRestGateway _erpGateway;
 
         private const string NO_PRICE_RESPONSE = "No Price Respnose";
 
@@ -20,10 +21,11 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         /// </summary>
         /// <param name="webMethodsClient"></param>
         /// <param name="shopCommerceServiceAgent"></param>
-        public AccountService(IWebMethodClient webMethodsClient, IShopCommerceServiceGateway shopCommerceServiceAgent)
+        public AccountService(IWebMethodClient webMethodsClient, IShopCommerceServiceGateway shopCommerceServiceAgent, IERPRestGateway erpGateway)
         {
             _webMethodClient = webMethodsClient;
             _shopCommerceServiceGateway = shopCommerceServiceAgent;
+            _erpGateway = erpGateway;
 
         }
 
@@ -48,6 +50,18 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         {
             return _webMethodClient.GetPartnerDetails(partnerRequest);
         }
+
+        /// <summary>
+        /// New method that talke to Boomi
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public PartnerResponse PartnerLookup(SimplePartnerRequest request)
+        {
+            return _erpGateway.PartnerLookup(request);
+
+        }
+
         /// <summary>
         /// This method takes a companycode and get the available username and password
         /// </summary>
@@ -78,5 +92,6 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         {
             _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA);
         }
+
     }
 }

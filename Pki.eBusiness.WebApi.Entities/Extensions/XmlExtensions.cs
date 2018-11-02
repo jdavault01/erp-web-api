@@ -74,33 +74,33 @@ namespace Pki.eBusiness.WebApi.Entities.Extensions
                                     }).Single();
             return address;
         }
-        public static List<Product> GetProducts(this XElement element)
+        public static List<OrderItem> GetProducts(this XElement element)
         {
-            List<Product> productList = (from product in element.Element("ItemList").Elements("Product")
-                                         select new Product
+            List<OrderItem> productList = (from orderItem in element.Element("ItemList").Elements("Product")
+                                         select new OrderItem
                                          {
-                                             Id = product.GetAttributeValue("id"),
-                                             WebLineItemNO = product.GetElementValue("WebLineItemNO"),
-                                             SAPLineItemNO = product.GetElementValue("SAPLineItemNO"),
-                                             Description = product.GetElementValue("Description"),
-                                             Quantity = product.ElementNullValue<decimal>("Quantity"),
-                                             AdjustedUnitPrice = product.ElementNullValue<decimal>("AdjustedUnitPrice"),
-                                             VAT = product.ElementNullValue<decimal>("VAT"),
-                                             ShippingPoint = product.GetElementValue("ShippingPoint"),
-                                             ExpectedShipDate = product.GetElementValue("ExpectedShipDate"),
-                                             Status = product.GetElementValue("Status"),
-                                             Carrier = product.GetElementValue("Carrier"),
-                                             TrackingNO = product.GetElementValue("TrackingNO"),
-                                             PromotionalDiscount = product.ElementNullValue<decimal>("PromotionalDiscount"),
-                                             IsCourse = product.GetElementValue("IsCourse"),
+                                             Id = orderItem.GetAttributeValue("id"),
+                                             WebLineItemNO = orderItem.GetElementValue("WebLineItemNO"),
+                                             SAPLineItemNO = orderItem.GetElementValue("SAPLineItemNO"),
+                                             Description = orderItem.GetElementValue("Description"),
+                                             Quantity = orderItem.ElementNullValue<decimal>("Quantity"),
+                                             AdjustedUnitPrice = orderItem.ElementNullValue<decimal>("AdjustedUnitPrice"),
+                                             VAT = orderItem.ElementNullValue<decimal>("VAT"),
+                                             ShippingPoint = orderItem.GetElementValue("ShippingPoint"),
+                                             ExpectedShipDate = orderItem.GetElementValue("ExpectedShipDate"),
+                                             Status = orderItem.GetElementValue("Status"),
+                                             Carrier = orderItem.GetElementValue("Carrier"),
+                                             TrackingNO = orderItem.GetElementValue("TrackingNO"),
+                                             PromotionalDiscount = orderItem.ElementNullValue<decimal>("PromotionalDiscount"),
+                                             IsCourse = orderItem.GetElementValue("IsCourse"),
                                              //Mocked fields until actual data comes from web methods
-                                             IssuedDate = product.GetElementValue("IssuedDate").GetDateTime(),
-                                             ExtendedPrice = product.ElementNullValue<decimal>("ExtendedPrice"),
-                                             PickedUpFromMIT = product.GetElementValue("PickedUpFromMIT").GetDateTime(),
-                                             ReceivedAtMIT = product.GetElementValue("ReceivedAtMIT").GetDateTime(),
-                                             ReleasedFromMIT = product.GetElementValue("ReleasedFromMIT").GetDateTime(),
-                                             ShipmentCreatedOn = product.GetElementValue("ShipmentCreatedOn").GetDateTime(),
-                                             ShipmentRoute = product.GetElementValue("ShipmentRoute")
+                                             IssuedDate = orderItem.GetElementValue("IssuedDate").GetDateTime(),
+                                             ExtendedPrice = orderItem.ElementNullValue<decimal>("ExtendedPrice"),
+                                             PickedUpFromMIT = orderItem.GetElementValue("PickedUpFromMIT").GetDateTime(),
+                                             ReceivedAtMIT = orderItem.GetElementValue("ReceivedAtMIT").GetDateTime(),
+                                             ReleasedFromMIT = orderItem.GetElementValue("ReleasedFromMIT").GetDateTime(),
+                                             ShipmentCreatedOn = orderItem.GetElementValue("ShipmentCreatedOn").GetDateTime(),
+                                             ShipmentRoute = orderItem.GetElementValue("ShipmentRoute")
 
                                          }).ToList();
 

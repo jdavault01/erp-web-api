@@ -191,7 +191,7 @@ namespace PKI.eBusiness.WMService.Logger
                 WriteToLog(strInfo.ToString(), logFilePath);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

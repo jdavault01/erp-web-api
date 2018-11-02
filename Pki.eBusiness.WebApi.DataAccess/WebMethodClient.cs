@@ -31,6 +31,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
+        //private readonly OrderInfo_WebService_PortType _soapSAPOrderInfoService;
 
         //Let's get DI going with this guy
         //private ERPRestSettings _erpRestSettings;
@@ -47,6 +48,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         {
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
+            //_soapSAPOrderInfoService = new OrderInfo_WebService_PortTypeClient();
         }
 
         #endregion // Constructors

@@ -36,8 +36,8 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         /// This method gets orders for a given lookup request
         /// </summary>
         /// <param name="request">request</param>
-        /// <returns>OrderLookUpResponse</returns>
-        public OrderLookUpResponse GetOrders(OrderLookUpRequest request)
+        /// <returns>OrderSummaryResponse</returns>
+        public OrderSummaryResponse GetOrders(OrderSummaryLookUpRequest request)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var summaryRequest = request.ToWmLookUpRequest();

@@ -13,7 +13,7 @@ namespace Pki.eBusiness.WebApi.Entities.Extensions
         /// <param name="request">orderlookuprequest</param>
         /// <returns>ordersummaryrequest</returns>
 
-        public static OrderSummaryRequest ToWmLookUpRequest(this OrderLookUpRequest request)
+        public static OrderSummaryRequest ToWmLookUpRequest(this OrderSummaryLookUpRequest request)
         {
             var shipToList = new List<ShipTo>();
             shipToList.Add(GetDefaultShipTo(request.SAPOrderNumber));
@@ -59,20 +59,11 @@ namespace Pki.eBusiness.WebApi.Entities.Extensions
 
         public static ShipTo GetDefaultShipTo(string sapOrderNumber)
         {
-            ShipTo shipTo = new ShipTo();
-            shipTo.ShipToID = "";
-            PurchaseOrderID order = new PurchaseOrderID();
-            order.Data = "";
-            List<PurchaseOrderID> poList = new List<PurchaseOrderID>();
-            poList.Add(order);
-
-            SellerOrderID sellerOrderId = new SellerOrderID();
-            sellerOrderId.Data = sapOrderNumber;
-
-            List<SellerOrderID> orderList = new List<SellerOrderID>();
-            orderList.Add(sellerOrderId);
-
-
+            ShipTo shipTo = new ShipTo { ShipToID = "" };
+            PurchaseOrderID order = new PurchaseOrderID { Data = "" };
+            List<PurchaseOrderID> poList = new List<PurchaseOrderID> { order };
+            SellerOrderID sellerOrderId = new SellerOrderID { Data = sapOrderNumber };
+            List<SellerOrderID> orderList = new List<SellerOrderID> { sellerOrderId };
             shipTo.SAPOrderList = orderList;
             shipTo.PurchaseOrderList = poList;
             return shipTo;
@@ -101,7 +92,7 @@ namespace Pki.eBusiness.WebApi.Entities.Extensions
         //                throw;
         //            }
 
-        //            detailResponse.OrderAddrList = detailResponseHeader.GetOrderAddresses();
+        //            detailResponse.PartnerInfo = detailResponseHeader.GetOrderAddresses();
         //            detailResponse.ProductList = detailResponseHeader.GetProducts();
         //            detailResponse.Card = detailResponseHeader.GetCreditCard();
 
@@ -167,10 +158,10 @@ namespace Pki.eBusiness.WebApi.Entities.Extensions
         //        }).Single();
         //    return address;
         //}
-        public static List<Product> GeProducts(this XElement element)
+        public static List<OrderItem> GeProducts(this XElement element)
         {
-            List<Product> productList = (from product in element.Element("ItemList").Elements("Product")
-                                         select new Product
+            List<OrderItem> productList = (from product in element.Element("ItemList").Elements("OrderItem")
+                                         select new OrderItem
                                          {
                                              Id = product.GetAttributeValue("id"),
                                              WebLineItemNO = product.GetElementValue("WebLineItemNO"),

@@ -21,6 +21,11 @@ namespace Pki.eBusiness.WebApi.Contracts.DAL
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
         CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest);
 
+        //OrderSummaryResponse GetOrders(OrderSummaryRequest request);
+
+        //OrderDetailResponse GetOrderDetails(string sellerOrderId);
+
+
 
     }
 }

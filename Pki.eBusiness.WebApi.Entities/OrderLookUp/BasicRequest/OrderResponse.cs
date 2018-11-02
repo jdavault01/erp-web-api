@@ -9,7 +9,7 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
     [DataContract]
     [XmlType(AnonymousType = true)]
-    public class OrderLookUpResponse : EntityBase
+    public class OrderSummaryResponse // EntityBase
     {
         [XmlElement("Order")]
         [DataMember]
@@ -17,14 +17,14 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
     }
     [DataContract]
     [XmlType(AnonymousType = true)]
-    public class OrderDetailResponse : EntityBase
+    public class OrderDetailResponse //: EntityBase
     {
         [DataMember]
-        public List<Product> ProductList { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
 
         [DataMember]
-        public List<OrderAddress> OrderAddrList { get; set; }
-
+        public List<OrderAddress> PartnerInfo { get; set; }
+        
         public CreditCard Card { get; set; }
         [DataMember]
         public decimal TotalPrice { get; set; }
@@ -36,10 +36,8 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         public decimal HandlingCharges { get; set; }
         [DataMember]
         public decimal OrderLevelTax { get; set; }
-
         [DataMember]
         public string Currency { get; set; }
-
         [DataMember]
         //[XmlElement("PONumber")]
         public string PoNumber { get; set; }
@@ -74,7 +72,7 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         [DataMember]
         [XmlIgnore]
         public DateTime? ExpectedDeliveryDate { get; set; }
-        
+
         [XmlElement("ExpectedDeliveryDate")]
         public string ExpectedDeliveryDateString
         {
@@ -82,6 +80,7 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
             set { ExpectedDeliveryDate = value.GetDateTime(); }
         }
+
         [DataMember]
         public string CreditStatus { get; set; }
         [DataMember]
@@ -89,14 +88,14 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
 
     }
-    
+
     [DataContract]
     public class PurchaseOrder
     {
         [XmlElement(ElementName = "DateOfPlacingOrder",DataType = "string")]
         [DataMember(Name = "DateOrdered")]
         public string DateOfPlacingOrder { get; set; }
-        
+
         [DataMember]
         public string OrderStatus { get; set; }
         [DataMember(Name = "PurchaseOrderNumber")]
@@ -120,124 +119,124 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
         [DataMember(Name = "AttnRecipient")]
         public string ShipToAttention { get; set; }
-      
 
-  
+
+
     }
 
     [DataContract]
-     public class Product
+    public class OrderItem
     {
-         [XmlAttribute]
-         [DataMember]
-         public string Id {get;set;}
-
-         [DataMember]
-         public string WebLineItemNO {get;set;}
-         [DataMember]
-         public string SAPLineItemNO {get;set;}
-         [DataMember]
-         public string Description {get;set;}
-         [DataMember]
-         public decimal Quantity {get;set;}
-         [DataMember]
-         public decimal AdjustedUnitPrice {get;set;}
-         [DataMember]
-         public decimal VAT {get;set;}
-         [DataMember]
-         public string ShippingPoint {get;set;}
-         [DataMember]
-         public string ExpectedShipDate {get;set;}
-         [DataMember]
-         public string Status {get;set;}
-         [DataMember]
-         public string Carrier {get;set;}
+        [XmlAttribute]
         [DataMember]
-         public string TrackingNO {get;set;}
-         [DataMember]
-         public decimal PromotionalDiscount {get;set;}
-         [DataMember]
-         public string IsCourse {get;set;}
-         [DataMember]
-         public string ShipmentRoute { get; set; }
-         [DataMember]
-         public DateTime? ReceivedAtMIT { get; set; }
-         [DataMember]
-         public DateTime? ReleasedFromMIT { get; set; }
-         [DataMember]
-         public DateTime? PickedUpFromMIT { get; set; }
-         [DataMember]
-         public DateTime? ShipmentCreatedOn { get; set; }
-         [DataMember]
-         public DateTime? IssuedDate { get; set; }
-         [DataMember]
-         public decimal ExtendedPrice { get; set; }
+        public string Id { get; set; }
+
+        [DataMember]
+        public string WebLineItemNO { get; set; }
+        [DataMember]
+        public string SAPLineItemNO { get; set; }
+        [DataMember]
+        public string Description { get; set; }
+        [DataMember]
+        public decimal Quantity { get; set; }
+        [DataMember]
+        public decimal AdjustedUnitPrice { get; set; }
+        [DataMember]
+        public decimal VAT { get; set; }
+        [DataMember]
+        public string ShippingPoint { get; set; }
+        [DataMember]
+        public string ExpectedShipDate { get; set; }
+        [DataMember]
+        public string Status { get; set; }
+        [DataMember]
+        public string Carrier { get; set; }
+        [DataMember]
+        public string TrackingNO { get; set; }
+        [DataMember]
+        public decimal PromotionalDiscount { get; set; }
+        [DataMember]
+        public string IsCourse { get; set; }
+        [DataMember]
+        public string ShipmentRoute { get; set; }
+        [DataMember]
+        public DateTime? ReceivedAtMIT { get; set; }
+        [DataMember]
+        public DateTime? ReleasedFromMIT { get; set; }
+        [DataMember]
+        public DateTime? PickedUpFromMIT { get; set; }
+        [DataMember]
+        public DateTime? ShipmentCreatedOn { get; set; }
+        [DataMember]
+        public DateTime? IssuedDate { get; set; }
+        [DataMember]
+        public decimal ExtendedPrice { get; set; }
 
 
-        
+
     }
-   [DataContract]
+    [DataContract]
     public class CreditCard
     {
         [DataMember]
-        public string Number {get;set;}
+        public string Number { get; set; }
 
         //change to enum
-       [DataMember]
-        public string CardType {get;set;}
-      
-     
+        [DataMember]
+        public string CardType { get; set; }
+
+
     }
     [DataContract]
-   
+
     public class OrderAddress
     {
         //change to enum
         [DataMember]
         public Enumerations.AddressType Type { get; set; }
 
-         [DataMember]
-        public string Id {get;set;}
+        [DataMember]
+        public string Id { get; set; }
 
-         [DataMember]
-        public string Attention {get;set;}
-         [DataMember]
-        public string Name1 {get;set;}
-         [DataMember]
-        public string Name2 {get;set;}
-         [DataMember]
-        public string Name3 {get;set;}
-         [DataMember]
-        public string Name4 {get;set;}
-         [DataMember]
-        public bool RADIndicator {get;set;}
-         [DataMember]
-        public bool MarkedForDeletion {get;set;}
-         [DataMember]
-        public string Street {get;set;}
-         [DataMember]
-        public string PoBox {get;set;}
+        [DataMember]
+        public string Attention { get; set; }
+        [DataMember]
+        public string Name1 { get; set; }
+        [DataMember]
+        public string Name2 { get; set; }
+        [DataMember]
+        public string Name3 { get; set; }
+        [DataMember]
+        public string Name4 { get; set; }
+        [DataMember]
+        public bool RADIndicator { get; set; }
+        [DataMember]
+        public bool MarkedForDeletion { get; set; }
+        [DataMember]
+        public string Street { get; set; }
+        [DataMember]
+        public string PoBox { get; set; }
 
-         [DataMember]
-        public string PoBoxCity {get;set;}
-         [DataMember]
-        public string City {get;set;}
-         [DataMember]
-        public string District {get;set;}
-         [DataMember]
-        public string Country {get;set;}
-         [DataMember]
-        public string Fax {get;set;}
-         [DataMember]
-        public string PostalCode {get;set;}
-         [DataMember]
-        public string Region {get;set;}
-         [DataMember]
-        public string CityCode {get;set;}
-         [DataMember]
-        public string Telephone {get;set;}
-        
-     
+        [DataMember]
+        public string PoBoxCity { get; set; }
+        [DataMember]
+        public string City { get; set; }
+        [DataMember]
+        public string District { get; set; }
+        [DataMember]
+        public string Country { get; set; }
+        [DataMember]
+        public string Fax { get; set; }
+        [DataMember]
+        public string PostalCode { get; set; }
+        [DataMember]
+        public string Region { get; set; }
+        [DataMember]
+        public string CityCode { get; set; }
+        [DataMember]
+        public string Telephone { get; set; }
+
+
     }
 }
 

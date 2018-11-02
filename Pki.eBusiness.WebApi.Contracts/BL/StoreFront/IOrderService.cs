@@ -6,7 +6,7 @@ namespace Pki.eBusiness.WebApi.Contracts.BL.StoreFront
 {
    public interface IOrderService
     {
-        OrderLookUpResponse GetOrders(OrderLookUpRequest request);
+        OrderSummaryResponse GetOrders(OrderSummaryLookUpRequest request);
         OrderDetailResponse GetOrderDetails(string orderId);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
         InventoryResponse GetInventory(InventoryRequest priceRequest);

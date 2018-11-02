@@ -13,6 +13,7 @@ using Pki.eBusiness.WebApi.Entities.Orders;
 using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 using PKI.eBusiness.WMSHttpApi.UIHelpers;
 using Swagger.Net.Annotations;
+using Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest;
 
 namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
 {
@@ -26,6 +27,24 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
+        }
+
+        [HttpGet]
+        [Route("wms/orders/summary/{language}/{sellerOrderId}")]
+        public OrderSummaryResponse Summary([FromUri] string language, [FromUri] string sellerOrderId)
+        {
+            //Temp 
+            string purchaseOrderNumber = "";
+            //asdfasdfds
+            var request = new OrderSummaryLookUpRequest(language, sellerOrderId, purchaseOrderNumber);
+            return _orderService.GetOrders(request);
+        }
+
+        [HttpGet]
+        [Route("wms/orders/details/{sellerOrderId}")]
+        public OrderDetailResponse Details([FromUri] string sellerOrderId)
+        {
+            return _orderService.GetOrderDetails(sellerOrderId);
         }
 
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(SimulateOrderResponse))]

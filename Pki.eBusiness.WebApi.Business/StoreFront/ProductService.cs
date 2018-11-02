@@ -27,7 +27,7 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         /// back to client side model
         /// </summary>
         /// <param name="priceRequest">request</param>
-        /// <returns>OrderLookUpResponse</returns>
+        /// <returns>OrderSummaryResponse</returns>
         public PriceResponse GetPrice(PriceRequest priceRequest)
         {
             return _webMethodClient.GetPrice(priceRequest);

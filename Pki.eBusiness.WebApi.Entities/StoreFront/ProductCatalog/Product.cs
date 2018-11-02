@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 namespace Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog
 {
+
     [DataContract]
     public class Product
     {
@@ -15,7 +16,6 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog
 
         [DataMember]
         public decimal Price { get; set; }
-
 
         [DataMember]
         public string Name { get; set; }

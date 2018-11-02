@@ -68,6 +68,22 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(partnerResponseEntity);
         }
 
+        [Route("wms/partners2/{accountNumber}/{salesOrg}")]
+        [HttpGet]
+
+        public PartnerResponse PartnerLookup([FromUri]string accountNumber, [FromUri] string salesOrg)
+        {
+            SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);
+            if (!ModelState.IsValid)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
+                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
+            }
+            payload.PartnerId = accountNumber;
+
+            return _accountService.PartnerLookup(payload);
+        }
+
         //Legacy .. remove after cart project
         //[Route("wms/account/getpartner")]
         //[HttpPost]

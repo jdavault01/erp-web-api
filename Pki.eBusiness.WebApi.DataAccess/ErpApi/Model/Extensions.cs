@@ -5,9 +5,61 @@ using System.Text;
 using System.Threading.Tasks;
 using Pki.eBusiness.WebApi.DataAccess.Extensions;
 using Pki.eBusiness.WebApi.Entities.Orders;
+using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
+using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 
 namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 {
+
+    public partial class PartnerLookupRequestRoot
+    {
+        public PartnerLookupRequestRoot(SimplePartnerRequest req)
+        {
+            DISTR_CHAN = "01";
+            DIVISION = "02";
+            LASTNAME = null;
+            PARTNER_IN = req.PartnerId;
+            PARTNER_ROLE_IN = "WE";
+            SALESORG = req.SalesAreaInfo.SalesOrgId;
+        }
+    }
+
+    public partial class PartnerLookupResponseRoot
+    {
+        public PartnerResponse ToResponse()
+        {
+
+            //0200709348
+            var result = new PartnerResponse
+            {
+                //In the PARTNER_OUT find the record marked PARTN_ROLE="1A", grab the ADDRESS property
+                //and use the ADDRESS property to look up the ADDRNUMBER in ADDRESS_OUT 
+                ERPHierarchyName = "JOHNS HOPKINS UNIVERSITY-MD",
+
+                //Look in PARTNER_OUT and find the record marked PARTN_ROLE="1A", grab the CUSTOMER property (that is the hierarchy num)
+                ERPHierarchyNumber = "",
+
+                //IN THE PARTNERS_OUT, Find the AG PARTN_ROLE (that is the shipTo)
+                //IN THE PARTNERS_OUT, Find the RE PARTN_ROLE (that is the shipTo)
+                //Partners = new List<Partner>()
+
+                //result.Partners = PARTNERS_OUT.Select(i =>
+                //{
+
+                //}).ToList();
+
+            };
+
+
+            //result.LineItems = ORDER_ITEMS_OUT.Select(i =>
+            //{
+            //    result.OrderTotal += i.NETVALUE1.ToDecimal();
+            //    return i.ToResponse(ORDER_SCHEDULE_EX, ZWEB_ORDER_STATUS);
+            //}).ToList();
+            return result;
+        }
+    }
+
     public partial class SimulateOrderRequestRoot
     {
         public SimulateOrderRequestRoot(SimulateOrderErpRequest req)

@@ -34,6 +34,8 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         [DataMember]
         public string ErrorMessage { get; set; }
 
+        public PartnerResponse() { }
+
     }
     /// <summary>
     /// Order Response Detail

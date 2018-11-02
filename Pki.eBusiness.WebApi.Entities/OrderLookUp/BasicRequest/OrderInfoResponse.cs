@@ -33,8 +33,8 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
                     throw;
                 }
 
-                detailResponse.OrderAddrList = detailResponseHeader.GetOrderAddresses();
-                detailResponse.ProductList = detailResponseHeader.GetProducts();
+                detailResponse.PartnerInfo = detailResponseHeader.GetOrderAddresses();
+                detailResponse.OrderItems = detailResponseHeader.GetProducts();
                 detailResponse.Card = detailResponseHeader.GetCreditCard();
 
 
@@ -45,20 +45,20 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         }
 
 
-        public OrderLookUpResponse ToOrderLookUpResponse()
+        public OrderSummaryResponse ToOrderLookUpResponse()
         {
-            OrderLookUpResponse lookUpResponse = new OrderLookUpResponse();
+            OrderSummaryResponse lookUpResponse = new OrderSummaryResponse();
             XDocument xDoc = XDocument.Parse(xmlResponse);
 
             XElement summaryResponseHeader = xDoc.XPathSelectElement("//OrderSummaryResponseHeader");
             if (summaryResponseHeader != null)
             {
 
-                var serializer = new XmlSerializer(typeof(OrderLookUpResponse),
+                var serializer = new XmlSerializer(typeof(OrderSummaryResponse),
                     new XmlRootAttribute("OrderSummaryResponseHeader"));
 
                 lookUpResponse =
-                    (OrderLookUpResponse)serializer.Deserialize(new StringReader(summaryResponseHeader.ToString()));
+                    (OrderSummaryResponse)serializer.Deserialize(new StringReader(summaryResponseHeader.ToString()));
             }
             return lookUpResponse;
 

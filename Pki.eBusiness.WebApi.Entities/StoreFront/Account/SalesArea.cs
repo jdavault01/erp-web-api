@@ -5,7 +5,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.Account
      [DataContract]
     public class SalesArea
     {
-        private string salesOrg;
+        //private string salesOrg;
 
         public SalesArea(string salesOrg)
         {

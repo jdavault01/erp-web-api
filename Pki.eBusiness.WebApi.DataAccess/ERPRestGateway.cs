@@ -7,6 +7,7 @@ using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
 using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
 using Pki.eBusiness.WebApi.Entities.Orders;
 using Pki.eBusiness.WebApi.Entities.Settings;
+using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
 
 namespace Pki.eBusiness.WebApi.DataAccess
 {
@@ -33,6 +34,15 @@ namespace Pki.eBusiness.WebApi.DataAccess
             SimulateOrderRequestRoot req = new SimulateOrderRequestRoot(request);
             var result = _erpApi.SimulateOrderPost(req);
             return result.ToResponse();
+        }
+
+        public PartnerResponse PartnerLookup(SimplePartnerRequest request)
+        {
+            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
+            var result = _erpApi.PartnerLookupPost(req);
+            //return result.ToResponse();
+            return new PartnerResponse();
+
         }
 
         private string CallERPService(string payLoad, string resourceName)

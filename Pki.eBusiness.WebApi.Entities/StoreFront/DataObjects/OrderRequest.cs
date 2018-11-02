@@ -8,7 +8,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class BaseOrderRequest
     {
-        public SalesArea SalesAreaInfo { get; set; }
+        //public SalesArea SalesAreaInfo { get; set; }
         [DataMember]
         public string Language { get; set; }
         [DataMember]
@@ -29,16 +29,8 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     }
 
     [DataContract]
-    public class OrderLineItem
+    public class OrderLineItem : LineItem
     {
-        [DataMember]
-        public int OrderLineNumber { get; set; }
-        [DataMember]
-        public string ProductID { get; set; }
-        [DataMember]
-        public decimal Quantity { get; set; }
-        [DataMember]
-        public string RequestedDate { get; set; }
         [DataMember]
         public string ShippingPoint { get; set; }
         [DataMember]
@@ -47,10 +39,6 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public string AdjustedPrice { get; set; }
         [DataMember]
         public string Discount { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
-        public string SpecialShippingInstructions { get; set; }
         [DataMember]
         public string TaxVAT { get; set; }
     }
@@ -66,13 +54,18 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public decimal Quantity { get; set; }
         [DataMember]
         public string RequestedDate { get; set; }
+        [DataMember]
+        public string SpecialShippingInstructions { get; set; }
+        [DataMember]
+        public string Description { get; set; }
+
     }
 
     [DataContract]
     public class SimulateOrderRequest
     {
         [DataMember]
-        public List<LineItem> OrderItems { get; set; }
+        public List<OrderLineItem> OrderItems { get; set; }
         [DataMember]
         public string PromoCode { get; set; }
         [DataMember]
