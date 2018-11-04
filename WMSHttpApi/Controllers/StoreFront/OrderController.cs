@@ -76,16 +76,17 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         [HttpPost]
         public SimulateOrderErpResponse SimulateOrder([FromBody] SimulateOrderErpRequest payload)
         {
-            if (payload.RequestedDate == DateTime.MinValue)
-            {
-                payload.RequestedDate = DateTime.Now;
-            }
+            //if (payload.RequestedDate == DateTime.MinValue)
+            //{
+            //    payload.RequestedDate = DateTime.Now;
+            //}
 
             foreach (var orderItem in payload.OrderItems)
             {
                 if (orderItem.RequestedDate == DateTime.MinValue)
                     orderItem.RequestedDate = DateTime.Now;
             }
+
             return _orderService.SimulateErpOrder(payload);
         }
 

@@ -117,7 +117,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             DOC_TYPE = "ZWEB";
             DISTR_CHAN = "01";
             DIVISION = "02";
-            PURCH_DATE = req.RequestedDate.ToString("yyyyMMdd");
+            //LANGUAGE = req.Language;
+            COLLECT_NO = req.PromoCode;
+            //We have not sent this in the past .. might not be rquired
+            //PURCH_DATE = req.RequestedDate.ToString("yyyyMMdd");
             PO_METHOD = "INET";
             COLLECT_NO = "";
             PMNTTRMS = "";

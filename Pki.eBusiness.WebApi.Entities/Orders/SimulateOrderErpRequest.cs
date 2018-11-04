@@ -5,14 +5,19 @@ namespace Pki.eBusiness.WebApi.Entities.Orders
 {
     public class SimulateOrderErpRequest
     {
-        //public SalesArea SalesAreaInfo { get; set; }
-        //public string Language { get; set; }
-        //public int NumberOfItems { get; set; }
-        public string SalesOrg { get; set; }
-        public DateTime RequestedDate { get; set; }
-        public List<string> Partners { get; set; }
         public List<OrderErpLineItem> OrderItems { get; set; }
-        //public string PromoCode { get; set; }
+        public string PromoCode { get; set; }
+        public string SalesOrg { get; set; }
+        public string Language { get; set; }
+        public string ShipTo { get; set; }
+        public string BillTo { get; set; }
+        public List<string> Partners => new List<String>
+        {
+            ShipTo,
+            BillTo
+        };
+        //TODO:  Ask Piotr why this was added
+        //public DateTime RequestedDate { get; set; }
 
     }
 
