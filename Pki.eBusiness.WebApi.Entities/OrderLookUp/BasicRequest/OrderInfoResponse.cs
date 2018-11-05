@@ -50,12 +50,12 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
             OrderSummaryResponse lookUpResponse = new OrderSummaryResponse();
             XDocument xDoc = XDocument.Parse(xmlResponse);
 
-            XElement summaryResponseHeader = xDoc.XPathSelectElement("//OrderSummaryResponseHeader");
+            XElement summaryResponseHeader = xDoc.XPathSelectElement("//OrderSummaryResponseHeader//Order");
             if (summaryResponseHeader != null)
             {
 
                 var serializer = new XmlSerializer(typeof(OrderSummaryResponse),
-                    new XmlRootAttribute("OrderSummaryResponseHeader"));
+                    new XmlRootAttribute("Order"));
 
                 lookUpResponse =
                     (OrderSummaryResponse)serializer.Deserialize(new StringReader(summaryResponseHeader.ToString()));

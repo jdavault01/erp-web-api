@@ -29,22 +29,20 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             _orderService = orderService;
         }
 
-        [HttpGet]
-        [Route("wms/orders/summary/{language}/{sellerOrderId}")]
-        public OrderSummaryResponse Summary([FromUri] string language, [FromUri] string sellerOrderId)
-        {
-            //Temp 
-            string purchaseOrderNumber = "";
-            //asdfasdfds
-            var request = new OrderSummaryLookUpRequest(language, sellerOrderId, purchaseOrderNumber);
-            return _orderService.GetOrders(request);
-        }
+        //[HttpGet]
+        //[Route("wms/orders/summary/{language}/{sellerOrderId}")]
+        //public OrderSummaryResponse Summary([FromUri] string language, [FromUri] string sellerOrderId)
+        //{
+        //    var request = new OrderSummaryLookUpRequest(language, sellerOrderId);
+        //    return _orderService.GetOrders(request);
+        //}
 
         [HttpGet]
-        [Route("wms/orders/details/{sellerOrderId}")]
-        public OrderDetailResponse Details([FromUri] string sellerOrderId)
+        [Route("wms/orders/{language}/{sellerOrderId}")]
+        public OrderDetailResponse Details([FromUri] string language, [FromUri] string sellerOrderId)
         {
-            return _orderService.GetOrderDetails(sellerOrderId);
+            var request = new OrderSummaryLookUpRequest(language, sellerOrderId);
+            return _orderService.GetOrderDetails(request);
         }
 
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(SimulateOrderResponse))]

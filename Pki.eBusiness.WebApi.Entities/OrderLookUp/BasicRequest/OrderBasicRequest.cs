@@ -43,8 +43,6 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
         [DataMember]
         public string ShipToId { get; set; }
-        [DataMember]
-        public string PurchasOrderNumber { get; set; }
 
         [DataMember]
         public string SAPOrderNumber { get; set; }
@@ -53,12 +51,11 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         [XmlElement(ElementName = "language")]
         public  string Language { get; set; }
 
-        public OrderSummaryLookUpRequest (string language, string sellerOrderId, string purchaseOrderNumber)
+        public OrderSummaryLookUpRequest (string language, string sellerOrderId)
         {
             SAPOrderNumber = sellerOrderId;
-            PurchasOrderNumber = purchaseOrderNumber;
             Language = language;
-            LookUpShipTo = new ShipTo(sellerOrderId, purchaseOrderNumber);
+            LookUpShipTo = new ShipTo(sellerOrderId);
         }
     }
     public class OrderSender : EntityBase
@@ -122,12 +119,10 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
         public ShipTo(){}
 
-        public ShipTo(string sellerOrderNumber, string purchaseOrderNumber)
+        public ShipTo(string sellerOrderNumber)
         {
             var sellerOrderID = new SellerOrderID{ Data = sellerOrderNumber };
             SAPOrderList = new List<SellerOrderID>{ sellerOrderID };
-            var PurchaseOrderID = new PurchaseOrderID{ Data = purchaseOrderNumber };
-            PurchaseOrderList = new List<PurchaseOrderID> { PurchaseOrderID };
         }
 
     }

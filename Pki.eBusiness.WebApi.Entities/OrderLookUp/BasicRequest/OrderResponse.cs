@@ -11,9 +11,38 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
     [XmlType(AnonymousType = true)]
     public class OrderSummaryResponse // EntityBase
     {
-        [XmlElement("Order")]
+        //[XmlElement("Order")]
+        //[DataMember]
+        //public List<PurchaseOrder> OrderList { get; set; }
+        [XmlElement(ElementName = "DateOfPlacingOrder", DataType = "string")]
+        [DataMember(Name = "DateOrdered")]
+        public string DateOfPlacingOrder { get; set; }
+
         [DataMember]
-        public List<PurchaseOrder> OrderList { get; set; }
+        public string OrderStatus { get; set; }
+        [DataMember(Name = "PurchaseOrderNumber")]
+        public string PurchaseOrderID { get; set; }
+        public string ShipTo { get; set; }
+
+        // [XmlElement(ElementName = "VAT", DataType = "string", Type = typeof(string))]
+        public decimal VAT { get; set; }
+
+        // [XmlElement(ElementName = "OrderValue", DataType = "string")]
+        [DataMember(Name = "OrderTotal")]
+        public decimal OrderValue { get; set; }
+
+        public string ContactName { get; set; }
+
+        [DataMember(Name = "OrderNumber")]
+        public string SAPOrderNum { get; set; }
+
+        [DataMember]
+        public string Currency { get; set; }
+
+        [DataMember(Name = "AttnRecipient")]
+        public string ShipToAttention { get; set; }
+
+
     }
     [DataContract]
     [XmlType(AnonymousType = true)]
@@ -24,7 +53,27 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
 
         [DataMember]
         public List<OrderAddress> PartnerInfo { get; set; }
-        
+
+        [XmlElement(ElementName = "DateOfPlacingOrder", DataType = "string")]
+        [DataMember(Name = "DateOrdered")]
+        public string DateOfPlacingOrder { get; set; }
+        public string OrderStatus { get; set; }
+        [DataMember(Name = "PurchaseOrderNumber")]
+        public string PurchaseOrderID { get; set; }
+        public string ShipTo { get; set; }
+        // [XmlElement(ElementName = "VAT", DataType = "string", Type = typeof(string))]
+        [DataMember]
+        public decimal VAT { get; set; }
+        // [XmlElement(ElementName = "OrderValue", DataType = "string")]
+        [DataMember(Name = "OrderTotal")]
+        public decimal OrderValue { get; set; }
+        public string ContactName { get; set; }
+        [DataMember(Name = "OrderNumber")]
+        public string SAPOrderNum { get; set; }
+        [DataMember]
+        public string Currency { get; set; }
+        [DataMember(Name = "AttnRecipient")]
+        public string ShipToAttention { get; set; }
         public CreditCard Card { get; set; }
         [DataMember]
         public decimal TotalPrice { get; set; }
@@ -36,8 +85,8 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         public decimal HandlingCharges { get; set; }
         [DataMember]
         public decimal OrderLevelTax { get; set; }
-        [DataMember]
-        public string Currency { get; set; }
+        //[DataMember]
+        //public string Currency { get; set; }
         [DataMember]
         //[XmlElement("PONumber")]
         public string PoNumber { get; set; }
@@ -86,6 +135,16 @@ namespace Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest
         [DataMember]
         public string DeliveryBlock { get; set; }
 
+        public void UpdateDetails (OrderSummaryResponse orderSummary)
+        {
+            DateOfPlacingOrder = orderSummary.DateOfPlacingOrder;
+            OrderStatus = orderSummary.OrderStatus;
+            PurchaseOrderID = orderSummary.PurchaseOrderID;
+            OrderValue = orderSummary.OrderValue;
+            SAPOrderNum = orderSummary.SAPOrderNum;
+            Currency = orderSummary.Currency;
+            ShipToAttention = orderSummary.ShipToAttention;
+        }
 
     }
 

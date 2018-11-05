@@ -33,33 +33,16 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
             _erpGateway = erpGateway;
         }
         /// <summary>
-        /// This method gets orders for a given lookup request
-        /// </summary>
-        /// <param name="request">request</param>
-        /// <returns>OrderSummaryResponse</returns>
-        public OrderSummaryResponse GetOrders(OrderSummaryLookUpRequest request)
-        {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            var summaryRequest = request.ToWmLookUpRequest();
-            var xmlRequest = summaryRequest.SerializeToXml(Constants.ORDER_SUMMARY_REQUEST_ELEMENT,Constants.DTD_SUMMARY_REQUEST_SYSID,false);
-            Log(xmlRequest.Replace("\r\n", ""));
-            Log(ErrorMessages.INVOKING_SERVICE);
-            var webServiceRequest = new OrderInfoRequest {xmlRequest = xmlRequest};
-            var webServiceResponse = _webMethodClient.ProcessOrderLookUpRequest(webServiceRequest);
-            Log(webServiceResponse.xmlResponse);
-            return webServiceResponse.ToOrderLookUpResponse();
-            
-        }
-        /// <summary>
         /// This method gets order details for a given logicalId and orderId
         /// </summary>
         /// <param name="logicalId">logicalId</param>
         /// <param name="orderId">orderId</param>
         /// <returns>OrderDetailResponse</returns>
-        public OrderDetailResponse GetOrderDetails(string orderId)
+        public OrderDetailResponse GetOrderDetails(OrderSummaryLookUpRequest request)
         {
+
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            var detailRequest = new OrderDetailRequest(Constants.LOGICAL_ID, orderId);
+            var detailRequest = new OrderDetailRequest(Constants.LOGICAL_ID, request.SAPOrderNumber);
             var webServiceRequest = new OrderInfoRequest
             {
                 xmlRequest = detailRequest.SerializeToXml(Constants.ORDER_DETAIL_REQUEST_ELEMENT,
@@ -70,8 +53,31 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
             Log(ErrorMessages.INVOKING_SERVICE);
             var webServiceResponse = _webMethodClient.ProcessOrderLookUpRequest(webServiceRequest);
             Log(webServiceResponse.xmlResponse);
-            return webServiceResponse.ToOrderDetailResponse();
-            
+
+            var orderSummary = GetOrders(request);
+            var orderDetails = webServiceResponse.ToOrderDetailResponse();
+            orderDetails.UpdateDetails(orderSummary);
+            return orderDetails;
+
+        }
+
+        /// <summary>
+        /// This method gets orders for a given lookup request
+        /// </summary>
+        /// <param name="request">request</param>
+        /// <returns>OrderSummaryResponse</returns>
+        private OrderSummaryResponse GetOrders(OrderSummaryLookUpRequest request)
+        {
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var summaryRequest = request.ToWmLookUpRequest();
+            var xmlRequest = summaryRequest.SerializeToXml(Constants.ORDER_SUMMARY_REQUEST_ELEMENT, Constants.DTD_SUMMARY_REQUEST_SYSID, false);
+            Log(xmlRequest.Replace("\r\n", ""));
+            Log(ErrorMessages.INVOKING_SERVICE);
+            var webServiceRequest = new OrderInfoRequest { xmlRequest = xmlRequest };
+            var webServiceResponse = _webMethodClient.ProcessOrderLookUpRequest(webServiceRequest);
+            Log(webServiceResponse.xmlResponse);
+            return webServiceResponse.ToOrderLookUpResponse();
+
         }
 
         /// <summary>
