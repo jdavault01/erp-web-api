@@ -29,14 +29,6 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             _orderService = orderService;
         }
 
-        //[HttpGet]
-        //[Route("wms/orders/summary/{language}/{sellerOrderId}")]
-        //public OrderSummaryResponse Summary([FromUri] string language, [FromUri] string sellerOrderId)
-        //{
-        //    var request = new OrderSummaryLookUpRequest(language, sellerOrderId);
-        //    return _orderService.GetOrders(request);
-        //}
-
         [HttpGet]
         [Route("wms/orders/{language}/{sellerOrderId}")]
         public OrderDetailResponse Details([FromUri] string language, [FromUri] string sellerOrderId)
@@ -74,11 +66,6 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         [HttpPost]
         public SimulateOrderErpResponse SimulateOrder([FromBody] SimulateOrderErpRequest payload)
         {
-            //if (payload.RequestedDate == DateTime.MinValue)
-            //{
-            //    payload.RequestedDate = DateTime.Now;
-            //}
-
             foreach (var orderItem in payload.OrderItems)
             {
                 if (orderItem.RequestedDate == DateTime.MinValue)

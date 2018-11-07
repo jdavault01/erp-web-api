@@ -40,9 +40,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         {
             PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
             var result = _erpApi.PartnerLookupPost(req);
-            //return result.ToResponse();
-            return new PartnerResponse();
-
+            return result.ToResponse();
         }
 
         private string CallERPService(string payLoad, string resourceName)

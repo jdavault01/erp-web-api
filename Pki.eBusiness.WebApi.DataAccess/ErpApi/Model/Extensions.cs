@@ -13,52 +13,98 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 
     public partial class PartnerLookupRequestRoot
     {
+        protected const string SALES_DISTRIBUTION_CHANNEL = "01";
+        protected const string SALES_DIVISION = "02";
+        protected const string SAP_SHIP_TO = "WE";
+
         public PartnerLookupRequestRoot(SimplePartnerRequest req)
         {
-            DISTR_CHAN = "01";
-            DIVISION = "02";
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
             LASTNAME = null;
             PARTNER_IN = req.PartnerId;
-            PARTNER_ROLE_IN = "WE";
+            PARTNER_ROLE_IN = SAP_SHIP_TO;
             SALESORG = req.SalesAreaInfo.SalesOrgId;
         }
     }
 
     public partial class PartnerLookupResponseRoot
     {
+        protected const string SAP_CONTACT = "AP";
+        protected const string SAP_BILL_TO = "RG";
+        protected const string SAP_SHIP_TO = "WE";
+        protected const string SAP_DUPLICATE_BILL_TO = "RE";
+        protected const string SAP_HIERARCHY_NUMBER = "1A";
+        protected const string SAP_SOLD_TO = "AG";
+
         public PartnerResponse ToResponse()
         {
-
-            //0200709348
+            var hierarchyAddress = GetHierarchyAddress();
+            var partners = PARTNERS_OUT.Where(FilterContactAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
             var result = new PartnerResponse
             {
-                //In the PARTNER_OUT find the record marked PARTN_ROLE="1A", grab the ADDRESS property
-                //and use the ADDRESS property to look up the ADDRNUMBER in ADDRESS_OUT 
-                ERPHierarchyName = "JOHNS HOPKINS UNIVERSITY-MD",
-
-                //Look in PARTNER_OUT and find the record marked PARTN_ROLE="1A", grab the CUSTOMER property (that is the hierarchy num)
-                ERPHierarchyNumber = "",
-
-                //IN THE PARTNERS_OUT, Find the AG PARTN_ROLE (that is the shipTo)
-                //IN THE PARTNERS_OUT, Find the RE PARTN_ROLE (that is the shipTo)
-                //Partners = new List<Partner>()
-
-                //result.Partners = PARTNERS_OUT.Select(i =>
-                //{
-
-                //}).ToList();
-
+                ERPHierarchyName = ADDRESS_OUT.SingleOrDefault(i => i.ADDRNUMBER == hierarchyAddress).NAME1,
+                ERPHierarchyNumber = PARTNERS_OUT.Where(i => i.PARTN_ROLE == SAP_HIERARCHY_NUMBER).First()?.CUSTOMER,
+                Partners = partners
             };
 
-
-            //result.LineItems = ORDER_ITEMS_OUT.Select(i =>
-            //{
-            //    result.OrderTotal += i.NETVALUE1.ToDecimal();
-            //    return i.ToResponse(ORDER_SCHEDULE_EX, ZWEB_ORDER_STATUS);
-            //}).ToList();
             return result;
         }
+
+        private string GetHierarchyAddress()
+        {
+            return PARTNERS_OUT.SingleOrDefault(x => x.PARTN_ROLE == SAP_HIERARCHY_NUMBER).ADDRESS;
+        }
+
+        private bool FilterContactAndDuplicateBillTos(PartnerLookupResponseRootPARTNERSOUT x)
+        {
+            return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO;
+        }
+
+        private PartnerLookupResponseRootADDRESSOUT GetAddress(PartnerLookupResponseRootPARTNERSOUT partnerItem)
+        {
+            return ADDRESS_OUT.FirstOrDefault(x => partnerItem.ADDRESS == x.ADDRNUMBER);
+            
+        }
+
+        private Partner GetPartnerDetails(PartnerLookupResponseRootPARTNERSOUT partnerOut)
+        {
+            var addressOut = GetAddress(partnerOut);
+            if (addressOut == null)
+                return null;
+
+           var partner = new Partner
+            {
+                PartnerId = partnerOut.CUSTOMER,
+                FirstName = addressOut.NAME1,
+                LastName = addressOut.NAME2,
+                City = addressOut.CITY1,
+                Street = addressOut.STREET,
+                State = addressOut.REGION,
+                Region = addressOut.REGION,
+                Country = addressOut.COUNTRY,
+                PostalCode = addressOut.NAME1,
+                RadIndicator = partnerOut.RAD_FLAG == "True",
+                PartnerType = GetPartnerType(partnerOut.PARTN_ROLE),
+                Telephone = addressOut.TEL_NUMBER,
+                Fax = addressOut.FAX_NUMBER
+            };
+
+            return partner;
+        }
+
+        private PartnerType GetPartnerType(string SAPType)
+        {
+            if (SAPType == SAP_HIERARCHY_NUMBER) return PartnerType.Hierarchy;
+            if (SAPType == SAP_BILL_TO) return PartnerType.BillTo;
+            if (SAPType == SAP_DUPLICATE_BILL_TO) return PartnerType.BillTo;
+            if (SAPType == SAP_SOLD_TO) return PartnerType.SoldTo;
+            if (SAPType == SAP_CONTACT) return PartnerType.ContactID;
+            return PartnerType.ShipTo; //WE
+        }
+
     }
+    
 
     public partial class SimulateOrderRequestRoot
     {
@@ -75,18 +121,21 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
     {
         public SimulateOrderErpResponse ToResponse()
         {
-            var result = new SimulateOrderErpResponse();
-            result.PaymentTerms = PAYTEXT;
-            result.INCOCode = SOLD_TO_PARTY?.First()?.INCOTERMS1 + " ";
-            result.INCOTerms = SOLD_TO_PARTY?.First()?.INCOTERMS2;
-            result.Currency = SOLD_TO_PARTY?.First()?.CURRENCY;
-            result.ShippingCost =
-                ZWEB_ORDER_STATUS.Sum(s => s.FREIGHT.ToDecimal() + s.HANDLING.ToDecimal());
+            var result = new SimulateOrderErpResponse
+            {
+                PaymentTerms = PAYTEXT,
+                INCOCode = SOLD_TO_PARTY?.First()?.INCOTERMS1 + " ",
+                INCOTerms = SOLD_TO_PARTY?.First()?.INCOTERMS2,
+                Currency = SOLD_TO_PARTY?.First()?.CURRENCY,
+                ShippingCost =
+                ZWEB_ORDER_STATUS.Sum(s => s.FREIGHT.ToDecimal() + s.HANDLING.ToDecimal())
+            };
             result.LineItems = ORDER_ITEMS_OUT.Select(i =>
             {
                 result.OrderTotal += i.NETVALUE1.ToDecimal();
                 return i.ToResponse(ORDER_SCHEDULE_EX, ZWEB_ORDER_STATUS);
             }).ToList();
+
             return result;
         }
     }

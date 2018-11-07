@@ -7,6 +7,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.Account
     [DataContract]
     public class Partner : Address, IPartner
     {
+
         [DataMember]
         public string FirstName { get; set; }
         [DataMember]
@@ -28,9 +29,8 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.Account
             PartnerId = partnerId;
             PartnerType = partnerType;
         }
+
     }
-
-
 
 }
 

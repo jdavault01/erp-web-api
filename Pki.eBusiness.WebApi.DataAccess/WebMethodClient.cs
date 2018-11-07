@@ -252,17 +252,6 @@ namespace Pki.eBusiness.WebApi.DataAccess
             return productId;
         }
 
-        /// THIS METHOD WILL BE DECOMMISIONED AFTER CART PROJECT -- confirm use in product .. can probably be removed sooner
-        //public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)
-        //{
-        //    Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-        //    var request = partnerRequest.ToWmPartnerRequest();
-        //    LogRequest(request);
-        //    var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebService(request);
-        //    LogResponse(wmPartnerResponse);
-        //    return wmPartnerResponse.ToPartnerResponse();
-        //}
-
         public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);

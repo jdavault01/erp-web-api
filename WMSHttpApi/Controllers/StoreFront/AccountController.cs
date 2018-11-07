@@ -68,7 +68,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             return Ok(partnerResponseEntity);
         }
 
-        [Route("wms/partners2/{accountNumber}/{salesOrg}")]
+        [Route("wms/partnerinfo/{accountNumber}/{salesOrg}")]
         [HttpGet]
 
         public PartnerResponse PartnerLookup([FromUri]string accountNumber, [FromUri] string salesOrg)
@@ -77,40 +77,11 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
             if (!ModelState.IsValid)
             {
                 Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
             }
             payload.PartnerId = accountNumber;
 
             return _accountService.PartnerLookup(payload);
         }
-
-        //Legacy .. remove after cart project
-        //[Route("wms/account/getpartner")]
-        //[HttpPost]
-        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
-        //public IHttpActionResult Partner([FromBody] PartnerRequest request)
-        //{
-
-        //    if (request == null)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-        //        return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-        //    }
-        //    if (!ModelState.IsValid)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-        //        return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
-        //    }
-
-        //    var partnerResponseEntity = _accountService.GetPartnerInfo(request);
-        //    if (partnerResponseEntity == null)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-        //        return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
-        //    }
-
-        //    return Ok(partnerResponseEntity);
-        //}
 
         [Route("shop/account/GetPOSUser")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(LoginInfo))]
