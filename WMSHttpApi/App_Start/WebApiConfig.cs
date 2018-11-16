@@ -6,6 +6,7 @@ using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http.ExceptionHandling;
 using PKI.eBusiness.WMSHttpApi.Attributes;
+using PKI.eBusiness.WMSHttpApi.Filters;
 
 namespace PKI.eBusiness.WMSHttpApi
 {
@@ -25,6 +26,7 @@ namespace PKI.eBusiness.WMSHttpApi
             );
 
             config.Filters.Add(new ValidationExceptionFilterAttribute());
+            config.Filters.Add(new IPLoggingFilter());
             config.Services.Replace(typeof(IExceptionHandler), new GeneralExceptionHandler());
             config.Services.Replace(typeof(IExceptionLogger), new GeneralExceptionLogger());
 
