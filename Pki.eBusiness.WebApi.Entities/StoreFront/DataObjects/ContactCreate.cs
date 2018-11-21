@@ -21,15 +21,19 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
         public string AccountNumber { get; set; }
 
         [DataMember]
+        public string SalesOrg { get; set; }
+
         public SalesArea SalesAreaInfo { get; set; }
 
         [DataMember]
-        public List<PhoneNumbers> Telephone { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public List<PhoneNumber> PhoneNumbers { get; set; }
 
     }
 
     [DataContract]
-    public struct PhoneNumbers
+    public struct PhoneNumber
     {
         [DataMember]
         public string Number { get; set; }

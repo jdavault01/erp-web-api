@@ -16,16 +16,9 @@ namespace Pki.eBusiness.WebApi.Contracts.DAL
         //Will be decommisioned after we go live with Cart
         //PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
         //New Partner request with simpler JSON
-        PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
-        ContactCreateResponse CreateContact(String accountNumber, ContactCreateRequest contactCreateRequest);
+        //PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
+        ContactCreateResponse CreateContact(ContactCreateRequest contactCreateRequest);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
         CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest);
-
-        //OrderSummaryResponse GetOrders(OrderSummaryRequest request);
-
-        //OrderDetailResponse GetOrderDetails(string sellerOrderId);
-
-
-
     }
 }

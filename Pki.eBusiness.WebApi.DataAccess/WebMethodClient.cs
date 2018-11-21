@@ -254,18 +254,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
             return productId;
         }
 
-        public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
-        {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            var request = partnerRequest.ToWmPartnerRequest();
-            LogRequest(request);
-            var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebService(request);
-            LogResponse(wmPartnerResponse);
-            return wmPartnerResponse.ToPartnerResponse();
-
-        }
-
-        public Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse CreateContact(String acountNumber, Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest contactCreateRequest)
+        public Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse CreateContact(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest contactCreateRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = contactCreateRequest.ToWmContactCreateRequest();

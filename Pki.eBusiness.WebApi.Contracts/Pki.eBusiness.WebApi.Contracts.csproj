@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BL\StoreFront\IAccountService.cs" />
     <Compile Include="BL\StoreFront\ICartService.cs" />
+    <Compile Include="BL\StoreFront\ICompanyService.cs" />
     <Compile Include="BL\StoreFront\IOrderService.cs" />
     <Compile Include="BL\StoreFront\IProductService.cs" />
     <Compile Include="DAL\IERPRestGateway.cs" />

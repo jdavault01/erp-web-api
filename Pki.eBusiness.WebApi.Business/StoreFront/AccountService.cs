@@ -46,10 +46,10 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         /// </summary>
         /// <param name="partnerRequest"></param>
         /// <returns></returns>
-        public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
-        {
-            return _webMethodClient.GetPartnerDetails(partnerRequest);
-        }
+        //public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
+        //{
+        //    return _webMethodClient.GetPartnerDetails(partnerRequest);
+        //}
 
         /// <summary>
         /// New method that talke to Boomi
@@ -79,9 +79,9 @@ namespace Pki.eBusiness.WebApi.Business.StoreFront
         /// </summary>
         /// <param name="partnerRequest"></param>
         /// <returns></returns>
-        public ContactCreateResponse CreateContact(String accountNumber, ContactCreateRequest contactCreateRequest)
+        public ContactCreateResponse CreateContact(ContactCreateRequest contactCreateRequest)
         {
-            return _webMethodClient.CreateContact(accountNumber, contactCreateRequest);
+            return _webMethodClient.CreateContact(contactCreateRequest);
 
         }
         /// <summary>

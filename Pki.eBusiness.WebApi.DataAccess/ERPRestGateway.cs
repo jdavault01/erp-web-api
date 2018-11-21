@@ -40,7 +40,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         {
             PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
             var result = _erpApi.PartnerLookupPost(req);
-            return result.ToResponse();
+            return result.ToPartnerResponse();
         }
 
         private string CallERPService(string payLoad, string resourceName)
@@ -101,5 +101,28 @@ namespace Pki.eBusiness.WebApi.DataAccess
 
             return restResponse;
         }
+
+        public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
+        {
+            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
+            var result = _erpApi.PartnerLookupPost(req);
+            return result.ToCompanyContactsResponse();
+        }
+
+        public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
+        {
+            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
+            var result = _erpApi.PartnerLookupPost(req);
+            return result.ToCompanyAddressesResponse();
+        }
+
+        public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)
+        {
+            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
+            var result = _erpApi.PartnerLookupPost(req);
+            return result.ToCompanyInfoResponse();
+        }
+
+
     }
 }

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StoreFront\CartService.cs" />
+    <Compile Include="StoreFront\CompanyService.cs" />
     <Compile Include="StoreFront\OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoreFront\AccountService.cs" />

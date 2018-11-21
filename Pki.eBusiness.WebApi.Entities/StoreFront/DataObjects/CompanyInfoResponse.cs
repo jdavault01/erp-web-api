@@ -26,7 +26,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     }
 
     [DataContract]
-    public class CompanyNameResponse : CompanyBaseResponse
+    public class CompanyInfoResponse : CompanyBaseResponse
     {
         [DataMember]
         public ERPHierarchy ERPHierarchy { get; set; }

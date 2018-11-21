@@ -7,6 +7,8 @@ namespace Pki.eBusiness.WebApi.Contracts.DAL
     {
         SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request);
         PartnerResponse PartnerLookup(SimplePartnerRequest request);
-
+        CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest companyContactRequest);
+        CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest companyAddressesRequest);
+        CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest companyInfoRequest);
     }
 }

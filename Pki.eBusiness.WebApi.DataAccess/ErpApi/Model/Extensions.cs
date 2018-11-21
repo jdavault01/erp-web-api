@@ -16,6 +16,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         protected const string SALES_DISTRIBUTION_CHANNEL = "01";
         protected const string SALES_DIVISION = "02";
         protected const string SAP_SHIP_TO = "WE";
+        protected const string SAP_HIERARCHY_NUMBER = "1A";
 
         public PartnerLookupRequestRoot(SimplePartnerRequest req)
         {
@@ -26,6 +27,37 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             PARTNER_ROLE_IN = SAP_SHIP_TO;
             SALESORG = req.SalesAreaInfo.SalesOrgId;
         }
+
+        public PartnerLookupRequestRoot(CompanyContactsRequest req)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            LASTNAME = null;
+            PARTNER_IN = req.ERPHierarchyNumber;
+            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
+        }
+
+        public PartnerLookupRequestRoot(CompanyAddressesRequest req)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            LASTNAME = null;
+            PARTNER_IN = req.ShipTo;
+            PARTNER_ROLE_IN = SAP_SHIP_TO;
+            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
+        }
+
+        public PartnerLookupRequestRoot(CompanyInfoRequest req)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            LASTNAME = null;
+            PARTNER_IN = req.ERPHierarchyNumber;
+            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
+        }
+
     }
 
     public partial class PartnerLookupResponseRoot
@@ -34,10 +66,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         protected const string SAP_BILL_TO = "RG";
         protected const string SAP_SHIP_TO = "WE";
         protected const string SAP_DUPLICATE_BILL_TO = "RE";
-        protected const string SAP_HIERARCHY_NUMBER = "1A";
         protected const string SAP_SOLD_TO = "AG";
+        protected const string SAP_HIERARCHY_NUMBER = "1A";
 
-        public PartnerResponse ToResponse()
+        public PartnerResponse ToPartnerResponse()
         {
             var hierarchyAddress = GetHierarchyAddress();
             var partners = PARTNERS_OUT.Where(FilterContactAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
@@ -50,6 +82,26 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
 
             return result;
         }
+
+        public CompanyInfoResponse ToCompanyInfoResponse()
+        {
+            var hierarchyAddress = GetHierarchyAddress();
+            var partners = PARTNERS_OUT.Where(FilterContactAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
+            var ERPHierarchyName = ADDRESS_OUT.SingleOrDefault(i => i.ADDRNUMBER == hierarchyAddress).NAME1;
+            var ERPHierarchyNumber = PARTNERS_OUT.Where(i => i.PARTN_ROLE == SAP_HIERARCHY_NUMBER).First()?.CUSTOMER;
+            return new CompanyInfoResponse { ERPHierarchy = new ERPHierarchy(ERPHierarchyNumber, ERPHierarchyName)};
+        }
+
+        public CompanyContactsResponse ToCompanyContactsResponse()
+        {
+            return new CompanyContactsResponse();
+        }
+
+        public CompanyAddressesResponse ToCompanyAddressesResponse()
+        {
+            return new CompanyAddressesResponse();
+        }
+
 
         private string GetHierarchyAddress()
         {

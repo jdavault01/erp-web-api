@@ -8,8 +8,8 @@ namespace Pki.eBusiness.WebApi.Contracts.BL.StoreFront
         //Will decommision this call once Cartproject is live
         //PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
         //New simpler request
-        PartnerResponse GetPartnerDetails(SimplePartnerRequest request);
-        ContactCreateResponse CreateContact(String accountNumber, ContactCreateRequest request);
+        //PartnerResponse GetPartnerDetails(SimplePartnerRequest request);
+        ContactCreateResponse CreateContact(ContactCreateRequest request);
         LoginInfo GetLoginInfo(String companyCode);
         PartnerResponse PartnerLookup(SimplePartnerRequest request);
     }
