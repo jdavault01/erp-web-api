@@ -57,7 +57,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
         //                PartnerType = partnerType,
         //                RadIndicator = detail.Partner[0].RADIndicator?.ToLower() == "true",
         //                FirstName = detail.Partner[0].Name1,
-        //                LastName = detail.Partner[0].Name2,
+        //                Name = detail.Partner[0].Name2,
         //                Street = detail.Partner[0].Address.Street,
         //                City = detail.Partner[0].Address.City,
         //                District = detail.Partner[0].Address.District,

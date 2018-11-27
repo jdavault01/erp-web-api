@@ -18,11 +18,7 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     public class CompanyContactsRequest : CompanyInfoRequest
     {
         [DataMember]
-        public string LastName { get; set; }
-        public CompanyContactsRequest(string erpHierarchyNumber, string lastName) 
-        {
-            LastName = lastName;
-        }
+        public string Name { get; set; }
     }
     public class CompanyAddressesRequest : CompanyInfoRequest
     {

@@ -106,14 +106,14 @@ namespace Pki.eBusiness.WebApi.DataAccess
         {
             PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
             var result = _erpApi.PartnerLookupPost(req);
-            return result.ToCompanyContactsResponse();
+            return result.ToCompanyContactsResponse(request.Name);
         }
 
         public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
         {
             PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
             var result = _erpApi.PartnerLookupPost(req);
-            return result.ToCompanyAddressesResponse();
+            return result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
         }
 
         public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)

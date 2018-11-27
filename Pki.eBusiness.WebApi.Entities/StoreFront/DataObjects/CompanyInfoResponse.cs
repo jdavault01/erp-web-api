@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
@@ -12,17 +13,21 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     [DataContract]
     public class CompanyAddressesResponse : CompanyBaseResponse
     {
+        //[DataMember]
+        //public List<ShipTo> ShipTos { get; set; }
+        //[DataMember]
+        //public List<BillTo> BillTos { get; set; }
+
         [DataMember]
-        public List<ShipTo> ShipTos { get; set; }
-        [DataMember]
-        public List<BillTo> BillTos { get; set; }
+        public List<Partner> Partners { get; set; }
+
     }
 
     [DataContract]
     public class CompanyContactsResponse : CompanyBaseResponse
     {
         [DataMember]
-        public ContactList ContactList { get; set; }
+        public List<Contact> ContactList { get; set; }
     }
 
     [DataContract]
@@ -58,22 +63,18 @@ namespace Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects
     }
 
     [DataContract]
-    public class ShipTo
+    public class ShipTo : CompanyAddress
     {
         [DataMember]
         public string Id { get; set; }
-        [DataMember]
-        public CompanyAddress Address { get; set; }
     }
 
 
     [DataContract]
-    public class BillTo
+    public class BillTo : CompanyAddress
     {
         [DataMember]
         public string Id { get; set; }
-        [DataMember]
-        public CompanyAddress Address { get; set; }
     }
 
     [DataContract]

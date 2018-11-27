@@ -22,42 +22,19 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
-            LASTNAME = null;
             PARTNER_IN = req.PartnerId;
             PARTNER_ROLE_IN = SAP_SHIP_TO;
             SALESORG = req.SalesAreaInfo.SalesOrgId;
-        }
-
-        public PartnerLookupRequestRoot(CompanyContactsRequest req)
-        {
-            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
-            DIVISION = SALES_DIVISION;
-            LASTNAME = null;
-            PARTNER_IN = req.ERPHierarchyNumber;
-            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
-            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
-        }
-
-        public PartnerLookupRequestRoot(CompanyAddressesRequest req)
-        {
-            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
-            DIVISION = SALES_DIVISION;
-            LASTNAME = null;
-            PARTNER_IN = req.ShipTo;
-            PARTNER_ROLE_IN = SAP_SHIP_TO;
-            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
         }
 
         public PartnerLookupRequestRoot(CompanyInfoRequest req)
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
-            LASTNAME = null;
             PARTNER_IN = req.ERPHierarchyNumber;
             PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
-            SALESORG = req.SalesOrg; //req.SalesAreaInfo.SalesOrgId;
+            SALESORG = req.SalesOrg;
         }
-
     }
 
     public partial class PartnerLookupResponseRoot
@@ -68,11 +45,14 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         protected const string SAP_DUPLICATE_BILL_TO = "RE";
         protected const string SAP_SOLD_TO = "AG";
         protected const string SAP_HIERARCHY_NUMBER = "1A";
+        protected const int LAST_NAME_IDX = 0;
+        protected const int FIRST_NAME_IDX = 1;
+
 
         public PartnerResponse ToPartnerResponse()
         {
             var hierarchyAddress = GetHierarchyAddress();
-            var partners = PARTNERS_OUT.Where(FilterContactAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
+            var partners = PARTNERS_OUT.Where(RemoveContactsAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
             var result = new PartnerResponse
             {
                 ERPHierarchyName = ADDRESS_OUT.SingleOrDefault(i => i.ADDRNUMBER == hierarchyAddress).NAME1,
@@ -86,37 +66,94 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
         public CompanyInfoResponse ToCompanyInfoResponse()
         {
             var hierarchyAddress = GetHierarchyAddress();
-            var partners = PARTNERS_OUT.Where(FilterContactAndDuplicateBillTos).Select(GetPartnerDetails).ToList();
             var ERPHierarchyName = ADDRESS_OUT.SingleOrDefault(i => i.ADDRNUMBER == hierarchyAddress).NAME1;
             var ERPHierarchyNumber = PARTNERS_OUT.Where(i => i.PARTN_ROLE == SAP_HIERARCHY_NUMBER).First()?.CUSTOMER;
-            return new CompanyInfoResponse { ERPHierarchy = new ERPHierarchy(ERPHierarchyNumber, ERPHierarchyName)};
+            return new CompanyInfoResponse { ERPHierarchy = new ERPHierarchy(ERPHierarchyNumber, ERPHierarchyName) };
         }
 
-        public CompanyContactsResponse ToCompanyContactsResponse()
+        public CompanyContactsResponse ToCompanyContactsResponse(string name)
         {
-            return new CompanyContactsResponse();
+            name = name.ToLower();
+            var contactList = PARTNERS_OUT.Where(RemoveAllButContacts).Select(GetContactDetails).ToList();
+            if (!String.IsNullOrEmpty(name))
+            {
+                contactList = contactList.Where(x => x.LastName.ToLower().Contains(name) || x.FirstName.ToLower().Contains(name)).ToList();
+            }
+            var result = new CompanyContactsResponse
+            {
+                ContactList = contactList
+            };
+
+            return result;
         }
 
-        public CompanyAddressesResponse ToCompanyAddressesResponse()
+        public CompanyAddressesResponse ToCompanyAddressesResponse(string shipTo, string billTo)
         {
-            return new CompanyAddressesResponse();
-        }
+            var partners = PARTNERS_OUT.Where(x => RemoveContactsApplyFilters(x, shipTo, billTo)).Select(GetPartnerDetails).ToList();
+            var result = new CompanyAddressesResponse
+            {
+                Partners = partners
+            };
 
+            return result;
+        }
 
         private string GetHierarchyAddress()
         {
             return PARTNERS_OUT.SingleOrDefault(x => x.PARTN_ROLE == SAP_HIERARCHY_NUMBER).ADDRESS;
         }
 
-        private bool FilterContactAndDuplicateBillTos(PartnerLookupResponseRootPARTNERSOUT x)
+
+        private bool RemoveContactsAndDuplicateBillTos(PartnerLookupResponseRootPARTNERSOUT x)
         {
             return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO;
+        }
+
+        private bool RemoveAllButContacts(PartnerLookupResponseRootPARTNERSOUT x)
+        {
+            return x.PARTN_ROLE == SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
+        }
+
+        private bool RemoveContactsApplyFilters(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo)
+        {
+
+            if (String.IsNullOrEmpty(shipTo) && String.IsNullOrEmpty(billTo))
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
+            else if (String.IsNullOrEmpty(billTo))
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
+                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO && x.PARENT_NO == shipTo;
+            else
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
+                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO &&
+                       (x.CUSTOMER == shipTo || (x.CUSTOMER == billTo && x.PARENT_NO == shipTo));
         }
 
         private PartnerLookupResponseRootADDRESSOUT GetAddress(PartnerLookupResponseRootPARTNERSOUT partnerItem)
         {
             return ADDRESS_OUT.FirstOrDefault(x => partnerItem.ADDRESS == x.ADDRNUMBER);
-            
+
+        }
+
+        private PartnerLookupResponseRootADDRESSOUT GetContactAddresses(PartnerLookupResponseRootPARTNERSOUT partnerItem)
+        {
+            return ADDRESS_OUT.Where(x => partnerItem.ADDRESS == x.ADDRNUMBER && partnerItem.PARTN_ROLE == SAP_CONTACT).First();
+        }
+
+        private Contact GetContactDetails(PartnerLookupResponseRootPARTNERSOUT partnerOut)
+        {
+            var addressOut = GetContactAddresses(partnerOut);
+            if (addressOut == null)
+                return null;
+            var contact = new Contact
+            {
+                Id = partnerOut.CUSTOMER,
+                EmailAddress = String.IsNullOrEmpty(partnerOut.E_MAIL) ? "NO EMAIL ADDRESS IN SAP" : partnerOut.E_MAIL,
+                LastName = String.IsNullOrEmpty(addressOut.NAME1) ? "NO LASTNAME FOUND IN SAP" : ParseName(addressOut.NAME1, LAST_NAME_IDX),
+                FirstName = String.IsNullOrEmpty(addressOut.NAME1) ? "NO FIRSTNAME FOUND IN SAP" : ParseName(addressOut.NAME1, FIRST_NAME_IDX),
+                ParentAccount = partnerOut.PARENT_NO
+            };
+
+            return contact;
         }
 
         private Partner GetPartnerDetails(PartnerLookupResponseRootPARTNERSOUT partnerOut)
@@ -125,7 +162,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             if (addressOut == null)
                 return null;
 
-           var partner = new Partner
+            var partner = new Partner
             {
                 PartnerId = partnerOut.CUSTOMER,
                 FirstName = addressOut.NAME1,
@@ -155,8 +192,20 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
             return PartnerType.ShipTo; //WE
         }
 
+        private string ParseName(string name, int index)
+        {
+            char[] commaDelimited = { ',' };
+            //If there is no Name,FirstName just return the whole name as the Name
+            if (!name.Contains(",") && index == LAST_NAME_IDX)
+                return name;
+            if (!name.Contains(",") && index != LAST_NAME_IDX)
+                return String.Empty;
+
+            return name.Split(commaDelimited)[index];
+        }
+
     }
-    
+
 
     public partial class SimulateOrderRequestRoot
     {
