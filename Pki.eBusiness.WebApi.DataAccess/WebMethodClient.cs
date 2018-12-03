@@ -221,7 +221,6 @@ namespace Pki.eBusiness.WebApi.DataAccess
                     break;
 
                 Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-                //request = inventoryWmRequest.ToWmInventoryRequest();
                 LogRequest(request);
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebService(request);
                 LogResponse(wmInventoryResponse);
@@ -252,6 +251,18 @@ namespace Pki.eBusiness.WebApi.DataAccess
             var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = productId };
             failedItems.Add(failedItem);
             return productId;
+        }
+    
+        //Temporarily bringing this back for comparision with the new Boomi version
+        public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
+        {
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var request = partnerRequest.ToWmPartnerRequest();
+            LogRequest(request);
+            var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebService(request);
+            LogResponse(wmPartnerResponse);
+            return wmPartnerResponse.ToPartnerResponse();
+
         }
 
         public Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse CreateContact(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest contactCreateRequest)

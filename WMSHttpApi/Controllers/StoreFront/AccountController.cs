@@ -43,52 +43,37 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
 
-        //[Route("wms/partners/{accountNumber}/{salesOrg}")]
-        //[HttpGet]
-        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
-        //public IHttpActionResult Partners([FromUri]string accountNumber, [FromUri] string salesOrg)
-        //{
-        //    SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);
-        //    if (!ModelState.IsValid)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-        //        return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
-        //    }
-        //    payload.PartnerId = accountNumber;
-
-        //    PartnerResponse partnerResponseEntity = _accountService.GetPartnerDetails(payload);
-        //    if (partnerResponseEntity == null)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-        //        return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
-        //    }
-        //    if (!String.IsNullOrEmpty(partnerResponseEntity.ErrorMessage))
-        //    {
-        //        Log(partnerResponseEntity.ErrorMessage);
-        //        var httpResponseMessage = Request.CreateResponse(HttpStatusCode.NotFound, partnerResponseEntity.ErrorMessage);
-        //        return ResponseMessage(httpResponseMessage);
-        //    }
-
-        //    return Ok(partnerResponseEntity);
-        //}
-
-
-        //[Route("wms/company/{accountNumber}/{salesOrg}")]
-        //[HttpGet]
-
-        //public PartnerResponse PartnerLookup([FromUri]string accountNumber, [FromUri] string salesOrg)
-        //{
-        //    SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);
-        //    if (!ModelState.IsValid)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-        //    }
-        //    payload.PartnerId = accountNumber;
-
-        //    return _accountService.PartnerLookup(payload);
-        //}
-
         [Route("wms/partners/{accountNumber}/{salesOrg}")]
+        [HttpGet]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PartnerResponse))]
+        public IHttpActionResult Partners([FromUri]string accountNumber, [FromUri] string salesOrg)
+        {
+            SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);
+            if (!ModelState.IsValid)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
+            }
+            payload.PartnerId = accountNumber;
+
+            PartnerResponse partnerResponseEntity = _accountService.GetPartnerDetails(payload);
+            if (partnerResponseEntity == null)
+            {
+                Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE));
+            }
+            if (!String.IsNullOrEmpty(partnerResponseEntity.ErrorMessage))
+            {
+                Log(partnerResponseEntity.ErrorMessage);
+                var httpResponseMessage = Request.CreateResponse(HttpStatusCode.NotFound, partnerResponseEntity.ErrorMessage);
+                return ResponseMessage(httpResponseMessage);
+            }
+
+            return Ok(partnerResponseEntity);
+        }
+
+
+        [Route("wms/partnerLookup/{accountNumber}/{salesOrg}")]
         [HttpGet]
 
         public PartnerResponse PartnerLookup([FromUri]string accountNumber, [FromUri] string salesOrg)
