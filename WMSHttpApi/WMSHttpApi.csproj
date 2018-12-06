@@ -170,6 +170,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Genetics\" />
+    <Folder Include="Converters\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Company\" />
   </ItemGroup>
