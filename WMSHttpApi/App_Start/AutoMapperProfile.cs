@@ -9,7 +9,7 @@ namespace PKI.eBusiness.WMSHttpApi
         public AutoMapperProfile()
         {
             CreateMap<Product, PriceResponseDetail>()
-                .ForMember(dest => dest.AdjustedPrice, opt => opt.MapFrom(src => src.Price.ToString("N")))
+                .ForMember(y => y.AdjustedPrice, z => z.MapFrom(src => src.Price))
                 .ForMember(x => x.ProductId, y => y.MapFrom(src => src.PartNumber));
         }
     }

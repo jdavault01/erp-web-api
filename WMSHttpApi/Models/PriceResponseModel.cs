@@ -29,7 +29,7 @@ namespace PKI.eBusiness.WMSHttpApi.Models
     {
         public String ProductId { get; set; }
         public String Currency { get; set; }
-        public String AdjustedPrice { get; set; }
+        public Decimal AdjustedPrice { get; set; }
 
     }
 
