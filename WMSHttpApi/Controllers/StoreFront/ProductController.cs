@@ -23,7 +23,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [HttpPost]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PriceResponse))]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PriceResponseDetail))]
         public IHttpActionResult GetPrice([FromBody] PriceRequest request)
         {
             if (request == null)
