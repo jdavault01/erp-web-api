@@ -23,7 +23,7 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
         }
 
         [HttpPost]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PriceResponseModel))]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(PriceResponse))]
         public IHttpActionResult GetPrice([FromBody] PriceRequest request)
         {
             if (request == null)
@@ -46,7 +46,8 @@ namespace PKI.eBusiness.WMSHttpApi.Controllers.StoreFront
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, InfoMessage.ERROR_MSG_UNABLE_TO_GET_PRICE_RESPONSE));
             }
 
-            return Ok(new PriceResponseModel(priceResponseEntity));
+            return Ok(priceResponseEntity);
+           //return Ok(new PriceResponseModel(priceResponseEntity));
         }
 
         /// <summary>
