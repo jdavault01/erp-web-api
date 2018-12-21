@@ -21,7 +21,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -52,7 +52,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.Default;
+            Configuration = Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client.Configuration.Default;
             RestClient = new RestClient("https://corwalboomidev.perkinelmer.net/ws/rest/eCommerce");
         }
 
@@ -63,7 +63,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Pki.eBusiness.WebApi.DataAccess.ErpApi.Client.Configuration.Default;
+            Configuration = config ?? Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }

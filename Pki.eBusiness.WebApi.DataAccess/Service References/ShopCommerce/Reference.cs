@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
+namespace Pki.eBusiness.ErpApi.DataAccess.ShopCommerce {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,12 +17,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityBase", Namespace="http://www.perkinelmergenetics.com")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCartItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopProduct))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.Address))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.User))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCartItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopProduct))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.Address))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopUser))]
     public partial class EntityBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -52,10 +52,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShopCart", Namespace="http://schemas.datacontract.org/2004/07/PKI.eBusiness.CSFramework.Entities.DTO")]
     [System.SerializableAttribute()]
-    public partial class ShopCart : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EntityBase {
+    public partial class ShopCart : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EntityBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCartItem> CartItemsField;
+        private System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCartItem> CartItemsField;
         
         private string CartUserIdField;
         
@@ -72,7 +72,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         private string OrderFormNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCartItem> CartItems {
+        public System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCartItem> CartItems {
             get {
                 return this.CartItemsField;
             }
@@ -154,7 +154,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShopCartItem", Namespace="http://schemas.datacontract.org/2004/07/PKI.eBusiness.CSFramework.Entities.DTO")]
     [System.SerializableAttribute()]
-    public partial class ShopCartItem : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EntityBase {
+    public partial class ShopCartItem : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EntityBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CatalogNameField;
@@ -163,7 +163,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         private decimal FieldLineItemTotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopProduct ProductDetailsField;
+        private Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopProduct ProductDetailsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PromoCodeField;
@@ -210,7 +210,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopProduct ProductDetails {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopProduct ProductDetails {
             get {
                 return this.ProductDetailsField;
             }
@@ -305,7 +305,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShopProduct", Namespace="http://schemas.datacontract.org/2004/07/PKI.eBusiness.CSFramework.Entities.DTO")]
     [System.SerializableAttribute()]
-    public partial class ShopProduct : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EntityBase {
+    public partial class ShopProduct : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EntityBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AddStatusField;
@@ -632,10 +632,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Address", Namespace="http://www.perkinelmergenetics.com")]
     [System.SerializableAttribute()]
-    public partial class Address : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EntityBase {
+    public partial class Address : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EntityBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsAddressType AddrTypeField;
+        private Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsAddressType AddrTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AddressIdField;
@@ -668,7 +668,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         private string StateField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsAddressType AddrType {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsAddressType AddrType {
             get {
                 return this.AddrTypeField;
             }
@@ -815,11 +815,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://www.perkinelmergenetics.com")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopUser))]
-    public partial class User : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EntityBase {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopUser))]
+    public partial class User : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EntityBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.Address> AddressesField;
+        private System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.Address> AddressesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
@@ -837,7 +837,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         private System.Guid UserIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.Address> Addresses {
+        public System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.Address> Addresses {
             get {
                 return this.AddressesField;
             }
@@ -919,7 +919,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShopUser", Namespace="http://www.perkinelmergenetics.com")]
     [System.SerializableAttribute()]
-    public partial class ShopUser : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.User {
+    public partial class ShopUser : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.User {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNumberField;
@@ -985,7 +985,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         private string SalesAreaOrganizationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsUserServicePartType ServicePartTypeField;
+        private Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsUserServicePartType ServicePartTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ShipToAddressField;
@@ -1270,7 +1270,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsUserServicePartType ServicePartType {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsUserServicePartType ServicePartType {
             get {
                 return this.ServicePartTypeField;
             }
@@ -1496,7 +1496,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfoItem> CartItemsField;
+        private System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfoItem> CartItemsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1509,7 +1509,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.List<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfoItem> CartItems {
+        public System.Collections.Generic.List<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfoItem> CartItems {
             get {
                 return this.CartItemsField;
             }
@@ -1704,61 +1704,61 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
     public interface IShopCommerceService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/GetUserDetails", ReplyAction="http://tempuri.org/IShopCommerceService/GetUserDetailsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetUserDetailsCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopUser GetUserDetails(string userId);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetUserDetailsCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopUser GetUserDetails(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/AddToCart", ReplyAction="http://tempuri.org/IShopCommerceService/AddToCartResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/AddToCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        int AddToCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/AddToCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        int AddToCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/UpdateCart", ReplyAction="http://tempuri.org/IShopCommerceService/UpdateCartResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/UpdateCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        int UpdateCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/UpdateCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        int UpdateCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/RemoveFromCart", ReplyAction="http://tempuri.org/IShopCommerceService/RemoveFromCartResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/RemoveFromCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        int RemoveFromCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/RemoveFromCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        int RemoveFromCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/GetCart", ReplyAction="http://tempuri.org/IShopCommerceService/GetCartResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart GetCart(string userId);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetCartCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart GetCart(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/AddToFavorites", ReplyAction="http://tempuri.org/IShopCommerceService/AddToFavoritesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/AddToFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/AddToFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
         int AddToFavorites(string userId, string productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/RemoveFromFavorites", ReplyAction="http://tempuri.org/IShopCommerceService/RemoveFromFavoritesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/RemoveFromFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/RemoveFromFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
         int RemoveFromFavorites(string userId, System.Collections.Generic.List<string> productIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/GetFavorites", ReplyAction="http://tempuri.org/IShopCommerceService/GetFavoritesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetFavoritesCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
         System.Collections.Generic.List<string> GetFavorites(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/ValidateUserName", ReplyAction="http://tempuri.org/IShopCommerceService/ValidateUserNameResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/ValidateUserNameCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        bool ValidateUserName(string userName, Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsUserAccount userAccountToValidate);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/ValidateUserNameCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        bool ValidateUserName(string userName, Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsUserAccount userAccountToValidate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/GetLoginInfo", ReplyAction="http://tempuri.org/IShopCommerceService/GetLoginInfoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetLoginInfoCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        Pki.eBusiness.WebApi.DataAccess.ShopCommerce.LoginInfo GetLoginInfo(string companyCode);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetLoginInfoCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.LoginInfo GetLoginInfo(string companyCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/GetClearanceCode", ReplyAction="http://tempuri.org/IShopCommerceService/GetClearanceCodeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetClearanceCodeCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfo GetClearanceCode(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfo cartInfo);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/GetClearanceCodeCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfo GetClearanceCode(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfo cartInfo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumber", ReplyAction="http://tempuri.org/IShopCommerceService/ValidateSerialNumberResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumberCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
-        Pki.eBusiness.WebApi.DataAccess.ShopCommerce.SerialNumberValidationResult ValidateSerialNumber(string serialNumber, string userId);
+        [System.ServiceModel.FaultContractAttribute(typeof(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CustomError), Action="http://tempuri.org/IShopCommerceService/ValidateSerialNumberCustomErrorFault", Name="CustomError", Namespace="http://www.perkinelmergenetics.com")]
+        Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.SerialNumberValidationResult ValidateSerialNumber(string serialNumber, string userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IShopCommerceServiceChannel : Pki.eBusiness.WebApi.DataAccess.ShopCommerce.IShopCommerceService, System.ServiceModel.IClientChannel {
+    public interface IShopCommerceServiceChannel : Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.IShopCommerceService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ShopCommerceServiceClient : System.ServiceModel.ClientBase<Pki.eBusiness.WebApi.DataAccess.ShopCommerce.IShopCommerceService>, Pki.eBusiness.WebApi.DataAccess.ShopCommerce.IShopCommerceService {
+    public partial class ShopCommerceServiceClient : System.ServiceModel.ClientBase<Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.IShopCommerceService>, Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.IShopCommerceService {
         
         public ShopCommerceServiceClient() {
         }
@@ -1779,23 +1779,23 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
                 base(binding, remoteAddress) {
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopUser GetUserDetails(string userId) {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopUser GetUserDetails(string userId) {
             return base.Channel.GetUserDetails(userId);
         }
         
-        public int AddToCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart) {
+        public int AddToCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart) {
             return base.Channel.AddToCart(cart);
         }
         
-        public int UpdateCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart) {
+        public int UpdateCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart) {
             return base.Channel.UpdateCart(cart);
         }
         
-        public int RemoveFromCart(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart cart) {
+        public int RemoveFromCart(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart cart) {
             return base.Channel.RemoveFromCart(cart);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.ShopCart GetCart(string userId) {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.ShopCart GetCart(string userId) {
             return base.Channel.GetCart(userId);
         }
         
@@ -1811,19 +1811,19 @@ namespace Pki.eBusiness.WebApi.DataAccess.ShopCommerce {
             return base.Channel.GetFavorites(userId);
         }
         
-        public bool ValidateUserName(string userName, Pki.eBusiness.WebApi.DataAccess.ShopCommerce.EnumsUserAccount userAccountToValidate) {
+        public bool ValidateUserName(string userName, Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.EnumsUserAccount userAccountToValidate) {
             return base.Channel.ValidateUserName(userName, userAccountToValidate);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.LoginInfo GetLoginInfo(string companyCode) {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.LoginInfo GetLoginInfo(string companyCode) {
             return base.Channel.GetLoginInfo(companyCode);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfo GetClearanceCode(Pki.eBusiness.WebApi.DataAccess.ShopCommerce.CartInfo cartInfo) {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfo GetClearanceCode(Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.CartInfo cartInfo) {
             return base.Channel.GetClearanceCode(cartInfo);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.ShopCommerce.SerialNumberValidationResult ValidateSerialNumber(string serialNumber, string userId) {
+        public Pki.eBusiness.ErpApi.DataAccess.ShopCommerce.SerialNumberValidationResult ValidateSerialNumber(string serialNumber, string userId) {
             return base.Channel.ValidateSerialNumber(serialNumber, userId);
         }
     }

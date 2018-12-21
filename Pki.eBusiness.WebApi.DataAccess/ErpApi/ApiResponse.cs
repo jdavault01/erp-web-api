@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// API Response

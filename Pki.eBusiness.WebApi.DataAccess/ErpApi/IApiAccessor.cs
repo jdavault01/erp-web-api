@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

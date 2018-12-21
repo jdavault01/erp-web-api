@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     [DataContract]
     public class InventoryServiceRequest

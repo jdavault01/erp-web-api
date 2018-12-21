@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Pki.eBusiness.WebApi.Contracts.DAL;
-using Pki.eBusiness.WebApi.DataAccess.Extensions;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using Pki.eBusiness.WebApi.DataAccess.WMService;
-using Pki.eBusiness.WebApi.Entities;
-using Pki.eBusiness.WebApi.Entities.Constants;
-using Pki.eBusiness.WebApi.Entities.Extensions;
-using Pki.eBusiness.WebApi.Entities.OrderLookUp.BasicRequest;
-using Pki.eBusiness.WebApi.Entities.Settings;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
-using Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog;
+using Pki.eBusiness.ErpApi.Contracts.DAL;
+using Pki.eBusiness.ErpApi.DataAccess.Extensions;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.DataAccess.WMService;
+using Pki.eBusiness.ErpApi.Entities;
+using Pki.eBusiness.ErpApi.Entities.Constants;
+using Pki.eBusiness.ErpApi.Entities.Extensions;
+using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
+using Pki.eBusiness.ErpApi.Entities.Settings;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using Pki.eBusiness.ErpApi.Entities.ProductCatalog;
 using PKI.eBusiness.WMService.Logger;
-using InventoryRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.InventoryRequest;
-using InventoryResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.InventoryResponse;
-using PartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerRequest;
-using PartnerResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerResponse;
+using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
+using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
+using PartnerRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerRequest;
+using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
 
-namespace Pki.eBusiness.WebApi.DataAccess
+namespace Pki.eBusiness.ErpApi.DataAccess
 {
     /// <summary>
     /// Web Method Client Class
@@ -265,7 +265,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
 
         }
 
-        public Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse CreateContact(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest contactCreateRequest)
+        public Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateResponse CreateContact(Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest contactCreateRequest)
         {
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = contactCreateRequest.ToWmContactCreateRequest();

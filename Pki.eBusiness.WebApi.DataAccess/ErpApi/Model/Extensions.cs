@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Pki.eBusiness.WebApi.DataAccess.Extensions;
-using Pki.eBusiness.WebApi.Entities.Orders;
-using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Pki.eBusiness.ErpApi.DataAccess.Extensions;
+using Pki.eBusiness.ErpApi.Entities.Orders;
+using Pki.eBusiness.ErpApi.Entities.Account;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Model
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 {
 
     public partial class PartnerLookupRequestRoot

@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// <see cref="GlobalConfiguration"/> provides a compile-time extension point for globally configuring

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using StorefrontContactCreateRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest;
+using StorefrontContactCreateRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     [DataContract]
     public class ContactCreateServiceRequest

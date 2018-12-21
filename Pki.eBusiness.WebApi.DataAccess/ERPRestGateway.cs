@@ -2,14 +2,14 @@
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
-using Pki.eBusiness.WebApi.Contracts.DAL;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi.Api;
-using Pki.eBusiness.WebApi.DataAccess.ErpApi.Model;
-using Pki.eBusiness.WebApi.Entities.Orders;
-using Pki.eBusiness.WebApi.Entities.Settings;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Pki.eBusiness.ErpApi.Contracts.DAL;
+using Pki.eBusiness.ErpApi.DataAccess.ErpApi.Api;
+using Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model;
+using Pki.eBusiness.ErpApi.Entities.Orders;
+using Pki.eBusiness.ErpApi.Entities.Settings;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
 
-namespace Pki.eBusiness.WebApi.DataAccess
+namespace Pki.eBusiness.ErpApi.DataAccess
 {
     public class ERPRestGateway : IERPRestGateway
     {

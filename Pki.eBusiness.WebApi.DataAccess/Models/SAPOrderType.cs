@@ -1,12 +1,12 @@
-﻿using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+﻿using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StorefrontCreateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.CreateOrderRequest;
+using StorefrontCreateOrderRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.CreateOrderRequest;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Models
+namespace Pki.eBusiness.ErpApi.DataAccess.Models
 {
     public class SAPOrderType
     {

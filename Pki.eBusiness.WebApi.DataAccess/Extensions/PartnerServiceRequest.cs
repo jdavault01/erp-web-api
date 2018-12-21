@@ -1,11 +1,11 @@
 ﻿using System.Runtime.Serialization;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
-using PartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerRequest;
-using PartnerRequestDetail = Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequestDetail;
-using PartnerRequestHeader = Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequestHeader;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using PartnerRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerRequest;
+using PartnerRequestDetail = Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequestDetail;
+using PartnerRequestHeader = Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequestHeader;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     [DataContract]
     public class PartnerServiceRequest

@@ -16,7 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
+namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Client
 {
     /// <summary>
     /// Represents a set of configuration settings
@@ -418,7 +418,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.ErpApi.Client
         /// </summary>
         public static String ToDebugReport()
         {
-            String report = "C# SDK (Pki.eBusiness.WebApi.DataAccess.ErpApi) Debug Report:\n";
+            String report = "C# SDK (Pki.eBusiness.ErpApi.DataAccess.ErpApi) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";

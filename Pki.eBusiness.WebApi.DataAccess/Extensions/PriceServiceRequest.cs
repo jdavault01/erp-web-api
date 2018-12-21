@@ -1,8 +1,8 @@
 ﻿using System.Runtime.Serialization;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using StorefrontPriceRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PriceRequest;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using StorefrontPriceRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.PriceRequest;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     [DataContract]
     public class PriceServiceRequest

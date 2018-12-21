@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Settings\ERPRestSettings.csd.cs">
+      <DependentUpon>ERPRestSettings.csd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings\ERPRestSettings.csd">
+      <LastGenOutput>ERPRestSettings.csd.cs</LastGenOutput>
+      <Generator>CsdFileGenerator</Generator>
+    </None>
+    <None Update="Settings\ERPRestSettings.csd.config">
+      <DependentUpon>ERPRestSettings.csd</DependentUpon>
+    </None>
+    <None Update="Settings\ERPRestSettings.csd.diagram">
+      <DependentUpon>ERPRestSettings.csd</DependentUpon>
+    </None>
+    <None Update="Settings\ERPRestSettings.csd.xsd">
+      <DependentUpon>ERPRestSettings.csd</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

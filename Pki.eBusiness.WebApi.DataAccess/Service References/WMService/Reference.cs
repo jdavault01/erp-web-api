@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pki.eBusiness.WebApi.DataAccess.WMService {
+namespace Pki.eBusiness.ErpApi.DataAccess.WMService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -19,7 +19,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.WMService {
         [System.ServiceModel.OperationContractAttribute(Action="PKIPediatrix_flows_ProcessPediatrixOrder_WSD_Binder_ProcessPediatrixOrder", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="xmlResponse")]
-        Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderResponse ProcessPediatrixOrder(Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderResponse ProcessPediatrixOrder(Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderRequest request);
     }
     
     /// <remarks/>
@@ -792,12 +792,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.WMService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/PKIPediatrix.flows", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.WMService.Pediatrix Pediatrix;
+        public Pki.eBusiness.ErpApi.DataAccess.WMService.Pediatrix Pediatrix;
         
         public ProcessPediatrixOrderRequest() {
         }
         
-        public ProcessPediatrixOrderRequest(Pki.eBusiness.WebApi.DataAccess.WMService.Pediatrix Pediatrix) {
+        public ProcessPediatrixOrderRequest(Pki.eBusiness.ErpApi.DataAccess.WMService.Pediatrix Pediatrix) {
             this.Pediatrix = Pediatrix;
         }
     }
@@ -821,12 +821,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.WMService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ProcessPediatrixOrder_WSD_PortTypeChannel : Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType, System.ServiceModel.IClientChannel {
+    public interface ProcessPediatrixOrder_WSD_PortTypeChannel : Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProcessPediatrixOrder_WSD_PortTypeClient : System.ServiceModel.ClientBase<Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType>, Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType {
+    public partial class ProcessPediatrixOrder_WSD_PortTypeClient : System.ServiceModel.ClientBase<Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType>, Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType {
         
         public ProcessPediatrixOrder_WSD_PortTypeClient() {
         }
@@ -848,14 +848,14 @@ namespace Pki.eBusiness.WebApi.DataAccess.WMService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderResponse Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType.ProcessPediatrixOrder(Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderResponse Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType.ProcessPediatrixOrder(Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderRequest request) {
             return base.Channel.ProcessPediatrixOrder(request);
         }
         
-        public string ProcessPediatrixOrder(Pki.eBusiness.WebApi.DataAccess.WMService.Pediatrix Pediatrix) {
-            Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderRequest inValue = new Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderRequest();
+        public string ProcessPediatrixOrder(Pki.eBusiness.ErpApi.DataAccess.WMService.Pediatrix Pediatrix) {
+            Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderRequest();
             inValue.Pediatrix = Pediatrix;
-            Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrderResponse retVal = ((Pki.eBusiness.WebApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType)(this)).ProcessPediatrixOrder(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrderResponse retVal = ((Pki.eBusiness.ErpApi.DataAccess.WMService.ProcessPediatrixOrder_WSD_PortType)(this)).ProcessPediatrixOrder(inValue);
             return retVal.xmlResponse;
         }
     }

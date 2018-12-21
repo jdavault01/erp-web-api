@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Pki.eBusiness.WebApi.Contracts.DAL;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
+using Pki.eBusiness.ErpApi.Contracts.DAL;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
 
-namespace Pki.eBusiness.WebApi.DataAccess
+namespace Pki.eBusiness.ErpApi.DataAccess
 {
     //private readonly ServiceObjects.I _client;
     public class ShopCommerceServiceGateway : IShopCommerceServiceGateway

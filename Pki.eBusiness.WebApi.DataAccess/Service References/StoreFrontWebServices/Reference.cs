@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
+namespace Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -30,10 +30,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse OrderInfoWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse OrderInfoWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderInfoWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -49,11 +49,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 PriceWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 PriceWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PriceWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -69,11 +69,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 InventoryWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 InventoryWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_InventoryWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -89,11 +89,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 OrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 OrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_OrderWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -109,11 +109,11 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HandlerInput))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 SimulateOrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 SimulateOrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_SimulateOrderWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request);
         
         // CODEGEN: Parameter 'PartnerResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
@@ -131,10 +131,10 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebServiceResponse))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PartnerWebService))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="PartnerResponse")]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 PartnerWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request);
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 PartnerWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="services_StorefrontWebServices_Binder_PartnerWebService", ReplyAction="*")]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request);
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request);
     }
     
     /// <remarks/>
@@ -8403,12 +8403,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest;
         
         public PriceWebServiceRequest() {
         }
         
-        public PriceWebServiceRequest(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest) {
+        public PriceWebServiceRequest(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest) {
             this.PricingRequest = PricingRequest;
         }
     }
@@ -8420,16 +8420,16 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("ProductList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductList2[] ProductList;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductList2[] ProductList;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn;
         
         public PriceWebServiceResponse1() {
         }
         
-        public PriceWebServiceResponse1(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductList2[] ProductList, Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
+        public PriceWebServiceResponse1(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductList2[] ProductList, Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
             this.ProductList = ProductList;
             this.ErrorReturn = ErrorReturn;
         }
@@ -8442,12 +8442,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest;
         
         public InventoryWebServiceRequest() {
         }
         
-        public InventoryWebServiceRequest(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest) {
+        public InventoryWebServiceRequest(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest) {
             this.InventoryRequest = InventoryRequest;
         }
     }
@@ -8459,16 +8459,16 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryResponse;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse;
         
         public InventoryWebServiceResponse1() {
         }
         
-        public InventoryWebServiceResponse1(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryResponse, Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+        public InventoryWebServiceResponse1(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryResponse, Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
             this.InventoryResponse = InventoryResponse;
             this.ErrorResponse = ErrorResponse;
         }
@@ -8481,7 +8481,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
@@ -8494,7 +8494,7 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         public OrderWebServiceRequest() {
         }
         
-        public OrderWebServiceRequest(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug) {
+        public OrderWebServiceRequest(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug) {
             this.OrderRequest = OrderRequest;
             this.fileName = fileName;
             this.debug = debug;
@@ -8508,16 +8508,16 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderResponse;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse;
         
         public OrderWebServiceResponse1() {
         }
         
-        public OrderWebServiceResponse1(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderResponse, Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
+        public OrderWebServiceResponse1(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderResponse, Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
             this.OrderResponse = OrderResponse;
             this.ErrorResponse = ErrorResponse;
         }
@@ -8530,12 +8530,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest;
         
         public SimulateOrderWebServiceRequest() {
         }
         
-        public SimulateOrderWebServiceRequest(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest) {
+        public SimulateOrderWebServiceRequest(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest) {
             this.OrderRequest = OrderRequest;
         }
     }
@@ -8547,16 +8547,16 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderResponse OrderResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderResponse OrderResponse;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse;
         
         public SimulateOrderWebServiceResponse1() {
         }
         
-        public SimulateOrderWebServiceResponse1(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderResponse OrderResponse, Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+        public SimulateOrderWebServiceResponse1(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderResponse OrderResponse, Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
             this.OrderResponse = OrderResponse;
             this.ErrorResponse = ErrorResponse;
         }
@@ -8570,12 +8570,12 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest;
         
         public PartnerWebServiceRequest() {
         }
         
-        public PartnerWebServiceRequest(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
+        public PartnerWebServiceRequest(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
             this.PartnerRequest = PartnerRequest;
         }
     }
@@ -8588,23 +8588,23 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://npsv04.perkinelmer.com/services:StorefrontWebServices", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerResponse;
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerResponse;
         
         public PartnerWebServiceResponse1() {
         }
         
-        public PartnerWebServiceResponse1(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerResponse) {
+        public PartnerWebServiceResponse1(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerResponse) {
             this.PartnerResponse = PartnerResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface StorefrontWebServices_PortTypeChannel : Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType, System.ServiceModel.IClientChannel {
+    public interface StorefrontWebServices_PortTypeChannel : Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StorefrontWebServices_PortTypeClient : System.ServiceModel.ClientBase<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType>, Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType {
+    public partial class StorefrontWebServices_PortTypeClient : System.ServiceModel.ClientBase<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType>, Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType {
         
         public StorefrontWebServices_PortTypeClient() {
         }
@@ -8626,121 +8626,121 @@ namespace Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
             return base.Channel.OrderInfoWebService(request);
         }
         
         public string OrderInfoWebService(string xmlRequest, object node) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest();
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest();
             inValue.xmlRequest = xmlRequest;
             inValue.node = node;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebService(inValue);
             return retVal.xmlResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderInfoWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest request) {
             return base.Channel.OrderInfoWebServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(string xmlRequest, object node) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest();
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceResponse> OrderInfoWebServiceAsync(string xmlRequest, object node) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderInfoWebServiceRequest();
             inValue.xmlRequest = xmlRequest;
             inValue.node = node;
-            return ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebServiceAsync(inValue);
+            return ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderInfoWebServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PriceWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PriceWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request) {
             return base.Channel.PriceWebService(request);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductList2[] PriceWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest, out Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest();
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductList2[] PriceWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ProductPricingRequest PricingRequest, out Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.docType_ErrorReturn ErrorReturn) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest();
             inValue.PricingRequest = PricingRequest;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PriceWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1 retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PriceWebService(inValue);
             ErrorReturn = retVal.ErrorReturn;
             return retVal.ProductList;
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request) {
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceResponse1> PriceWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PriceWebServiceRequest request) {
             return base.Channel.PriceWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.InventoryWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.InventoryWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request) {
             return base.Channel.InventoryWebService(request);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest, out Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest();
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryResponse InventoryWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryRequest InventoryRequest, out Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest();
             inValue.InventoryRequest = InventoryRequest;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).InventoryWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1 retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).InventoryWebService(inValue);
             ErrorResponse = retVal.ErrorResponse;
             return retVal.InventoryResponse;
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request) {
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceResponse1> InventoryWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.InventoryWebServiceRequest request) {
             return base.Channel.InventoryWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.OrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request) {
             return base.Channel.OrderWebService(request);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug, out Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest();
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderResponse2 OrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderRequest2 OrderRequest, string fileName, string debug, out Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse3 ErrorResponse) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest();
             inValue.OrderRequest = OrderRequest;
             inValue.fileName = fileName;
             inValue.debug = debug;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1 retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).OrderWebService(inValue);
             ErrorResponse = retVal.ErrorResponse;
             return retVal.OrderResponse;
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request) {
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceResponse1> OrderWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.OrderWebServiceRequest request) {
             return base.Channel.OrderWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.SimulateOrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.SimulateOrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
             return base.Channel.SimulateOrderWebService(request);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderResponse SimulateOrderWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest, out Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest();
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderResponse SimulateOrderWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.orderRequest OrderRequest, out Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.ErrorResponse ErrorResponse) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest();
             inValue.OrderRequest = OrderRequest;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).SimulateOrderWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1 retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).SimulateOrderWebService(inValue);
             ErrorResponse = retVal.ErrorResponse;
             return retVal.OrderResponse;
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceResponse1> SimulateOrderWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.SimulateOrderWebServiceRequest request) {
             return base.Channel.SimulateOrderWebServiceAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request) {
+        Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request) {
             return base.Channel.PartnerWebService(request);
         }
         
-        public Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerWebService(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest();
+        public Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerResponse PartnerWebService(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest();
             inValue.PartnerRequest = PartnerRequest;
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 retVal = ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebService(inValue);
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1 retVal = ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebService(inValue);
             return retVal.PartnerResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request) {
+        System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType.PartnerWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest request) {
             return base.Channel.PartnerWebServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
-            Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest inValue = new Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest();
+        public System.Threading.Tasks.Task<Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceResponse1> PartnerWebServiceAsync(Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerRequest PartnerRequest) {
+            Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest inValue = new Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.PartnerWebServiceRequest();
             inValue.PartnerRequest = PartnerRequest;
-            return ((Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebServiceAsync(inValue);
+            return ((Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices.StorefrontWebServices_PortType)(this)).PartnerWebServiceAsync(inValue);
         }
     }
 }

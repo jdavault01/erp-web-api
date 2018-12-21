@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using Pki.eBusiness.WebApi.Entities.StoreFront.Account;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
-using Partner = Pki.eBusiness.WebApi.Entities.StoreFront.Account.Partner;
-using SimplePartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.SimplePartnerRequest;
-using StorefrontPartnerRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerRequest;
-using PartnerResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerResponse;
-using PartnerResponseDetail = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerResponseDetail;
-using PartnerResponseHeader = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PartnerResponseHeader;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.Entities.Account;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using Partner = Pki.eBusiness.ErpApi.Entities.Account.Partner;
+using SimplePartnerRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.SimplePartnerRequest;
+using StorefrontPartnerRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerRequest;
+using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
+using PartnerResponseDetail = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponseDetail;
+using PartnerResponseHeader = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponseHeader;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     public static class AccountExtension
     {
@@ -86,14 +86,14 @@ namespace Pki.eBusiness.WebApi.DataAccess.Extensions
         //    return result.ContactCreateRequest;
         //}
 
-        public static string ToWmContactCreateRequest(this Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest request)
+        public static string ToWmContactCreateRequest(this Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest request)
         {
             return new ContactCreateServiceRequest(request).JsonRequest;
         }
 
-        public static Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
+        public static Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
         {
-            var result = new Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateResponse(response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
+            var result = new Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateResponse(response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
             return result;
         }
     }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects;
-using Pki.eBusiness.WebApi.Entities.StoreFront.ProductCatalog;
-using InventoryResponse = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.InventoryResponse;
-using StorefrontInventoryRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.InventoryRequest;
-using StorefrontPriceRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.PriceRequest;
-using StorefrontSimulateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.SimulateOrderRequest;
-using StorefrontCreateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.CreateOrderRequest;
-using Pki.eBusiness.WebApi.DataAccess.Models;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using Pki.eBusiness.ErpApi.Entities.ProductCatalog;
+using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
+using StorefrontInventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
+using StorefrontPriceRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.PriceRequest;
+using StorefrontSimulateOrderRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.SimulateOrderRequest;
+using StorefrontCreateOrderRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.CreateOrderRequest;
+using Pki.eBusiness.ErpApi.DataAccess.Models;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     public static class CatalogExtensions
     {

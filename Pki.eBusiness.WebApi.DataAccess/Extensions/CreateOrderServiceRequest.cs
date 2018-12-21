@@ -1,8 +1,8 @@
 ﻿using System.Runtime.Serialization;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
-using StorefrontCreateOrderRequest = Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.CreateOrderRequest;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using StorefrontCreateOrderRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.CreateOrderRequest;
 
-namespace Pki.eBusiness.WebApi.DataAccess.Extensions
+namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 {
     public class CreateOrderServiceRequest
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.Serialization;
-using Pki.eBusiness.WebApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
 
-namespace Pki.eBusiness.WebApi.DataAccess
+namespace Pki.eBusiness.ErpApi.DataAccess
 {
     [DataContract]
     public partial class ContactCreateRequest
@@ -14,7 +14,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         ContactCreateRequestDetail ContactCreateRequestDetail;
         public ContactCreateRequest() { }
 
-        public ContactCreateRequest(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequest(Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest request)
         {
             ContactCreateRequestHeader = new ContactCreateRequestHeader(request);
             ContactCreateRequestDetail = new ContactCreateRequestDetail(request);
@@ -50,7 +50,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         [DataMember]
         public Datetime Datetime { get; set; }
         public ContactCreateRequestHeader() { }
-        public ContactCreateRequestHeader(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequestHeader(Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest request)
         {
             var datetime3 = new Datetime()
             {
@@ -93,7 +93,7 @@ namespace Pki.eBusiness.WebApi.DataAccess
         [DataMember]
         Telephone[] Telephone { get; set; }
 
-        public ContactCreateRequestDetail(Pki.eBusiness.WebApi.Entities.StoreFront.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequestDetail(Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest request)
         {
             FirstName = request.FirstName;
             LastName = request.LastName;
