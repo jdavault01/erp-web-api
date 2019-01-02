@@ -31,6 +31,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
+
+        private ERPRestSettings _erpSettings;
         //private readonly OrderInfo_WebService_PortType _soapSAPOrderInfoService;
 
         //Let's get DI going with this guy
@@ -44,11 +46,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="soapClient"></param>
-        public WebMethodClient()
+        public WebMethodClient(ERPRestSettings erpSettings)
         {
+            _erpSettings = erpSettings;
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
-            //_soapSAPOrderInfoService = new OrderInfo_WebService_PortTypeClient();
         }
 
         #endregion // Constructors
@@ -270,7 +272,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = contactCreateRequest.ToWmContactCreateRequest();
             LogRequest(request);
-            var _erpSettings = RestGatewaySettings.GetElement<ERPRestSettings>("pkieBusiness/erpRestSettings");
             var _erpRestGateway = new ERPRestGateway(_erpSettings, null);
             var wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
             LogResponse(wmCreateContentResponse);

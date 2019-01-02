@@ -12,7 +12,7 @@ using Pki.eBusiness.ErpApi.Web.UIHelpers;
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
 
-    [Route("wms/orders/{action}")]
+    [Route("wms/orders/[action]")]
     [Produces("application/json")]
     public class OrderController : ControllerBase
     {

@@ -45,8 +45,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private string CallERPService(string payLoad, string resourceName)
         {
-            var endPoint = _erpRestSettings.BaseUrl + "/" + _erpRestSettings.Resources[resourceName].Path;
-            var method = _erpRestSettings.Resources[resourceName].Method;
+            var endPoint = _erpRestSettings.GetEndpoint(resourceName);
+            var method = _erpRestSettings.GetResource(resourceName)?.Method;
             string restResponse = "Error";
             try
             {
@@ -66,8 +66,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private string CallWMRestServices(string payLoad, string resourceName)
         {
-            var endPoint = _erpRestSettings.BaseUrl + "/" + _erpRestSettings.Resources[resourceName].Path;
-            var method = _erpRestSettings.Resources[resourceName].Method;
+            var endPoint = _erpRestSettings.GetEndpoint(resourceName);
+            var method = _erpRestSettings.GetResource(resourceName)?.Method;
 
             var request = (HttpWebRequest)WebRequest.Create(endPoint);
             string restResponse = "Error";

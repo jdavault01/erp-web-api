@@ -15,7 +15,7 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
-        public CompanyService(IWebMethodClient webMethodsClient, IShopCommerceServiceGateway shopCommerceServiceAgent, IERPRestGateway erpGateway)
+        public CompanyService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway)
         {
             _erpGateway = erpGateway;
         }

@@ -82,43 +82,43 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
             return _accountService.PartnerLookup(payload);
         }
 
-        [Route("shop/account/GetPOSUser")]
-        [HttpPost]
-        public ActionResult<LoginInfo> GetPunchOutUser([FromBody] string companyCode)
-        {
-            LoginInfo loginInfo;
+        //[Route("shop/account/GetPOSUser")]
+        //[HttpPost]
+        //public ActionResult<LoginInfo> GetPunchOutUser([FromBody] string companyCode)
+        //{
+        //    LoginInfo loginInfo;
 
-            if (companyCode == null)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-                return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-            }
-            if (!ModelState.IsValid)
-            {
-                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-                return BadRequest(ModelState);
-            }
+        //    if (companyCode == null)
+        //    {
+        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
+        //        return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
+        //    }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
+        //        return BadRequest(ModelState);
+        //    }
 
-            try
-            {
-                loginInfo = _accountService.GetLoginInfo(companyCode);
+        //    try
+        //    {
+        //        loginInfo = _accountService.GetLoginInfo(companyCode);
 
-                if (loginInfo == null)
-                {
-                    Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                    return NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-                }
+        //        if (loginInfo == null)
+        //        {
+        //            Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
+        //            return NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
+        //        }
 
-            }
-            catch (Exception e)
-            {
-                Log(e.Message);
-                return BadRequest(e.Message);
-            }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log(e.Message);
+        //        return BadRequest(e.Message);
+        //    }
 
 
-            return Ok(loginInfo);
-        }
+        //    return Ok(loginInfo);
+        //}
 
         /// <summary>
         /// This method will log message to log file

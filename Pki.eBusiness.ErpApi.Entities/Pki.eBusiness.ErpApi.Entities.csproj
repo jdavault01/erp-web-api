@@ -5,33 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Settings\ERPRestSettings.csd.cs">
-      <DependentUpon>ERPRestSettings.csd</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </None>
+    <Compile Remove="RestGatewaySettings.cs" />
+    <Compile Remove="Settings\ERPRestSettings.csd.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Settings\ERPRestSettings.csd" />
+    <None Remove="Settings\ERPRestSettings.csd.config" />
+    <None Remove="Settings\ERPRestSettings.csd.diagram" />
+    <None Remove="Settings\ERPRestSettings.csd.xsd" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Settings\ERPRestSettings.csd">
-      <LastGenOutput>ERPRestSettings.csd.cs</LastGenOutput>
-      <Generator>CsdFileGenerator</Generator>
-    </None>
-    <None Update="Settings\ERPRestSettings.csd.config">
-      <DependentUpon>ERPRestSettings.csd</DependentUpon>
-    </None>
-    <None Update="Settings\ERPRestSettings.csd.diagram">
-      <DependentUpon>ERPRestSettings.csd</DependentUpon>
-    </None>
-    <None Update="Settings\ERPRestSettings.csd.xsd">
-      <DependentUpon>ERPRestSettings.csd</DependentUpon>
-    </None>
   </ItemGroup>
 
   <ItemGroup>

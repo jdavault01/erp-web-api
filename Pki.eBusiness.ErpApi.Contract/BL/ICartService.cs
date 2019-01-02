@@ -4,6 +4,6 @@ namespace Pki.eBusiness.ErpApi.Contract.BL
 {
     public interface ICartService
     {
-        CartInfo GetClearanceCode(CartInfo cartInfo);
+        //CartInfo GetClearanceCode(CartInfo cartInfo);
     }
 }

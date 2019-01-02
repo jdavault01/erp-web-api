@@ -11,7 +11,7 @@ namespace Pki.eBusiness.ErpApi.Business.Services
     {
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
-        private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
+        //private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
         private readonly IERPRestGateway _erpGateway;
 
         private const string NO_PRICE_RESPONSE = "No Price Respnose";
@@ -21,10 +21,10 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// </summary>
         /// <param name="webMethodsClient"></param>
         /// <param name="shopCommerceServiceAgent"></param>
-        public AccountService(IWebMethodClient webMethodsClient, IShopCommerceServiceGateway shopCommerceServiceAgent, IERPRestGateway erpGateway)
+        public AccountService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway)
         {
             _webMethodClient = webMethodsClient;
-            _shopCommerceServiceGateway = shopCommerceServiceAgent;
+            //_shopCommerceServiceGateway = shopCommerceServiceAgent;
             _erpGateway = erpGateway;
 
         }
@@ -67,11 +67,11 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// </summary>
         /// <param name="companyCode"></param>
         /// <returns></returns>
-        public LoginInfo GetLoginInfo(String companyCode)
-        {
-            return _shopCommerceServiceGateway.GetLoginInfo(companyCode);
+        //public LoginInfo GetLoginInfo(String companyCode)
+        //{
+        //    return _shopCommerceServiceGateway.GetLoginInfo(companyCode);
 
-        }
+        //}
 
         /// <summary>
         /// This method takes a client partner request model and converts, makes calls and converts response

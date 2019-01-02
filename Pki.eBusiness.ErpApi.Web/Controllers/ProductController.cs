@@ -8,7 +8,7 @@ using Pki.eBusiness.ErpApi.Web.UIHelpers;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
-    [Route("wms/products/{action}")]
+    [Route("wms/products/[action]")]
 
     public class ProductController : ControllerBase
     {

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Pki.eBusiness.ErpApi.Entities.Settings;
 using Pki.eBusiness.ErpApi.Web.Attributes;
 using Pki.eBusiness.ErpApi.Web.Filters;
 using Swashbuckle.AspNetCore.Swagger;
@@ -18,6 +14,7 @@ namespace Pki.eBusiness.ErpApi.Web
 {
     public class Startup
     {
+        private const string SWAGGER_DOC_NAME = "Erp API";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,18 +25,27 @@ namespace Pki.eBusiness.ErpApi.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<AutoMapperProfile>();
+            });
             services.AddMvc(config =>
             {
                 config.Filters.Add(new ValidationExceptionFilterAttribute());
                 config.Filters.Add(new IPLoggingFilter());
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.Scan(scan =>
-                scan.FromCallingAssembly()
-                    .AddClasses()
-                    .AsMatchingInterface());
+            {
+                var one = scan.FromApplicationDependencies(a => a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture));
+                var two = one.AddClasses();
+                var three = two.AsMatchingInterface();
+            });
+            var erpRestSettings = new ERPRestSettings();
+            Configuration.Bind("ErpRestSettings", erpRestSettings);
+            services.AddSingleton(erpRestSettings);
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Erp API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = SWAGGER_DOC_NAME, Version = "v1" });
             });
         }
 
@@ -52,14 +58,10 @@ namespace Pki.eBusiness.ErpApi.Web
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", SWAGGER_DOC_NAME);
             });
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
+            if (!env.IsDevelopment())
             {
                 app.UseHsts();
             }

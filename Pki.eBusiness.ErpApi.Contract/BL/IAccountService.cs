@@ -10,7 +10,7 @@ namespace Pki.eBusiness.ErpApi.Contract.BL
         //New simpler request
         PartnerResponse GetPartnerDetails(SimplePartnerRequest request);
         ContactCreateResponse CreateContact(ContactCreateRequest request);
-        LoginInfo GetLoginInfo(String companyCode);
+        //LoginInfo GetLoginInfo(String companyCode);
         PartnerResponse PartnerLookup(SimplePartnerRequest request);
     }
 }

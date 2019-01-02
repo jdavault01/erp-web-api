@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DAL\IShopCommerceServiceGateway.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Entities\Pki.eBusiness.ErpApi.Entities.csproj" />
   </ItemGroup>
 

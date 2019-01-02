@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Pki.eBusiness.ErpApi.Web.Models;
 
 namespace Pki.eBusiness.ErpApi.Web.Attributes
 {
@@ -20,6 +22,11 @@ namespace Pki.eBusiness.ErpApi.Web.Attributes
                 //throw new httpreqHttpResponseException(resp);
                 context.ExceptionHandled = true;
                 
+            }
+            else
+            {
+                context.Result = new JsonResult(new ExceptionResponse(context.Exception));
+                context.HttpContext.Response.StatusCode = 500;
             }
         }
     }
