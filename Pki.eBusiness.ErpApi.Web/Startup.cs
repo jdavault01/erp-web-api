@@ -61,10 +61,10 @@ namespace Pki.eBusiness.ErpApi.Web
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", SWAGGER_DOC_NAME);
             });
 
-            if (!env.IsDevelopment())
-            {
-                app.UseHsts();
-            }
+            //if (!env.IsDevelopment())
+            //{
+            //    app.UseHsts();
+            //}
 
             app.UseHttpsRedirection();
             app.UseMvc();
