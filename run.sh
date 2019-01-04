@@ -1,0 +1,1 @@
+sudo docker run -d --name erp-api --network ecommerce erp-api
