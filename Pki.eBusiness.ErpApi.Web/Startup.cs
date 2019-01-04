@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pki.eBusiness.ErpApi.Entities.Settings;
+using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.Attributes;
 using Pki.eBusiness.ErpApi.Web.Filters;
 using Swashbuckle.AspNetCore.Swagger;
@@ -43,6 +44,9 @@ namespace Pki.eBusiness.ErpApi.Web
             var erpRestSettings = new ERPRestSettings();
             Configuration.Bind("ErpRestSettings", erpRestSettings);
             services.AddSingleton(erpRestSettings);
+            var loggerConfiguration = new LoggerConfiguration();
+            Configuration.Bind("LoggerConfiguration", loggerConfiguration);
+            services.AddSingleton(loggerConfiguration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = SWAGGER_DOC_NAME, Version = "v1" });
