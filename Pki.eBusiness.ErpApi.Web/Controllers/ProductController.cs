@@ -43,7 +43,8 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
                 return NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PRICE_RESPONSE);
             }
 
-            return new PriceResponseModel(priceResponseEntity);
+            return Ok(priceResponseEntity);
+           //return Ok(new PriceResponseModel(priceResponseEntity));
         }
 
         /// <summary>
