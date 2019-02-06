@@ -1,0 +1,46 @@
+﻿{
+
+   "SellerOrderID": "30361546",
+   "ShippingCost":55.00,
+   "LineItems":[
+      {
+         "ShippingPoint":"NKCN",
+         "OrderLineNumber":1,
+         "ProductID":"09902005",
+         "Description": "O-Ring Packing 5427",
+         "Availability":{
+            "AvailableQty":0.000,
+            "AvailableDate":"20180806"
+         },
+         "AdjustedPrice":1.00,
+         "Discount":0.00,
+         "TaxVAT":0.00
+      },
+      {
+         "ShippingPoint":"ADCN",
+         "OrderLineNumber":2,
+         "ProductID":"09902006",
+         "Description": "Silicone O-Ring",
+         "Availability":{
+            "AvailableQty":0.000,
+            "AvailableDate":"20180806"
+         },
+         "AdjustedPrice":2.00,
+         "Discount":0.00,
+         "TaxVAT":0.00
+      },
+      {
+         "ShippingPoint":"US36",
+         "OrderLineNumber":3,
+         "ProductID":"AL269S",
+	 "Description": "AlphaLISA hMMP2, lyophylized (0.3 ug",
+         "Availability":{
+            "AvailableQty":0.00,
+            "AvailableDate":"20180809"
+         },
+         "AdjustedPrice":240.00,
+         "Discount":0.00,
+         "TaxVAT":0.00
+      }
+   ]
+}

@@ -1,0 +1,24 @@
+﻿{
+  "ContactList":{
+	 "Contact":[
+		{
+		   "Id":"0000242759",
+		   "FirstName":"PKI",
+		   "LastName":"EMPLOYEE",
+		   "EmailAddress":"NO EMAIL ADDRESS IN SAP",
+		   "ParentAccount":"0100512991"
+		},
+		{
+		   "Id":"0001331959",
+		   "FirstName":"SUBASH",
+		   "LastName":"NARASIMHAN",
+		   "EmailAddress":"subash.narasimhan+testco@gmail.com",
+		   "ParentAccount":"0100512991"
+		}
+	 ]
+  },
+  "Error":{
+	 "ErrorNumber":"11111",
+	 "ErrorType":"FATAL"
+  }
+}

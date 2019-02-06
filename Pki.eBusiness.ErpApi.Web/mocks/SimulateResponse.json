@@ -1,0 +1,35 @@
+﻿{
+   "PaymentTerms":"Due Upon Receipt",
+   "INCOTerms":"FOB Factory - Prepay & Add",
+   "INCOCode":"F02 ",
+   "Currency":"USD",
+   "ShippingCost":55.00,
+   "TaxVAT":0.00,
+   "OrderTotal":4861.0,
+   "LineItems":[
+      {
+         "ShippingPoint":"ADCN",
+         "OrderLineNumber":1,
+         "ProductID":"09902006",
+         "Availability":{
+            "AvailableQty":3.000,
+            "AvailableDate":"20180607"
+         },
+         "AdjustedPrice":2.00,
+         "Discount":0.00,
+         "TaxVAT":0.00
+      },
+      {
+         "ShippingPoint":"US36",
+         "OrderLineNumber":2,
+         "ProductID":"AL269S",
+         "Availability":{
+            "AvailableQty":0.00,
+            "AvailableDate":"20180607"
+         },
+         "AdjustedPrice":240.00,
+         "Discount":0.00,
+         "TaxVAT":0.00
+      }
+   ]
+}

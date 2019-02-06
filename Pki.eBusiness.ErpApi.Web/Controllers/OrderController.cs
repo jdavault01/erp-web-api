@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Net;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
-//using PKI.eBusiness.WMService.Entities.Stubs.StoreFront;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
@@ -123,6 +124,21 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
 
             return Ok(inventoryResponseEntity);
 
+        }
+
+        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(PunchoutOrderMessageResponse))]
+        [HttpPost]
+        public ActionResult<PunchoutOrderMessageResponse> PunchoutOrderMessage([FromBody] PunchOutOrderMessageRequest payload)
+        {
+            if (!ModelState.IsValid)
+            {
+                Log("Invalid Model on PunchoutOrderMessage Request");
+                return BadRequest("Invalid Model on PunchoutOrderMessage Request");
+            }
+            string filePath = Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\PunchoutOrderMessageResponse.json");
+            var source = System.IO.File.ReadAllText(filePath);
+            var orderResponseEntity = JsonConvert.DeserializeObject<PunchoutOrderMessageResponse>(source);
+            return Ok(orderResponseEntity);
         }
 
         /// <summary>

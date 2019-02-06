@@ -1,0 +1,55 @@
+﻿{
+      "ShipTos":[
+	   {
+            "Id":"0100512991",
+            "Address":{
+               "Name1":"PKI EMPS  MAPPING-TEST- DO NOT SHIP",
+               "Name2":"*TEST ACCOUNT WEB USE ONLY*",
+               "Street":"****DO NOT SHIP!!!!!!!!****",
+               "City":"SHELTON",
+               "District":"CT",
+               "Country":"US",
+               "PostalCode":"06484",
+               "Region":"CT",
+               "RADFlag":false,
+               "ParentAccount":"0100512991"
+            }
+	   }
+      ],
+      "BillTos":[
+			{
+               "Id":"0004504265",
+               "Address":{
+                  "Name1":"PKI  & EMPLOYEE MAPPING",
+                  "Name2":"ACCOUNTS PAYABLE",
+                  "Street":"***DO - NOT & SEND***",
+                  "City":"SHELTON",
+                  "District":"CT",
+                  "Country":"US",
+                  "PostalCode":"06484",
+                  "Region":"CT",
+                  "RADFlag":false,
+                  "ParentAccount":"0100512991"
+               }
+            },
+            {
+               "Id":"0004504265",
+               "Address":{
+                  "Name1":"PKI  & EMPLOYEE MAPPING",
+                  "Name2":"ACCOUNTS PAYABLE",
+                  "Street":"***DO - NOT & SEND***",
+                  "City":"SHELTON",
+                  "District":"CT",
+                  "Country":"US",
+                  "PostalCode":"06484",
+                  "Region":"CT",
+                  "RADFlag":false,
+                  "ParentAccount":"0100512991"
+               }
+            }
+        ],
+      "Error":{
+         "ErrorNumber":"11111",
+         "ErrorType":"FATAL"
+      }
+}
