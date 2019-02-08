@@ -8,6 +8,7 @@ using Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Entities.Settings;
+using RestSharp;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -45,8 +46,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private string CallERPService(string payLoad, string resourceName)
         {
-            var endPoint = _erpRestSettings.GetEndpoint(resourceName);
-            var method = _erpRestSettings.GetResource(resourceName)?.Method;
+            //var endPoint = _erpRestSettings.GetEndpoint(resourceName); 
+            //var method = _erpRestSettings.GetResource(resourceName)?.Method;
+            var endPoint = "http://165.88.161.141:5556/rest/pei.sap002.inbound.ContactCreateRequest.ContactCreateWebService";
+            var method = "post";
+
             string restResponse = "Error";
             try
             {
