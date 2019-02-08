@@ -11,7 +11,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Account
         public bool RadIndicator { get; set; }
         public string PartnerId { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
         public PartnerType PartnerType { get; set; }
 
         public Partner()

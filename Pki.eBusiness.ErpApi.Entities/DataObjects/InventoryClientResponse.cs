@@ -50,7 +50,7 @@ namespace Pki.eBusiness.ErpApi.Entities.DataObjects
         public string OrderLineNumber { get; set; }
 
         
-        [JsonProperty(PropertyName = "availability")]
+        [JsonProperty(PropertyName = "Availability")]
         public Availability[] Availabilities { get; set; }
 
     }

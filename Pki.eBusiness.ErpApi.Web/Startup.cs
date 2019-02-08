@@ -10,6 +10,8 @@ using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.Attributes;
 using Pki.eBusiness.ErpApi.Web.Filters;
 using Swashbuckle.AspNetCore.Swagger;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Converters;
 
 namespace Pki.eBusiness.ErpApi.Web
 {
@@ -34,7 +36,13 @@ namespace Pki.eBusiness.ErpApi.Web
             {
                 config.Filters.Add(new ValidationExceptionFilterAttribute());
                 config.Filters.Add(new IPLoggingFilter());
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                //options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            }); 
+
             services.Scan(scan =>
             {
                 var one = scan.FromApplicationDependencies(a => a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture));

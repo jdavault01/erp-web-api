@@ -8909,6 +8909,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices
             {
                 System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
                 result.MaxBufferSize = int.MaxValue;
+                result.SendTimeout = new System.TimeSpan(0, 10, 0);
                 result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
                 result.MaxReceivedMessageSize = int.MaxValue;
                 result.AllowCookies = true;

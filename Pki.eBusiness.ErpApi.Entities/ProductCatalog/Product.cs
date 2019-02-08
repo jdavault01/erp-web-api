@@ -6,8 +6,7 @@ namespace Pki.eBusiness.ErpApi.Entities.ProductCatalog
     
     public class Product
     {
-        [JsonProperty(PropertyName = "productId")]
-        
+        [JsonProperty(PropertyName = "ProductId")]
         public string PartNumber { get; set; }
 
         
