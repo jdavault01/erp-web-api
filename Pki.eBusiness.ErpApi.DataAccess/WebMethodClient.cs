@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
 using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
 using Pki.eBusiness.ErpApi.DataAccess.WMService;
-using Pki.eBusiness.ErpApi.Entities;
 using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.Extensions;
@@ -31,12 +29,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
-
-        private ERPRestSettings _erpSettings;
-        //private readonly OrderInfo_WebService_PortType _soapSAPOrderInfoService;
-
-        //Let's get DI going with this guy
-        //private ERPRestSettings _erpRestSettings;
+        private readonly IERPRestGateway _erpRestGateway;
 
         #endregion // Private variables
 
@@ -46,9 +39,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="soapClient"></param>
-        public WebMethodClient(ERPRestSettings erpSettings)
+        public WebMethodClient(ERPRestSettings erpSettings, IERPRestGateway erpRestGateway)
         {
-            _erpSettings = erpSettings;
+            _erpRestGateway = erpRestGateway;
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
         }
@@ -267,15 +260,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         }
 
-        public Entities.DataObjects.ContactCreateResponse CreateContact(Entities.DataObjects.ContactCreateRequest contactCreateRequest)
+        public ContactCreateClientResponse CreateContact(ContactCreateClientRequest contactCreateRequest)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
-            var request = contactCreateRequest.ToWmContactCreateRequest();
-            LogRequest(request);
-            var _erpRestGateway = new ERPRestGateway(_erpSettings, null);
-            var wmCreateContentResponse = _erpRestGateway.CreateContact(request, "ContactCreateRequest");
-            LogResponse(wmCreateContentResponse);
-            return wmCreateContentResponse.ToContactCreateResponse();
+            return _erpRestGateway.CreateContact(contactCreateRequest);
         }
 
 

@@ -18,7 +18,7 @@ namespace Pki.eBusiness.ErpApi.Contract.DAL
         //PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
         //New Partner request with simpler JSON
         PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
-        ContactCreateResponse CreateContact(ContactCreateRequest contactCreateRequest);
+        ContactCreateClientResponse CreateContact(ContactCreateClientRequest contactCreateRequest);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
         CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest);
     }

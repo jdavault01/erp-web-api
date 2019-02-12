@@ -22,13 +22,13 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
 
         [Route("wms/partners/create")]
         [HttpPost]
-        public ActionResult<ContactCreateResponse> Partners([FromBody] ContactCreateRequest payload)
+        public ActionResult<ContactCreateClientResponse> Partners([FromBody] ContactCreateClientRequest payload)
         {
             payload.SalesAreaInfo = new SalesArea(payload.SalesOrg);
             var phone = new PhoneNumber { Number = payload.PhoneNumber, Qualifier = "DayPhone"};
             payload.PhoneNumbers = new List<PhoneNumber>{phone}; 
 
-            ContactCreateResponse createContentResponse = _accountService.CreateContact(payload);
+            ContactCreateClientResponse createContentResponse = _accountService.CreateContact(payload);
             if (createContentResponse == null)
             {
                 Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_CREATE_CONTENT_RESPONSE);

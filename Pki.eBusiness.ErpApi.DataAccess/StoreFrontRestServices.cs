@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Runtime.Serialization;
 using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
+using Pki.eBusiness.ErpApi.Entities.DataObjects;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -15,7 +16,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         ContactCreateRequestDetail ContactCreateRequestDetail;
         public ContactCreateRequest() { }
 
-        public ContactCreateRequest(Entities.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequest(Entities.DataObjects.ContactCreateClientRequest request)
         {
             ContactCreateRequestHeader = new ContactCreateRequestHeader(request);
             ContactCreateRequestDetail = new ContactCreateRequestDetail(request);
@@ -36,6 +37,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             ContactCreateRequest = contactCreateRequest;
         }
+
+         public ContactCreateWebServiceRequest(ContactCreateClientRequest clientRequest)
+        {
+            ContactCreateRequest = new ContactCreateRequest(clientRequest);
+        }
+
     }
 
 
@@ -53,7 +60,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         [DataMember]
         public Datetime Datetime { get; set; }
         public ContactCreateRequestHeader() { }
-        public ContactCreateRequestHeader(Entities.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequestHeader(Entities.DataObjects.ContactCreateClientRequest request)
         {
             var datetime3 = new Datetime()
             {
@@ -97,7 +104,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         [DataMember]
         Telephone[] Telephone { get; set; }
         
-        public ContactCreateRequestDetail(Entities.DataObjects.ContactCreateRequest request)
+        public ContactCreateRequestDetail(Entities.DataObjects.ContactCreateClientRequest request)
         {
             FirstName = request.FirstName;
             LastName = request.LastName;
@@ -114,6 +121,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
     {
         [DataMember]
         public ContactCreateResponse ContactCreateResponse { get; set; }
+
+        public ContactCreateClientResponse ToResponse()
+        {
+            return new ContactCreateClientResponse(this.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
+        }
     }
 
 

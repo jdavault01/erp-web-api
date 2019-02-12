@@ -79,7 +79,7 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// </summary>
         /// <param name="partnerRequest"></param>
         /// <returns></returns>
-        public ContactCreateResponse CreateContact(ContactCreateRequest contactCreateRequest)
+        public ContactCreateClientResponse CreateContact(ContactCreateClientRequest contactCreateRequest)
         {
             return _webMethodClient.CreateContact(contactCreateRequest);
 

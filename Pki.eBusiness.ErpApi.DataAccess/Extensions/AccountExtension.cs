@@ -84,15 +84,15 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
         //    return result.ContactCreateRequest;
         //}
 
-        public static string ToWmContactCreateRequest(this Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateRequest request)
-        {
-            return new ContactCreateServiceRequest(request).JsonRequest;
-        }
+        //public static ContactCreateWebServiceRequest ToWmContactCreateRequest(this Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateClientRequest request)
+        //{
+        //    return new ContactCreateServiceRequest(request).Request;
+        //}
 
-        public static Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
-        {
-            var result = new Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateResponse(response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
-            return result;
-        }
+        //public static Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateClientResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
+        //{
+        //    var result = new ContactCreateClientResponse(response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
+        //    return result;
+        //}
     }
 }

@@ -11,6 +11,14 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
         public string ApiKey { get; set; }
         public List<Resource> Resources { get; set; }
 
+        protected Resource this[string name]
+        {
+            get { return this.Resources?.FirstOrDefault(r => r.Name == name); }
+        }
+
+        public Resource GetContactCreateRequest => this["GetContactCreateRequest"];
+
+
         public string GetEndpoint(string resourceName)
         {
             var resource = Resources.FirstOrDefault(c => c.Name == resourceName);

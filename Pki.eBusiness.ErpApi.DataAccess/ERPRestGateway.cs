@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Text;
 using Newtonsoft.Json;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.DataAccess.ErpApi;
@@ -9,6 +10,8 @@ using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Entities.Settings;
 using RestSharp;
+using RestSharp.Deserializers;
+using Pki.eBusiness.ErpApi.DataAccess.Extensions;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -16,18 +19,24 @@ namespace Pki.eBusiness.ErpApi.DataAccess
     {
         private ERPRestSettings _erpRestSettings;
         private IErpApi _erpApi;
+        protected RestClient _restClient { get; set; }
+
         public ERPRestGateway(ERPRestSettings erpRestSettings, IErpApi erpApi)
         {
+            _restClient = new RestClient();
+            _restClient.ClearHandlers();
+            _restClient.AddHandler("application/json", new NewtonsoftJsonSerializer());
             _erpRestSettings = erpRestSettings;
             _erpApi = erpApi;
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
         }
 
-        //List the individual method calls -- e.g CreateContact, GetCompanyContacts, GetCompanyPartnerInfo 
-        public ContactCreateWebServiceResponse CreateContact(string payLoad, string resourceName)
+
+        public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
-            var response = CallERPService(payLoad, resourceName);
-            return JsonConvert.DeserializeObject<ContactCreateWebServiceResponse>(response);
+            var payLoad = new ContactCreateWebServiceRequest(request);
+            var result = ExecuteCall<ContactCreateWebServiceResponse>(_erpRestSettings.BaseUrl, _erpRestSettings.GetContactCreateRequest, payLoad);
+            return result.ToResponse();
         }
 
         public SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request)
@@ -44,66 +53,23 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return result.ToPartnerResponse();
         }
 
-        private string CallERPService(string payLoad, string resourceName)
+        private T ExecuteCall<T>(string baseUrl, Resource resource, object payLoad) where T : new()
         {
-            //var endPoint = _erpRestSettings.GetEndpoint(resourceName); 
-            //var method = _erpRestSettings.GetResource(resourceName)?.Method;
-            var endPoint = "http://165.88.161.141:5556/rest/pei.sap002.inbound.ContactCreateRequest.ContactCreateWebService";
-            var method = "post";
-
-            string restResponse = "Error";
-            try
+            if (Enum.TryParse(resource.Method.ToUpper(), out Method method))
             {
-                using (var client = new WebClient())
+                _restClient.BaseUrl = new Uri(baseUrl);
+                var request = new RestSharp.RestRequest(resource.Path, method)
                 {
-                    client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    client.Headers.Add(HttpRequestHeader.Accept, "application/json");
-                    restResponse = client.UploadString(new Uri(endPoint), method, payLoad);
-                }
+                    JsonSerializer = new NewtonsoftJsonSerializer()
+                };
+                request.AddJsonBody(payLoad);
+                IRestResponse<T> response = _restClient.Execute<T>(request);
+                if (response.StatusCode == HttpStatusCode.NotFound)
+                    return default(T);
+                return response.Data;
+
             }
-            catch (Exception ex)
-            {
-                restResponse = "Error: " + ex.Message;
-            }
-            return restResponse;
-        }
-
-        private string CallWMRestServices(string payLoad, string resourceName)
-        {
-            var endPoint = _erpRestSettings.GetEndpoint(resourceName);
-            var method = _erpRestSettings.GetResource(resourceName)?.Method;
-
-            var request = (HttpWebRequest)WebRequest.Create(endPoint);
-            string restResponse = "Error";
-
-            request.Method = method;
-            request.ContentType = "application/json";
-            request.ContentLength = payLoad.Length;
-            using (var requestWriter = new StreamWriter(request.GetRequestStream(), System.Text.Encoding.ASCII))
-            {
-                requestWriter.Write(payLoad);
-            }
-
-			using (var response = (HttpWebResponse)request.GetResponse())
-			{
-				if (response.StatusCode != HttpStatusCode.OK)
-				{
-					throw new ApplicationException("Error Code: " + response.StatusCode);
-				}
-				using (var responseStream =  response.GetResponseStream())
-				{
-					if (responseStream != null)
-					{
-						using (var responseReader = new StreamReader(responseStream))
-						{
-                            restResponse = responseReader.ReadToEnd();
-									
-						}
-					}
-				}
-			}
-
-            return restResponse;
+            return default(T);
         }
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
@@ -126,7 +92,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var result = _erpApi.PartnerLookupPost(req);
             return result.ToCompanyInfoResponse();
         }
-
 
     }
 }
