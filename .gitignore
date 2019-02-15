@@ -327,3 +327,4 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
+/Pki.eBusiness.ErpApi.DataAccess/Models/Orders/OrderResponse2.cs

@@ -13,49 +13,49 @@ namespace Pki.eBusiness.ErpApi.Entities.Extensions
         /// <param name="request">orderlookuprequest</param>
         /// <returns>ordersummaryrequest</returns>
 
-        public static OrderSummaryRequest ToWmLookUpRequest(this OrderSummaryLookUpRequest request)
-        {
-            var shipToList = new List<ShipTo>();
-            shipToList.Add(GetDefaultShipTo(request.SAPOrderNumber));
-            var result = new OrderSummaryRequest()
-            {
-                Header = new OrderLookUpHeader
-                {
-                    VersionNumber = new VersionNumber()
-                    {
-                        Value = "001",
-                        Data = "001"
-                    },
+        //public static OrderSummaryRequest ToWmLookUpRequest(this OrderSummaryLookUpRequest request)
+        //{
+        //    var shipToList = new List<ShipTo>();
+        //    shipToList.Add(GetDefaultShipTo(request.SAPOrderNumber));
+        //    var result = new OrderSummaryRequest()
+        //    {
+        //        Header = new OrderLookUpHeader
+        //        {
+        //            VersionNumber = new VersionNumber()
+        //            {
+        //                Value = "001",
+        //                Data = "001"
+        //            },
 
-                    Sender = new OrderSender()
-                    {
-                        LogicalID = "SF",
-                        Task = "DisplayOrderSummary"
-                    }
+        //            Sender = new OrderSender()
+        //            {
+        //                LogicalID = "SF",
+        //                Task = "DisplayOrderSummary"
+        //            }
 
-                },
-                Body = new OrderLookUpBody()
-                {
-                    RequestHeader = new OrderSummaryRequestHeader()
-                    {
-                        ContactNameID = string.Empty,
-                        // SalesOrgID =string.Empty,
-                        DivisionID = "02",
-                        DistChannelID = "01",
-                        ToDateString = string.Empty,
-                        FromDateString = string.Empty,
-                        Language = request.Language,
-                        ShipToList = shipToList
-                    }
+        //        },
+        //        Body = new OrderLookUpBody()
+        //        {
+        //            RequestHeader = new OrderSummaryRequestHeader()
+        //            {
+        //                ContactNameID = string.Empty,
+        //                // SalesOrgID =string.Empty,
+        //                DivisionID = "02",
+        //                DistChannelID = "01",
+        //                ToDateString = string.Empty,
+        //                FromDateString = string.Empty,
+        //                Language = request.Language,
+        //                ShipToList = shipToList
+        //            }
 
-                },
+        //        },
 
 
-            };
+        //    };
 
-            return result;
+        //    return result;
 
-        }
+        //}
 
         public static ShipTo GetDefaultShipTo(string sapOrderNumber)
         {

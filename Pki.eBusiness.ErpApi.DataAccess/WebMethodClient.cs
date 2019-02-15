@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
+using Pki.eBusiness.ErpApi.DataAccess.Models.Orders;
 using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
 using Pki.eBusiness.ErpApi.DataAccess.WMService;
 using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Entities.Extensions;
+//using Pki.eBusiness.ErpApi.Entities.Extensions;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.ProductCatalog;
 using Pki.eBusiness.ErpApi.Entities.Settings;
@@ -16,6 +17,7 @@ using Pki.eBusiness.ErpApi.Logger;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
+using ClientModel = Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -55,23 +57,44 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             Log(xml.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
+        }
 
+        public OrderDetailResponse GetOrderDetails(OrderSummaryLookUpRequest request)
+        {
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var webServiceDetailRequest = new OrderDetailRequest(request.SAPOrderNumber).ToRequest();
+            Log(webServiceDetailRequest.xmlRequest.Replace("\r\n", ""));
+            Log(ErrorMessages.INVOKING_SERVICE);
+            OrderInfoWebServiceRequest DetailReq = new OrderInfoWebServiceRequest(webServiceDetailRequest.xmlRequest, webServiceDetailRequest.node);
+            var webOrderDetailResponse = new OrderInfoResponse
+            {
+                xmlResponse = _soapStoreFrontWebService.OrderInfoWebServiceAsync(DetailReq).Result.xmlResponse
+            };
+
+            Log(webOrderDetailResponse.xmlResponse);
+            var orderSummaryResponse = GetOrderSummary(request);
+
+            var orderDetailResponse = webOrderDetailResponse.ToOrderDetailResponse();
+            orderDetailResponse.AddOrderSummary(orderSummaryResponse);
+            return orderDetailResponse;
 
         }
 
-        //<summary>
-        //This method will call the WebMethods API service and get the response back
-        //</summary>
-        //<param name="request">request</param>
-        //<returns>response</returns>
-        public OrderInfoResponse ProcessOrderLookUpRequest(OrderInfoRequest request)
+        private OrderSummaryResponse GetOrderSummary(OrderSummaryLookUpRequest request)
         {
-            OrderInfoWebServiceRequest req = new OrderInfoWebServiceRequest(request.xmlRequest, request.node);
-            var webServiceResponse = new OrderInfoResponse
+            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            var webServiceOrderSummaryRequest = new OrderSummaryRequest(request).ToRequest();
+            Log(webServiceOrderSummaryRequest.xmlRequest.Replace("\r\n", ""));
+            Log(ErrorMessages.INVOKING_SERVICE);
+            OrderInfoWebServiceRequest DetailReq = new OrderInfoWebServiceRequest(webServiceOrderSummaryRequest.xmlRequest, webServiceOrderSummaryRequest.node);
+            var webOrderSummaryResponse = new OrderInfoResponse
             {
-                xmlResponse = _soapStoreFrontWebService.OrderInfoWebServiceAsync(req).Result.xmlResponse
+                xmlResponse = _soapStoreFrontWebService.OrderInfoWebServiceAsync(DetailReq).Result.xmlResponse
             };
-            return webServiceResponse;
+
+            Log(webOrderSummaryResponse.xmlResponse);
+            return webOrderSummaryResponse.ToOrderLookUpResponse(); 
+
         }
 
         #endregion

@@ -41,6 +41,20 @@ namespace Pki.eBusiness.ErpApi.Entities.Extensions
             };
             return card;
         }
+        public class Enumerations
+        {
+            public enum AddressType
+            {
+                BillEng = 1,
+                BillTo = 2,
+                ShipTo = 3,
+                ShipEng = 4,
+                SoldTo = 5
+
+            }
+
+
+        }
 
         public static OrderAddress GetOrderAddress(this XElement addrElement, Enumerations.AddressType addressType)
         {

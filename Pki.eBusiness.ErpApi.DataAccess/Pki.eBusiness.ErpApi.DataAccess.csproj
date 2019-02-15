@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Orders\OrderResponse2.cs" />
+    <Compile Remove="Models\Orders\OrderSummaryResponse.cs" />
     <Compile Remove="ShopCommerceServiceGateway.cs" />
   </ItemGroup>
 

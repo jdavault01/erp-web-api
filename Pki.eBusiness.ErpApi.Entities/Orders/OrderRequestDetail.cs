@@ -6,8 +6,6 @@
     
     public class OrderRequestDetail : EntityBase
     {
-        #region Properties
-
         
         public string OrderItemID { get; set; }
         
@@ -25,9 +23,6 @@
         
         public string Qty { get; set; }
 
-        
-        public Patient[] Patients { get; set; }
-        #endregion // Properties
 
     }
 }

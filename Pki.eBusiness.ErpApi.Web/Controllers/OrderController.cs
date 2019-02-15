@@ -26,8 +26,8 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         }
 
         [HttpGet]
-        [Route("wms/orders/{language}/{sellerOrderId}")]
-        public OrderDetailResponse Details( string language,  string sellerOrderId)
+        [Route("/wms/orders/{language}/{sellerOrderId}")]
+        public OrderDetailResponse Details(string language, string sellerOrderId)
         {
             var request = new OrderSummaryLookUpRequest(language, sellerOrderId);
             return _orderService.GetOrderDetails(request);

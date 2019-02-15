@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Extensions\XmlExtensions.cs" />
+    <Compile Remove="OrderLookUp\BasicRequest\OrderDetailLookUpResponse.cs" />
+    <Compile Remove="OrderLookUp\BasicRequest\OrderDetailsResponse2.cs" />
+    <Compile Remove="OrderLookUp\BasicRequest\OrderResponse2.cs" />
+    <Compile Remove="Orders\Order.cs" />
+    <Compile Remove="Orders\OrderSubmissionResponse.cs" />
+    <Compile Remove="Orders\Patient.cs" />
     <Compile Remove="RestGatewaySettings.cs" />
     <Compile Remove="Settings\ERPRestSettings.csd.cs" />
   </ItemGroup>

@@ -11,12 +11,10 @@ namespace Pki.eBusiness.ErpApi.Contract.DAL
 {
     public interface IWebMethodClient
     {
-        OrderInfoResponse ProcessOrderLookUpRequest(OrderInfoRequest request);
+        //OrderInfoResponse ProcessOrderLookUpRequest(OrderInfoRequest request);
+        OrderDetailResponse GetOrderDetails(OrderSummaryLookUpRequest request);
         PriceResponse GetPrice(PriceRequest priceRequest);
         InventoryResponse GetInventory(InventoryRequest inventoryWmRequest);
-        //Will be decommisioned after we go live with Cart
-        //PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest);
-        //New Partner request with simpler JSON
         PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest);
         ContactCreateClientResponse CreateContact(ContactCreateClientRequest contactCreateRequest);
         SimulateOrderResponse SimulateOrder(SimulateOrderRequest request);
