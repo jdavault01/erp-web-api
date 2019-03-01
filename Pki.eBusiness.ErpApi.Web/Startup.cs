@@ -72,7 +72,8 @@ namespace Pki.eBusiness.ErpApi.Web
             {
                 c.PreSerializeFilters.Add((swaggerOptions, request) =>
                 {
-                    swaggerOptions.BasePath = swaggerSettings.BaseUrl;
+                    swaggerOptions.Host = swaggerSettings.BaseUrl;
+                    swaggerOptions.Schemes = new string[] { swaggerSettings.Scheme };
                 });
             });
 

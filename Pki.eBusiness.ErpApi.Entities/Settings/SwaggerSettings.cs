@@ -7,5 +7,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
     public class SwaggerSettings
     {
         public string BaseUrl { get; set; }
+        public string Scheme { get; set; }
     }
 }
