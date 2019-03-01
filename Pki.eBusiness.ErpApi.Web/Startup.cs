@@ -49,6 +49,10 @@ namespace Pki.eBusiness.ErpApi.Web
                 var two = one.AddClasses();
                 var three = two.AsMatchingInterface();
             });
+
+            var swaggerSettings = new SwaggerSettings();
+            Configuration.Bind("SwaggerSettings", swaggerSettings);
+            services.AddSingleton(swaggerSettings);
             var erpRestSettings = new ERPRestSettings();
             Configuration.Bind("ErpRestSettings", erpRestSettings);
             services.AddSingleton(erpRestSettings);
@@ -62,9 +66,15 @@ namespace Pki.eBusiness.ErpApi.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SwaggerSettings swaggerSettings)
         {
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.PreSerializeFilters.Add((swaggerOptions, request) =>
+                {
+                    swaggerOptions.BasePath = swaggerSettings.BaseUrl;
+                });
+            });
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
