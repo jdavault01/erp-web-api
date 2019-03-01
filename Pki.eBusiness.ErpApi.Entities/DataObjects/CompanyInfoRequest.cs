@@ -1,4 +1,5 @@
-﻿using Pki.eBusiness.ErpApi.Entities.Account;
+﻿using Newtonsoft.Json;
+using Pki.eBusiness.ErpApi.Entities.Account;
 
 namespace Pki.eBusiness.ErpApi.Entities.DataObjects
 {
@@ -11,7 +12,8 @@ namespace Pki.eBusiness.ErpApi.Entities.DataObjects
         
         public string SalesOrg { get; set; }
 
-        public SalesArea SaleaAreaInfo{ get; set; }
+        [JsonIgnore]
+         public SalesArea SaleaAreaInfo{ get; set; }
 
     }
     public class CompanyContactsRequest : CompanyInfoRequest

@@ -116,6 +116,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
+            Username = "eCommerce@perkinelmer-S1LB6Y";
+            Password = "129ccfec-af1e-4ea0-bee7-3021367a9e23";
 
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;

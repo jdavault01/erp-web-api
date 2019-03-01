@@ -2,6 +2,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Pki.eBusiness.ErpApi.Contract.BL;
+using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
@@ -29,6 +30,7 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
                 Log(InfoMessage.ERROR_MSG_INVALID_GET_COMPANY_INFO_REQUEST_MODEL);
             }
 
+            payload.SaleaAreaInfo = new SalesArea(payload.SalesOrg);
             var companyNameResponseEntity = _companyService.GetCompanyName(payload);
             if (companyNameResponseEntity == null)
             {
