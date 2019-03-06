@@ -87,10 +87,15 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 
         public CompanyAddressesResponse ToCompanyAddressesResponse(string shipTo, string billTo)
         {
-            var partners = PARTNERS_OUT.Where(x => RemoveContactsApplyFilters(x, shipTo, billTo)).Select(GetPartnerDetails).ToList();
+            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_BILL_TO)).Select(GetPartnerDetails).ToList();
+            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_SHIP_TO)).Select(GetPartnerDetails).ToList();
+            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_SOLD_TO)).Select(GetPartnerDetails).ToList();
+
             var result = new CompanyAddressesResponse
             {
-                Partners = partners
+                ShipTos = shipTos,
+                BillTos = billTos,
+                SoldTos = soldTos
             };
 
             return result;
@@ -112,19 +117,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             return x.PARTN_ROLE == SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
         }
 
-        private bool RemoveContactsApplyFilters(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo)
+        private bool getPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string partnerType)
         {
-
-            if (String.IsNullOrEmpty(shipTo) && String.IsNullOrEmpty(billTo))
-                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
-            else if (String.IsNullOrEmpty(billTo))
-                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
-                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO && x.PARENT_NO == shipTo;
-            else
-                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
-                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO &&
-                       (x.CUSTOMER == shipTo || (x.CUSTOMER == billTo && x.PARENT_NO == shipTo));
+                return x.PARTN_ROLE == partnerType;
         }
+
 
         private PartnerLookupResponseRootADDRESSOUT GetAddress(PartnerLookupResponseRootPARTNERSOUT partnerItem)
         {

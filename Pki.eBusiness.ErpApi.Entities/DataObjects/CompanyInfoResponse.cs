@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Pki.eBusiness.ErpApi.Entities.Account;
 
 namespace Pki.eBusiness.ErpApi.Entities.DataObjects
@@ -12,13 +13,11 @@ namespace Pki.eBusiness.ErpApi.Entities.DataObjects
     
     public class CompanyAddressesResponse : CompanyBaseResponse
     {
-        //
-        //public List<ShipTo> ShipTos { get; set; }
-        //
-        //public List<BillTo> BillTos { get; set; }
-
-        
-        public List<Partner> Partners { get; set; }
+        public List<Partner> ShipTos { get; set; }
+        public List<Partner> BillTos { get; set; }
+        //For now this is not needed but good chance it will be in the future
+        [JsonIgnore]
+        public List<Partner> SoldTos { get; set; }
 
     }
 
@@ -59,21 +58,6 @@ namespace Pki.eBusiness.ErpApi.Entities.DataObjects
         public bool RADFlag { get; set; }
         
         public string ParentAccount { get; set; }
-    }
-
-    
-    public class ShipTo : CompanyAddress
-    {
-        
-        public string Id { get; set; }
-    }
-
-
-    
-    public class BillTo : CompanyAddress
-    {
-        
-        public string Id { get; set; }
     }
 
     
