@@ -87,9 +87,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 
         public CompanyAddressesResponse ToCompanyAddressesResponse(string shipTo, string billTo)
         {
-            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_BILL_TO)).Select(GetPartnerDetails).ToList();
-            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_SHIP_TO)).Select(GetPartnerDetails).ToList();
-            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, SAP_SOLD_TO)).Select(GetPartnerDetails).ToList();
+            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_BILL_TO)).Select(GetPartnerDetails).ToList();
+            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SHIP_TO)).Select(GetPartnerDetails).ToList();
+            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SOLD_TO)).Select(GetPartnerDetails).ToList();
 
             var result = new CompanyAddressesResponse
             {
@@ -117,11 +117,37 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             return x.PARTN_ROLE == SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
         }
 
-        private bool getPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string partnerType)
+        private bool getPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo, string partnerType)
         {
-                return x.PARTN_ROLE == partnerType;
+
+            if (!String.IsNullOrEmpty(shipTo) && x.PARTN_ROLE == partnerType && x.CUSTOMER == shipTo)
+                return true;
+
+            if (!String.IsNullOrEmpty(billTo) && x.PARTN_ROLE == partnerType && x.CUSTOMER == billTo)
+                return true;
+
+            if (string.IsNullOrEmpty(shipTo) && SAP_SHIP_TO == partnerType)
+                return true;
+
+            if (String.IsNullOrEmpty(billTo) && SAP_BILL_TO == partnerType)
+                return true;
+
+            return false;
         }
 
+        private bool RemoveContactsApplyFilters(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo)
+        {
+
+            if (String.IsNullOrEmpty(shipTo) && String.IsNullOrEmpty(billTo))
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
+            else if (String.IsNullOrEmpty(billTo))
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
+                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO && x.PARENT_NO == shipTo;
+            else
+                return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER &&
+                       x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO &&
+                       (x.CUSTOMER == shipTo || (x.CUSTOMER == billTo && x.PARENT_NO == shipTo));
+        }
 
         private PartnerLookupResponseRootADDRESSOUT GetAddress(PartnerLookupResponseRootPARTNERSOUT partnerItem)
         {
