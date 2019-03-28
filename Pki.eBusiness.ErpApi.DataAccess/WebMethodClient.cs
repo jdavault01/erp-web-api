@@ -167,7 +167,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private string GetProductFromErrorMessage(string errorMessage)
         {
-            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9\-\s]+) is not defined for", RegexOptions.IgnoreCase);
+            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase);
             return match.Success ? match.Groups[1].Value : string.Empty;
         }
 
