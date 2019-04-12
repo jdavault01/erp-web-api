@@ -87,9 +87,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 
         public CompanyAddressesResponse ToCompanyAddressesResponse(string shipTo, string billTo)
         {
-            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_BILL_TO)).Select(GetPartnerDetails).ToList();
-            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SHIP_TO)).Select(GetPartnerDetails).ToList();
-            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SOLD_TO)).Select(GetPartnerDetails).ToList();
+            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_BILL_TO)).Select(GetPartnerDetails).Distinct().ToList();
+            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SHIP_TO)).Select(GetPartnerDetails).Distinct().ToList();
+            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SOLD_TO)).Select(GetPartnerDetails).Distinct().ToList();
 
             var result = new CompanyAddressesResponse
             {
@@ -119,18 +119,28 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 
         private bool getPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo, string partnerType)
         {
+            //if the ShipTo is not provided and partner record is a ShipTo that matches then return true
+           if (!String.IsNullOrEmpty(shipTo) && x.CUSTOMER == shipTo && x.PARTN_ROLE == SAP_SHIP_TO && partnerType == SAP_SHIP_TO)
+             return true;
 
-            if (!String.IsNullOrEmpty(shipTo) && x.PARTN_ROLE == partnerType && x.CUSTOMER == shipTo)
+            //if the BillTo is not provided and partner record is a BillTo that matches then return true
+            if (!String.IsNullOrEmpty(billTo) && x.CUSTOMER == billTo && x.PARTN_ROLE == SAP_BILL_TO && partnerType == SAP_BILL_TO)
                 return true;
 
-            if (!String.IsNullOrEmpty(billTo) && x.PARTN_ROLE == partnerType && x.CUSTOMER == billTo)
+            //if Billto is not provided but the partnerType == SAP_BILL_TO and this record is a billTo, return true
+            if (String.IsNullOrEmpty(billTo) && SAP_BILL_TO == partnerType && x.PARTN_ROLE == SAP_BILL_TO)
                 return true;
 
-            if (string.IsNullOrEmpty(shipTo) && SAP_SHIP_TO == partnerType)
+            //if Shipto is not provided but the partnerType == SAP_SHIP_TO and this record is a ShipTo, return true
+            if (String.IsNullOrEmpty(shipTo) && SAP_SHIP_TO == partnerType && x.PARTN_ROLE == SAP_SHIP_TO)
                 return true;
 
-            if (String.IsNullOrEmpty(billTo) && SAP_BILL_TO == partnerType)
+            //if this partner record is of type soldTo and this request is for a soldTo, return true
+            if (x.PARTN_ROLE == SAP_SOLD_TO && partnerType == SAP_SOLD_TO)
                 return true;
+
+
+
 
             return false;
         }
