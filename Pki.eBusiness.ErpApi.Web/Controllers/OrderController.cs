@@ -9,6 +9,7 @@ using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
+using System.Net.Http;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
@@ -126,25 +127,40 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
 
         }
 
-        //[SwaggerResponse(HttpStatusCode.OK, Type = typeof(PunchoutOrderMessageResponse))]
+
         [HttpPost]
-        public ActionResult<PunchoutOrderMessageResponse> PunchoutOrderMessage([FromBody] PunchOutOrderMessageRequest payload)
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        //[Route("/wms/orders/ShippingNotifications")]
+        public ActionResult ShippingNotifications(string InvoiceXML)
         {
-            if (!ModelState.IsValid)
-            {
-                Log("Invalid Model on PunchoutOrderMessage Request");
-                return BadRequest("Invalid Model on PunchoutOrderMessage Request");
-            }
-            string filePath = Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\PunchoutOrderMessageResponse.json");
-            var source = System.IO.File.ReadAllText(filePath);
-            var orderResponseEntity = JsonConvert.DeserializeObject<PunchoutOrderMessageResponse>(source);
-            return Ok(orderResponseEntity);
+
+            //var orderDetailXML = request.Content.ReadAsStringAsync().Result;
+            Log(string.Format("ShippingNotification Data {0}", InvoiceXML));
+
+            //TODO:  BindXMLString to Local object, validate object
+
+            //if (!ModelState.IsValid)
+            //{
+            //    Log("Invalid Request");
+            //    return BadRequest("Invalid Request");
+            //}
+
+            //string filePath = Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\PunchoutOrderMessageResponse.json");
+            //var source = System.IO.File.ReadAllText(filePath);
+            //var orderResponseEntity = JsonConvert.DeserializeObject<PunchoutOrderMessageResponse>(source);
+
+            //var shippingNotifcationResponse = _orderService.SendOrderNotification(request);
+            //if (shippingNotifcationResponse == null)
+            //{
+            //    Log(InfoMessage.ERROR_MSG_UNABLE_TO_SEND_ORDER_NOTIFICATION);
+            //    NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_SEND_ORDER_NOTIFICATION);
+            //}
+
+            return Ok();
         }
 
-        /// <summary>
-        /// This method will log message to log file
-        /// </summary>
-        /// <param name="message">message</param>
+
         private void Log(string message)
         {
             _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, InfoMessage.WEBAPI_STOREFRONT_LOG_AREA_PRODUCT);
