@@ -21,13 +21,13 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private IErpApi _erpApi;
         protected RestClient _restClient { get; set; }
 
-        public ERPRestGateway(ERPRestSettings erpRestSettings, IErpApi erpApi)
+        public ERPRestGateway(ERPRestSettings erpRestSettings)
         {
             _restClient = new RestClient();
             _restClient.ClearHandlers();
             _restClient.AddHandler("application/json", new NewtonsoftJsonSerializer());
             _erpRestSettings = erpRestSettings;
-            _erpApi = erpApi;
+            _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl);
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
         }
 

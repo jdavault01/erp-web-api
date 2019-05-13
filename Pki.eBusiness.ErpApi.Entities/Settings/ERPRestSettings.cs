@@ -10,6 +10,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
         public string BaseUrl { get; set; }
         public string ApiKey { get; set; }
         public List<Resource> Resources { get; set; }
+        public string IntegrationPlatformBaseUrl { get; set; }
 
         protected Resource this[string name]
         {
