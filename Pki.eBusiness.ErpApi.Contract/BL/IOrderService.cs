@@ -11,5 +11,6 @@ namespace Pki.eBusiness.ErpApi.Contract.BL
         InventoryResponse GetInventory(InventoryRequest priceRequest);
         CreateOrderResponse CreateOrder(CreateOrderRequest request);
         SimulateOrderErpResponse SimulateErpOrder(SimulateOrderErpRequest payload);
+        ShippingNotificationResponse SendShippingNotification(ShippingNotification payload);
     }
 }

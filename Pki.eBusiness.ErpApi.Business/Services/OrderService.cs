@@ -1,5 +1,7 @@
 ﻿using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Contract.DAL;
+using Pki.eBusiness.ErpApi.DataAccess.AtgApi;
+using Pki.eBusiness.ErpApi.DataAccess.Model;
 using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.Extensions;
@@ -7,6 +9,7 @@ using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.OrderDetails;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Logger;
+using System;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 
@@ -21,16 +24,18 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
         private readonly IERPRestGateway _erpGateway;
+        private readonly IOrderApi _atgOrderApi;
 
 
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="webMethodClient"></param>
-        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway)
+        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway, IOrderApi atgOrderApi)
         {
             _webMethodClient = webMethodClient;
             _erpGateway = erpGateway;
+            _atgOrderApi = atgOrderApi;
         }
         /// <summary>
         /// This method gets order details for a given logicalId and orderId
@@ -91,5 +96,31 @@ namespace Pki.eBusiness.ErpApi.Business.Services
             _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA);
         }
 
+        public ShippingNotificationResponse SendShippingNotification(ShippingNotification payload)
+        {
+            var shippingNotification = new ShippingNotificationResponse
+            {
+                EmailSent = true,
+                ErrorMessage = null
+            };
+
+            var body = payload.Body;
+            var summary = body.OrderSummary;
+            var orderDetails = summary.OrderDetail;
+            var orerItems = new ShippingNotificationValidator();
+
+            foreach (var item in orderDetails)
+            {
+                var newItem = new ShippingNotificationLineItemDto(item.Carrier, item.Description, item.id, item.QuantityOrdered,
+                    item.QuantityShipped, Int32.Parse(item.SAPLineOrderNo), item.ShipDate, item.TrackingNumber);
+                orerItems.Add(newItem);
+            }
+
+            var shippingNotificationDto = new ShippingNotificationOrderDto(summary.CCLast4, summary.CCType,
+                summary.CustomerPO, summary.SAPON, summary.ShipToAttn, summary.WebON, orerItems);
+
+            _atgOrderApi.SendShippingNotifications(shippingNotificationDto);
+            return shippingNotification;
+        }
     }
 }

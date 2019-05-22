@@ -10,6 +10,7 @@ using Pki.eBusiness.ErpApi.Entities.Orders;
 using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
 using System.Net.Http;
+using System.Xml.Serialization;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
@@ -134,30 +135,21 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         //[Route("/wms/orders/ShippingNotifications")]
         public ActionResult ShippingNotifications(string InvoiceXML)
         {
+            ShippingNotification shippingNotification = null;
+            XmlSerializer s = new XmlSerializer(typeof(ShippingNotification));
+            using (var reader = new StringReader(InvoiceXML))
+            {
+                shippingNotification = (ShippingNotification)s.Deserialize(reader);
+            }
 
-            //var orderDetailXML = request.Content.ReadAsStringAsync().Result;
-            Log(string.Format("ShippingNotification Data {0}", InvoiceXML));
+            if (shippingNotification == null || string.IsNullOrEmpty(InvoiceXML))
+            {
+                Log("Invalid Request");
+                return BadRequest("Invalid Request");
+            }
 
-            //TODO:  BindXMLString to Local object, validate object
-
-            //if (!ModelState.IsValid)
-            //{
-            //    Log("Invalid Request");
-            //    return BadRequest("Invalid Request");
-            //}
-
-            //string filePath = Path.GetFullPath(Directory.GetCurrentDirectory() + @"\mocks\PunchoutOrderMessageResponse.json");
-            //var source = System.IO.File.ReadAllText(filePath);
-            //var orderResponseEntity = JsonConvert.DeserializeObject<PunchoutOrderMessageResponse>(source);
-
-            //var shippingNotifcationResponse = _orderService.SendOrderNotification(request);
-            //if (shippingNotifcationResponse == null)
-            //{
-            //    Log(InfoMessage.ERROR_MSG_UNABLE_TO_SEND_ORDER_NOTIFICATION);
-            //    NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_SEND_ORDER_NOTIFICATION);
-            //}
-
-            return Ok();
+            var response = _orderService.SendShippingNotification(shippingNotification);
+            return Ok(response);
         }
 
 

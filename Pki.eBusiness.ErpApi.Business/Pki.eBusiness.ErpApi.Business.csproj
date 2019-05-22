@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Contract\Pki.eBusiness.ErpApi.Contract.csproj" />
+    <ProjectReference Include="..\Pki.eBusiness.ErpApi.DataAccess\Pki.eBusiness.ErpApi.DataAccess.csproj" />
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Entities\Pki.eBusiness.ErpApi.Entities.csproj" />
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Logger\Pki.eBusiness.ErpApi.Logger.csproj" />
   </ItemGroup>
