@@ -149,6 +149,11 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
             }
 
             var response = _orderService.SendShippingNotification(shippingNotification);
+            if (response.EmailSent == false)
+            {
+                Log(response.ErrorMessage);
+                return StatusCode(500,response);
+            }
             return Ok(response);
         }
 

@@ -12,6 +12,9 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
         public List<Resource> Resources { get; set; }
         public string IntegrationPlatformBaseUrl { get; set; }
 
+        public string AtgBaseUrl { get; set; }
+        public string AtgApiKey { get; set; }
+
         protected Resource this[string name]
         {
             get { return this.Resources?.FirstOrDefault(r => r.Name == name); }

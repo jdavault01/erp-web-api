@@ -5,6 +5,7 @@ using System.Text;
 namespace Pki.eBusiness.ErpApi.Entities.Orders
 {
 
+
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
     /// <remarks/>
     [System.SerializableAttribute()]
@@ -203,21 +204,11 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
 
         private string customerPOField;
 
-        private string totalPriceField;
-
-        private string trackingNOField;
+        private decimal totalPriceField;
 
         private string promotionalDiscountField;
 
-        private string shippingPointField;
-
-        private string shipDateField;
-
         private string orderTypeField;
-
-        private string deliveryChargesField;
-
-        private string handlingChargesField;
 
         private string orderStatusField;
 
@@ -306,7 +297,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
         }
 
         /// <remarks/>
-        public string TotalPrice
+        public decimal TotalPrice
         {
             get
             {
@@ -315,19 +306,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             set
             {
                 this.totalPriceField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string TrackingNO
-        {
-            get
-            {
-                return this.trackingNOField;
-            }
-            set
-            {
-                this.trackingNOField = value;
             }
         }
 
@@ -345,32 +323,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
         }
 
         /// <remarks/>
-        public string ShippingPoint
-        {
-            get
-            {
-                return this.shippingPointField;
-            }
-            set
-            {
-                this.shippingPointField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string ShipDate
-        {
-            get
-            {
-                return this.shipDateField;
-            }
-            set
-            {
-                this.shipDateField = value;
-            }
-        }
-
-        /// <remarks/>
         public string OrderType
         {
             get
@@ -380,32 +332,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             set
             {
                 this.orderTypeField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string DeliveryCharges
-        {
-            get
-            {
-                return this.deliveryChargesField;
-            }
-            set
-            {
-                this.deliveryChargesField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string HandlingCharges
-        {
-            get
-            {
-                return this.handlingChargesField;
-            }
-            set
-            {
-                this.handlingChargesField = value;
             }
         }
 
@@ -470,8 +396,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
     public partial class ShippingNotificationBodyOrderSummaryProduct
     {
 
-        private string carrierField;
-
         private string webLineItemNoField;
 
         private string sAPLineOrderNoField;
@@ -482,31 +406,25 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
 
         private int quantityShippedField;
 
-        private string adjustedUnitPriceField;
+        private string carrierField;
+
+        private string trackingNOField;
+
+        private string shippingPointField;
+
+        private string shipDateField;
+
+        private decimal deliveryChargesField;
+
+        private decimal handlingChargesField;
+
+        private decimal adjustedUnitPriceField;
 
         private string vATField;
 
         private string statusField;
 
         private string idField;
-
-        private string shipDate;
-
-        private string trackingNumber;
-
-        /// <remarks/>
-        public string Carrier
-        {
-            get
-            {
-                return this.carrierField;
-            }
-            set
-            {
-                this.carrierField = value;
-            }
-        }
-
 
         /// <remarks/>
         public string WebLineItemNo
@@ -574,7 +492,97 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
         }
 
         /// <remarks/>
-        public string AdjustedUnitPrice
+        public string Carrier
+        {
+            get
+            {
+                return this.carrierField;
+            }
+            set
+            {
+                this.carrierField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string TrackingNO
+        {
+            get
+            {
+                return this.trackingNOField;
+            }
+            set
+            {
+                this.trackingNOField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string ShippingPoint
+        {
+            get
+            {
+                return this.shippingPointField;
+            }
+            set
+            {
+                this.shippingPointField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string ShipDate
+        {
+            get
+            {
+                return this.shipDateField;
+            }
+            set
+            {
+                this.shipDateField = value;
+            }
+        }
+
+        public string TrackingNumber
+        {
+            get
+            {
+                return this.trackingNOField;
+            }
+            set
+            {
+                this.trackingNOField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal DeliveryCharges
+        {
+            get
+            {
+                return this.deliveryChargesField;
+            }
+            set
+            {
+                this.deliveryChargesField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal HandlingCharges
+        {
+            get
+            {
+                return this.handlingChargesField;
+            }
+            set
+            {
+                this.handlingChargesField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal AdjustedUnitPrice
         {
             get
             {
@@ -609,29 +617,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             set
             {
                 this.statusField = value;
-            }
-        }
-
-        public string ShipDate
-        {
-            get
-            {
-                return this.shipDate;
-            }
-            set
-            {
-                this.shipDate = value;
-            }
-        }
-        public string TrackingNumber
-        {
-            get
-            {
-                return this.trackingNumber;
-            }
-            set
-            {
-                this.trackingNumber = value;
             }
         }
 

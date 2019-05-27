@@ -12,6 +12,10 @@ using Pki.eBusiness.ErpApi.Entities.Settings;
 using RestSharp;
 using RestSharp.Deserializers;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
+using Pki.eBusiness.ErpApi.DataAccess.AtgApi;
+using Pki.eBusiness.ErpApi.DataAccess.Model;
+using atgApiClient = Pki.eBusiness.ErpApi.DataAccess.Client;
+using System.Collections.Generic;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -19,6 +23,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
     {
         private ERPRestSettings _erpRestSettings;
         private IErpApi _erpApi;
+        private IOrderApi _atgOrderApi;
+
         protected RestClient _restClient { get; set; }
 
         public ERPRestGateway(ERPRestSettings erpRestSettings)
@@ -28,6 +34,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             _restClient.AddHandler("application/json", new NewtonsoftJsonSerializer());
             _erpRestSettings = erpRestSettings;
             _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl);
+            _atgOrderApi = new AtgApi.OrderApi(erpRestSettings);
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
         }
 
@@ -45,6 +52,25 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var result = _erpApi.SimulateOrderPost(req);
             return result.ToResponse();
         }
+
+        public ShippingNotificationResponse SendShippingNotifications(ShippingNotification payLoad)
+        {
+            var ShippingNotificationOrderDto = new ShippingNotificationOrderDto(payLoad);
+            var shippingNotification = new ShippingNotificationResponse();
+            try
+            {
+                var result = _atgOrderApi.SendShippingNotifications(ShippingNotificationOrderDto);
+                shippingNotification.EmailSent = Boolean.Parse(result);
+            }
+            catch(Exception ex)
+            {
+                shippingNotification.EmailSent = false;
+                shippingNotification.ErrorMessage = ex.Message;
+            }
+
+            return shippingNotification;
+        }
+
 
         public PartnerResponse PartnerLookup(SimplePartnerRequest request)
         {

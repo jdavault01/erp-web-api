@@ -24,18 +24,16 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
         private readonly IERPRestGateway _erpGateway;
-        private readonly IOrderApi _atgOrderApi;
-
+ 
 
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="webMethodClient"></param>
-        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway, IOrderApi atgOrderApi)
+        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway)
         {
             _webMethodClient = webMethodClient;
             _erpGateway = erpGateway;
-            _atgOrderApi = atgOrderApi;
         }
         /// <summary>
         /// This method gets order details for a given logicalId and orderId
@@ -98,29 +96,7 @@ namespace Pki.eBusiness.ErpApi.Business.Services
 
         public ShippingNotificationResponse SendShippingNotification(ShippingNotification payload)
         {
-            var shippingNotification = new ShippingNotificationResponse
-            {
-                EmailSent = true,
-                ErrorMessage = null
-            };
-
-            var body = payload.Body;
-            var summary = body.OrderSummary;
-            var orderDetails = summary.OrderDetail;
-            var orerItems = new ShippingNotificationValidator();
-
-            foreach (var item in orderDetails)
-            {
-                var newItem = new ShippingNotificationLineItemDto(item.Carrier, item.Description, item.id, item.QuantityOrdered,
-                    item.QuantityShipped, Int32.Parse(item.SAPLineOrderNo), item.ShipDate, item.TrackingNumber);
-                orerItems.Add(newItem);
-            }
-
-            var shippingNotificationDto = new ShippingNotificationOrderDto(summary.CCLast4, summary.CCType,
-                summary.CustomerPO, summary.SAPON, summary.ShipToAttn, summary.WebON, orerItems);
-
-            _atgOrderApi.SendShippingNotifications(shippingNotificationDto);
-            return shippingNotification;
+            return _erpGateway.SendShippingNotifications(payload);
         }
     }
 }

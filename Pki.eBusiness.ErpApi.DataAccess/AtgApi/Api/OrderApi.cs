@@ -352,7 +352,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
         /// <exception cref="Pki.eBusiness.ErpApi.DataAccess.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ShippingNotificationOrderDto</returns>
-        ShippingNotificationOrderDto SendShippingNotifications (ShippingNotificationOrderDto body = null);
+        String SendShippingNotifications (ShippingNotificationOrderDto body = null);
 
         /// <summary>
         /// Send shipping notifications.
@@ -363,7 +363,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
         /// <exception cref="Pki.eBusiness.ErpApi.DataAccess.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of ShippingNotificationOrderDto</returns>
-        ApiResponse<ShippingNotificationOrderDto> SendShippingNotificationsWithHttpInfo (ShippingNotificationOrderDto body = null);
+        //ApiResponse<ShippingNotificationOrderDto> SendShippingNotificationsWithHttpInfo (ShippingNotificationOrderDto body = null);
+        ApiResponse<string> SendShippingNotificationsWithHttpInfo (ShippingNotificationOrderDto body = null);
         /// <summary>
         /// Update erpOrdernumber to the given web order.
         /// </summary>
@@ -798,7 +799,19 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
     /// </summary>
     public partial class OrderApi : IOrderApi
     {
-        private Pki.eBusiness.ErpApi.DataAccess.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Pki.eBusiness.ErpApi.DataAccess.Client.ExceptionFactory _exceptionFactory = (name, response) => {
+            int status = (int)response.StatusCode;
+            if (status == 500 || status == 400)
+            {
+                return Configuration.DefaultExceptionFactory(name, response);
+            }
+            else
+            {
+                return null;
+            }
+
+        };
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderApi"/> class.
@@ -3101,9 +3114,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
         /// <exception cref="Pki.eBusiness.ErpApi.DataAccess.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ShippingNotificationOrderDto</returns>
-        public ShippingNotificationOrderDto SendShippingNotifications (ShippingNotificationOrderDto body = null)
+        public string SendShippingNotifications (ShippingNotificationOrderDto body = null)
         {
-             ApiResponse<ShippingNotificationOrderDto> localVarResponse = SendShippingNotificationsWithHttpInfo(body);
+             ApiResponse<string> localVarResponse = SendShippingNotificationsWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -3113,7 +3126,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
         /// <exception cref="Pki.eBusiness.ErpApi.DataAccess.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of ShippingNotificationOrderDto</returns>
-        public ApiResponse< ShippingNotificationOrderDto > SendShippingNotificationsWithHttpInfo (ShippingNotificationOrderDto body = null)
+        public ApiResponse< string > SendShippingNotificationsWithHttpInfo (ShippingNotificationOrderDto body = null)
         {
 
             var localVarPath = "/orders/shippingNotifications";
@@ -3165,10 +3178,13 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
                 Exception exception = ExceptionFactory("SendShippingNotifications", localVarResponse);
                 if (exception != null) throw exception;
             }
-
-            return new ApiResponse<ShippingNotificationOrderDto>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ShippingNotificationOrderDto) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShippingNotificationOrderDto)));
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+
+            //return new ApiResponse<ShippingNotificationOrderDto>(localVarStatusCode,
+            //    localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+            //    (ShippingNotificationOrderDto) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShippingNotificationOrderDto)));
         }
 
         /// <summary>

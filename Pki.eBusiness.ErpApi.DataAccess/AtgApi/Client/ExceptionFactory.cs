@@ -21,4 +21,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Client
     /// <param name="response">Response</param>
     /// <returns>Exceptions</returns>
     public delegate Exception ExceptionFactory(string methodName, IRestResponse response);
+
+    public delegate Exception ExceptionFactoryExt(string methodName, int localVarStatusCode, IRestResponse response);
 }

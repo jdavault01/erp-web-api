@@ -11,5 +11,6 @@ namespace Pki.eBusiness.ErpApi.Contract.DAL
         CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest companyAddressesRequest);
         CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest companyInfoRequest);
         ContactCreateClientResponse CreateContact(ContactCreateClientRequest payLoad);
+        ShippingNotificationResponse SendShippingNotifications(ShippingNotification shippingNotificationDto);
     }
 }
