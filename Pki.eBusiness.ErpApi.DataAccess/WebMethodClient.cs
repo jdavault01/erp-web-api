@@ -186,14 +186,22 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
+            var orderLevelError = false;
+            var errorMessage = "We were not able to obtain response items for all requested products.Please see list of failed inventory items.";
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
             LogResponse(wmSimulateOrderResponse);
             var failedItems = new List<FailedItem>();
-            while (wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty)
+            while (ContainsSAPError(wmSimulateOrderResponse))
             {
-                var errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
                 string productId = LogFailedItem(failedItems, errorMessage);
-
+                if (productId == string.Empty)
+                {
+                    failedItems.Clear();
+                    var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = "Order Level Exception, not applicable" };
+                    failedItems.Add(failedItem);
+                    break;
+                }
                 var newitemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
                 request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
 
@@ -207,12 +215,23 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
             }
 
-            var simulateOrderResponose =  wmSimulateOrderResponse.ToSimulateOrderResponse();
+            if (ContainsSAPError(wmSimulateOrderResponse))
+            {
+                var simulateOrderResponse = new SimulateOrderResponse
+                {
+                    FailedItems = failedItems,
+                    ErrorMessage = errorMessage
+                };
+                return simulateOrderResponse;
+            }
 
-            if (failedItems.Count == 0) return simulateOrderResponose;
-            simulateOrderResponose.FailedItems = failedItems;
-            simulateOrderResponose.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
-            return simulateOrderResponose;
+            return wmSimulateOrderResponse.ToSimulateOrderResponse();
+
+        }
+
+        private static bool ContainsSAPError(SimulateOrderWebServiceResponse1 wmSimulateOrderResponse)
+        {
+            return wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty;
         }
 
         public InventoryResponse GetInventory(InventoryRequest inventoryWmRequest)
@@ -261,7 +280,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             if (productId == string.Empty)
             {
                 Log(string.Format("{0} - {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, "Unable to get product from error return object"));
-                throw new ApplicationException("Unable to get product from error return object");
             }
 
             Log(string.Format("{0} for product {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, productId));

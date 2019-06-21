@@ -131,7 +131,7 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
 
         [HttpPost]
         [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         //[Route("/wms/orders/ShippingNotifications")]
         public ActionResult ShippingNotifications(string InvoiceXML)
         {
