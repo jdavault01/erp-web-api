@@ -3172,6 +3172,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
+            if (localVarStatusCode == 200)
+            {
+                localVarResponse.Content = "true";
+            }
 
             if (ExceptionFactory != null)
             {
@@ -3182,9 +3186,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess.AtgApi
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
 
-            //return new ApiResponse<ShippingNotificationOrderDto>(localVarStatusCode,
-            //    localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-            //    (ShippingNotificationOrderDto) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShippingNotificationOrderDto)));
         }
 
         /// <summary>
