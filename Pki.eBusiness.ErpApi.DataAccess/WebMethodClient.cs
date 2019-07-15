@@ -18,6 +18,7 @@ using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequ
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
 using ClientModel = Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
+using System.ServiceModel;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -45,7 +46,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             _erpRestGateway = erpRestGateway;
             _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
-            _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient();
+            _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient(StorefrontWebServices_PortTypeClient.EndpointConfiguration.services_StorefrontWebServices_Port, 
+                new EndpointAddress($"{erpSettings.BaseUrl}/ws/services.StorefrontWebServices/services_StorefrontWebServices_Port"));
         }
 
         #endregion // Constructors
