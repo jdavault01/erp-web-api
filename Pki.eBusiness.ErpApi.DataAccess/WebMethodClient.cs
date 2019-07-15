@@ -186,27 +186,42 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
-            var orderLevelError = false;
-            var errorMessage = "We were not able to obtain response items for all requested products.Please see list of failed inventory items.";
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
+            var orderResponseError = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
             LogResponse(wmSimulateOrderResponse);
             var failedItems = new List<FailedItem>();
             while (ContainsSAPError(wmSimulateOrderResponse))
             {
-                errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
+                var errorMessage = wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
                 string productId = LogFailedItem(failedItems, errorMessage);
+
+                //if we have an error condition but no failed products, we have an order order level issue, we can return
                 if (productId == string.Empty)
                 {
                     failedItems.Clear();
                     var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = "Order Level Exception, not applicable" };
                     failedItems.Add(failedItem);
-                    break;
+                    var orderLevelFailureResponse = new SimulateOrderResponse
+                    {
+                        FailedItems = failedItems,
+                        ErrorMessage = "We were not able to obtain response items for all requested products.Please see list of failed inventory items."
+                    };
+                    return orderLevelFailureResponse;
                 }
+
                 var newitemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
                 request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
 
+                //We had an error condition for a single product .. we need to collect that error and return
                 if (newitemsList.Length == 0)
-                    break;
+                {
+                    var orderLevelFailureResponse = new SimulateOrderResponse
+                    {
+                        FailedItems = failedItems,
+                        ErrorMessage = orderResponseError
+                    };
+                    return orderLevelFailureResponse;
+                }
 
                 Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
                 LogRequest(request);
@@ -215,19 +230,14 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
             }
 
-            if (ContainsSAPError(wmSimulateOrderResponse))
-            {
-                var simulateOrderResponse = new SimulateOrderResponse
-                {
-                    FailedItems = failedItems,
-                    ErrorMessage = errorMessage
-                };
-                return simulateOrderResponse;
-            }
+            var simulateOrderResponse = wmSimulateOrderResponse.ToSimulateOrderResponse();
 
-            return wmSimulateOrderResponse.ToSimulateOrderResponse();
-
+            if (failedItems.Count == 0) return simulateOrderResponse;
+            simulateOrderResponse.FailedItems = failedItems;
+            simulateOrderResponse.ErrorMessage = orderResponseError;
+            return simulateOrderResponse;
         }
+
 
         private static bool ContainsSAPError(SimulateOrderWebServiceResponse1 wmSimulateOrderResponse)
         {
