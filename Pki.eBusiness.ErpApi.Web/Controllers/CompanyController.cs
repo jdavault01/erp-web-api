@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
@@ -12,12 +12,12 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
     public class CompanyController : ControllerBase
     {
         readonly ICompanyService _companyService;
-        readonly IPublisher _publisher = PublisherManager.Instance;
+        private ILogger _logger;
 
-
-        public CompanyController(ICompanyService companyService)
+        public CompanyController(ICompanyService companyService, ILogger<CompanyController> logger)
         {
             _companyService = companyService;
+            _logger = logger;
         }
 
 
@@ -87,7 +87,7 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         /// <param name="message">message</param>
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, InfoMessage.WEBAPI_STOREFRONT_LOG_AREA_ACCOUNT);
+            _logger.LogInformation(message);
         }
 
     }

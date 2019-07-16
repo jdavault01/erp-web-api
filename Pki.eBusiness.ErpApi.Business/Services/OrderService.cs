@@ -1,15 +1,9 @@
-﻿using Pki.eBusiness.ErpApi.Contract.BL;
+﻿using Microsoft.Extensions.Logging;
+using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Contract.DAL;
-using Pki.eBusiness.ErpApi.DataAccess.AtgApi;
-using Pki.eBusiness.ErpApi.DataAccess.Model;
-using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Entities.Extensions;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
-using Pki.eBusiness.ErpApi.Entities.OrderLookUp.OrderDetails;
 using Pki.eBusiness.ErpApi.Entities.Orders;
-using Pki.eBusiness.ErpApi.Logger;
-using System;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 
@@ -21,19 +15,19 @@ namespace Pki.eBusiness.ErpApi.Business.Services
     /// </summary>
     public class OrderService : IOrderService
     {
-        private readonly IPublisher _publisher = PublisherManager.Instance;
+        private ILogger _logger;
         private readonly IWebMethodClient _webMethodClient;
         private readonly IERPRestGateway _erpGateway;
- 
 
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="webMethodClient"></param>
-        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway)
+        public OrderService(IWebMethodClient webMethodClient, IERPRestGateway erpGateway, ILogger<OrderService> logger)
         {
             _webMethodClient = webMethodClient;
             _erpGateway = erpGateway;
+            _logger = logger;
         }
         /// <summary>
         /// This method gets order details for a given logicalId and orderId
@@ -45,7 +39,6 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         {
             return _webMethodClient.GetOrderDetails(request);
         }
-
 
         /// <summary>
         /// This method takes a client simulate order request model and calls the ERPGateway
@@ -85,18 +78,19 @@ namespace Pki.eBusiness.ErpApi.Business.Services
             return _webMethodClient.GetInventory(inventoryRequest);
         }
 
+
+        public ShippingNotificationResponse SendShippingNotification(ShippingNotification payload)
+        {
+            return _erpGateway.SendShippingNotifications(payload);
+        }
+
         /// <summary>
         /// This method will log message to log file
         /// </summary>
         /// <param name="message">message</param>
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA);
-        }
-
-        public ShippingNotificationResponse SendShippingNotification(ShippingNotification payload)
-        {
-            return _erpGateway.SendShippingNotifications(payload);
+            _logger.LogInformation(message);
         }
     }
 }

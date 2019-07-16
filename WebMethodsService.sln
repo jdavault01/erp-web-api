@@ -18,9 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pki.eBusiness.ErpApi.DataAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pki.eBusiness.ErpApi.Entities", "Pki.eBusiness.ErpApi.Entities\Pki.eBusiness.ErpApi.Entities.csproj", "{2CD9442C-140F-4893-9ED3-2E6286B0724B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pki.eBusiness.ErpApi.Web", "Pki.eBusiness.ErpApi.Web\Pki.eBusiness.ErpApi.Web.csproj", "{13E388E0-0F5D-48E0-AF18-AF92EDB3EF5E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pki.eBusiness.ErpApi.Logger", "Pki.eBusiness.ErpApi.Logger\Pki.eBusiness.ErpApi.Logger.csproj", "{8308809E-55D2-4D10-89BE-3F0D05834BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pki.eBusiness.ErpApi.Web", "Pki.eBusiness.ErpApi.Web\Pki.eBusiness.ErpApi.Web.csproj", "{13E388E0-0F5D-48E0-AF18-AF92EDB3EF5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,25 +90,13 @@ Global
 		{13E388E0-0F5D-48E0-AF18-AF92EDB3EF5E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13E388E0-0F5D-48E0-AF18-AF92EDB3EF5E}.Release|x86.ActiveCfg = Release|Any CPU
 		{13E388E0-0F5D-48E0-AF18-AF92EDB3EF5E}.Release|x86.Build.0 = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Debug|x86.Build.0 = Debug|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|x86.ActiveCfg = Release|Any CPU
-		{8308809E-55D2-4D10-89BE-3F0D05834BD2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FC9C374E-3F48-45F0-979B-8D09EAC64C28}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+		SolutionGuid = {FC9C374E-3F48-45F0-979B-8D09EAC64C28}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = WebMethodsService.vsmdi

@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
 using Pki.eBusiness.ErpApi.DataAccess.Models.Orders;
 using Pki.eBusiness.ErpApi.DataAccess.StoreFrontWebServices;
-using Pki.eBusiness.ErpApi.DataAccess.WMService;
 using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-//using Pki.eBusiness.ErpApi.Entities.Extensions;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.ProductCatalog;
 using Pki.eBusiness.ErpApi.Entities.Settings;
-using Pki.eBusiness.ErpApi.Logger;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+using System.Text.RegularExpressions;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
-using ClientModel = Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
-using System.ServiceModel;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -27,43 +24,37 @@ namespace Pki.eBusiness.ErpApi.DataAccess
     /// </summary>
     public class WebMethodClient : IWebMethodClient
     {
-        #region Private variables
-
-        private readonly IPublisher _publisher = PublisherManager.Instance;
-        private readonly ProcessPediatrixOrder_WSD_PortTypeClient _soapClient;
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
         private readonly IERPRestGateway _erpRestGateway;
-
-        #endregion // Private variables
-
-        #region Constructors
+        private readonly ILogger _logger;
+        private string _baseUrl;
 
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="soapClient"></param>
-        public WebMethodClient(ERPRestSettings erpSettings, IERPRestGateway erpRestGateway)
+        public WebMethodClient(ERPRestSettings erpSettings, IERPRestGateway erpRestGateway, ILogger<WebMethodClient> logger)
         {
             _erpRestGateway = erpRestGateway;
-            _soapClient = new ProcessPediatrixOrder_WSD_PortTypeClient();
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient(StorefrontWebServices_PortTypeClient.EndpointConfiguration.services_StorefrontWebServices_Port, 
-                new EndpointAddress($"{erpSettings.BaseUrl}/ws/services.StorefrontWebServices/services_StorefrontWebServices_Port"));
+                                        new EndpointAddress($"{erpSettings.BaseUrl}/ws/services.StorefrontWebServices/services_StorefrontWebServices_Port"));
+            _logger = logger;
+            _baseUrl = erpSettings.BaseUrl;
         }
 
-        #endregion // Constructors
 
         #region Public methods
 
         private void LogInputRequest(string xml)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             Log(xml.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
         }
 
         public OrderDetailResponse GetOrderDetails(OrderSummaryLookUpRequest request)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             var webServiceDetailRequest = new OrderDetailRequest(request.SAPOrderNumber).ToRequest();
             Log(webServiceDetailRequest.xmlRequest.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
@@ -84,7 +75,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private OrderSummaryResponse GetOrderSummary(OrderSummaryLookUpRequest request)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             var webServiceOrderSummaryRequest = new OrderSummaryRequest(request).ToRequest();
             Log(webServiceOrderSummaryRequest.xmlRequest.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
@@ -108,7 +99,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// <returns></returns>
         public PriceResponse GetPrice(PriceRequest priceWmRequest)
         {
-            Log(InfoMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             PriceWebServiceRequest request = priceWmRequest.ToWmPriceRequest();
             LogRequest(request);
             var wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
@@ -152,6 +143,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return priceResponse;
         }
 
+        private void LogHeader()
+        {
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
+        }
+
         private void LogRequest<T>(T request)
         {
             string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
@@ -175,7 +171,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             var request = createOrderRequest.ToWmOrderRequest();
             LogRequest(request);
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
@@ -185,7 +181,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest simulateOrderRequest)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
+            var endPoint = _soapStoreFrontWebService.ToString();
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
@@ -225,7 +222,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
 
-                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                LogHeader();
                 LogRequest(request);
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
                 LogResponse(wmSimulateOrderResponse);
@@ -250,7 +247,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var wmInventoryResponse = new InventoryWebServiceResponse1();
 
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             var request = inventoryWmRequest.ToWmInventoryRequest();
             LogRequest(request);
             wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
@@ -269,7 +266,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 if (newitemsList.Length == 0)
                     break;
 
-                Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+                LogHeader();
                 LogRequest(request);
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
                 LogResponse(wmInventoryResponse);
@@ -304,7 +301,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         //Temporarily bringing this back for comparision with the new Boomi version
         public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
         {
-            Log(ErrorMessages.SEND_DATA_INPUT_REQUEST);
+            LogHeader();
             var request = partnerRequest.ToWmPartnerRequest();
             LogRequest(request);
             var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebServiceAsync(request).Result;
@@ -325,7 +322,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// <param name="message">message</param>
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA_STOREFRONT);
+            _logger.LogInformation(message);
         }
     }
 }

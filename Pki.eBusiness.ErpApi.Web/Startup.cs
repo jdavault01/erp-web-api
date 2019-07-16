@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pki.eBusiness.ErpApi.Entities.Settings;
-using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.Attributes;
 using Pki.eBusiness.ErpApi.Web.Filters;
 using Swashbuckle.AspNetCore.Swagger;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Pki.eBusiness.ErpApi.Web
 {
@@ -21,6 +22,7 @@ namespace Pki.eBusiness.ErpApi.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            initializeLogger();
         }
 
         public IConfiguration Configuration { get; }
@@ -35,12 +37,11 @@ namespace Pki.eBusiness.ErpApi.Web
             services.AddMvc(config =>
             {
                 config.Filters.Add(new ValidationExceptionFilterAttribute());
-                config.Filters.Add(new IPLoggingFilter());
+                config.Filters.Add(new IPLoggingFilter(Log.Logger));
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 options.SerializerSettings.Converters.Add(new StringEnumConverter());
-                //options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             }); 
 
             services.Scan(scan =>
@@ -56,9 +57,9 @@ namespace Pki.eBusiness.ErpApi.Web
             var erpRestSettings = new ERPRestSettings();
             Configuration.Bind("ErpRestSettings", erpRestSettings);
             services.AddSingleton(erpRestSettings);
-            var loggerConfiguration = new LoggerConfiguration();
-            Configuration.Bind("LoggerConfiguration", loggerConfiguration);
-            services.AddSingleton(loggerConfiguration);
+            ILoggerFactory loggerFactory = new LoggerFactory();
+            loggerFactory.AddSerilog();
+            services.AddSingleton<ILoggerFactory>(loggerFactory);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = SWAGGER_DOC_NAME, Version = "v1" });
@@ -84,13 +85,18 @@ namespace Pki.eBusiness.ErpApi.Web
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", SWAGGER_DOC_NAME);
             });
 
-            //if (!env.IsDevelopment())
-            //{
-            //    app.UseHsts();
-            //}
-
             app.UseHttpsRedirection();
             app.UseMvc();
         }
+
+        private void initializeLogger()
+        {
+            var date = DateTime.Now.ToString(Configuration.GetValue<string>("LoggerConfiguration:logFileDateFormat"));
+            var file = Configuration.GetValue<string>("LoggerConfiguration:logFileTemplate");
+            var logFile = file.Replace("{date}", date.ToString());
+            var logDirectory = Configuration.GetValue<string>("LoggerConfiguration:logFileDirectory");
+            Log.Logger = new Serilog.LoggerConfiguration().WriteTo.File($"{logDirectory}{logFile}").CreateLogger();
+        }
+
     }
 }

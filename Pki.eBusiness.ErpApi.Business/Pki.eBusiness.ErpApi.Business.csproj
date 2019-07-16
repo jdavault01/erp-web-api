@@ -5,10 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.8.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Contract\Pki.eBusiness.ErpApi.Contract.csproj" />
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.DataAccess\Pki.eBusiness.ErpApi.DataAccess.csproj" />
     <ProjectReference Include="..\Pki.eBusiness.ErpApi.Entities\Pki.eBusiness.ErpApi.Entities.csproj" />
-    <ProjectReference Include="..\Pki.eBusiness.ErpApi.Logger\Pki.eBusiness.ErpApi.Logger.csproj" />
   </ItemGroup>
 
 </Project>

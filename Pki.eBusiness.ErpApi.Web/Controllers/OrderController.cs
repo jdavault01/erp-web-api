@@ -1,15 +1,12 @@
-﻿using System;
-using System.Net;
-using System.IO;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.Orders;
-using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
-using System.Net.Http;
+using System;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
@@ -20,11 +17,12 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
     public class OrderController : ControllerBase
     {
         readonly IOrderService _orderService;
-        readonly IPublisher _publisher = PublisherManager.Instance;
+        private ILogger _logger;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderService orderService, ILogger<OrderController> logger)
         {
             _orderService = orderService;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -160,8 +158,7 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
 
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, InfoMessage.WEBAPI_STOREFRONT_LOG_AREA_PRODUCT);
+            _logger.LogInformation(message);
         }
-
     }
 }

@@ -1,23 +1,20 @@
-﻿using Pki.eBusiness.ErpApi.Contract.BL;
+﻿using Microsoft.Extensions.Logging;
+using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Logger;
 
 namespace Pki.eBusiness.ErpApi.Business.Services
 {
     public class CompanyService : ICompanyService
     {
-        private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IERPRestGateway _erpGateway;
+        private readonly ILogger _logger;
 
         private const string NO_PRICE_RESPONSE = "No Price Respnose";
-
-        /// <summary>
-        /// Class Constructor used for dependency injection
-        /// </summary>
-        public CompanyService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway)
+        public CompanyService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway, ILogger<CompanyService> logger)
         {
             _erpGateway = erpGateway;
+            _logger = logger;
         }
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest companyContactRequest)

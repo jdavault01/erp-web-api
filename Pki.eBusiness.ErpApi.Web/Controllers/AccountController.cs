@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Logger;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
@@ -12,11 +12,12 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
     public class AccountController : ControllerBase
     {
         readonly IAccountService _accountService;
-        readonly IPublisher _publisher = PublisherManager.Instance;
+        readonly ILogger _logger;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService, ILogger<AccountController> logger)
         {
             _accountService = accountService;
+            _logger = logger;
         }
 
 
@@ -82,53 +83,9 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
             return _accountService.PartnerLookup(payload);
         }
 
-        //[Route("shop/account/GetPOSUser")]
-        //[HttpPost]
-        //public ActionResult<LoginInfo> GetPunchOutUser([FromBody] string companyCode)
-        //{
-        //    LoginInfo loginInfo;
-
-        //    if (companyCode == null)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-        //        return BadRequest(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST);
-        //    }
-        //    if (!ModelState.IsValid)
-        //    {
-        //        Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    try
-        //    {
-        //        loginInfo = _accountService.GetLoginInfo(companyCode);
-
-        //        if (loginInfo == null)
-        //        {
-        //            Log(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-        //            return NotFound(InfoMessage.ERROR_MSG_UNABLE_TO_GET_PARTNER_RESPONSE);
-        //        }
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Log(e.Message);
-        //        return BadRequest(e.Message);
-        //    }
-
-
-        //    return Ok(loginInfo);
-        //}
-
-        /// <summary>
-        /// This method will log message to log file
-        /// </summary>
-        /// <param name="message">message</param>
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, InfoMessage.WEBAPI_STOREFRONT_LOG_AREA_ACCOUNT);
+            _logger.LogInformation(message);
         }
-
-
     }
 }

@@ -1,18 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Contract.DAL;
-using Pki.eBusiness.ErpApi.Entities.Constants;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
-using Pki.eBusiness.ErpApi.Logger;
 
 namespace Pki.eBusiness.ErpApi.Business.Services
 {
     public class AccountService : IAccountService
     {
-        private readonly IPublisher _publisher = PublisherManager.Instance;
         private readonly IWebMethodClient _webMethodClient;
-        //private readonly IShopCommerceServiceGateway _shopCommerceServiceGateway;
         private readonly IERPRestGateway _erpGateway;
+        private readonly ILogger _logger;
 
         private const string NO_PRICE_RESPONSE = "No Price Respnose";
 
@@ -21,11 +18,11 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// </summary>
         /// <param name="webMethodsClient"></param>
         /// <param name="shopCommerceServiceAgent"></param>
-        public AccountService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway)
+        public AccountService(IWebMethodClient webMethodsClient, IERPRestGateway erpGateway, ILogger<AccountService> logger)
         {
             _webMethodClient = webMethodsClient;
-            //_shopCommerceServiceGateway = shopCommerceServiceAgent;
             _erpGateway = erpGateway;
+            _logger = logger;
 
         }
 
@@ -63,17 +60,6 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         }
 
         /// <summary>
-        /// This method takes a companycode and get the available username and password
-        /// </summary>
-        /// <param name="companyCode"></param>
-        /// <returns></returns>
-        //public LoginInfo GetLoginInfo(String companyCode)
-        //{
-        //    return _shopCommerceServiceGateway.GetLoginInfo(companyCode);
-
-        //}
-
-        /// <summary>
         /// This method takes a client partner request model and converts, makes calls and converts response
         /// back to client side model
         /// </summary>
@@ -84,13 +70,15 @@ namespace Pki.eBusiness.ErpApi.Business.Services
             return _webMethodClient.CreateContact(contactCreateRequest);
 
         }
+
         /// <summary>
         /// This method will log message to log file
         /// </summary>
         /// <param name="message">message</param>
         private void Log(string message)
         {
-            _publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA);
+            _logger.LogInformation(message);
+            //_publisher.PublishMessage(message, System.Diagnostics.TraceLevel.Info, Constants.LOG_AREA);
         }
 
     }
