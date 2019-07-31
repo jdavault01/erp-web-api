@@ -47,14 +47,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private void LogInputRequest(string xml)
         {
-            LogHeader();
             Log(xml.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
         }
 
         public OrderDetailResponse GetOrderDetails(OrderSummaryLookUpRequest request)
         {
-            LogHeader();
             var webServiceDetailRequest = new OrderDetailRequest(request.SAPOrderNumber).ToRequest();
             Log(webServiceDetailRequest.xmlRequest.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
@@ -75,7 +73,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private OrderSummaryResponse GetOrderSummary(OrderSummaryLookUpRequest request)
         {
-            LogHeader();
             var webServiceOrderSummaryRequest = new OrderSummaryRequest(request).ToRequest();
             Log(webServiceOrderSummaryRequest.xmlRequest.Replace("\r\n", ""));
             Log(ErrorMessages.INVOKING_SERVICE);
@@ -99,7 +96,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// <returns></returns>
         public PriceResponse GetPrice(PriceRequest priceWmRequest)
         {
-            LogHeader();
             PriceWebServiceRequest request = priceWmRequest.ToWmPriceRequest();
             LogRequest(request);
             var wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
@@ -143,14 +139,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return priceResponse;
         }
 
-        private void LogHeader()
-        {
-            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
-        }
-
         private void LogRequest<T>(T request)
         {
             string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
             Log(jsonRequest.Replace("\r\n", ""));
             Log(InfoMessages.INVOKING_SERVICE_REQUEST);
         }
@@ -171,7 +163,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
         {
-            LogHeader();
             var request = createOrderRequest.ToWmOrderRequest();
             LogRequest(request);
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
@@ -181,7 +172,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest simulateOrderRequest)
         {
-            LogHeader();
             var endPoint = _soapStoreFrontWebService.ToString();
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
             LogRequest(request);
@@ -222,7 +212,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
 
-                LogHeader();
                 LogRequest(request);
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
                 LogResponse(wmSimulateOrderResponse);
@@ -247,7 +236,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var wmInventoryResponse = new InventoryWebServiceResponse1();
 
-            LogHeader();
             var request = inventoryWmRequest.ToWmInventoryRequest();
             LogRequest(request);
             wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
@@ -266,7 +254,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 if (newitemsList.Length == 0)
                     break;
 
-                LogHeader();
                 LogRequest(request);
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
                 LogResponse(wmInventoryResponse);
@@ -301,7 +288,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         //Temporarily bringing this back for comparision with the new Boomi version
         public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
         {
-            LogHeader();
             var request = partnerRequest.ToWmPartnerRequest();
             LogRequest(request);
             var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebServiceAsync(request).Result;
@@ -310,9 +296,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         }
 
-        public ContactCreateClientResponse CreateContact(ContactCreateClientRequest contactCreateRequest)
+        public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
-            return _erpRestGateway.CreateContact(contactCreateRequest);
+            LogRequest(request);
+            var result = _erpRestGateway.CreateContact(request);
+            LogResponse(result);
+            return result;
         }
 
 

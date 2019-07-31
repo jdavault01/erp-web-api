@@ -16,6 +16,8 @@ using Pki.eBusiness.ErpApi.DataAccess.AtgApi;
 using Pki.eBusiness.ErpApi.DataAccess.Model;
 using atgApiClient = Pki.eBusiness.ErpApi.DataAccess.Client;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using Pki.eBusiness.ErpApi.Entities.Constants;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -24,10 +26,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private ERPRestSettings _erpRestSettings;
         private IErpApi _erpApi;
         private IOrderApi _atgOrderApi;
+        private readonly ILogger _logger;
+        private string _baseUrl;
 
         protected RestClient _restClient { get; set; }
 
-        public ERPRestGateway(ERPRestSettings erpRestSettings)
+        public ERPRestGateway(ERPRestSettings erpRestSettings, ILogger<ERPRestGateway> logger)
         {
             _restClient = new RestClient();
             _restClient.ClearHandlers();
@@ -36,33 +40,47 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl);
             _atgOrderApi = new AtgApi.OrderApi(erpRestSettings);
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
+            _logger = logger;
+            _baseUrl = erpRestSettings.AtgBaseUrl;
+
         }
 
 
         public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
             var payLoad = new ContactCreateWebServiceRequest(request);
+            LogRequest(payLoad);
             var result = ExecuteCall<ContactCreateWebServiceResponse>(_erpRestSettings.BaseUrl, _erpRestSettings.GetContactCreateRequest, payLoad);
+            LogResponse(result);
             return result.ToResponse();
         }
 
         public SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request)
         {
-            SimulateOrderRequestRoot req = new SimulateOrderRequestRoot(request);
-            var result = _erpApi.SimulateOrderPost(req);
+            var payLoad = new SimulateOrderRequestRoot(request);
+            LogRequest(payLoad);
+            var result = _erpApi.SimulateOrderPost(payLoad);
+            LogResponse(result);
             return result.ToResponse();
         }
 
-        public ShippingNotificationResponse SendShippingNotifications(ShippingNotification payLoad)
+        public ShippingNotificationResponse SendShippingNotifications(ShippingNotification request)
         {
-            var ShippingNotificationOrderDto = new ShippingNotificationOrderDto(payLoad);
+            var payLoad = new ShippingNotificationOrderDto(request);
             var shippingNotification = new ShippingNotificationResponse();
+            LogRequest(payLoad);
             try
             {
-                var result = _atgOrderApi.SendShippingNotifications(ShippingNotificationOrderDto);
+                var result = _atgOrderApi.SendShippingNotifications(payLoad);
+                LogResponse(result);
+                if (string.IsNullOrEmpty(result))
+                {
+                    shippingNotification.EmailSent = false;
+                    shippingNotification.ErrorMessage = "Server Error communcating with notification service.";
+                }
                 shippingNotification.EmailSent = Boolean.Parse(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 shippingNotification.EmailSent = false;
                 shippingNotification.ErrorMessage = ex.Message;
@@ -74,8 +92,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public PartnerResponse PartnerLookup(SimplePartnerRequest request)
         {
-            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
-            var result = _erpApi.PartnerLookupPost(req);
+            var payLoad = new PartnerLookupRequestRoot(request);
+            LogRequest(payLoad);
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            LogResponse(result);
             return result.ToPartnerResponse();
         }
 
@@ -100,24 +120,52 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
         {
-            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
-            var result = _erpApi.PartnerLookupPost(req);
+            var payLoad = new PartnerLookupRequestRoot(request);
+            LogRequest(payLoad);
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            LogRequest(result);
             return result.ToCompanyContactsResponse(request.Name);
         }
 
         public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
         {
-            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
-            var result = _erpApi.PartnerLookupPost(req);
+            var payLoad = new PartnerLookupRequestRoot(request);
+            LogRequest(payLoad);
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            LogResponse(result);
             return result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
         }
 
         public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)
         {
-            PartnerLookupRequestRoot req = new PartnerLookupRequestRoot(request);
-            var result = _erpApi.PartnerLookupPost(req);
+            var payLoad = new PartnerLookupRequestRoot(request);
+            LogRequest(payLoad);
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            LogResponse(result);
             return result.ToCompanyInfoResponse();
         }
+
+
+        private void LogRequest<T>(T request)
+        {
+            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
+            Log(jsonRequest.Replace("\r\n", ""));
+            Log(InfoMessages.INVOKING_SERVICE_REQUEST);
+        }
+
+        private void LogResponse<T>(T response)
+        {
+            string jsonResponse = response.SerializeToJson(OutPutType.Formatted);
+            Log(InfoMessages.RESPONSE_FROM_SERVICE);
+            Log(jsonResponse);
+        }
+
+        private void Log(string message)
+        {
+            _logger.LogInformation(message);
+        }
+
 
     }
 }
