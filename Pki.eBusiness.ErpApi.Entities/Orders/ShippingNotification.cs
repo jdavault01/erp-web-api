@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Pki.eBusiness.ErpApi.Entities.Orders
@@ -231,7 +233,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string CCType
         {
             get
@@ -244,7 +246,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string CCLast4
         {
             get
@@ -296,11 +298,11 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public decimal TotalPrice
         {
             get
-            {
+           {
                 return this.totalPriceField;
             }
             set
@@ -309,7 +311,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string PromotionalDiscount
         {
             get
@@ -322,7 +324,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string OrderType
         {
             get
@@ -336,6 +338,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
         }
 
         /// <remarks/>
+        [DefaultValue(null)]
         public string OrderStatus
         {
             get
@@ -348,7 +351,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string VAT
         {
             get
@@ -361,7 +364,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string OrderValue
         {
             get
@@ -555,7 +558,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public decimal DeliveryCharges
         {
             get
@@ -568,7 +571,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public decimal HandlingCharges
         {
             get
@@ -581,7 +584,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public decimal AdjustedUnitPrice
         {
             get
@@ -594,7 +597,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
             }
         }
 
-        /// <remarks/>
+        [DefaultValue(null)]
         public string VAT
         {
             get
