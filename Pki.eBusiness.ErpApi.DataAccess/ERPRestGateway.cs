@@ -37,7 +37,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             _restClient.ClearHandlers();
             _restClient.AddHandler("application/json", new NewtonsoftJsonSerializer());
             _erpRestSettings = erpRestSettings;
-            _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl);
+            _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl, erpRestSettings.UserName, erpRestSettings.PassWord);
             _atgOrderApi = new AtgApi.OrderApi(erpRestSettings);
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
             _logger = logger;

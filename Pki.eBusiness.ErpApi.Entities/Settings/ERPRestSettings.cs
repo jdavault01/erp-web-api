@@ -11,7 +11,8 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
         public string ApiKey { get; set; }
         public List<Resource> Resources { get; set; }
         public string IntegrationPlatformBaseUrl { get; set; }
-
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
         public string AtgBaseUrl { get; set; }
         public string AtgApiKey { get; set; }
 

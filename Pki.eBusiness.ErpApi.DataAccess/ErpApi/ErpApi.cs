@@ -123,9 +123,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi
         /// Initializes a new instance of the <see cref="ErpApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ErpApi(String basePath)
+        public ErpApi(String basePath, String userName, string passWord)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Configuration { BasePath = basePath, Username = userName, Password = passWord};
 
             ExceptionFactory = Configuration.DefaultExceptionFactory;
         }
