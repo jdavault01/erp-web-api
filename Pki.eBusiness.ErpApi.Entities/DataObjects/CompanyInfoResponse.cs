@@ -86,7 +86,8 @@ namespace Pki.eBusiness.ErpApi.Entities.DataObjects
     
     public class Error
     {
-        
+        public string Description { get; set; }
+
         public string ErrorNumber { get; set; }
         
         public string ErrorType { get; set; }

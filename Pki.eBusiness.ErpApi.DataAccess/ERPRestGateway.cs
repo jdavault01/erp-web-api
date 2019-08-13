@@ -36,6 +36,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             _restClient = new RestClient();
             _restClient.ClearHandlers();
             _restClient.AddHandler("application/json", new NewtonsoftJsonSerializer());
+            _restClient.Timeout = erpRestSettings.Timeout; 
             _erpRestSettings = erpRestSettings;
             _erpApi = new ErpApi.ErpApi(erpRestSettings.IntegrationPlatformBaseUrl, erpRestSettings.UserName, erpRestSettings.PassWord);
             _atgOrderApi = new AtgApi.OrderApi(erpRestSettings);
@@ -120,6 +121,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
         {
+
             var payLoad = new PartnerLookupRequestRoot(request);
             LogRequest(payLoad);
             var result = _erpApi.PartnerLookupPost(payLoad);
@@ -156,9 +158,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private void LogResponse<T>(T response)
         {
-            string jsonResponse = response.SerializeToJson(OutPutType.Formatted);
+            var newJsonResponse = JsonConvert.SerializeObject(response, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             Log(InfoMessages.RESPONSE_FROM_SERVICE);
-            Log(jsonResponse);
+            Log(newJsonResponse);
         }
 
         private void Log(string message)

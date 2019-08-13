@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Pki.eBusiness.ErpApi.Contract.DAL;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
 using Pki.eBusiness.ErpApi.DataAccess.Models.Orders;
@@ -150,6 +151,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private void LogResponse<T>(T response)
         {
             string jsonResponse = response.SerializeToJson(OutPutType.Formatted);
+            var newJsonResponse = JsonConvert.SerializeObject(response, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             Log(InfoMessages.RESPONSE_FROM_SERVICE);
             Log(jsonResponse);
         }
@@ -164,10 +166,38 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
         {
             var request = createOrderRequest.ToWmOrderRequest();
-            LogRequest(request);
+            //If this is a CC transaction mask the CC before logging
+            if (request.OrderRequest.OrderRequestHeader.CreditCard != null)
+            {
+                var maskedRequestLogging = createOrderRequest.ToWmOrderRequest();
+                var maskedCardNumber = MaskCreditCardNumber(maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber);
+                maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber = maskedCardNumber;
+                LogRequest(maskedRequestLogging);
+            }
+            else
+            {
+                LogRequest(request);
+            }
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
             LogResponse(wmOrderResponse);
             return wmOrderResponse.ToOrderResponse();
+        }
+
+        private string MaskCreditCardNumber(string cardNumber)
+        {
+            if (cardNumber.Length < 15)
+                return cardNumber;
+
+            var maskedPan = cardNumber.Aggregate(string.Empty, (value, next) =>
+            {
+                if (value.Length >= 4 && value.Length < cardNumber.Length - 4)
+                {
+                    next = '*';
+                }
+                return value + next;
+            });
+
+            return maskedPan;
         }
 
         public SimulateOrderResponse SimulateOrder(SimulateOrderRequest simulateOrderRequest)

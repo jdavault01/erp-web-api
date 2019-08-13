@@ -15,6 +15,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         protected const string SALES_DIVISION = "02";
         protected const string SAP_SHIP_TO = "WE";
         protected const string SAP_HIERARCHY_NUMBER = "1A";
+        protected const string SAP_HIERARCHY_NAME = "KO";
+        protected const string SAP_CONTACTS = "AP";
+
 
         public PartnerLookupRequestRoot(SimplePartnerRequest req)
         {
@@ -25,7 +28,27 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             SALESORG = req.SalesAreaInfo.SalesOrgId;
         }
 
+        
+        public PartnerLookupRequestRoot(CompanyAddressesRequest req)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            PARTNER_IN = req.ERPHierarchyNumber;
+            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            SALESORG = req.SalesOrg;
+        }
+
         public PartnerLookupRequestRoot(CompanyInfoRequest req)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            PARTNER_IN = req.ERPHierarchyNumber;
+            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            PARTNER_ROLE_OUT = SAP_HIERARCHY_NAME;
+            SALESORG = req.SalesOrg;
+        }
+
+        public PartnerLookupRequestRoot(CompanyContactsRequest req)
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;

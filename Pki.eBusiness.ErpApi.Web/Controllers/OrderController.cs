@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
@@ -77,6 +78,8 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         [ProducesResponseType(404)]
         public ActionResult<CreateOrderResponse> Create([FromBody] CreateOrderRequest payload)
         {
+            LogRequest(payload);
+
             if (payload == null)
             {
                 Log(InfoMessage.ERROR_MSG_INVALID_CREATE_ORDER_REQUEST);
@@ -130,7 +133,6 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         [HttpPost]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        //[Route("/wms/orders/ShippingNotifications")]
         public ActionResult ShippingNotifications(string InvoiceXML)
         {
             ShippingNotification shippingNotification = null;
@@ -155,10 +157,32 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
             return Ok(response);
         }
 
+        private void LogRequest<T>(T request)
+        {
+            string jsonRequest = SerializeToJson(request, OutPutType.Unformatted);
+            Log("/************************* LOG CREATE ORDER REQUEST (TEMP LOG) *************************/");
+            Log(jsonRequest.Replace("\r\n", ""));
+            Log("/************************* LOG CREATE ORDER REQUEST (TEMP LOG) END *************************/");
+        }
 
+        public string SerializeToJson<T>(T obj, OutPutType outPutType)
+        {
+            var jsonString = JsonConvert.SerializeObject(obj);
+            if (outPutType == OutPutType.Formatted)
+            {
+                jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
+            }
+            return jsonString;
+        }
         private void Log(string message)
         {
             _logger.LogInformation(message);
         }
+    }
+
+    public enum OutPutType
+    {
+        Formatted,
+        Unformatted
     }
 }

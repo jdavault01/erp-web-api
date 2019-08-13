@@ -18,14 +18,14 @@ namespace Pki.eBusiness.ErpApi.Web
 {
     public class Startup
     {
+        private IConfiguration _config { get; }
+
         private const string SWAGGER_DOC_NAME = "Erp API";
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _config = configuration;
             initializeLogger();
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -52,10 +52,10 @@ namespace Pki.eBusiness.ErpApi.Web
             });
 
             var swaggerSettings = new SwaggerSettings();
-            Configuration.Bind("SwaggerSettings", swaggerSettings);
+            _config.Bind("SwaggerSettings", swaggerSettings);
             services.AddSingleton(swaggerSettings);
             var erpRestSettings = new ERPRestSettings();
-            Configuration.Bind("ErpRestSettings", erpRestSettings);
+            _config.Bind("ErpRestSettings", erpRestSettings);
             services.AddSingleton(erpRestSettings);
             ILoggerFactory loggerFactory = new LoggerFactory();
             loggerFactory.AddSerilog();
@@ -91,10 +91,10 @@ namespace Pki.eBusiness.ErpApi.Web
 
         private void initializeLogger()
         {
-            var date = DateTime.Now.ToString(Configuration.GetValue<string>("LoggerConfiguration:logFileDateFormat"));
-            var file = Configuration.GetValue<string>("LoggerConfiguration:logFileTemplate");
+            var date = DateTime.Now.ToString(_config.GetValue<string>("LoggerConfiguration:logFileDateFormat"));
+            var file = _config.GetValue<string>("LoggerConfiguration:logFileTemplate");
             var logFile = file.Replace("{date}", date.ToString());
-            var logDirectory = Configuration.GetValue<string>("LoggerConfiguration:logFileDirectory");
+            var logDirectory = _config.GetValue<string>("LoggerConfiguration:logFileDirectory");
             Log.Logger = new Serilog.LoggerConfiguration().WriteTo.File($"{logDirectory}{logFile}").CreateLogger();
         }
 

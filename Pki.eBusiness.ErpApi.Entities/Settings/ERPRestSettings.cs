@@ -12,6 +12,7 @@ namespace Pki.eBusiness.ErpApi.Entities.Settings
         public List<Resource> Resources { get; set; }
         public string IntegrationPlatformBaseUrl { get; set; }
         public string UserName { get; set; }
+        public int Timeout { get; set; }
         public string PassWord { get; set; }
         public string AtgBaseUrl { get; set; }
         public string AtgApiKey { get; set; }

@@ -151,6 +151,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
             return result;
         }
 
+
         public static OrderWebServiceRequest ToWmOrderRequest(this StorefrontCreateOrderRequest clientRequest)
         {
             var result = new OrderWebServiceRequest();
@@ -234,6 +235,14 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 
         public static CreateOrderResponse ToOrderResponse(this OrderWebServiceResponse1 response)
         {
+            if (response.ErrorResponse != null && response.ErrorResponse.Error != string.Empty)
+            {
+                var orderResponse = new CreateOrderResponse
+                {
+                    ErrorMessage = response.ErrorResponse.Error
+                };
+                return orderResponse;
+            }
             var result = new CreateOrderResponse();
             var orderLineItems = new List<OrderLineItem>();
             foreach (var item in response.OrderResponse.OrderResponseDetail)
