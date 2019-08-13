@@ -185,8 +185,13 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private string MaskCreditCardNumber(string cardNumber)
         {
-            if (cardNumber.Length < 15)
+            //If this is a token just allow it to be logged
+            Regex regex = new Regex(@"\w{2}\-\w*\-\w{4}");
+            Match match = regex.Match(cardNumber);
+            if (match.Success)
+            {
                 return cardNumber;
+            }
 
             var maskedPan = cardNumber.Aggregate(string.Empty, (value, next) =>
             {
