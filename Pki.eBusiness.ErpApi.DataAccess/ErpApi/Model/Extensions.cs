@@ -16,7 +16,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         protected const string SAP_SHIP_TO = "WE";
         protected const string SAP_HIERARCHY_NUMBER = "1A";
         protected const string SAP_HIERARCHY_NAME = "KO";
-        protected const string SAP_CONTACTS = "AP";
+        protected const string SAP_CONTACT = "AP";
+        protected const string SAP_BILL_TO = "RG";
+        protected const string SAP_DUPLICATE_BILL_TO = "RE";
+        protected const string SAP_SOLD_TO = "AG";
 
 
         public PartnerLookupRequestRoot(SimplePartnerRequest req)
@@ -33,8 +36,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
-            PARTNER_IN = req.ERPHierarchyNumber;
-            PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            PARTNER_IN = req.ShipTo;
+            PARTNER_ROLE_IN = SAP_SHIP_TO;
+            PARTNER_ROLE_OUT = SAP_BILL_TO;
             SALESORG = req.SalesOrg;
         }
 
@@ -52,8 +56,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
+            LASTNAME = req.Name;
             PARTNER_IN = req.ERPHierarchyNumber;
             PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
+            PARTNER_ROLE_OUT = SAP_CONTACT;
             SALESORG = req.SalesOrg;
         }
     }

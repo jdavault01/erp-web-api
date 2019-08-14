@@ -50,7 +50,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
             var payLoad = new ContactCreateWebServiceRequest(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "CreateContact");
             var result = ExecuteCall<ContactCreateWebServiceResponse>(_erpRestSettings.BaseUrl, _erpRestSettings.GetContactCreateRequest, payLoad);
             LogResponse(result);
             return result.ToResponse();
@@ -59,7 +59,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request)
         {
             var payLoad = new SimulateOrderRequestRoot(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "SimulateOrder");
             var result = _erpApi.SimulateOrderPost(payLoad);
             LogResponse(result);
             return result.ToResponse();
@@ -69,7 +69,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var payLoad = new ShippingNotificationOrderDto(request);
             var shippingNotification = new ShippingNotificationResponse();
-            LogRequest(payLoad);
+            LogRequest(payLoad, "SendShippingNotifications");
             try
             {
                 var result = _atgOrderApi.SendShippingNotifications(payLoad);
@@ -94,7 +94,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public PartnerResponse PartnerLookup(SimplePartnerRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "SimplePartnerLookup");
             var result = _erpApi.PartnerLookupPost(payLoad);
             LogResponse(result);
             return result.ToPartnerResponse();
@@ -121,18 +121,25 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
         {
-
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "CompanyContacts");
             var result = _erpApi.PartnerLookupPost(payLoad);
-            LogRequest(result);
+            LogResponse(result);
+            if (result.PARTNERS_OUT == null || result.ADDRESS_OUT == null)
+            {
+                var companyContactsResponse = new CompanyContactsResponse
+                {
+                    Error = new Error { Description = "Last name provided not found in this Hiearchy" }
+                };
+                return companyContactsResponse;
+            }
             return result.ToCompanyContactsResponse(request.Name);
         }
 
         public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "CompanyAddresses");
             var result = _erpApi.PartnerLookupPost(payLoad);
             LogResponse(result);
             return result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
@@ -141,17 +148,17 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad);
+            LogRequest(payLoad, "CompanyInfo");
             var result = _erpApi.PartnerLookupPost(payLoad);
             LogResponse(result);
             return result.ToCompanyInfoResponse();
         }
 
 
-        private void LogRequest<T>(T request)
+        private void LogRequest<T>(T request, string nameOfMethod)
         {
             string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
-            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} for {nameOfMethod} using {_baseUrl}");
             Log(jsonRequest.Replace("\r\n", ""));
             Log(InfoMessages.INVOKING_SERVICE_REQUEST);
         }

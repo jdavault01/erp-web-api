@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model;
 using RestSharp;
 
@@ -278,7 +280,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (ExceptionFactory != null)
+            //TODO:  Work aournd to 400 status -- Rishi is going to fix endPoint
+            var matchResult = Regex.Match(localVarResponse.Content, @"Hierarchy customer \w* not found", RegexOptions.IgnoreCase);
+            var IsAnExceptionWeIgnoreForNow = localVarResponse.StatusCode == HttpStatusCode.BadRequest && matchResult.Success;
+
+            if (ExceptionFactory != null && !IsAnExceptionWeIgnoreForNow)
             {
                 Exception exception = ExceptionFactory("PartnerLookupPost", localVarResponse);
                 if (exception != null) throw exception;

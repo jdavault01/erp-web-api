@@ -98,7 +98,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public PriceResponse GetPrice(PriceRequest priceWmRequest)
         {
             PriceWebServiceRequest request = priceWmRequest.ToWmPriceRequest();
-            LogRequest(request);
+            LogRequest(request,"PriceRequest");
             var wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
             LogResponse(wmPriceResponse);
 
@@ -127,7 +127,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     break;
 
                 Log(InfoMessages.SEND_DATA_CORRECTED_INPUT_REQUEST);
-                LogRequest(request);
+                LogRequest(request, "Addtional PriceRequests (to handle failed products");
                 wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
                 LogResponse(wmPriceResponse);
             }
@@ -140,28 +140,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return priceResponse;
         }
 
-        private void LogRequest<T>(T request)
-        {
-            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
-            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} using {_baseUrl}");
-            Log(jsonRequest.Replace("\r\n", ""));
-            Log(InfoMessages.INVOKING_SERVICE_REQUEST);
-        }
-
-        private void LogResponse<T>(T response)
-        {
-            string jsonResponse = response.SerializeToJson(OutPutType.Formatted);
-            var newJsonResponse = JsonConvert.SerializeObject(response, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            Log(InfoMessages.RESPONSE_FROM_SERVICE);
-            Log(jsonResponse);
-        }
-
-
-        private string GetProductFromErrorMessage(string errorMessage)
-        {
-            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase);
-            return match.Success ? match.Groups[1].Value : string.Empty;
-        }
 
         public CreateOrderResponse CreateOrder(CreateOrderRequest createOrderRequest)
         {
@@ -172,11 +150,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 var maskedRequestLogging = createOrderRequest.ToWmOrderRequest();
                 var maskedCardNumber = MaskCreditCardNumber(maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber);
                 maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber = maskedCardNumber;
-                LogRequest(maskedRequestLogging);
+                LogRequest(maskedRequestLogging, "CreateOrder");
             }
             else
             {
-                LogRequest(request);
+                LogRequest(request, "CreateOrder");
             }
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
             LogResponse(wmOrderResponse);
@@ -209,7 +187,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var endPoint = _soapStoreFrontWebService.ToString();
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
-            LogRequest(request);
+            LogRequest(request, "SimulateOrder");
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
             var orderResponseError = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
             LogResponse(wmSimulateOrderResponse);
@@ -247,7 +225,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
 
-                LogRequest(request);
+                LogRequest(request,"Addtional SimulateOrder (to handle failed products");
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
                 LogResponse(wmSimulateOrderResponse);
 
@@ -272,7 +250,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var wmInventoryResponse = new InventoryWebServiceResponse1();
 
             var request = inventoryWmRequest.ToWmInventoryRequest();
-            LogRequest(request);
+            LogRequest(request, "GetInventory");
             wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
             LogResponse(wmInventoryResponse);
 
@@ -289,7 +267,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 if (newitemsList.Length == 0)
                     break;
 
-                LogRequest(request);
+                LogRequest(request,"Addtional GetInventory (to handle failed products");
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
                 LogResponse(wmInventoryResponse);
 
@@ -324,7 +302,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
         {
             var request = partnerRequest.ToWmPartnerRequest();
-            LogRequest(request);
+            LogRequest(request, "GetPartnerDetails");
             var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebServiceAsync(request).Result;
             LogResponse(wmPartnerResponse);
             return wmPartnerResponse.ToPartnerResponse();
@@ -333,10 +311,30 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
-            LogRequest(request);
-            var result = _erpRestGateway.CreateContact(request);
-            LogResponse(result);
-            return result;
+            return _erpRestGateway.CreateContact(request);
+        }
+
+        private void LogRequest<T>(T request, string nameOfMethod)
+        {
+            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} for {nameOfMethod} using {_baseUrl}");
+            Log(jsonRequest.Replace("\r\n", ""));
+            Log(InfoMessages.INVOKING_SERVICE_REQUEST);
+        }
+
+        private void LogResponse<T>(T response)
+        {
+            string jsonResponse = response.SerializeToJson(OutPutType.Formatted);
+            var newJsonResponse = JsonConvert.SerializeObject(response, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            Log(InfoMessages.RESPONSE_FROM_SERVICE);
+            Log(jsonResponse);
+        }
+
+
+        private string GetProductFromErrorMessage(string errorMessage)
+        {
+            var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase);
+            return match.Success ? match.Groups[1].Value : string.Empty;
         }
 
 
