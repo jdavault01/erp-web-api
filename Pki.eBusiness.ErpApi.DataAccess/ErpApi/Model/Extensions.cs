@@ -56,7 +56,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         {
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
-            LASTNAME = req.Name;
+            LASTNAME = req.Name == null ? string.Empty : req.Name.ToUpper();
             PARTNER_IN = req.ERPHierarchyNumber;
             PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
             PARTNER_ROLE_OUT = SAP_CONTACT;
