@@ -37,8 +37,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
             PARTNER_IN = req.ShipTo;
+            //PARTNER_IN = req.ERPHierarchyNumber;
+            //PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
             PARTNER_ROLE_IN = SAP_SHIP_TO;
-            PARTNER_ROLE_OUT = SAP_BILL_TO;
+            //PARTNER_ROLE_OUT = SAP_BILL_TO;
             SALESORG = req.SalesOrg;
         }
 
