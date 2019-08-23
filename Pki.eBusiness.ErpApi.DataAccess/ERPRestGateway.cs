@@ -96,8 +96,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var payLoad = new PartnerLookupRequestRoot(request);
             LogRequest(payLoad, "SimplePartnerLookup");
             var result = _erpApi.PartnerLookupPost(payLoad);
-            LogResponse(result);
-            return result.ToPartnerResponse();
+            var partnerResponse = result.ToPartnerResponse();
+            LogResponse(partnerResponse);
+            return partnerResponse;
         }
 
         private T ExecuteCall<T>(string baseUrl, Resource resource, object payLoad) where T : new()
@@ -124,7 +125,6 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var payLoad = new PartnerLookupRequestRoot(request);
             LogRequest(payLoad, "CompanyContacts");
             var result = _erpApi.PartnerLookupPost(payLoad);
-            LogResponse(result);
             if (result.PARTNERS_OUT == null || result.ADDRESS_OUT == null)
             {
                 var companyContactsResponse = new CompanyContactsResponse
@@ -133,7 +133,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 };
                 return companyContactsResponse;
             }
-            return result.ToCompanyContactsResponse(request.Name);
+            var companyContactResponse = result.ToCompanyContactsResponse(request.Name);
+            LogResponse(companyContactResponse);
+            return companyContactResponse;
         }
 
         public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
@@ -141,8 +143,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var payLoad = new PartnerLookupRequestRoot(request);
             LogRequest(payLoad, "CompanyAddresses");
             var result = _erpApi.PartnerLookupPost(payLoad);
-            LogResponse(result);
-            return result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
+            var companyAddressResponse = result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
+            LogResponse(companyAddressResponse);
+            return companyAddressResponse;
         }
 
         public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)
@@ -150,8 +153,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var payLoad = new PartnerLookupRequestRoot(request);
             LogRequest(payLoad, "CompanyInfo");
             var result = _erpApi.PartnerLookupPost(payLoad);
-            LogResponse(result);
-            return result.ToCompanyInfoResponse();
+            var companyInfoResponse =  result.ToCompanyInfoResponse();
+            LogResponse(companyInfoResponse);
+            return companyInfoResponse;
         }
 
 
