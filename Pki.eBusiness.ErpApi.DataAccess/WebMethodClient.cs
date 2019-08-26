@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
+using static System.String;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
 using PartnerResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.PartnerResponse;
@@ -97,7 +98,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         /// <returns></returns>
         public PriceResponse GetPrice(PriceRequest priceWmRequest)
         {
-            PriceWebServiceRequest request = priceWmRequest.ToWmPriceRequest();
+            var priceResponse = new PriceResponse();
+            var request = priceWmRequest.ToWmPriceRequest();
             LogRequest(request,"PriceRequest");
             var wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
             LogResponse(wmPriceResponse);
@@ -106,33 +108,32 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
             while (wmPriceResponse.ErrorReturn != null)
             {
-                var productId = GetProductFromErrorMessage(wmPriceResponse.ErrorReturn.Error);
-                if (productId == string.Empty)
+                var productId = GetProductFromMaterialErrorMessage(wmPriceResponse.ErrorReturn.Error);
+                if (productId == Empty)
                 {
-                    Log(string.Format("{0} - {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, "Unable to get product from error return object"));
-                    throw new ApplicationException("Unable to get product from error return object");
+                    priceResponse.ErrorMessage = wmPriceResponse.ErrorReturn.Error;
+                    return priceResponse;
                 }
 
-                Log(string.Format("{0} for product {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, productId));
+                Log($"{ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE} for product {productId}");
 
                 var failedProduct = new FailedProduct { ErrorMessage = wmPriceResponse.ErrorReturn.Error, PartNumber = productId };
                 failedProducts.Add(failedProduct);
 
                 var newProductLists = request.PricingRequest.ProductList.Where(val => val.ProductID != productId).ToArray();
-                if (newProductLists.Length == request.PricingRequest.ProductList.Length)
-                    break;
-                request.PricingRequest.ProductList = newProductLists;
+                //I don't see why or how this will be needed (if no edge case is reported by 1/1/2020, remove this line altogether)
+                //if (newProductLists.Length == request.PricingRequest.ProductList.Length) break;
 
-                if (newProductLists.Length == 0)
-                    break;
+                request.PricingRequest.ProductList = newProductLists;
+                if (newProductLists.Length == 0) break;
 
                 Log(InfoMessages.SEND_DATA_CORRECTED_INPUT_REQUEST);
-                LogRequest(request, "Addtional PriceRequests (to handle failed products");
+                LogRequest(request, "Additional PriceRequests (to handle failed products");
                 wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
                 LogResponse(wmPriceResponse);
             }
 
-            var priceResponse = wmPriceResponse.ToPriceResponse();
+            priceResponse = wmPriceResponse.ToPriceResponse();
             
             if (failedProducts.Count == 0) return priceResponse;
             priceResponse.FailedProducts = failedProducts;
@@ -164,14 +165,14 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private string MaskCreditCardNumber(string cardNumber)
         {
             //If this is a token just allow it to be logged
-            Regex regex = new Regex(@"\w{2}\-\w*\-\w{4}");
-            Match match = regex.Match(cardNumber);
+            var regex = new Regex(@"\w{2}\-\w*\-\w{4}");
+            var match = regex.Match(cardNumber);
             if (match.Success)
             {
                 return cardNumber;
             }
 
-            var maskedPan = cardNumber.Aggregate(string.Empty, (value, next) =>
+            var maskedPan = cardNumber.Aggregate(Empty, (value, next) =>
             {
                 if (value.Length >= 4 && value.Length < cardNumber.Length - 4)
                 {
@@ -198,7 +199,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 string productId = LogFailedItem(failedItems, errorMessage);
 
                 //if we have an error condition but no failed products, we have an order order level issue, we can return
-                if (productId == string.Empty)
+                if (productId == Empty)
                 {
                     failedItems.Clear();
                     var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = "Order Level Exception, not applicable" };
@@ -211,11 +212,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
 
-                var newitemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
-                request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newitemsList;
+                var newItemsList = request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.OrderRequest.OrderRequest.Body[0].OrderRequestDetail = newItemsList;
 
                 //We had an error condition for a single product .. we need to collect that error and return
-                if (newitemsList.Length == 0)
+                if (newItemsList.Length == 0)
                 {
                     var orderLevelFailureResponse = new SimulateOrderResponse
                     {
@@ -242,56 +243,61 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private static bool ContainsSAPError(SimulateOrderWebServiceResponse1 wmSimulateOrderResponse)
         {
-            return wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != string.Empty;
+            return wmSimulateOrderResponse.ErrorResponse != null && wmSimulateOrderResponse.ErrorResponse.ErrorResponse1.Body[0].Error != Empty;
         }
 
         public InventoryResponse GetInventory(InventoryRequest inventoryWmRequest)
         {
-            var wmInventoryResponse = new InventoryWebServiceResponse1();
-
+            var inventoryResponse = new InventoryResponse();
             var request = inventoryWmRequest.ToWmInventoryRequest();
             LogRequest(request, "GetInventory");
-            wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
+            var wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
             LogResponse(wmInventoryResponse);
 
-            var failedItems = new List<FailedItem>();
+            var failedInventoryItems = new List<FailedItem>();
 
             while (wmInventoryResponse.ErrorResponse != null)
             {
                 var errorMessage = wmInventoryResponse.ErrorResponse.ErrorResponse1.Body[0].Error;
-                string productId = LogFailedItem(failedItems, errorMessage);
+                var productId = LogFailedItem(failedInventoryItems, errorMessage);
 
-                var newitemsList = request.InventoryRequest.InventoryRequestDetail.Where(val => val.ProductID != productId).ToArray();
-                request.InventoryRequest.InventoryRequestDetail = newitemsList;
+                if (productId == Empty)
+                {
+                    inventoryResponse.FailedItems = failedInventoryItems;
+                    inventoryResponse.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+                    return inventoryResponse;
+                }
 
-                if (newitemsList.Length == 0)
-                    break;
+                var newItemsList = request.InventoryRequest.InventoryRequestDetail.Where(val => val.ProductID != productId).ToArray();
+                request.InventoryRequest.InventoryRequestDetail = newItemsList;
+                if (newItemsList.Length == 0) break;
 
-                LogRequest(request,"Addtional GetInventory (to handle failed products");
+                LogRequest(request,"Additional GetInventory (to handle failed products");
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
                 LogResponse(wmInventoryResponse);
 
             }
-            var inventoryResponse = wmInventoryResponse.ToInventoryResponse();
 
-            if (failedItems.Count == 0) return inventoryResponse;
-            inventoryResponse.FailedItems = failedItems;
+            inventoryResponse = wmInventoryResponse.ToInventoryResponse();
+            if (failedInventoryItems.Count == 0) return inventoryResponse;
+            inventoryResponse.FailedItems = failedInventoryItems;
             inventoryResponse.ErrorMessage = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
             return inventoryResponse;
         }
 
         private string LogFailedItem(List<FailedItem> failedItems, string errorMessage)
         {
-            if (String.IsNullOrEmpty(errorMessage))
+            if (IsNullOrEmpty(errorMessage))
                 return errorMessage;
 
-            var productId = GetProductFromErrorMessage(errorMessage);
-            if (productId == string.Empty)
+            var productId = GetProductFromMaterialErrorMessage(errorMessage);
+            if (productId == Empty)
             {
-                Log(string.Format("{0} - {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, "Unable to get product from error return object"));
+                Log(
+                    $"{ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE} - Unable to get product from error return object");
             }
 
-            Log(string.Format("{0} for product {1}", ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE, productId));
+            Log($"{ErrorMessages.ERRORS_CONTAINED_IN_RESPONSE} for product {productId}");
 
             var failedItem = new FailedItem { ErrorMessage = errorMessage, ProductId = productId };
             failedItems.Add(failedItem);
@@ -331,10 +337,10 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         }
 
 
-        private string GetProductFromErrorMessage(string errorMessage)
+        private string GetProductFromMaterialErrorMessage(string errorMessage)
         {
             var match = Regex.Match(errorMessage, @"material ([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase);
-            return match.Success ? match.Groups[1].Value : string.Empty;
+            return match.Success ? match.Groups[1].Value : Empty;
         }
 
 
