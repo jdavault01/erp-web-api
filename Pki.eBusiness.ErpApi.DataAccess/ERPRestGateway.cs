@@ -17,6 +17,7 @@ using Pki.eBusiness.ErpApi.DataAccess.Model;
 using atgApiClient = Pki.eBusiness.ErpApi.DataAccess.Client;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Pki.eBusiness.ErpApi.DataAccess.Models;
 using Pki.eBusiness.ErpApi.Entities.Constants;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
@@ -27,11 +28,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private IErpApi _erpApi;
         private IOrderApi _atgOrderApi;
         private readonly ILogger _logger;
+        private readonly IBackupRepository _repository;
         private string _baseUrl;
 
         protected RestClient _restClient { get; set; }
 
-        public ERPRestGateway(ERPRestSettings erpRestSettings, ILogger<ERPRestGateway> logger)
+        public ERPRestGateway(ERPRestSettings erpRestSettings, ILogger<ERPRestGateway> logger, IBackupRepository repository)
         {
             _restClient = new RestClient();
             _restClient.ClearHandlers();
@@ -42,6 +44,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             _atgOrderApi = new AtgApi.OrderApi(erpRestSettings);
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
             _logger = logger;
+            _repository = repository;
             _baseUrl = erpRestSettings.AtgBaseUrl;
 
         }
@@ -50,18 +53,24 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public ContactCreateClientResponse CreateContact(ContactCreateClientRequest request)
         {
             var payLoad = new ContactCreateWebServiceRequest(request);
-            LogRequest(payLoad, "CreateContact");
+            var backup = new BackupLogEntry(payLoad, nameof(CreateContact));
+            LogRequest(payLoad, nameof(CreateContact));
             var result = ExecuteCall<ContactCreateWebServiceResponse>(_erpRestSettings.BaseUrl, _erpRestSettings.GetContactCreateRequest, payLoad);
             LogResponse(result);
+            backup.AddResponse(result);
+            _repository.InsertOne(backup);
             return result.ToResponse();
         }
 
         public SimulateOrderErpResponse SimulateOrder(SimulateOrderErpRequest request)
         {
             var payLoad = new SimulateOrderRequestRoot(request);
-            LogRequest(payLoad, "SimulateOrder");
+            var backup = new BackupLogEntry(payLoad, nameof(SimulateOrder));
+            LogRequest(payLoad, nameof(SimulateOrder));
             var result = _erpApi.SimulateOrderPost(payLoad);
+            backup.AddResponse(result);
             LogResponse(result);
+            _repository.InsertOne(backup);
             return result.ToResponse();
         }
 

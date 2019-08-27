@@ -12,6 +12,10 @@ using Swashbuckle.AspNetCore.Swagger;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Driver;
+using Pki.eBusiness.ErpApi.Contract.DAL;
+using Pki.eBusiness.ErpApi.DataAccess;
 using Serilog;
 
 namespace Pki.eBusiness.ErpApi.Web
@@ -46,7 +50,9 @@ namespace Pki.eBusiness.ErpApi.Web
 
             services.Scan(scan =>
             {
-                var one = scan.FromApplicationDependencies(a => a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture));
+                var one = scan.FromApplicationDependencies(a => 
+                    a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture) 
+                    && a.FullName != "Pki.eBusiness.ErpApi.DataAccess.BackupRepository");
                 var two = one.AddClasses();
                 var three = two.AsMatchingInterface();
             });
@@ -57,13 +63,19 @@ namespace Pki.eBusiness.ErpApi.Web
             var erpRestSettings = new ERPRestSettings();
             _config.Bind("ErpRestSettings", erpRestSettings);
             services.AddSingleton(erpRestSettings);
+            var backupDbSettings = new BackupDbSettings();
+            _config.Bind("BackupDbSettings", backupDbSettings);
+            services.AddSingleton(backupDbSettings);
+            services.AddSingleton<IBackupRepository, BackupRepository>();
             ILoggerFactory loggerFactory = new LoggerFactory();
             loggerFactory.AddSerilog();
-            services.AddSingleton<ILoggerFactory>(loggerFactory);
+            services.AddSingleton(loggerFactory);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = SWAGGER_DOC_NAME, Version = "v1" });
             });
+            ConventionRegistry.Register("IgnoreIfDefault", new ConventionPack { new IgnoreIfNullConvention(true) },
+                t => true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
