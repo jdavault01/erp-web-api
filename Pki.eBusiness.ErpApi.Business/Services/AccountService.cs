@@ -55,7 +55,7 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         /// <returns></returns>
         public PartnerResponse PartnerLookup(SimplePartnerRequest request)
         {
-            return _erpGateway.PartnerLookup(request);
+            return _erpGateway.SimplePartnerLookup(request);
 
         }
 

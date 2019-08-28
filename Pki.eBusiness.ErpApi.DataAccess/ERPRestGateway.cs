@@ -56,9 +56,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var backup = new BackupLogEntry(payLoad, nameof(CreateContact));
             LogRequest(payLoad, nameof(CreateContact));
             var result = ExecuteCall<ContactCreateWebServiceResponse>(_erpRestSettings.BaseUrl, _erpRestSettings.GetContactCreateRequest, payLoad);
-            LogResponse(result);
             backup.AddResponse(result);
             _repository.InsertOne(backup);
+            LogResponse(result);
             return result.ToResponse();
         }
 
@@ -69,19 +69,22 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             LogRequest(payLoad, nameof(SimulateOrder));
             var result = _erpApi.SimulateOrderPost(payLoad);
             backup.AddResponse(result);
-            LogResponse(result);
             _repository.InsertOne(backup);
+            LogResponse(result);
             return result.ToResponse();
         }
 
         public ShippingNotificationResponse SendShippingNotifications(ShippingNotification request)
         {
             var payLoad = new ShippingNotificationOrderDto(request);
+            var backup = new BackupLogEntry(payLoad, nameof(SendShippingNotifications));
             var shippingNotification = new ShippingNotificationResponse();
-            LogRequest(payLoad, "SendShippingNotifications");
+            LogRequest(payLoad, nameof(SendShippingNotifications));
             try
             {
                 var result = _atgOrderApi.SendShippingNotifications(payLoad);
+                backup.AddResponse(result);
+                _repository.InsertOne(backup);
                 LogResponse(result);
                 if (string.IsNullOrEmpty(result))
                 {
@@ -100,12 +103,15 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         }
 
 
-        public PartnerResponse PartnerLookup(SimplePartnerRequest request)
+        public PartnerResponse SimplePartnerLookup(SimplePartnerRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad, "SimplePartnerLookup");
+            var backup = new BackupLogEntry(payLoad, nameof(SimplePartnerLookup));
+            LogRequest(payLoad, nameof(SimplePartnerLookup));
             var result = _erpApi.PartnerLookupPost(payLoad);
             var partnerResponse = result.ToPartnerResponse();
+            backup.AddResponse(partnerResponse);
+            _repository.InsertOne(backup);
             LogResponse(partnerResponse);
             return partnerResponse;
         }
@@ -129,10 +135,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return default(T);
         }
 
-        public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
+        public CompanyContactsResponse CompanyContacts(CompanyContactsRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad, "CompanyContacts");
+            var backup = new BackupLogEntry(payLoad, nameof(CompanyContacts));
+            LogRequest(payLoad, nameof(CompanyContacts));
             var result = _erpApi.PartnerLookupPost(payLoad);
             if (result.PARTNERS_OUT == null || result.ADDRESS_OUT == null)
             {
@@ -143,26 +150,34 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 return companyContactsResponse;
             }
             var companyContactResponse = result.ToCompanyContactsResponse(request.Name);
+            backup.AddResponse(companyContactResponse);
+            _repository.InsertOne(backup);
             LogResponse(companyContactResponse);
             return companyContactResponse;
         }
 
-        public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest request)
+        public CompanyAddressesResponse CompanyAddresses(CompanyAddressesRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
+            var backup = new BackupLogEntry(payLoad, nameof(CompanyAddresses));
             LogRequest(payLoad, "CompanyAddresses");
             var result = _erpApi.PartnerLookupPost(payLoad);
             var companyAddressResponse = result.ToCompanyAddressesResponse(request.ShipTo, request.BillTo);
+            backup.AddResponse(companyAddressResponse);
+            _repository.InsertOne(backup);
             LogResponse(companyAddressResponse);
             return companyAddressResponse;
         }
 
-        public CompanyInfoResponse GetCompanyInfo(CompanyInfoRequest request)
+        public CompanyInfoResponse CompanyInfo(CompanyInfoRequest request)
         {
             var payLoad = new PartnerLookupRequestRoot(request);
-            LogRequest(payLoad, "CompanyInfo");
+            var backup = new BackupLogEntry(payLoad, nameof(CompanyInfo));
+            LogRequest(payLoad, nameof(CompanyInfo));
             var result = _erpApi.PartnerLookupPost(payLoad);
             var companyInfoResponse =  result.ToCompanyInfoResponse();
+            backup.AddResponse(companyInfoResponse);
+            _repository.InsertOne(backup);
             LogResponse(companyInfoResponse);
             return companyInfoResponse;
         }

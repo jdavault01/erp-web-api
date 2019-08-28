@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
+using Pki.eBusiness.ErpApi.DataAccess.Models;
 using static System.String;
 using InventoryRequest = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryRequest;
 using InventoryResponse = Pki.eBusiness.ErpApi.Entities.DataObjects.InventoryResponse;
@@ -29,18 +30,20 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         private readonly StorefrontWebServices_PortType _soapStoreFrontWebService;
         private readonly IERPRestGateway _erpRestGateway;
         private readonly ILogger _logger;
+        private readonly IBackupRepository _repository;
         private string _baseUrl;
 
         /// <summary>
         /// Class Constructor used for dependency injection
         /// </summary>
         /// <param name="soapClient"></param>
-        public WebMethodClient(ERPRestSettings erpSettings, IERPRestGateway erpRestGateway, ILogger<WebMethodClient> logger)
+        public WebMethodClient(ERPRestSettings erpSettings, IERPRestGateway erpRestGateway, ILogger<WebMethodClient> logger, IBackupRepository repository)
         {
             _erpRestGateway = erpRestGateway;
             _soapStoreFrontWebService = new StorefrontWebServices_PortTypeClient(StorefrontWebServices_PortTypeClient.EndpointConfiguration.services_StorefrontWebServices_Port, 
                                         new EndpointAddress($"{erpSettings.BaseUrl}/ws/services.StorefrontWebServices/services_StorefrontWebServices_Port"));
             _logger = logger;
+            _repository = repository;
             _baseUrl = erpSettings.BaseUrl;
         }
 
@@ -100,8 +103,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var priceResponse = new PriceResponse();
             var request = priceWmRequest.ToWmPriceRequest();
+            var backup = new BackupLogEntry(request, "PriceRequest");
             LogRequest(request,"PriceRequest");
             var wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
+            backup.AddResponse(wmPriceResponse);
+            _repository.InsertOne(backup);
             LogResponse(wmPriceResponse);
 
             var failedProducts = new List<FailedProduct>();
@@ -128,8 +134,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 if (newProductLists.Length == 0) break;
 
                 Log(InfoMessages.SEND_DATA_CORRECTED_INPUT_REQUEST);
-                LogRequest(request, "Additional PriceRequests (to handle failed products");
+                var backup2 = new BackupLogEntry(request, "PriceRequest");
+                LogRequest(request, "Additional PriceRequests (to handle failed products)");
                 wmPriceResponse = _soapStoreFrontWebService.PriceWebServiceAsync(request).Result;
+                backup2.AddResponse(wmPriceResponse);
+                _repository.InsertOne(backup2);
                 LogResponse(wmPriceResponse);
             }
 
@@ -146,18 +155,23 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var request = createOrderRequest.ToWmOrderRequest();
             //If this is a CC transaction mask the CC before logging
+            BackupLogEntry backup = null;
             if (request.OrderRequest.OrderRequestHeader.CreditCard != null)
             {
                 var maskedRequestLogging = createOrderRequest.ToWmOrderRequest();
                 var maskedCardNumber = MaskCreditCardNumber(maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber);
                 maskedRequestLogging.OrderRequest.OrderRequestHeader.CreditCard.CreditCardNumber = maskedCardNumber;
-                LogRequest(maskedRequestLogging, "CreateOrder");
+                backup = new BackupLogEntry(maskedRequestLogging, nameof(CreateOrder));
+                LogRequest(maskedRequestLogging, nameof(CreateOrder));
             }
             else
             {
-                LogRequest(request, "CreateOrder");
+                backup = new BackupLogEntry(request, nameof(CreateOrder));
+                LogRequest(request, nameof(CreateOrder));
             }
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
+            backup.AddResponse(wmOrderResponse);
+            _repository.InsertOne(backup);
             LogResponse(wmOrderResponse);
             return wmOrderResponse.ToOrderResponse();
         }
@@ -188,9 +202,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var endPoint = _soapStoreFrontWebService.ToString();
             var request = simulateOrderRequest.ToWmSimulateOrderRequest();
-            LogRequest(request, "SimulateOrder");
+            var backup = new BackupLogEntry(request, nameof(SimulateOrder));
+            LogRequest(request, nameof(SimulateOrder));
             var wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
             var orderResponseError = "We were not able to obtain response items for all requested products.  Please see list of failed inventory items.";
+            backup.AddResponse(wmSimulateOrderResponse);
+            _repository.InsertOne(backup);
             LogResponse(wmSimulateOrderResponse);
             var failedItems = new List<FailedItem>();
             while (ContainsSAPError(wmSimulateOrderResponse))
@@ -225,9 +242,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     };
                     return orderLevelFailureResponse;
                 }
-
+                var backup2 = new BackupLogEntry(request, "Addtional SimulateOrder (to handle failed products");
                 LogRequest(request,"Addtional SimulateOrder (to handle failed products");
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
+                backup2.AddResponse(wmSimulateOrderResponse);
+                _repository.InsertOne(backup2);
                 LogResponse(wmSimulateOrderResponse);
 
             }
@@ -250,8 +269,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         {
             var inventoryResponse = new InventoryResponse();
             var request = inventoryWmRequest.ToWmInventoryRequest();
-            LogRequest(request, "GetInventory");
+            var backup = new BackupLogEntry(request, nameof(GetInventory));
+            LogRequest(request, nameof(GetInventory));
             var wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
+            backup.AddResponse(wmInventoryResponse);
+            _repository.InsertOne(backup);
             LogResponse(wmInventoryResponse);
 
             var failedInventoryItems = new List<FailedItem>();
@@ -271,9 +293,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 var newItemsList = request.InventoryRequest.InventoryRequestDetail.Where(val => val.ProductID != productId).ToArray();
                 request.InventoryRequest.InventoryRequestDetail = newItemsList;
                 if (newItemsList.Length == 0) break;
-
+                var backup2 = new BackupLogEntry(request, "Additional GetInventory (to handle failed products");
                 LogRequest(request,"Additional GetInventory (to handle failed products");
                 wmInventoryResponse = _soapStoreFrontWebService.InventoryWebServiceAsync(request).Result;
+                backup2.AddResponse(wmInventoryResponse);
+                _repository.InsertOne(backup2);
                 LogResponse(wmInventoryResponse);
 
             }
@@ -308,8 +332,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess
         public PartnerResponse GetPartnerDetails(SimplePartnerRequest partnerRequest)
         {
             var request = partnerRequest.ToWmPartnerRequest();
-            LogRequest(request, "GetPartnerDetails");
+            var backup = new BackupLogEntry(request, nameof(GetPartnerDetails));
+            LogRequest(request, nameof(GetPartnerDetails));
             var wmPartnerResponse = _soapStoreFrontWebService.PartnerWebServiceAsync(request).Result;
+            backup.AddResponse(wmPartnerResponse);
+            _repository.InsertOne(backup);
             LogResponse(wmPartnerResponse);
             return wmPartnerResponse.ToPartnerResponse();
 

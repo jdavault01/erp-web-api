@@ -19,17 +19,17 @@ namespace Pki.eBusiness.ErpApi.Business.Services
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest companyContactRequest)
         {
-            return _erpGateway.GetCompanyContacts(companyContactRequest);
+            return _erpGateway.CompanyContacts(companyContactRequest);
         }
 
         public CompanyAddressesResponse GetCompanyAddresses(CompanyAddressesRequest companyAddressesRequest)
         {
-            return _erpGateway.GetCompanyAddresses(companyAddressesRequest);
+            return _erpGateway.CompanyAddresses(companyAddressesRequest);
         }
 
         public CompanyInfoResponse GetCompanyName(CompanyInfoRequest companyInfoRequest)
         {
-            return _erpGateway.GetCompanyInfo(companyInfoRequest);
+            return _erpGateway.CompanyInfo(companyInfoRequest);
         }
     }
 }

@@ -51,9 +51,8 @@ namespace Pki.eBusiness.ErpApi.Web
             services.Scan(scan =>
             {
                 var one = scan.FromApplicationDependencies(a => 
-                    a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture) 
-                    && a.FullName != "Pki.eBusiness.ErpApi.DataAccess.BackupRepository");
-                var two = one.AddClasses();
+                    a.FullName.StartsWith("Pki.eBusiness.ErpApi", StringComparison.CurrentCulture));
+                var two = one.AddClasses(c => c.Where(t => t.Name != "BackupRepository"));
                 var three = two.AsMatchingInterface();
             });
 
