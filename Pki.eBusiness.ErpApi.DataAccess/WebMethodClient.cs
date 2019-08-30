@@ -157,6 +157,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             {
                 LogRequest(request, "CreateOrder");
             }
+
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
             LogResponse(wmOrderResponse);
             return wmOrderResponse.ToOrderResponse();
@@ -322,7 +323,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private void LogRequest<T>(T request, string nameOfMethod)
         {
-            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
+            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted,true);
             Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} for {nameOfMethod} using {_baseUrl}");
             Log(jsonRequest.Replace("\r\n", ""));
             Log(InfoMessages.INVOKING_SERVICE_REQUEST);
