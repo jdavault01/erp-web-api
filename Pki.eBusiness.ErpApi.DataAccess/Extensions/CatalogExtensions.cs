@@ -172,13 +172,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 
             var orderRequestHeader = new OrderRequestHeader2()
             {
-                //TODO: Need to get Sender attribute added by Derek / WM team
-                //Sender = new Sender2 { Component = sapOrderType, Task = TASK_ORDER_REQUEST },
                 SpecialHandlingInstructions = clientRequest.SpecialShippingInstuctions == string.Empty ? null : clientRequest.SpecialShippingInstuctions,
                 SalesOrgID = clientRequest.SalesAreaInfo.SalesOrgId,
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
                 language = clientRequest.Language,
+                PromoCode = clientRequest.PromoCode,
                 DeliveryBlockText = clientRequest.DeliveryBlockText,
                 DeliveryBlockStatus = clientRequest.DeliveryBlockStatus,
                 DeliveryBlock = clientRequest.DeliveryBlock,
@@ -276,8 +275,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
         public static SimulateOrderWebServiceRequest ToWmSimulateOrderRequest(this StorefrontSimulateOrderRequest clientRequest)
         {
             SimulateOrderWebServiceRequest result = new SimulateOrderWebServiceRequest();
-            //string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
-            string sapOrderType = "ZWEB";
+            const string sapOrderType = "ZWEB";
 
             var header = new Header2()
             {

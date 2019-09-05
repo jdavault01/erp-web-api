@@ -227,7 +227,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
 
-                LogRequest(request,"Addtional SimulateOrder (to handle failed products");
+                LogRequest(request,"Additional SimulateOrder (to handle failed products");
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
                 LogResponse(wmSimulateOrderResponse);
 
