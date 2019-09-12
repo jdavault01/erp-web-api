@@ -17,7 +17,9 @@ using Pki.eBusiness.ErpApi.DataAccess.Model;
 using atgApiClient = Pki.eBusiness.ErpApi.DataAccess.Client;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.Constants;
+using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 
 namespace Pki.eBusiness.ErpApi.DataAccess
 {
@@ -101,23 +103,37 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             return partnerResponse;
         }
 
+        public Partner GetShipToAddress(SimplePartnerRequest request)
+        {
+            var payLoad = new PartnerLookupRequestRoot(request, Enumerations.AddressType.ShipTo);
+            LogRequest(payLoad, "GetShipToAddressLookup");
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            var partnerAddress = result.ToShipToAddressResponse(request.PartnerId);
+            LogResponse(partnerAddress);
+            return partnerAddress;
+        }
+
+        public Partner GetBillToAddress(SimplePartnerRequest request)
+        {
+            var payLoad = new PartnerLookupRequestRoot(request, Enumerations.AddressType.BillTo);
+            LogRequest(payLoad, "GetBillToAddressLookup");
+            var result = _erpApi.PartnerLookupPost(payLoad);
+            var partnerAddress = result.ToBillToAddressResponse(request.PartnerId);
+            LogResponse(partnerAddress);
+            return partnerAddress;
+        }
+
         private T ExecuteCall<T>(string baseUrl, Resource resource, object payLoad) where T : new()
         {
-            if (Enum.TryParse(resource.Method.ToUpper(), out Method method))
+            if (!Enum.TryParse(resource.Method.ToUpper(), out Method method)) return default;
+            _restClient.BaseUrl = new Uri(baseUrl);
+            var request = new RestSharp.RestRequest(resource.Path, method)
             {
-                _restClient.BaseUrl = new Uri(baseUrl);
-                var request = new RestSharp.RestRequest(resource.Path, method)
-                {
-                    JsonSerializer = new NewtonsoftJsonSerializer()
-                };
-                request.AddJsonBody(payLoad);
-                IRestResponse<T> response = _restClient.Execute<T>(request);
-                if (response.StatusCode == HttpStatusCode.NotFound)
-                    return default(T);
-                return response.Data;
-
-            }
-            return default(T);
+                JsonSerializer = new NewtonsoftJsonSerializer()
+            };
+            request.AddJsonBody(payLoad);
+            var response = _restClient.Execute<T>(request);
+            return response.StatusCode == HttpStatusCode.NotFound ? default(T) : response.Data;
         }
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Contract.DAL;
+using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
 
 namespace Pki.eBusiness.ErpApi.Business.Services
@@ -27,17 +28,6 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         }
 
         /// <summary>
-        /// THIS METHOD WILL BE DECOMMISIONED AFTER CART PROJECT -- confirm use in product .. can probably remove sooner
-        /// </summary>
-        /// <param name="partnerRequest"></param>
-        /// <returns></returns>
-        //public PartnerResponse GetPartnerInfo(PartnerRequest partnerRequest)
-        //{
-        //    return _webMethodClient.GetPartnerInfo(partnerRequest);
-
-        //}
-
-        /// <summary>
         /// This method takes a client partner request model and converts, makes calls and converts response
         /// back to client side model
         /// </summary>
@@ -57,6 +47,15 @@ namespace Pki.eBusiness.ErpApi.Business.Services
         {
             return _erpGateway.PartnerLookup(request);
 
+        }
+        public Partner GetShipToAddress(SimplePartnerRequest request)
+        {
+            return _erpGateway.GetShipToAddress(request);
+        }
+
+        public Partner GetBillToAddress(SimplePartnerRequest request)
+        {
+            return _erpGateway.GetBillToAddress(request);
         }
 
         /// <summary>
