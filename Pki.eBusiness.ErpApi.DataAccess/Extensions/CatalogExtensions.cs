@@ -172,6 +172,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 
             var orderRequestHeader = new OrderRequestHeader2()
             {
+                //TODO: Need to get Sender attribute added by Derek / WM team
+                //Sender = new Sender2 { Component = sapOrderType, Task = TASK_ORDER_REQUEST },
                 SpecialHandlingInstructions = clientRequest.SpecialShippingInstuctions == string.Empty ? null : clientRequest.SpecialShippingInstuctions,
                 SalesOrgID = clientRequest.SalesAreaInfo.SalesOrgId,
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,

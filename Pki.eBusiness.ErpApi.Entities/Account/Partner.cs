@@ -8,6 +8,11 @@ namespace Pki.eBusiness.ErpApi.Entities.Account
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string CompanyName { get; set; }
+        public string Name1 { get; set; }
+        public string Name2 { get; set; }
+        public string Name3 { get; set; }
+        public string Name4 { get; set; }
         public bool RadIndicator { get; set; }
         public string PartnerId { get; set; }
 

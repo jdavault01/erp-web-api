@@ -228,7 +228,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             {
                 PartnerId = partnerOut.CUSTOMER,
                 FirstName = addressOut.NAME1,
-                LastName = addressOut.NAME2,
+                CompanyName = addressOut.NAME1,
+                Name1 = addressOut.NAME1,
+                Name2 = addressOut.NAME2,
+                Name3 = addressOut.NAME3,
+                Name4 = addressOut.NAME4,
                 City = addressOut.CITY1,
                 Street = addressOut.STREET,
                 State = addressOut.REGION,
