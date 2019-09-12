@@ -125,7 +125,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private T ExecuteCall<T>(string baseUrl, Resource resource, object payLoad) where T : new()
         {
-            if (!Enum.TryParse(resource.Method.ToUpper(), out Method method)) return default;
+            if (!Enum.TryParse(resource.Method.ToUpper(), out Method method)) return default(T);
             _restClient.BaseUrl = new Uri(baseUrl);
             var request = new RestSharp.RestRequest(resource.Path, method)
             {
@@ -135,6 +135,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
             var response = _restClient.Execute<T>(request);
             return response.StatusCode == HttpStatusCode.NotFound ? default(T) : response.Data;
         }
+
 
         public CompanyContactsResponse GetCompanyContacts(CompanyContactsRequest request)
         {
