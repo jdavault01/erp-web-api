@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Pki.eBusiness.ErpApi.Contract.BL;
 using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Web.UIHelpers;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
@@ -68,9 +69,20 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         }
 
 
+        [Route("wms/partners/address/{addressType}/{accountNumber}/{salesOrg}")]
+        [HttpGet]
+        public Partner GetAddress(string accountNumber, string salesOrg, Enumerations.AddressType addressType )
+        {
+            var payload = new SimplePartnerRequest(accountNumber, salesOrg);
+            if (!ModelState.IsValid)
+            {
+                Log(InfoMessage.ERROR_MSG_INVALID_PARTNER_REQUEST_MODEL);
+            }
+            return addressType == Enumerations.AddressType.BillTo ? _accountService.GetBillToAddress(payload) : _accountService.GetShipToAddress(payload);
+        }
+
         [Route("wms/partnerLookup/{accountNumber}/{salesOrg}")]
         [HttpGet]
-
         public PartnerResponse PartnerLookup(string accountNumber, string salesOrg)
         {
             SimplePartnerRequest payload = new SimplePartnerRequest(accountNumber, salesOrg);

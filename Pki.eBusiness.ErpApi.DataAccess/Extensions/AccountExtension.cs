@@ -26,7 +26,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
         public static PartnerResponse ToPartnerResponse(this PartnerWebServiceResponse1 response)
         {
             var result = new PartnerClientResponse();
-            if (response.PartnerResponse.ErrorReturn != null && response.PartnerResponse.ErrorReturn[0] != null)
+            if (response.PartnerResponse.ErrorReturn?[0] != null)
             {
                 result.PartnerResponse = new PartnerResponse
                 {
@@ -39,13 +39,13 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
             {
                 ERPHierarchyNumber = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyNumber,
                 ERPHierarchyName = response?.PartnerResponse?.PartnerResponseHeader?.ERPHierarchyName,
+                Partners = new List<Partner>(),
             };
-            result.PartnerResponse.Partners = new List<Partner>();
+
             if (response?.PartnerResponse?.PartnerResponseDetail != null)
             {
                 foreach (var detail in response.PartnerResponse.PartnerResponseDetail)
                 {
-                    //var partnerResponseDetail = new PartnerResponseDetail();
                     PartnerType partnerType;
                     Enum.TryParse(detail.PartnerType, out partnerType);
 
@@ -55,6 +55,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
                         PartnerType = partnerType,
                         RadIndicator = detail.Partner[0].RADIndicator?.ToLower() == "true",
                         FirstName = detail.Partner[0].Name1 + " " + detail.Partner[0].Name2,
+                        CompanyName = detail.Partner[0].Name1,
+                        Name1 =  detail.Partner[0].Name1,
+                        Name2 = detail.Partner[0].Name2,
+                        Name3 = detail.Partner[0].Name3,
+                        Name4 =  detail.Partner[0].Name4,
                         Street = detail.Partner[0].Address.Street,
                         City = detail.Partner[0].Address.City,
                         District = detail.Partner[0].Address.District,
@@ -73,26 +78,5 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
             return result.PartnerResponse;
         }
 
-        //public static ContactCreateWebServiceRequest ToWmContactCreateRequest(this ContactCreateRequest request)
-        //{
-        //    var result = new ContactCreateServiceRequest();
-        //    var webServiceRequest = new ContactCreateWebServiceRequest();
-        //    var contactCreateRequest = new ContactCreateRequest(request);
-        //    webServiceRequest.ContactCreateRequest = contactCreateRequest;
-        //    result.JsonRequest = JsonConvert.SerializeObject(webServiceRequest, Formatting.Indented);
-        //    //ContactCreateRequest = webServiceRequest;
-        //    return result.ContactCreateRequest;
-        //}
-
-        //public static ContactCreateWebServiceRequest ToWmContactCreateRequest(this Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateClientRequest request)
-        //{
-        //    return new ContactCreateServiceRequest(request).Request;
-        //}
-
-        //public static Pki.eBusiness.ErpApi.Entities.DataObjects.ContactCreateClientResponse ToContactCreateResponse(this ContactCreateWebServiceResponse response)
-        //{
-        //    var result = new ContactCreateClientResponse(response.ContactCreateResponse.ContactCreateResponseDetail[0].ContactNameID);
-        //    return result;
-        //}
     }
 }

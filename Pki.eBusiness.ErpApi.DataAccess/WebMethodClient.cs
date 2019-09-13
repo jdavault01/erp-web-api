@@ -169,6 +169,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                 backup = new BackupLogEntry(request, nameof(CreateOrder));
                 LogRequest(request, nameof(CreateOrder));
             }
+
             var wmOrderResponse = _soapStoreFrontWebService.OrderWebServiceAsync(request).Result;
             backup.AddResponse(wmOrderResponse);
             _repository.InsertOne(backup);
@@ -243,7 +244,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
                     return orderLevelFailureResponse;
                 }
                 var backup2 = new BackupLogEntry(request, "Addtional SimulateOrder (to handle failed products");
-                LogRequest(request,"Addtional SimulateOrder (to handle failed products");
+                LogRequest(request,"Additional SimulateOrder (to handle failed products");
                 wmSimulateOrderResponse = _soapStoreFrontWebService.SimulateOrderWebServiceAsync(request).Result;
                 backup2.AddResponse(wmSimulateOrderResponse);
                 _repository.InsertOne(backup2);
@@ -349,7 +350,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess
 
         private void LogRequest<T>(T request, string nameOfMethod)
         {
-            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted);
+            string jsonRequest = request.SerializeToJson(OutPutType.Unformatted,true);
             Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} for {nameOfMethod} using {_baseUrl}");
             Log(jsonRequest.Replace("\r\n", ""));
             Log(InfoMessages.INVOKING_SERVICE_REQUEST);

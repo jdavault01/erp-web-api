@@ -4,6 +4,7 @@ using System.Linq;
 using Pki.eBusiness.ErpApi.DataAccess.Extensions;
 using Pki.eBusiness.ErpApi.Entities.Account;
 using Pki.eBusiness.ErpApi.Entities.DataObjects;
+using Pki.eBusiness.ErpApi.Entities.OrderLookUp.BasicRequest;
 using Pki.eBusiness.ErpApi.Entities.Orders;
 
 namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
@@ -21,6 +22,24 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         protected const string SAP_DUPLICATE_BILL_TO = "RE";
         protected const string SAP_SOLD_TO = "AG";
 
+        public PartnerLookupRequestRoot(SimplePartnerRequest req, Enumerations.AddressType addressType)
+        {
+            DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
+            DIVISION = SALES_DIVISION;
+            PARTNER_IN = req.PartnerId;
+            SALESORG = req.SalesAreaInfo.SalesOrgId;
+
+            if (addressType == Enumerations.AddressType.BillTo)
+            {
+                PARTNER_ROLE_IN = SAP_DUPLICATE_BILL_TO;
+                PARTNER_ROLE_OUT = SAP_BILL_TO;
+            }
+            else
+            {
+                PARTNER_ROLE_IN = SAP_SHIP_TO;
+                PARTNER_ROLE_OUT = SAP_SOLD_TO;
+            }
+        }
 
         public PartnerLookupRequestRoot(SimplePartnerRequest req)
         {
@@ -37,10 +56,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             DISTR_CHAN = SALES_DISTRIBUTION_CHANNEL;
             DIVISION = SALES_DIVISION;
             PARTNER_IN = req.ShipTo;
-            //PARTNER_IN = req.ERPHierarchyNumber;
-            //PARTNER_ROLE_IN = SAP_HIERARCHY_NUMBER;
             PARTNER_ROLE_IN = SAP_SHIP_TO;
-            //PARTNER_ROLE_OUT = SAP_BILL_TO;
             SALESORG = req.SalesOrg;
         }
 
@@ -77,6 +93,16 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         protected const int LAST_NAME_IDX = 0;
         protected const int FIRST_NAME_IDX = 1;
 
+
+        public Partner ToShipToAddressResponse(string partnerId)
+        {
+            return PARTNERS_OUT.Where(x => GetPartInfo(x, partnerId, null, SAP_SHIP_TO)).Select(GetPartnerDetails).Distinct().SingleOrDefault();
+        }
+
+        public Partner ToBillToAddressResponse(string partnerId)
+        {
+            return PARTNERS_OUT.Where(x => GetPartInfo(x, partnerId, null, SAP_BILL_TO)).Select(GetPartnerDetails).Distinct().SingleOrDefault();
+        }
 
         public PartnerResponse ToPartnerResponse()
         {
@@ -118,9 +144,9 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
 
         public CompanyAddressesResponse ToCompanyAddressesResponse(string shipTo, string billTo)
         {
-            var billTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_BILL_TO)).Select(GetPartnerDetails).Distinct().ToList();
-            var shipTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SHIP_TO)).Select(GetPartnerDetails).Distinct().ToList();
-            var soldTos = PARTNERS_OUT.Where(x => getPartInfo(x, shipTo, billTo, SAP_SOLD_TO)).Select(GetPartnerDetails).Distinct().ToList();
+            var billTos = PARTNERS_OUT.Where(x => GetPartInfo(x, shipTo, billTo, SAP_BILL_TO)).Select(GetPartnerDetails).Distinct().ToList();
+            var shipTos = PARTNERS_OUT.Where(x => GetPartInfo(x, shipTo, billTo, SAP_SHIP_TO)).Select(GetPartnerDetails).Distinct().ToList();
+            var soldTos = PARTNERS_OUT.Where(x => GetPartInfo(x, shipTo, billTo, SAP_SOLD_TO)).Select(GetPartnerDetails).Distinct().ToList();
 
             var result = new CompanyAddressesResponse
             {
@@ -138,42 +164,31 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         }
 
 
-        private bool RemoveContactsAndDuplicateBillTos(PartnerLookupResponseRootPARTNERSOUT x)
+        private static bool RemoveContactsAndDuplicateBillTos(PartnerLookupResponseRootPARTNERSOUT x)
         {
             return x.PARTN_ROLE != SAP_CONTACT && x.PARTN_ROLE != SAP_DUPLICATE_BILL_TO;
         }
 
-        private bool RemoveAllButContacts(PartnerLookupResponseRootPARTNERSOUT x)
+        private static bool RemoveAllButContacts(PartnerLookupResponseRootPARTNERSOUT x)
         {
             return x.PARTN_ROLE == SAP_CONTACT && x.PARTN_ROLE != SAP_HIERARCHY_NUMBER;
         }
 
-        private bool getPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo, string partnerType)
+        private static bool GetPartInfo(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo, string partnerType)
         {
-            //if the ShipTo is not provided and partner record is a ShipTo that matches then return true
-           if (!String.IsNullOrEmpty(shipTo) && x.CUSTOMER == shipTo && x.PARTN_ROLE == SAP_SHIP_TO && partnerType == SAP_SHIP_TO)
+           if (!string.IsNullOrEmpty(shipTo) && x.CUSTOMER == shipTo && (x.PARTN_ROLE == SAP_SHIP_TO || x.PARTN_ROLE == SAP_SOLD_TO) && partnerType == SAP_SHIP_TO)
              return true;
 
-            //if the BillTo is not provided and partner record is a BillTo that matches then return true
-            if (!String.IsNullOrEmpty(billTo) && x.CUSTOMER == billTo && x.PARTN_ROLE == SAP_BILL_TO && partnerType == SAP_BILL_TO)
-                return true;
+           if (!string.IsNullOrEmpty(billTo) && x.CUSTOMER == billTo && x.PARTN_ROLE == SAP_BILL_TO && partnerType == SAP_BILL_TO)
+               return true;
 
-            //if Billto is not provided but the partnerType == SAP_BILL_TO and this record is a billTo, return true
-            if (String.IsNullOrEmpty(billTo) && SAP_BILL_TO == partnerType && x.PARTN_ROLE == SAP_BILL_TO)
-                return true;
+           if (string.IsNullOrEmpty(billTo) && SAP_BILL_TO == partnerType && x.PARTN_ROLE == SAP_BILL_TO)
+               return true;
 
-            //if Shipto is not provided but the partnerType == SAP_SHIP_TO and this record is a ShipTo, return true
-            if (String.IsNullOrEmpty(shipTo) && SAP_SHIP_TO == partnerType && x.PARTN_ROLE == SAP_SHIP_TO)
-                return true;
+           if (string.IsNullOrEmpty(shipTo) && SAP_SHIP_TO == partnerType && x.PARTN_ROLE == SAP_SHIP_TO)
+               return true;
 
-            //if this partner record is of type soldTo and this request is for a soldTo, return true
-            if (x.PARTN_ROLE == SAP_SOLD_TO && partnerType == SAP_SOLD_TO)
-                return true;
-
-
-
-
-            return false;
+           return x.PARTN_ROLE == SAP_SOLD_TO && partnerType == SAP_SOLD_TO;
         }
 
         private bool RemoveContactsApplyFilters(PartnerLookupResponseRootPARTNERSOUT x, string shipTo, string billTo)
@@ -228,7 +243,11 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             {
                 PartnerId = partnerOut.CUSTOMER,
                 FirstName = addressOut.NAME1,
-                LastName = addressOut.NAME2,
+                CompanyName = addressOut.NAME1,
+                Name1 = addressOut.NAME1,
+                Name2 = addressOut.NAME2,
+                Name3 = addressOut.NAME3,
+                Name4 = addressOut.NAME4,
                 City = addressOut.CITY1,
                 Street = addressOut.STREET,
                 State = addressOut.REGION,

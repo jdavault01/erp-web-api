@@ -11,13 +11,29 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
 
     public static class GenericExtensions
     {
-        public static string SerializeToJson<T>(this T obj, OutPutType outPutType)
+        public static string SerializeToJson<T>(this T obj, OutPutType outPutType, bool ignoreNulls =false)
         {
             var jsonString = JsonConvert.SerializeObject(obj);
-            if (outPutType == OutPutType.Formatted)
+
+            if (outPutType == OutPutType.Formatted && ignoreNulls)
+            {
+                jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+            }
+            else if (outPutType == OutPutType.Formatted)
             {
                 jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
             }
+            else if (ignoreNulls)
+            {
+                jsonString = JsonConvert.SerializeObject(obj, new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+            }
+
             return jsonString;
         }
 

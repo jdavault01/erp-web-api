@@ -174,11 +174,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
             {
                 //TODO: Need to get Sender attribute added by Derek / WM team
                 //Sender = new Sender2 { Component = sapOrderType, Task = TASK_ORDER_REQUEST },
-                SpecialHandlingInstructions = clientRequest.SpecialShippingInstuctions,
+                SpecialHandlingInstructions = clientRequest.SpecialShippingInstuctions == string.Empty ? null : clientRequest.SpecialShippingInstuctions,
                 SalesOrgID = clientRequest.SalesAreaInfo.SalesOrgId,
                 DistChannelID = clientRequest.SalesAreaInfo.DistChannelId,
                 DivisionID = clientRequest.SalesAreaInfo.DivisionId,
                 language = clientRequest.Language,
+                PromoCode = clientRequest.PromoCode,
                 DeliveryBlockText = clientRequest.DeliveryBlockText,
                 DeliveryBlockStatus = clientRequest.DeliveryBlockStatus,
                 DeliveryBlock = clientRequest.DeliveryBlock,
@@ -214,13 +215,14 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
             for (var i = 0; i < clientRequest.OrderItems.Count; i++)
             {
                 var lineNum = i + 1;
+                var specialShippingInstructions = clientRequest.OrderItems[i].SpecialShippingInstructions;
                 var requestDetail = new OrderRequestDetail2
                 {
                     OrderLineNumber = lineNum.ToString(),
                     ProductID = clientRequest.OrderItems[i].ProductID,
-                    Quantity = clientRequest.OrderItems[i].Quantity.ToString(),
-                    RequestedDate = clientRequest.OrderItems[i].RequestedDate, //YYYMMDD
-                    ShippingInstructions = clientRequest.OrderItems[i].SpecialShippingInstructions
+                    Quantity = clientRequest.OrderItems[i].Quantity.ToString(CultureInfo.CurrentCulture),
+                    RequestedDate = clientRequest.OrderItems[i].RequestedDate, 
+                    ShippingInstructions = specialShippingInstructions == string.Empty ? null : specialShippingInstructions
                 };
 
                 orderRequestDetail[i] = requestDetail;
@@ -275,8 +277,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Extensions
         public static SimulateOrderWebServiceRequest ToWmSimulateOrderRequest(this StorefrontSimulateOrderRequest clientRequest)
         {
             SimulateOrderWebServiceRequest result = new SimulateOrderWebServiceRequest();
-            //string sapOrderType = new SAPOrderType(clientRequest).GetOrderTypeCode();
-            string sapOrderType = "ZWEB";
+            const string sapOrderType = "ZWEB";
 
             var header = new Header2()
             {
