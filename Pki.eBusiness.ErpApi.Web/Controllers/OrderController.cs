@@ -9,6 +9,8 @@ using Pki.eBusiness.ErpApi.Web.UIHelpers;
 using System;
 using System.IO;
 using System.Xml.Serialization;
+using Pki.eBusiness.ErpApi.Entities.Constants;
+using ErrorMessages = Pki.eBusiness.ErpApi.Entities.Constants.ErrorMessages;
 
 namespace Pki.eBusiness.ErpApi.Web.Controllers
 {
@@ -135,7 +137,8 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
         public ActionResult ShippingNotifications(string InvoiceXML)
         {
             ShippingNotification shippingNotification = null;
-            XmlSerializer s = new XmlSerializer(typeof(ShippingNotification));
+            var s = new XmlSerializer(typeof(ShippingNotification));
+            LogRequest(InvoiceXML, "ShippingNotificationXMLFromWM");
             using (var reader = new StringReader(InvoiceXML))
             {
                 shippingNotification = (ShippingNotification)s.Deserialize(reader);
@@ -148,12 +151,15 @@ namespace Pki.eBusiness.ErpApi.Web.Controllers
             }
 
             var response = _orderService.SendShippingNotification(shippingNotification);
-            if (response.EmailSent == false)
-            {
-                Log(response.ErrorMessage);
-                return StatusCode(500,response);
-            }
-            return Ok(response);
+            if (response.EmailSent != false) return Ok(response);
+            Log(response.ErrorMessage);
+            return StatusCode(500,response);
+        }
+
+        private void LogRequest(string xmlString, string nameOfSource)
+        {
+            Log($"{ErrorMessages.SEND_DATA_INPUT_REQUEST} from {nameOfSource}");
+            Log(xmlString);
         }
 
         private void Log(string message)

@@ -40,7 +40,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.Model
             foreach (var item in orderDetails)
             {
                 var newItem = new ShippingNotificationLineItemDto(item.Carrier, item.Description, item.id, item.QuantityOrdered,
-                    item.QuantityShipped, Int32.Parse(item.SAPLineOrderNo), item.ShipDate, item.TrackingNumber);
+                    item.QuantityShipped, Int32.Parse(item.SAPLineOrderNo), item.ShipDate, item.TrackingNO);
                 orerItems.Add(newItem);
             }
 

@@ -228,13 +228,6 @@ namespace Pki.eBusiness.ErpApi.Entities.Orders
         public string TrackingNO { get; set; }
         public string ShippingPoint { get; set; }
         public string ShipDate { get; set; }
-        public string TrackingNumber { get; set; }
-        //[DefaultValue(null), XmlElement(IsNullable = true)]
-        //public decimal? DeliveryCharges { get; set; }
-        //[DefaultValue(null), XmlElement(IsNullable = true)]
-        //public decimal? HandlingCharges { get; set; }
-        //[DefaultValue(null), XmlElement(IsNullable = true)]
-        //public decimal? AdjustedUnitPrice { get; set; }
         [DefaultValue(null), XmlElement(IsNullable = true)]
         public string VAT { get; set; }
         [DefaultValue(null), XmlElement(IsNullable = true)]

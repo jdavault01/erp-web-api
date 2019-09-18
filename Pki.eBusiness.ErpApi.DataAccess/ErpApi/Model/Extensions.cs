@@ -253,7 +253,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
                 State = addressOut.REGION,
                 Region = addressOut.REGION,
                 Country = addressOut.COUNTRY,
-                PostalCode = addressOut.NAME1,
+                PostalCode = addressOut.POSTALAREA,
                 RadIndicator = partnerOut.RAD_FLAG == "True",
                 PartnerType = GetPartnerType(partnerOut.PARTN_ROLE),
                 Telephone = addressOut.TEL_NUMBER,
