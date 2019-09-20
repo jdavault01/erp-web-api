@@ -47,6 +47,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         /// <param name="CITYH_CODE">CITYH_CODE.</param>
         /// <param name="CHCKSTATUS">CHCKSTATUS.</param>
         /// <param name="REGIOGROUP">REGIOGROUP.</param>
+        /// <param name="POST_CODE1">POSTCODE1.</param>
         /// <param name="POSTCODE1">POSTCODE1.</param>
         /// <param name="POSTCODE2">POSTCODE2.</param>
         /// <param name="POSTCODE3">POSTCODE3.</param>
@@ -103,7 +104,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         /// <param name="FAX_NUMBER">FAX_NUMBER.</param>
         /// <param name="FAX_EXTENS">FAX_EXTENS.</param>
         /// <param name="ADDR_GROUP">ADDR_GROUP.</param>
-        public PartnerLookupResponseRootADDRESSOUT(string ADDRNUMBER = default(string), string ADDRHANDLE = default(string), string NATION = default(string), string DATE = default(string), string DATE_FROM = default(string), string DATE_TO = default(string), string TITLE = default(string), string NAME1 = default(string), string NAME2 = default(string), string NAME3 = default(string), string NAME4 = default(string), string NAME_TXT = default(string), string NAME_CO = default(string), string CITY1 = default(string), string CITY2 = default(string), string CITY_CODE = default(string), string CITYP_CODE = default(string), string HOME_CITY = default(string), string CITYH_CODE = default(string), string CHCKSTATUS = default(string), string REGIOGROUP = default(string), string POSTCODE1 = default(string), string POSTCODE2 = default(string), string POSTCODE3 = default(string), string PCODE1EXT = default(string), string PCODE2EXT = default(string), string PCODE3EXT = default(string), string PO_BOX = default(string), string DONT_USE_P = default(string), string PO_BOX_NUM = default(string), string PO_BOX_LOC = default(string), string CITYCODE2 = default(string), string PO_BOX_REG = default(string), string PO_BOX_CTY = default(string), string POSTALAREA = default(string), string TRANSPZONE = default(string), string STREET = default(string), string DONT_USE_S = default(string), string STREETCODE = default(string), string STREETABBR = default(string), string HOUSENUM1 = default(string), string HOUSENUM2 = default(string), string HOUSENUM3 = default(string), string STRSUPPL1 = default(string), string STRSUPPL2 = default(string), string STRSUPPL3 = default(string), string LOCATION = default(string), string BUILDING = default(string), string FLOOR = default(string), string ROOMNUMBER = default(string), string COUNTRY = default(string), string LANGU = default(string), string REGION = default(string), string SORT1 = default(string), string SORT2 = default(string), string SORT_PHN = default(string), string ADDRORIGIN = default(string), string EXTENSION1 = default(string), string EXTENSION2 = default(string), string TIME_ZONE = default(string), string TAXJURCODE = default(string), string ADDRESS_ID = default(string), string REMARK = default(string), string LANGU_CREA = default(string), string PO_BOX_LOBBY = default(string), string DELI_SERV_TYPE = default(string), string DELI_SERV_NUMBER = default(string), string COUNTY_CODE = default(string), string COUNTY = default(string), string TOWNSHIP_CODE = default(string), string TOWNSHIP = default(string), string DEFLT_COMM = default(string), string TEL_NUMBER = default(string), string TEL_EXTENS = default(string), string FAX_NUMBER = default(string), string FAX_EXTENS = default(string), string ADDR_GROUP = default(string))
+        public PartnerLookupResponseRootADDRESSOUT(string ADDRNUMBER = default(string), string ADDRHANDLE = default(string), string NATION = default(string), string DATE = default(string), string DATE_FROM = default(string), string DATE_TO = default(string), string TITLE = default(string), string NAME1 = default(string), string NAME2 = default(string), string NAME3 = default(string), string NAME4 = default(string), string NAME_TXT = default(string), string NAME_CO = default(string), string CITY1 = default(string), string CITY2 = default(string), string CITY_CODE = default(string), string CITYP_CODE = default(string), string HOME_CITY = default(string), string CITYH_CODE = default(string), string CHCKSTATUS = default(string), string REGIOGROUP = default(string), string POST_CODE1 = default(string), string POSTCODE1 = default(string), string POSTCODE2 = default(string), string POSTCODE3 = default(string), string PCODE1EXT = default(string), string PCODE2EXT = default(string), string PCODE3EXT = default(string), string PO_BOX = default(string), string DONT_USE_P = default(string), string PO_BOX_NUM = default(string), string PO_BOX_LOC = default(string), string CITYCODE2 = default(string), string PO_BOX_REG = default(string), string PO_BOX_CTY = default(string), string POSTALAREA = default(string), string TRANSPZONE = default(string), string STREET = default(string), string DONT_USE_S = default(string), string STREETCODE = default(string), string STREETABBR = default(string), string HOUSENUM1 = default(string), string HOUSENUM2 = default(string), string HOUSENUM3 = default(string), string STRSUPPL1 = default(string), string STRSUPPL2 = default(string), string STRSUPPL3 = default(string), string LOCATION = default(string), string BUILDING = default(string), string FLOOR = default(string), string ROOMNUMBER = default(string), string COUNTRY = default(string), string LANGU = default(string), string REGION = default(string), string SORT1 = default(string), string SORT2 = default(string), string SORT_PHN = default(string), string ADDRORIGIN = default(string), string EXTENSION1 = default(string), string EXTENSION2 = default(string), string TIME_ZONE = default(string), string TAXJURCODE = default(string), string ADDRESS_ID = default(string), string REMARK = default(string), string LANGU_CREA = default(string), string PO_BOX_LOBBY = default(string), string DELI_SERV_TYPE = default(string), string DELI_SERV_NUMBER = default(string), string COUNTY_CODE = default(string), string COUNTY = default(string), string TOWNSHIP_CODE = default(string), string TOWNSHIP = default(string), string DEFLT_COMM = default(string), string TEL_NUMBER = default(string), string TEL_EXTENS = default(string), string FAX_NUMBER = default(string), string FAX_EXTENS = default(string), string ADDR_GROUP = default(string))
         {
             this.ADDRNUMBER = ADDRNUMBER;
             this.ADDRHANDLE = ADDRHANDLE;
@@ -126,6 +127,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             this.CITYH_CODE = CITYH_CODE;
             this.CHCKSTATUS = CHCKSTATUS;
             this.REGIOGROUP = REGIOGROUP;
+            this.POST_CODE1 = POST_CODE1;
             this.POSTCODE1 = POSTCODE1;
             this.POSTCODE2 = POSTCODE2;
             this.POSTCODE3 = POSTCODE3;
@@ -311,9 +313,13 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
         public string REGIOGROUP { get; set; }
 
         /// <summary>
+        /// Gets or Sets POST_CODE1
+        /// </summary>
+        [DataMember(Name="POST_CODE1", EmitDefaultValue = false)]
+        public string POST_CODE1 { get; set; }
+        /// <summary>
         /// Gets or Sets POSTCODE1
         /// </summary>
-        [DataMember(Name="POST_CODE1", EmitDefaultValue=false)]
         public string POSTCODE1 { get; set; }
 
         /// <summary>
@@ -675,6 +681,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             sb.Append("  CITYH_CODE: ").Append(CITYH_CODE).Append("\n");
             sb.Append("  CHCKSTATUS: ").Append(CHCKSTATUS).Append("\n");
             sb.Append("  REGIOGROUP: ").Append(REGIOGROUP).Append("\n");
+            sb.Append("  POST_CODE1: ").Append(POST_CODE1).Append("\n");
             sb.Append("  POSTCODE1: ").Append(POSTCODE1).Append("\n");
             sb.Append("  POSTCODE2: ").Append(POSTCODE2).Append("\n");
             sb.Append("  POSTCODE3: ").Append(POSTCODE3).Append("\n");
@@ -869,7 +876,12 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
                     this.REGIOGROUP == input.REGIOGROUP ||
                     (this.REGIOGROUP != null &&
                     this.REGIOGROUP.Equals(input.REGIOGROUP))
-                ) && 
+                ) &&
+                (
+                    this.POST_CODE1 == input.POST_CODE1 ||
+                    (this.POST_CODE1 != null &&
+                     this.POST_CODE1.Equals(input.POST_CODE1))
+                ) &&
                 (
                     this.POSTCODE1 == input.POSTCODE1 ||
                     (this.POSTCODE1 != null &&
@@ -1203,6 +1215,8 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
                     hashCode = hashCode * 59 + this.CHCKSTATUS.GetHashCode();
                 if (this.REGIOGROUP != null)
                     hashCode = hashCode * 59 + this.REGIOGROUP.GetHashCode();
+                if (this.POST_CODE1 != null)
+                    hashCode = hashCode * 59 + this.POST_CODE1.GetHashCode();
                 if (this.POSTCODE1 != null)
                     hashCode = hashCode * 59 + this.POSTCODE1.GetHashCode();
                 if (this.POSTCODE2 != null)

@@ -37,7 +37,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
             else
             {
                 PARTNER_ROLE_IN = SAP_SHIP_TO;
-                PARTNER_ROLE_OUT = SAP_SOLD_TO;
+                PARTNER_ROLE_OUT = SAP_SHIP_TO;
             }
         }
 
@@ -253,7 +253,7 @@ namespace Pki.eBusiness.ErpApi.DataAccess.ErpApi.Model
                 State = addressOut.REGION,
                 Region = addressOut.REGION,
                 Country = addressOut.COUNTRY,
-                PostalCode = addressOut.POSTALAREA,
+                PostalCode = addressOut.POST_CODE1,
                 RadIndicator = partnerOut.RAD_FLAG == "True",
                 PartnerType = GetPartnerType(partnerOut.PARTN_ROLE),
                 Telephone = addressOut.TEL_NUMBER,
